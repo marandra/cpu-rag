@@ -1,0 +1,31 @@
+# Consultas de prueba para el sistema RAG
+# Una consulta por línea. Líneas con # son comentarios.
+
+# === Procedimientos específicos ===
+¿Qué es la cirugía de hemorroides?
+¿En qué consiste la cirugía de fisura anal?
+¿Cuánto dura la operación de hemorroides?
+
+# === Riesgos y complicaciones ===
+¿Cuáles son los riesgos de la cirugía de hemorroides?
+¿Qué complicaciones puede tener la cirugía de fisura anal?
+
+# === Preparación preoperatoria ===
+¿Cuántas horas de ayuno necesito antes de la cirugía?
+¿Debo dejar de fumar antes de la operación?
+¿Qué ejercicios puedo hacer antes de la cirugía?
+¿Qué debo comer antes de la cirugía?
+
+# === Recuperación postoperatoria ===
+¿Cuándo puedo levantarme después de la operación?
+¿Cuándo puedo volver a comer después de la cirugía?
+¿Cuánto dura la recuperación de una hemorroidectomía?
+
+# === Vía clínica RICA ===
+¿Qué es la vía clínica RICA?
+¿Por qué es importante moverse después de la cirugía?
+¿Qué ejercicios respiratorios debo hacer después de la cirugía?
+¿Cuáles son los criterios de alta hospitalaria?
+
+# === Alternativas ===
+¿Qué alternativas hay a la cirugía de hemorroides?

@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Large/generated data — not tracked
+qdrant_data/
+models/
+markdown/
+chunks/
+
+# Generated outputs
+eval_report.md
+
+# Claude session files
+.claude/

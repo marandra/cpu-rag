@@ -1,0 +1,86 @@
+[
+  {
+    "query": "¿Qué es la cirugía de hemorroides?",
+    "expected_keywords": ["hemorroidectomía", "hemorroides", "extirpar", "quirófano", "anestesia"],
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "category": "procedimiento"
+  },
+  {
+    "query": "¿Cuáles son los riesgos de la cirugía de hemorroides?",
+    "expected_keywords": ["dolor", "sangrado", "infección", "incontinencia", "cicatrización"],
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "category": "riesgos"
+  },
+  {
+    "query": "¿Cuánto dura la recuperación de una hemorroidectomía?",
+    "expected_keywords": ["semanas", "recuperación", "fibra", "baños"],
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "category": "recuperación"
+  },
+  {
+    "query": "¿En qué consiste la cirugía de fisura anal?",
+    "expected_keywords": ["esfinterotomía", "esfínter", "fisura", "corte", "cicatrice"],
+    "relevant_sources": ["resumen-fisura-anal.md"],
+    "category": "procedimiento"
+  },
+  {
+    "query": "¿Qué complicaciones puede tener la cirugía de fisura anal?",
+    "expected_keywords": ["dolor", "sangrado", "incontinencia", "infección"],
+    "relevant_sources": ["resumen-fisura-anal.md"],
+    "category": "riesgos"
+  },
+  {
+    "query": "¿Qué alternativas hay a la cirugía de hemorroides?",
+    "expected_keywords": ["pomadas", "ligadura", "bandas", "láser", "infrarrojos"],
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "category": "alternativas"
+  },
+  {
+    "query": "¿Cuántas horas de ayuno necesito antes de la cirugía?",
+    "expected_keywords": ["ayuno", "horas", "líquidos", "sólidos"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md", "resumen-hemorroides.md"],
+    "category": "preparación"
+  },
+  {
+    "query": "¿Debo dejar de fumar antes de la operación?",
+    "expected_keywords": ["tabaco", "fumar", "complicaciones", "respiratorias"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "category": "preparación"
+  },
+  {
+    "query": "¿Qué es la vía clínica RICA?",
+    "expected_keywords": ["RICA", "recuperación", "intensificada", "cirugía"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "category": "general"
+  },
+  {
+    "query": "¿Por qué es importante moverse después de la cirugía?",
+    "expected_keywords": ["movilización", "caminar", "intestino", "recuperación", "levantarse"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "category": "recuperación"
+  },
+  {
+    "query": "¿Qué ejercicios respiratorios debo hacer después de la cirugía?",
+    "expected_keywords": ["respiratoria", "espirómetro", "ventilación", "pulmonar"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "category": "recuperación"
+  },
+  {
+    "query": "¿Cuáles son los criterios de alta hospitalaria?",
+    "expected_keywords": ["dolor", "tolerancia", "movilidad", "alta", "oral"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "category": "general"
+  },
+  {
+    "query": "¿Qué debo comer antes de la cirugía?",
+    "expected_keywords": ["proteínas", "nutrición", "hidratación", "dieta"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "category": "preparación"
+  },
+  {
+    "query": "¿Cuándo puedo volver a comer después de la cirugía?",
+    "expected_keywords": ["líquidos", "tolerancia", "alimentación", "dieta"],
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "category": "recuperación"
+  }
+]
