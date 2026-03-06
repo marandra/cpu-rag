@@ -1,115 +1,120 @@
 # aiciblock-rag
 
-RAG pipeline for medical documents. Implements chunking and embedding stages.
+RAG pipeline for medical patient documents. Retrieves relevant information from clinical guides and FAQs to answer patient questions about surgical procedures.
 
-## Chunking pipeline
+## Pipeline overview
 
-Converts markdown files into semantically chunked JSON documents ready for embedding.
+```
+markdown/*.md          Source documents (from PDFs, out of scope)
+    |
+    v
+pipeline_chunks.py     Chunk + enrich (contextual prefix, LLM compact + doc2query)
+    |
+    v
+chunks/*.json          Enriched chunk files
+    |
+    v
+pipeline_embed.py      Embed (Nomic-Embed-v1.5) + store in Qdrant
+    |
+    v
+qdrant_data/           Vector DB (local)
+    |
+    v
+main_rag.py            Query -> retrieve -> generate answer (local LLM)
+```
 
-**Strategy:** hybrid semantic (markdown headers) + token-based splitting with configurable overlap. FAQ documents use paragraph-based splitting (double newline) instead.
+## 1. Markdown preparation
 
-### Usage
+Source documents are converted from PDFs to markdown externally (out of scope). The chunking pipeline relies on formatting conventions documented below.
+
+### Metadata tags
+
+Place optional tags right after the H1 title. They are extracted into chunk metadata and stripped from the chunked text.
+
+```markdown
+# Document Title
+Authors: Author Name
+DOI: 10.xxxx/xxxxx
+Date: 2024-01-15
+Keywords: keyword1, keyword2
+Procedure: hemorrhoidectomy
+Doctype: faq
+
+## First section...
+```
+
+| Tag | Description | Values |
+|-----|-------------|--------|
+| `Doctype:` | Determines splitting strategy | `faq` (paragraph-based) or `paper`/`guideline`/`educational` (header-based) |
+| `Procedure:` | Medical procedure name (for metadata filtering) | Free text |
+| `Authors:`, `DOI:`, `Date:`, `Keywords:` | Document metadata | Free text / comma-separated |
+
+### Content cleanup rules
+
+Before adding a markdown file, remove the following sections manually. They create noisy chunks that match many queries but contain no useful patient information:
+
+| Remove | Why | Example |
+|--------|-----|---------|
+| Table of contents / index | Lists all section titles in one block; matches many queries with high similarity but has no actual content | `1. Introduccion \n 2. Preparacion...` |
+| Author lists and affiliations | Names and institutions are not patient-relevant | `- Dr. X. Hospital Y. Ciudad Z.` |
+| Acknowledgements / reviewers | Same as above | `## Agradecimientos` |
+| Glossary / terminology annexes | Technical/clinical definitions create false positives for patient queries; relevant terms are already explained in the main text | `## Anexo 2. Glosario` |
+| Citation blocks / editorial notes | Institutional boilerplate | `Esta guia debe citarse: ...` |
+| Empty metadata tags | Tags with no value add noise | `Authors:\nDOI:\nProcedure:` |
+
+### FAQ documents
+
+Set `Doctype: faq`. These are split by double newline (paragraph blocks) instead of markdown headers.
+
+- Separate each Q&A block with a blank line
+- Keep each block self-contained
+- Avoid very short blocks (< 100 chars) -- they get skipped
+
+### General structure guidelines
+
+- Use `##` and `###` headings to structure -- the chunker splits on these boundaries
+- Avoid very long sections without subheadings (they exceed max_tokens and get split at arbitrary points)
+- Keep numbered/bulleted lists within their parent section
+
+## 2. Chunking
 
 ```bash
 python pipeline_chunks.py                        # all markdown/*.md
 python pipeline_chunks.py markdown/specific.md   # one file
-python pipeline_chunks.py markdown/*.md          # shell glob
 ```
 
-Configuration is set at the top of `pipeline_chunks.py`: document type preset, output directory, and custom metadata.
+### Splitting strategy
 
-### Document type presets
+Two strategies selected automatically by `Doctype:` tag:
 
-| Type          | max_tokens | overlap_ratio |
-|---------------|------------|---------------|
-| `paper`       | 512        | 0.25          |
-| `guideline`   | 768        | 0.30          |
-| `educational` | 512        | 0.25          |
-| `faq`         | 256        | 0.10          |
+- **FAQ** (`Doctype: faq`): paragraph-based splitting (double newline boundaries), then token-based sub-split if oversized. Default: `max_tokens=256`, `overlap=0.10`.
+- **Structured** (paper/guideline/educational): hierarchical split by markdown headers (H1/H2/H3), then token-based split within sections. Defaults vary by type.
 
-### Preparing markdown for chunking
+The `Doctype:` tag is auto-detected per file. Fallback when missing: `paper`.
 
-The chunking pipeline expects well-structured markdown. Follow these guidelines to get the best retrieval quality.
+### Chunk size presets
 
-#### Metadata tags
+| Type | max_tokens | overlap_ratio | Splitting |
+|------|-----------|---------------|-----------|
+| paper | 512 | 0.25 | header-based |
+| guideline | 768 | 0.30 | header-based |
+| educational | 512 | 0.25 | header-based |
+| faq | 256 | 0.10 | paragraph-based |
 
-Place optional tags at the top of the file, right after the H1 title. They are extracted and attached to each chunk's metadata.
+These can be overridden globally in `pipeline_chunks.py` via `MAX_TOKENS` and `OVERLAP_RATIO` (set to `None` to use preset defaults). These are candidates for parameter sweeping in evaluation.
 
-```markdown
-# Document Title
-Authors: Author Name, Another Author
-DOI: 10.xxxx/xxxxx
-Date: 2024-01-15
-Keywords: keyword1, keyword2, keyword3
-Procedure: procedure_name
-Doctype: paper
+### Enrichment pipeline
 
-## Abstract
+Applied in order during chunking:
 
-Abstract text here...
+1. **Global metadata** -- extracted from document tags + source filename
+2. **`page_content_original`** -- stored before any enrichment (true original text)
+3. **Contextual prefix** (`CONTEXTUAL_PREFIX = True`) -- prepends `[{title} | {section}]` to chunk text. Improves retrieval by anchoring to document context. Zero cost.
+4. **LLM enrichment** (`LLM_ENRICHMENT = True`, needs `OPENAI_API_KEY`) -- single OpenAI call per chunk (gpt-4o-mini):
+   - `page_content_compact`: 40-60 word distilled summary (used as LLM prompt context, reduces CPU prefill time)
+   - `doc2query_questions`: 5 synthetic patient questions in colloquial Spanish (appended to `page_content` for embedding/BM25, bridges clinical-to-patient language gap)
 
-## Rest of content...
-```
-
-| Tag           | Description                              | Format                |
-|---------------|------------------------------------------|-----------------------|
-| `# Title`     | Document title (first H1)                | Markdown heading      |
-| `Authors:`    | Author string                            | Free text             |
-| `DOI:`        | DOI reference                            | `10.xxxx/xxxxx`       |
-| `Date:`       | Publication date                         | Any format            |
-| `Keywords:`   | Keywords                                 | Comma-separated       |
-| `Procedure:`  | Medical procedure name                   | Free text             |
-| `Doctype:`    | Document type (selects chunking preset)  | paper/guideline/educational/faq |
-| `## Abstract` | Abstract section                         | Section content       |
-
-Metadata tag lines between the H1 and the first content paragraph are automatically stripped from the chunked text (they remain in chunk metadata).
-
-#### Remove tables of contents
-
-Delete any table of contents or index sections before chunking. A TOC lists all section titles in one block, which makes it match many queries with high similarity but contains no actual content. This creates false positives that waste retrieval slots.
-
-```markdown
-<!-- REMOVE this kind of block: -->
-1. Introducción
-2. Preparación en domicilio
-3. Durante su estancia en el hospital
-4. Alta a domicilio
-```
-
-#### FAQ documents
-
-Set `Doctype: faq` in the metadata. FAQ documents are split by double newline (paragraph blocks) instead of markdown headers. Each paragraph becomes one chunk.
-
-To get clean FAQ chunks:
-- Separate each question-answer block with a blank line
-- Keep each block self-contained (don't rely on context from previous blocks)
-- Avoid very short blocks (< 100 characters) — they'll be skipped by `min_chunk_size`
-
-#### General guidelines
-
-- Use `##` and `###` headings to structure the document — the chunker splits on these boundaries, preserving section context in metadata
-- Avoid very long sections without subheadings — they produce large chunks that may exceed `max_tokens` and get split at arbitrary points
-- Remove boilerplate that doesn't help answer patient questions: legal disclaimers, author affiliations, citation blocks, editorial notes
-- Keep numbered/bulleted lists within their parent section — they chunk well as long as the section heading provides context
-
-### Chunk enrichment
-
-Two optional enrichment steps run during chunking (in this order). Both are configured in `pipeline_chunks.py`.
-
-#### Contextual prefix (`CONTEXTUAL_PREFIX = True`)
-
-Prepends `[{title} | {section}]` to each chunk's text. Improves retrieval by anchoring vectors and BM25 tokens to their document context. Zero runtime cost.
-
-#### LLM enrichment (`LLM_ENRICHMENT = True`)
-
-Uses a single OpenAI API call per chunk (gpt-4o-mini) to produce two things:
-
-- **Compact summary** (40-60 words): dense, fact-preserving distillation used as the LLM prompt context. Keeps numbers, dosages, timeframes, procedure names. Reduces prefill time for CPU inference.
-- **Doc2Query questions** (5 per chunk): synthetic patient-style questions in colloquial Spanish, appended to chunk text. Bridges the gap between clinical language in the source and how patients actually ask questions.
-
-Requires `OPENAI_API_KEY` env var. Cost is ~$0.005 for 41 chunks.
-
-After the full pipeline, each chunk has these text variants for different purposes:
+### Text variants per chunk
 
 | Field | Content | Used for |
 |-------|---------|----------|
@@ -118,133 +123,94 @@ After the full pipeline, each chunk has these text variants for different purpos
 | `metadata.page_content_compact` | LLM-distilled 40-60 word summary | LLM prompt (primary) |
 | `metadata.doc2query_questions` | list of synthetic questions | inspection, debugging |
 
-The LLM prompt in `main_rag.py` picks the best text variant automatically: compact → original → page_content.
-
-### Output format
-
-JSON files in `chunks/`, one per input file:
-
-```json
-[
-  {
-    "page_content": "[Title | Section] chunk text...\n\nPreguntas frecuentes:\n¿pregunta 1?\n¿pregunta 2?",
-    "metadata": {
-      "source": "markdown/file.md",
-      "title": "Document Title",
-      "doctype": "paper",
-      "section": "Introduction",
-      "chunk_index": 0,
-      "chunk_in_section": 0,
-      "num_tokens": 342,
-      "page_content_original": "chunk text...",
-      "page_content_compact": "Compact summary here...",
-      "doc2query_questions": ["¿pregunta 1?", "¿pregunta 2?"]
-    }
-  }
-]
-```
-
-## Embedding pipeline
-
-Reads chunk JSONs, generates embeddings with Nomic-Embed-v1.5 (local CPU), and stores them in Qdrant.
-
-### Usage
+## 3. Embedding and indexing
 
 ```bash
 python pipeline_embed.py
 ```
 
-Configuration at the top of `pipeline_embed.py`: vector dimensions, Qdrant path, collection name.
+- **Embedding model:** Nomic-Embed-v1.5 (local, CPU, dim=384)
+- **What gets embedded:** `page_content` (fully enriched: prefix + questions)
+- **Vector DB:** Qdrant, local file storage (`./qdrant_data`), collection `medical_docs`, cosine distance
+- **Re-ingestion:** drops and recreates collection on each run
 
-### Components
+## 4. Retrieval
 
-- **Embedding model:** Nomic-Embed-v1.5 (local, CPU). Dimensions: 384 (default) or 768.
-- **Vector DB:** Qdrant with local file storage (`./qdrant_data`).
+All strategies implement `Retriever.retrieve(query, top_k) -> [(Document, score)]`.
 
-Both are in `src/embeddings.py` and designed for easy swapping.
+| Strategy | How it works | Key properties |
+|----------|-------------|----------------|
+| `vector` | Embed query -> cosine search in Qdrant | Fast (~130ms), good precision |
+| `bm25` | BM25Okapi on full corpus (scrolled from Qdrant) | Instant, exact keyword matching |
+| `hybrid` | Vector + BM25 merged via RRF (k=60, 3x candidates) | Best overall precision when both signals are strong |
+| `hybrid+rerank` | Hybrid -> cross-encoder reranking (BAAI/bge-reranker-v2-m3) | Best recall, ~30s/query on CPU |
 
-### Output metrics
-
+```bash
+# Set in main_rag.py or pass --strategy to eval scripts
+RETRIEVAL_STRATEGY = "hybrid"
 ```
-41 embeddings in 78.9s (0.5 docs/s, 1924 ms/doc)
-41 ingested in 0.17s (collection total: 41)
-```
-
-## Retrieval strategies
-
-Modular retrieval via strategy pattern (`src/retrieval.py`). All strategies share a common `Retriever` interface and can be composed freely.
-
-### Available strategies
-
-| Strategy | Description | Dependencies |
-|----------|-------------|--------------|
-| `vector` | Dense cosine search via Qdrant (Nomic-Embed-v1.5) | *(default)* |
-| `bm25` | Sparse keyword search (BM25Okapi), corpus loaded from Qdrant | `rank-bm25` |
-| `hybrid` | Vector + BM25 combined via Reciprocal Rank Fusion (RRF, k=60) | `rank-bm25` |
-| `hybrid+rerank` | Hybrid + cross-encoder reranking (BAAI/bge-reranker-v2-m3) | `rank-bm25`, `sentence-transformers` |
-
-Set the strategy in `main_rag.py` via `RETRIEVAL_STRATEGY`, or pass `--strategy` to the test/eval scripts.
-
-### Composition example
 
 ```python
 from src.retrieval import build_retriever
-from src.embeddings import _get_client
-
-client = _get_client("./qdrant_data")
-retriever = build_retriever(client, "medical_docs", strategy="hybrid+rerank")
-results = retriever.retrieve("¿Qué riesgos tiene la cirugía?", top_k=3)
+retriever = build_retriever(client, "medical_docs", strategy="hybrid")
+results = retriever.retrieve("que pasa si no me opero", top_k=5)
 ```
 
-Retrievers can also be composed manually for custom setups:
-
-```python
-from src.retrieval import VectorRetriever, BM25Retriever, HybridRetriever, RerankedRetriever
-
-hybrid = HybridRetriever(
-    vector=VectorRetriever(client, "medical_docs"),
-    keyword=BM25Retriever.from_qdrant(client, "medical_docs"),
-)
-retriever = RerankedRetriever(base=hybrid, candidates=10)
-```
 ### Installing the reranker
-
-The cross-encoder reranker is an optional dependency:
 
 ```bash
 uv sync --extra rerank
 ```
 
-## Retrieval test
+### BM25 tokenizers (`src/tokenizers.py`)
 
-Run queries against the vector store and inspect results.
+Three tokenizer options for BM25, selectable via `--tokenizer` flag or `build_retriever(tokenizer=...)`:
 
-```bash
-python test_retrieval.py                                    # vector (default)
-python test_retrieval.py --strategy hybrid                  # hybrid retrieval
-python test_retrieval.py --strategy hybrid+rerank           # with reranker
-python test_retrieval.py "¿pregunta concreta?"              # single ad-hoc query
-python test_retrieval.py --strategy bm25 "¿pregunta?"       # combined
-```
+| Tokenizer | What it does | Use case |
+|-----------|-------------|----------|
+| `whitespace` | `text.lower().split()` | Baseline, no NLP dependencies |
+| `whitespace+accent` | Whitespace + accent stripping (cirugía→cirugia) | Handles patient typos without NLP |
+| `spacy` (default) | spaCy `es_core_news_sm`: lemmatize + remove stopwords + strip accents | Full Spanish NLP (comiendo→comer, removes de/la/en) |
 
-Shows per-query: top-K chunks with score, source file, section, token count, and text preview. Summary with score statistics.
+The spaCy model must be installed: `uv pip install es_core_news_sm@https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.8.0/es_core_news_sm-3.8.0-py3-none-any.whl`
 
-Edit `queries.txt` to add/modify test queries (one per line, `#` for comments).
-
-## Evaluation
-
-Evaluate retrieval quality with metrics and optional LLM-as-judge.
+### Installing the reranker
 
 ```bash
-python eval_retrieval.py                              # vector (default)
-python eval_retrieval.py --strategy hybrid             # hybrid retrieval
-python eval_retrieval.py --strategy hybrid+rerank      # with reranker
-python eval_retrieval.py --llm-judge                   # + LLM scoring (needs OPENAI_API_KEY)
+uv sync --extra rerank
 ```
 
-Generates `eval_report.md` with aggregated and per-query metrics.
+### Known gaps and next steps
 
-### Metrics
+**Metadata filtering** -- Qdrant supports payload filters. Tag each document with `Procedure: hemorrhoidectomy` and filter at query time to only search within relevant procedure documents. Same collection, just filtered. Planned as `FilteredRetriever` or filter param on `VectorRetriever`.
+
+**Query preprocessing** -- spell-correction is risky in medical context (could "correct" valid medical terms). With good embeddings + doc2query, semantic search already handles typos. Accent normalization in BM25 tokenizer (already implemented) is the only preprocessing worth doing.
+
+**Embedding model** -- currently Nomic-Embed-v1.5. Other candidates: `BAAI/bge-m3` (multilingual), `intfloat/multilingual-e5-large`. Dimension (384 vs 768) is an easy sweep; different models need changes to `src/embeddings.py`.
+
+## 5. Generation
+
+```bash
+python main_rag.py "que pasa despues de operarme"
+python main_rag.py   # interactive mode
+```
+
+- **LLM:** llama-cpp-python, CPU-only, GGUF models (default: Llama-3.2-1B-Instruct Q4_K_M)
+- **Prompt text selection:** `page_content_compact` (primary) -> `page_content_original` (fallback) -> `page_content`
+- **System prompt:** answers only from retrieved fragments, in Spanish
+
+## 6. Evaluation
+
+### Eval datasets
+
+| Dataset | Queries | Description |
+|---------|---------|-------------|
+| `eval_dataset.json` | 14 | Clean, well-formed Spanish queries (baseline sanity check) |
+| `eval_dataset_realistic.json` | 41 | Realistic patient queries: typos, colloquial language, 5 personas, 5 unanswerable |
+
+Realistic queries are generated with an LLM using the prompt in `prompts/generate_eval_queries.md`. Each query includes: `intent`, `answerable`, `profile` (mayor/ansioso/joven/L2/baja_alfabetizacion), `difficulty` (easy/medium/hard), `relevant_sources`, `expected_keywords`, `category`.
+
+### Retrieval metrics
 
 | Metric | Description | Requires LLM |
 |--------|-------------|:---:|
@@ -252,20 +218,97 @@ Generates `eval_report.md` with aggregated and per-query metrics.
 | Recall@K | Fraction of relevant sources found in top-K | No |
 | MRR | Reciprocal rank of first relevant result | No |
 | Keyword coverage | Expected keywords found in retrieved chunks | No |
-| Faithfulness | Do chunks contain correct information for the query? | Yes |
-| Relevance | Do chunks address the question directly? | Yes |
+| Faithfulness | Do chunks contain correct information? | Yes (OpenAI) |
+| Relevance | Do chunks address the question? | Yes (OpenAI) |
 
-### Eval dataset
+### Running evaluations
 
-Ground truth in `eval_dataset.json`:
+```bash
+# Single strategy
+python eval_retrieval.py --strategy hybrid
+python eval_retrieval.py --llm-judge              # + LLM scoring
 
-```json
-{
-  "query": "¿Cuáles son los riesgos de la cirugía de hemorroides?",
-  "expected_keywords": ["dolor", "sangrado", "infección"],
-  "relevant_sources": ["resumen-hemorroides.md"],
-  "category": "riesgos"
-}
+# Compare strategies side-by-side
+python compare_strategies.py                                          # all 4 strategies, default dataset
+python compare_strategies.py vector hybrid                            # specific strategies
+python compare_strategies.py --dataset eval_dataset_realistic.json    # realistic queries
+python compare_strategies.py --top-k 10                               # change top_k
+python compare_strategies.py --llm-judge                              # + LLM scoring
 ```
 
-LLM judge uses OpenAI API (`gpt-4o-mini` by default). Set `OPENAI_API_KEY` env var.
+### Current baseline (realistic queries, 33 chunks, cleaned markdown)
+
+```
+Metric                    vector        hybrid
+----------------------------------------------
+P@3                      0.545         0.626 *
+P@5                      0.541         0.566 *
+R@5                      0.872 *       0.866
+MRR                      0.783         0.825 *
+keyword_cov              0.648         0.687 *
+latency_ms_avg             137           133
+```
+
+### Parameters for sweeping
+
+| Component | Parameter | Current value | Range to sweep |
+|-----------|-----------|---------------|----------------|
+| Chunking | `max_tokens` | 256-768 (by doctype) | 256, 384, 512, 768 |
+| Chunking | `overlap_ratio` | 0.10-0.30 (by doctype) | 0.0, 0.10, 0.20, 0.30 |
+| Chunking | `contextual_prefix` | True | True, False |
+| Chunking | `llm_enrichment` | True | True, False |
+| Retrieval | `strategy` | hybrid | vector, bm25, hybrid |
+| Retrieval | `top_k` | 5 | 3, 5, 10 |
+| Retrieval | BM25 tokenizer | spacy | whitespace, spacy |
+
+Total: 960 configurations, 64 unique chunk configs (32 need OpenAI API for LLM enrichment).
+
+### Running the parameter sweep
+
+```bash
+# List all configurations
+python sweep.py --list
+
+# Run a single config by index (for Slurm array jobs)
+python sweep.py --config-index 42
+
+# Run with explicit parameters
+python sweep.py --max-tokens 512 --overlap 0.25 --strategy hybrid --tokenizer spacy
+
+# Run all sequentially (for testing, not HPC)
+python sweep.py --all
+
+# Aggregate results into a ranked table
+python sweep.py --aggregate
+```
+
+The sweep script handles chunking + embedding + evaluation. Chunk configs are reused across retrieval variants (same chunks, different strategies). Each config result is saved as a separate JSON file in `sweep_results/`.
+
+For HPC: see `sweep.slurm` for a Slurm array job template. The recommended approach is two phases: (1) build all 64 chunk configs, (2) run all 960 evaluations (fast, reuses existing chunks).
+
+## Project structure
+
+```
+markdown/               Source markdown documents
+chunks/                 Chunked JSON files (generated)
+qdrant_data/            Vector DB (generated)
+models/                 GGUF model files
+src/
+  chunks.py             Chunking, metadata extraction, enrichment
+  embeddings.py         Embedding model, Qdrant operations
+  retrieval.py          Retriever strategies (vector, BM25, hybrid, rerank)
+  tokenizers.py         BM25 tokenizers (whitespace, spaCy Spanish)
+  evaluation.py         Metrics, LLM-as-judge, report generation
+  llm.py                Local LLM inference
+pipeline_chunks.py      Chunking pipeline entry point
+pipeline_embed.py       Embedding pipeline entry point
+main_rag.py             RAG query interface
+eval_retrieval.py       Single-strategy evaluation
+compare_strategies.py   Multi-strategy comparison
+sweep.py                Full parameter sweep (chunk + embed + eval)
+sweep.slurm             Slurm job template for HPC
+prompts/                Reusable LLM prompts (eval query generation)
+eval_dataset.json       Clean eval queries (14)
+eval_dataset_realistic.json  Realistic eval queries (41)
+queries.txt             Manual test queries
+```
