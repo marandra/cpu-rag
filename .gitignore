@@ -17,6 +17,13 @@ chunks/
 
 # Generated outputs
 eval_report.md
+comparison_results.json
+
+# Sweep outputs
+sweep_chunks/
+sweep_qdrant/
+sweep_results/
+sweep_logs/
 
 # Claude session files
 .claude/
