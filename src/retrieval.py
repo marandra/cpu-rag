@@ -230,7 +230,7 @@ def build_retriever(
     collection_name: str,
     strategy: str = "vector",
     embed_fn: Callable[[str], list[float]] = embed_query,
-    tokenizer: Callable[[str], list[str]] | None = None,
+    tokenizer: Callable[[str], list[str]] | str | None = None,
     rerank_model: str = "BAAI/bge-reranker-v2-m3",
     rerank_candidates: int = 10,
 ) -> Retriever:
@@ -242,6 +242,9 @@ def build_retriever(
         "bm25"           — BM25 keyword search only
         "hybrid"         — vector + BM25 with RRF
         "hybrid+rerank"  — hybrid + cross-encoder reranking
+
+    tokenizer can be a callable or a string name from src.tokenizers
+    ("whitespace", "whitespace+accent", "spacy"). Default: "spacy".
     """
     if strategy not in STRATEGIES:
         raise ValueError(f"Unknown strategy '{strategy}'. Choose from: {STRATEGIES}")
@@ -250,6 +253,13 @@ def build_retriever(
 
     if strategy == "vector":
         return vector
+
+    # Resolve tokenizer: string name → callable
+    if tokenizer is None:
+        tokenizer = "spacy"
+    if isinstance(tokenizer, str):
+        from src.tokenizers import get_tokenizer
+        tokenizer = get_tokenizer(tokenizer)
 
     bm25 = BM25Retriever.from_qdrant(client, collection_name, tokenizer=tokenizer)
 
