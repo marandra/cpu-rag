@@ -31,10 +31,15 @@ class EvalQuery:
 
 
 def load_eval_dataset(path: str | Path) -> list[EvalQuery]:
-    """Load evaluation dataset from JSON file."""
+    """Load evaluation dataset from JSON file.
+
+    Extra fields beyond EvalQuery's known fields are silently ignored,
+    so the same dataset can carry metadata (profile, difficulty, etc.).
+    """
+    known = {f.name for f in EvalQuery.__dataclass_fields__.values()}
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
-    return [EvalQuery(**item) for item in data]
+    return [EvalQuery(**{k: v for k, v in item.items() if k in known}) for item in data]
 
 
 # --- Retrieval metrics ---

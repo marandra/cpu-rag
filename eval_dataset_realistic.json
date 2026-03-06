@@ -1,0 +1,412 @@
+[
+  {
+    "query": "me van a operar de hemorroides y estoy muy nervioso que me van a hacer exactamente",
+    "intent": "Descripción del procedimiento de hemorroidectomía",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "expected_keywords": ["hemorroidectomía", "extirpar", "quirófano", "anestesia"],
+    "category": "procedimiento",
+    "difficulty": "medium"
+  },
+  {
+    "query": "cuanto dura la operasion de emorroide",
+    "intent": "Duración de la hemorroidectomía",
+    "answerable": true,
+    "profile": "baja_alfabetización",
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "expected_keywords": ["30", "60", "minutos", "hemorroidectomía"],
+    "category": "procedimiento",
+    "difficulty": "medium"
+  },
+  {
+    "query": "q pasa si no me opero de las hemorroides",
+    "intent": "Consecuencias de no operarse de hemorroides",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "expected_keywords": ["empeorar", "síntomas"],
+    "category": "alternativas",
+    "difficulty": "medium"
+  },
+  {
+    "query": "hay alguna otra cosa que se pueda hacer antes de operar las hemorroides? no quiero operarme",
+    "intent": "Alternativas a la cirugía de hemorroides",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "expected_keywords": ["pomadas", "ligadura", "bandas", "láser", "infrarrojos"],
+    "category": "alternativas",
+    "difficulty": "medium"
+  },
+  {
+    "query": "riesgos operacion hemorroides",
+    "intent": "Complicaciones de la hemorroidectomía",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "expected_keywords": ["dolor", "sangrado", "infección", "incontinencia"],
+    "category": "riesgos",
+    "difficulty": "easy"
+  },
+  {
+    "query": "despues de que me operen de las almorranas cuanto tiempo tardo en recuperarme y que tengo que hacer",
+    "intent": "Recuperación post-hemorroidectomía",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["resumen-hemorroides.md"],
+    "expected_keywords": ["semanas", "recuperación", "fibra", "baños"],
+    "category": "recuperación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "me duele mucho el ano cuando voy al baño y el medico dice que es una fisura, me tienen que operar?",
+    "intent": "Indicación quirúrgica de fisura anal",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["resumen-fisura-anal.md"],
+    "expected_keywords": ["esfinterotomía", "fisura", "cicatrice", "pomadas", "toxina botulínica"],
+    "category": "procedimiento",
+    "difficulty": "hard"
+  },
+  {
+    "query": "operacion fisura anal en que consiste",
+    "intent": "Descripción de la esfinterotomía lateral interna",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["resumen-fisura-anal.md"],
+    "expected_keywords": ["esfinterotomía", "esfínter", "corte", "fisura"],
+    "category": "procedimiento",
+    "difficulty": "easy"
+  },
+  {
+    "query": "me pueden quedar problemas para aguantar despues de la operacion de fisura",
+    "intent": "Riesgo de incontinencia tras esfinterotomía",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["resumen-fisura-anal.md"],
+    "expected_keywords": ["incontinencia", "gases", "heces"],
+    "category": "riesgos",
+    "difficulty": "hard"
+  },
+  {
+    "query": "cuanto tienpo de ayuno antes de la sirugia",
+    "intent": "Horas de ayuno preoperatorio",
+    "answerable": true,
+    "profile": "baja_alfabetización",
+    "relevant_sources": ["resumen-hemorroides.md", "resumen-fisura-anal.md", "via-clinica-cirugia-adulto-rica-2021-paciente.md", "gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["ayuno", "horas", "líquidos", "sólidos"],
+    "category": "preparación",
+    "difficulty": "medium"
+  },
+  {
+    "query": "puedo tomar agua antes de que me operen",
+    "intent": "Ingesta de líquidos claros preoperatorios",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md", "gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["líquidos", "horas", "manzanilla", "zumo"],
+    "category": "preparación",
+    "difficulty": "medium"
+  },
+  {
+    "query": "tengo que dejar el tabaco si me van a operar? fumo desde hace 20 años y no se si puedo dejarlo tan rapido",
+    "intent": "Efecto del tabaco en el perioperatorio",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["tabaco", "alcohol", "complicaciones", "respiratorias"],
+    "category": "preparación",
+    "difficulty": "medium"
+  },
+  {
+    "query": "que como antes de operarme",
+    "intent": "Nutrición preoperatoria",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["proteínas", "nutrición", "hidratación", "dieta"],
+    "category": "nutrición",
+    "difficulty": "medium"
+  },
+  {
+    "query": "por que me hacen levantarme el mismo dia de la operacion si me duele todo",
+    "intent": "Movilización precoz y sus beneficios",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md", "gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["movilización", "caminar", "intestino", "recuperación"],
+    "category": "recuperación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "cuando me dejan comer despues de operarme",
+    "intent": "Inicio de alimentación oral postoperatoria",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md", "gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["líquidos", "tolerancia", "alimentación", "24 horas"],
+    "category": "recuperación",
+    "difficulty": "easy"
+  },
+  {
+    "query": "eso del espirometro que es? la enfermera me dijo que tengo que usarlo pero no entendi bien",
+    "intent": "Uso del espirómetro incentivador",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["espirómetro", "respiratoria", "ventilación", "pulmonar"],
+    "category": "recuperación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "que es el programa rica ese",
+    "intent": "Descripción de la vía clínica RICA",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["RICA", "recuperación", "intensificada", "cirugía"],
+    "category": "general",
+    "difficulty": "medium"
+  },
+  {
+    "query": "cuando me dan el alta del hospital",
+    "intent": "Criterios de alta hospitalaria",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["dolor", "tolerancia", "movilidad", "alta", "oral"],
+    "category": "general",
+    "difficulty": "easy"
+  },
+  {
+    "query": "mi madre tiene 72 años y la van a operar del abdomen, como la puedo ayudar yo en la recuperacion",
+    "intent": "Rol de familiares/cuidadores en la recuperación",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["familiares", "cuidadores", "colaborar", "alimentación", "movilización"],
+    "category": "recuperación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "dolor despues de la operacion es normal? que me dan para el dolor",
+    "intent": "Manejo del dolor postoperatorio",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["dolor", "calmantes", "analgesia", "intravenosa", "oral"],
+    "category": "dolor",
+    "difficulty": "medium"
+  },
+  {
+    "query": "que es la anestezia epidural esa me la van a poner",
+    "intent": "Descripción de analgesia epidural",
+    "answerable": true,
+    "profile": "baja_alfabetización",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["epidural", "catéter", "columna", "dolor"],
+    "category": "procedimiento",
+    "difficulty": "medium"
+  },
+  {
+    "query": "la operacion se puede hacer con camaras sin abrir mucho?",
+    "intent": "Cirugía laparoscópica / mínimamente invasiva",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["laparoscópica", "incisiones", "mínimamente invasiva", "cámara"],
+    "category": "procedimiento",
+    "difficulty": "hard"
+  },
+  {
+    "query": "que es el cribado nutricional ese que me van a hacer antes de la operacion",
+    "intent": "Evaluación nutricional preoperatoria",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["cribado", "nutricional", "desnutridos", "peso", "talla"],
+    "category": "nutrición",
+    "difficulty": "easy"
+  },
+  {
+    "query": "me dijeron que tome unas bebidas con carboidratos antes de operarme para que es eso",
+    "intent": "Bebidas con carbohidratos preoperatorias",
+    "answerable": true,
+    "profile": "baja_alfabetización",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["carbohidratos", "ayuno", "bebida"],
+    "category": "preparación",
+    "difficulty": "medium"
+  },
+  {
+    "query": "mi marido se opera la semana que viene y esta con mucha ansiedad no duerme, le pueden dar algo?",
+    "intent": "Premedicación ansiolítica preoperatoria",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["ansiedad", "premedicación", "medicación", "pastilla", "dormir"],
+    "category": "preparación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "es verdad que ahora te hacen caminar el mismo dia que te operan??",
+    "intent": "Movilización precoz postoperatoria",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md", "gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["movilización", "caminar", "sentarse", "sillón", "día"],
+    "category": "recuperación",
+    "difficulty": "medium"
+  },
+  {
+    "query": "como se yo que me esta llendo bien la recuperacion y que no tengo ningun problema",
+    "intent": "Signos de buena recuperación / criterios de alta",
+    "answerable": true,
+    "profile": "baja_alfabetización",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["dolor", "tolerancia", "movilidad", "alta"],
+    "category": "recuperación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "ejercicios antes de la operacion",
+    "intent": "Ejercicio físico preoperatorio (prehabilitación)",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["ejercicio", "físico", "recuperación", "enfermera"],
+    "category": "preparación",
+    "difficulty": "easy"
+  },
+  {
+    "query": "me da miedo que me quede una bolsa en la barriga despues de la operacion",
+    "intent": "Colostomía / estoma postquirúrgico",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["estoma", "colostomía", "temporal", "permanente"],
+    "category": "procedimiento",
+    "difficulty": "hard"
+  },
+  {
+    "query": "tengo diabetis y me van a operar hay algo especial que tengo que hacer",
+    "intent": "Manejo preoperatorio en pacientes diabéticos",
+    "answerable": true,
+    "profile": "baja_alfabetización",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["diabetes", "glucosa", "control"],
+    "category": "preparación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "que pasa si me duele mucho despues de la operacion y los calmantes no me hacen nada",
+    "intent": "Escalada en tratamiento del dolor / bomba PCA",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["dolor", "rescate", "bomba", "PCA", "analgesia"],
+    "category": "dolor",
+    "difficulty": "medium"
+  },
+  {
+    "query": "se puede beber alcohol despues de que te operen",
+    "intent": "Consumo de alcohol perioperatorio",
+    "answerable": true,
+    "profile": "joven",
+    "relevant_sources": ["via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["alcohol", "complicaciones"],
+    "category": "preparación",
+    "difficulty": "medium"
+  },
+  {
+    "query": "puedo retirar el consentimiento antes de operarme si me arrepiento",
+    "intent": "Derecho a retirar consentimiento informado",
+    "answerable": true,
+    "profile": "ansioso",
+    "relevant_sources": ["resumen-hemorroides.md", "resumen-fisura-anal.md"],
+    "expected_keywords": ["consentimiento", "retirar", "momento"],
+    "category": "general",
+    "difficulty": "easy"
+  },
+  {
+    "query": "es normal que no haga caca los primeros dias despues de la operacion",
+    "intent": "Función intestinal postoperatoria",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["defecación", "intestino", "alimentación", "días"],
+    "category": "recuperación",
+    "difficulty": "hard"
+  },
+  {
+    "query": "cuanto cuesta la operacion de hemorroides",
+    "intent": "Coste económico de la cirugía",
+    "answerable": false,
+    "profile": "joven",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy"
+  },
+  {
+    "query": "me puedo operar en una clinica privada o tiene que ser en el hospital publico",
+    "intent": "Opciones de centro sanitario público vs privado",
+    "answerable": false,
+    "profile": "mayor",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy"
+  },
+  {
+    "query": "hay algun remedio natural o hierba que cure las hemorroides sin operarse",
+    "intent": "Remedios naturales/alternativos para hemorroides",
+    "answerable": false,
+    "profile": "baja_alfabetización",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "medium"
+  },
+  {
+    "query": "puedo coger la baja laboral despues de operarme y cuantos dias me corresponden",
+    "intent": "Baja laboral / incapacidad temporal",
+    "answerable": false,
+    "profile": "joven",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy"
+  },
+  {
+    "query": "mi doctor me recomendo operarme pero quiero una segunda opinion como la pido",
+    "intent": "Solicitar segunda opinión médica",
+    "answerable": false,
+    "profile": "ansioso",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy"
+  },
+  {
+    "query": "me an dicho que necesito una operacion en el avdomen y no se que esperar, es muy peligroso?",
+    "intent": "Riesgos generales de la cirugía mayor abdominal",
+    "answerable": true,
+    "profile": "baja_alfabetización",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md"],
+    "expected_keywords": ["cirugía mayor", "complicaciones", "anestesia", "recuperación"],
+    "category": "riesgos",
+    "difficulty": "medium"
+  },
+  {
+    "query": "cuantos dias estare en el hospital despues de la operacion de barriga",
+    "intent": "Estancia hospitalaria tras cirugía abdominal",
+    "answerable": true,
+    "profile": "mayor",
+    "relevant_sources": ["gpc_555_cma_iacs_compl-pacientes.md", "via-clinica-cirugia-adulto-rica-2021-paciente.md"],
+    "expected_keywords": ["alta", "días", "recuperación", "criterios"],
+    "category": "recuperación",
+    "difficulty": "medium"
+  }
+]
