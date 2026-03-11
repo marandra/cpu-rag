@@ -3,25 +3,20 @@
 #SBATCH --output=sweep_logs/%A_%a.out
 #SBATCH --error=sweep_logs/%A_%a.err
 #SBATCH --array=0-959
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=8G
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
 #SBATCH --time=00:30:00
-#SBATCH --partition=batch
+#SBATCH --partition=cpu
 
 # --- Environment ---
 # Adjust these paths to your HPC setup
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 cd "$PROJECT_DIR"
 
-# Load modules (adjust to your HPC)
-# module load python/3.13
-# module load cuda/12.x  # if GPU available for embeddings
+# Load modules
+module load llm-fast/py313/torch280
 
-# Activate venv (or use uv run)
-# source .venv/bin/activate
-
-# OpenAI API key for LLM enrichment configs (half the configs need it)
-# export OPENAI_API_KEY="sk-..."
+# OpenAI API key loaded from ~/.bashrc
 
 # --- Run single config ---
 mkdir -p sweep_logs sweep_results
