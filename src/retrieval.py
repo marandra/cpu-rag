@@ -28,8 +28,17 @@ class Retriever(ABC):
     """Abstract base for all retrieval strategies."""
 
     @abstractmethod
-    def retrieve(self, query: str, top_k: int = 5) -> list[tuple[Document, float]]:
+    def _retrieve(self, query: str, top_k: int) -> list[tuple[Document, float]]:
         """Return top_k (Document, score) pairs for a query."""
+
+    def retrieve(
+        self, query: str, top_k: int = 5, min_score: float | None = None
+    ) -> list[tuple[Document, float]]:
+        """Retrieve documents, optionally dropping results below *min_score*."""
+        results = self._retrieve(query, top_k)
+        if min_score is not None:
+            results = [(doc, s) for doc, s in results if s >= min_score]
+        return results
 
 
 # ---------------------------------------------------------------------------
@@ -50,7 +59,7 @@ class VectorRetriever(Retriever):
         self.collection_name = collection_name
         self.embed_fn = embed_fn
 
-    def retrieve(self, query: str, top_k: int = 5) -> list[tuple[Document, float]]:
+    def _retrieve(self, query: str, top_k: int) -> list[tuple[Document, float]]:
         vector = self.embed_fn(query)
         return search(self.client, self.collection_name, vector, top_k=top_k)
 
@@ -113,7 +122,7 @@ class BM25Retriever(Retriever):
                 break
         return cls(documents, tokenizer=tokenizer)
 
-    def retrieve(self, query: str, top_k: int = 5) -> list[tuple[Document, float]]:
+    def _retrieve(self, query: str, top_k: int) -> list[tuple[Document, float]]:
         tokenized_query = self.tokenizer(query)
         scores = self.bm25.get_scores(tokenized_query)
         # Indices sorted by descending score
@@ -166,7 +175,7 @@ class HybridRetriever(Retriever):
         ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)[:top_k]
         return [(doc_map[key], score) for key, score in ranked]
 
-    def retrieve(self, query: str, top_k: int = 5) -> list[tuple[Document, float]]:
+    def _retrieve(self, query: str, top_k: int) -> list[tuple[Document, float]]:
         n_candidates = top_k * self.candidate_factor
         vec_results = self.vector.retrieve(query, top_k=n_candidates)
         kw_results = self.keyword.retrieve(query, top_k=n_candidates)
@@ -201,7 +210,7 @@ class RerankedRetriever(Retriever):
             self._model_cache[self.model_name] = CrossEncoder(self.model_name)
         return self._model_cache[self.model_name]
 
-    def retrieve(self, query: str, top_k: int = 5) -> list[tuple[Document, float]]:
+    def _retrieve(self, query: str, top_k: int) -> list[tuple[Document, float]]:
         candidates = self.base.retrieve(query, top_k=self.candidates)
         if not candidates:
             return []
