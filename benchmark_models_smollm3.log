@@ -1,0 +1,50 @@
+n_threads: 9
+Models to test: 1
+
+Test queries: 8
+  0. me van a operar de hemorroides y estoy muy nervioso que me van a hacer
+  1. despues de que me operen de las almorranas cuanto tiempo tardo en recu
+  2. cuanto tienpo de ayuno antes de la sirugia
+  3. por que me hacen levantarme el mismo dia de la operacion si me duele t
+  4. dolor despues de la operacion es normal? que me dan para el dolor
+  5. como se yo que me esta llendo bien la recuperacion y que no tengo ning
+  6. que pasa si me duele mucho despues de la operacion y los calmantes no 
+  7. cuantos dias estare en el hospital despues de la operacion de barriga
+
+Loading retriever and pre-fetching chunks...
+  Done.
+
+======================================================================
+MODEL: SmolLM3-3B
+  path: ./models/SmolLM3-3B-Q4_K_M.gguf
+  size: 1.92 GB
+======================================================================
+llama_context: n_ctx_per_seq (2048) < n_ctx_train (65536) -- the full capacity of the model will not be utilized
+  Template error, retrying with chatml workaround...
+llama_context: n_ctx_per_seq (2048) < n_ctx_train (65536) -- the full capacity of the model will not be utilized
+  Load time: 3.7s
+  Q: me van a operar de hemorroides y estoy muy nervios cov=100.0% tok=256 105.8s ttft=28.1s   2.4t/s
+  Q: despues de que me operen de las almorranas cuanto  cov=100.0% tok=256  99.6s ttft=30.8s   2.6t/s
+  Q: cuanto tienpo de ayuno antes de la sirugia         cov=100.0% tok=170  76.4s ttft=22.4s   2.2t/s
+  Q: por que me hacen levantarme el mismo dia de la ope cov= 66.7% tok=256 111.6s ttft=35.6s   2.3t/s
+  Q: dolor despues de la operacion es normal? que me da cov= 66.7% tok=256 122.2s ttft=32.4s   2.1t/s
+  Q: como se yo que me esta llendo bien la recuperacion cov=100.0% tok=256 128.2s ttft=35.4s   2.0t/s
+  Q: que pasa si me duele mucho despues de la operacion cov= 33.3% tok=256  93.4s ttft=31.2s   2.7t/s
+  Q: cuantos dias estare en el hospital despues de la o cov= 50.0% tok=256  84.3s ttft=31.6s   3.0t/s
+
+  >>> AVG: cov=77.1%  tok=245  time=102.7s  ttft=30.9s  2.4t/s
+  [saved 1 results to benchmark_models_smollm3.json]
+
+==========================================================================================
+MODEL COMPARISON SUMMARY
+==========================================================================================
+Model                  Size   Cov%   tok/s   TTFT  Time/q  Tok/q  Load
+──────────────────────────────────────────────────────────────────────────────────────────
+SmolLM3-3B             1.9G  77.1%    2.4   30.9s  102.7s   245   3.7s
+
+──────────────────────────────────────────────────────────────────────────────────────────
+Sorted by coverage (quality):
+──────────────────────────────────────────────────────────────────────────────────────────
+SmolLM3-3B           cov= 77.1%  speed=  2.4 tok/s  time=102.7s
+
+Results saved to benchmark_models_smollm3.json

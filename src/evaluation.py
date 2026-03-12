@@ -27,6 +27,7 @@ class EvalQuery:
     query: str
     expected_keywords: list[str] = field(default_factory=list)
     relevant_sources: list[str] = field(default_factory=list)
+    relevant_spans: list[str] = field(default_factory=list)
     category: str = ""
 
 
@@ -71,6 +72,45 @@ def mrr(retrieved_sources: list[str], relevant_sources: list[str]) -> float:
     return 0.0
 
 
+def _chunk_matches_spans(text: str, spans: list[str]) -> bool:
+    """Return True if text contains at least one relevant span (case-insensitive)."""
+    text_lower = text.lower()
+    return any(span.lower() in text_lower for span in spans)
+
+
+def chunk_precision_at_k(
+    texts: list[str], spans: list[str], k: int,
+) -> float:
+    """Fraction of top-K chunks that contain a relevant span."""
+    top_k = texts[:k]
+    if not top_k or not spans:
+        return 0.0
+    hits = sum(1 for t in top_k if _chunk_matches_spans(t, spans))
+    return hits / len(top_k)
+
+
+def chunk_recall_at_k(
+    texts: list[str], spans: list[str], k: int,
+) -> float:
+    """Fraction of relevant spans found in at least one top-K chunk."""
+    top_k = texts[:k]
+    if not spans or not top_k:
+        return 0.0
+    combined = " ".join(top_k).lower()
+    found = sum(1 for span in spans if span.lower() in combined)
+    return found / len(spans)
+
+
+def chunk_mrr(texts: list[str], spans: list[str]) -> float:
+    """MRR based on chunk-level span matching."""
+    if not spans:
+        return 0.0
+    for i, text in enumerate(texts):
+        if _chunk_matches_spans(text, spans):
+            return 1.0 / (i + 1)
+    return 0.0
+
+
 def keyword_coverage(texts: list[str], expected_keywords: list[str]) -> float:
     """Fraction of expected keywords found in retrieved texts."""
     if not expected_keywords:
@@ -89,21 +129,61 @@ class RetrievalResult:
     num_results: int
     top_score: float
     avg_score: float
-    precision_at_3: float
-    precision_at_5: float
-    recall_at_5: float
-    mrr: float
+    # Document-level metrics (legacy, based on source filenames)
+    doc_precision_at_3: float
+    doc_precision_at_5: float
+    doc_recall_at_5: float
+    doc_mrr: float
+    # Chunk-level metrics (based on relevant_spans)
+    chunk_precision_at_3: float
+    chunk_precision_at_5: float
+    chunk_recall_at_5: float
+    chunk_mrr: float
     keyword_coverage: float
+
+    # Aliases for backward compatibility — chunk-level is the primary metric
+    @property
+    def precision_at_3(self) -> float:
+        return self.chunk_precision_at_3
+
+    @property
+    def precision_at_5(self) -> float:
+        return self.chunk_precision_at_5
+
+    @property
+    def recall_at_5(self) -> float:
+        return self.chunk_recall_at_5
+
+    @property
+    def mrr(self) -> float:
+        return self.chunk_mrr
 
 
 def evaluate_retrieval(
     query: EvalQuery,
     results: list[tuple[Document, float]],
 ) -> RetrievalResult:
-    """Compute retrieval metrics for a single query."""
+    """Compute retrieval metrics for a single query.
+
+    Uses chunk-level span matching when relevant_spans are available,
+    falls back to document-level source matching otherwise.
+    """
     sources = [r[0].metadata.get("source", "") for r in results]
     scores = [r[1] for r in results]
     texts = [r[0].page_content for r in results]
+    spans = query.relevant_spans
+
+    # If no spans, fall back: chunk metrics = doc metrics
+    if spans:
+        cp3 = chunk_precision_at_k(texts, spans, 3)
+        cp5 = chunk_precision_at_k(texts, spans, 5)
+        cr5 = chunk_recall_at_k(texts, spans, 5)
+        cmrr = chunk_mrr(texts, spans)
+    else:
+        cp3 = precision_at_k(sources, query.relevant_sources, 3)
+        cp5 = precision_at_k(sources, query.relevant_sources, 5)
+        cr5 = recall_at_k(sources, query.relevant_sources, 5)
+        cmrr = mrr(sources, query.relevant_sources)
 
     return RetrievalResult(
         query=query.query,
@@ -111,10 +191,14 @@ def evaluate_retrieval(
         num_results=len(results),
         top_score=scores[0] if scores else 0.0,
         avg_score=sum(scores) / len(scores) if scores else 0.0,
-        precision_at_3=precision_at_k(sources, query.relevant_sources, 3),
-        precision_at_5=precision_at_k(sources, query.relevant_sources, 5),
-        recall_at_5=recall_at_k(sources, query.relevant_sources, 5),
-        mrr=mrr(sources, query.relevant_sources),
+        doc_precision_at_3=precision_at_k(sources, query.relevant_sources, 3),
+        doc_precision_at_5=precision_at_k(sources, query.relevant_sources, 5),
+        doc_recall_at_5=recall_at_k(sources, query.relevant_sources, 5),
+        doc_mrr=mrr(sources, query.relevant_sources),
+        chunk_precision_at_3=cp3,
+        chunk_precision_at_5=cp5,
+        chunk_recall_at_5=cr5,
+        chunk_mrr=cmrr,
         keyword_coverage=keyword_coverage(texts, query.expected_keywords),
     )
 

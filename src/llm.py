@@ -8,7 +8,7 @@ import os
 
 from llama_cpp import Llama
 
-_DEFAULT_THREADS = min(os.cpu_count() or 4, 12)
+_DEFAULT_THREADS = min(os.cpu_count() or 4, 9)
 
 
 def load_model(path: str, n_ctx: int = 2048, n_threads: int = _DEFAULT_THREADS) -> Llama:

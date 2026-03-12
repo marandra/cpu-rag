@@ -1,0 +1,939 @@
+{
+  "prompts": [
+    {
+      "config": "baseline",
+      "system_key": "baseline",
+      "template_key": "compact",
+      "max_tokens": 80,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Si no se opera, los síntomas de las hemorroides pueden empeorar. La cirugía para quitar hemorroides elimina sangrado y dolor, pero incluye riesgos como dolor postoperatorio y sangrado leve. La hemorroidectomía es la cirugía para extirpar hemorroides que causan sangrado o dolor y no mejoran con tratamientos menos invasivos, durando entre ",
+          "coverage": 0.5,
+          "spans_hit": "1/2",
+          "comp_tokens": 80,
+          "time_s": 32.55,
+          "speed": 2.5
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "La recuperación de la cirugía de hemorroides toma de 2 a 4 semanas. Después de la cirugía, se espera dolor moderado, se recomiendan baños de asiento, y se debe seguir una dieta rica en fibra y líquidos. Se recomienda movilización precoz, sentándose fuera de la cama hasta dos horas el primer día, y luego sentándose hasta seis horas el día siguiente,",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 80,
+          "time_s": 34.16,
+          "speed": 2.3
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Antes de la cirugía, se recomienda un ayuno de 6–8 horas. Ajustar la medicación habitual también es importante.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 28,
+          "time_s": 19.21,
+          "speed": 1.5
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Después de la cirugía mayor abdominal, se recomienda empezar a caminar el mismo día de la operación. La inmovilización puede causar complicaciones como coágulos y neumonía. Se proporcionará analgesia y se minimizarán sondas y drenajes.\n",
+          "coverage": 0.0,
+          "spans_hit": "0/3",
+          "comp_tokens": 51,
+          "time_s": 29.43,
+          "speed": 1.7
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Sí, el dolor postoperatorio es normal, especialmente en las primeras 24 horas. Se trata con calmantes cada 6 u 8 horas y un calmante \"de rescate\" a solicitud, inicialmente por vía intravenosa y luego por vía oral.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 55,
+          "time_s": 46.64,
+          "speed": 1.2
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber si tu recuperación está bien, debes controlar el dolor con analgésicos orales, tener buena tolerancia a líquidos y dieta, y ser autónomo en la movilidad.  Además, se requiere control del dolor y la comunicación con el personal sanitario si tienes dudas.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 56,
+          "time_s": 36.99,
+          "speed": 1.5
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "El dolor postoperatorio se trata con calmantes cada 6 u 8 horas y un calmante 'de rescate' a solicitud. Se administran por vía intravenosa las primeras 24-48 horas y luego por vía oral. Si los calmantes no son efectivos, el personal sanitario está disponible 24 horas para ajustar el tratamiento.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 74,
+          "time_s": 38.52,
+          "speed": 1.9
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "La cirugía mayor abdominal implica una recuperación de días o semanas. El tiempo exacto en el hospital dependerá de la complejidad de la operación y la recuperación individual del paciente. Se proporcionarán cuidados para la recuperación física y emocional, previniendo complicaciones y reduciendo la estancia hospitalaria.\n",
+          "coverage": 0.0,
+          "spans_hit": "0/4",
+          "comp_tokens": 58,
+          "time_s": 34.67,
+          "speed": 1.7
+        }
+      ],
+      "avg_coverage": 56.2,
+      "avg_tokens": 60.2,
+      "avg_time": 34.02,
+      "total_time": 272.2
+    },
+    {
+      "config": "exhaustive_compact",
+      "system_key": "exhaustive",
+      "template_key": "compact",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Si no se opera, los síntomas de las hemorroides pueden empeorar. La cirugía para quitar hemorroides elimina sangrado y dolor. Riesgos incluyen dolor postoperatorio y sangrado leve. Complicaciones graves son poco frecuentes. La recuperación dura de 2 a 4 semanas. La hemorroidectomía es la cirugía para extirpar hemorroides que causan sangrado o dolor y no mejoran con tratamientos menos invasivos. Se realiza en quirófano, con anestesia regional o general, y dura entre 30 y 60 minutos. Si no se opera, la fisura anal puede cronificarse y seguir causando dolor. El paciente puede retirar su consentimiento en cualquier momento antes de la cirugía.\n",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 153,
+          "time_s": 58.06,
+          "speed": 2.6
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación toma de 2 a 4 semanas.\n\n**Recomendaciones:**\n\n*   **Baños de asiento:** Se recomiendan.\n*   **Dieta rica en fibra y líquidos:** Es importante.\n*   **Movilización precoz:** Se recomienda.\n*   **El mismo día:** Sentarse fuera de la cama hasta dos horas.\n*   **Al día siguiente:** Sentarse hasta seis horas y caminar 4 series de 60 metros.\n*   **Ejercicios de fisioterapia respiratoria:** Para prevenir complicaciones.\n*   **Ajustar medicación habitual:** Es necesario.\n*   **Ayuno de 6–8 horas antes de la cirugía.**\n*   **Seguir las indicaciones del equipo médico para la recuperación.**\n",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 173,
+          "time_s": 52.69,
+          "speed": 3.3
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Ayuno de 6–8 horas antes de la cirugía.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 14,
+          "time_s": 10.33,
+          "speed": 1.4
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Después de la cirugía mayor abdominal, se recomienda empezar a caminar el mismo día de la operación. La inmovilización puede causar complicaciones como coágulos y neumonía. Se proporcionará analgesia y se minimizarán sondas y drenajes.\n\nNo disponible.\n",
+          "coverage": 0.0,
+          "spans_hit": "0/3",
+          "comp_tokens": 55,
+          "time_s": 22.31,
+          "speed": 2.5
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "El control del dolor es crucial para la recuperación postoperatoria. No debe tolerar el dolor, ya que puede complicar la recuperación. El dolor es mayor en las primeras 24 horas y disminuye con el tiempo.\n\nEl dolor postoperatorio se trata con calmantes cada 6 u 8 horas y un calmante 'de rescate' a solicitud. Se administran por vía intravenosa las primeras 24-48 horas y luego por vía oral. Puede haber una bomba de analgesia controlada por el paciente. El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n\nSe recomienda empezar a caminar el mismo día de la operación. Al día siguiente, el paciente debe levantarse y dar cortos paseos.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 154,
+          "time_s": 40.45,
+          "speed": 3.8
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber si tu recuperación está bien y no tienes problemas, debes cumplir con las siguientes indicaciones:\n\n*   **Control del dolor:** Utilizar analgésicos orales para controlar el dolor.\n*   **Tolerancia a líquidos y dieta:** Tener buena tolerancia a líquidos y dieta.\n*   **Autonomía en movilidad:** Ser autónomo en la movilidad.\n*   **Espirómetro incentivador:** Usar el espirómetro incentivador 4-6 horas después de la intervención, cada 2 horas durante 10 minutos para aumentar la ventilación pulmonar, fortalecer la musculatura respiratoria y evitar acumulaciones de secreciones.\n\nAdemás, es importante que los familiares y cuidadores estén informados y brinden apoyo. Consulta con el personal sanitario si tienes dudas.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 165,
+          "time_s": 41.17,
+          "speed": 4.0
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Si el dolor postoperatorio es muy intenso y los calmantes no son efectivos, se recomienda contactar al personal sanitario. El tratamiento con calmantes se administra cada 6 u 8 horas, y un calmante \"de rescate\" a solicitud. Inicialmente por vía intravenosa durante las primeras 24-48 horas y luego por vía oral. El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n",
+          "coverage": 0.3333333333333333,
+          "spans_hit": "1/3",
+          "comp_tokens": 89,
+          "time_s": 26.77,
+          "speed": 3.3
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "La cirugía mayor abdominal implica una recuperación de días o semanas. No se especifica un número exacto de días, pero se indica que la recuperación es de días o semanas.\n",
+          "coverage": 0.0,
+          "spans_hit": "0/4",
+          "comp_tokens": 36,
+          "time_s": 17.76,
+          "speed": 2.0
+        }
+      ],
+      "avg_coverage": 62.5,
+      "avg_tokens": 104.9,
+      "avg_time": 33.69,
+      "total_time": 269.5
+    },
+    {
+      "config": "exhaustive_instruct",
+      "system_key": "exhaustive",
+      "template_key": "instructive",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Si no se opera, los síntomas de las hemorroides pueden empeorar. La cirugía para quitar hemorroides elimina el sangrado y el dolor. Los riesgos incluyen dolor postoperatorio y sangrado leve. Las complicaciones graves son poco frecuentes. La recuperación dura de 2 a 4 semanas.\n\nLa hemorroidectomía es la cirugía para extirpar hemorroides que causan sangrado o dolor y no mejoran con tratamientos menos invasivos. Se realiza en quirófano, con anestesia regional o general, y dura entre 30 y 60 minutos.\n\nSi no se opera, la fisura anal puede cronificarse y seguir causando dolor.\n\nEl paciente puede retirar su consentimiento en cualquier momento antes de la cirugía.\n",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 157,
+          "time_s": 38.3,
+          "speed": 4.1
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación toma de 2 a 4 semanas.\n\n**Recomendaciones postoperatorias:**\n\n*   **Ayuno:** 6–8 horas antes de la cirugía.\n*   **Ajustar medicación:** Ajustar la medicación habitual.\n*   **Dolor:** Dolor leve-moderado. Se recomiendan baños de asiento.\n*   **Dieta:** Dieta rica en fibra y líquidos.\n*   **Movilización precoz:** Se recomienda movilización precoz tras la cirugía.\n*   **Sentarse:** El mismo día de la cirugía, sentarse fuera de la cama hasta dos horas. El día siguiente, sentarse hasta seis horas y caminar 4 series de 60 metros.\n*   **Alimentación oral temprana:** Se recomienda alimentación oral temprana.\n*   **Fisioterapia respiratoria:** Ejercicios de fisioterapia respiratoria para prevenir complicaciones.\n*   **Recuperación:** La recuperación dura de 2 a 3 semanas.\n\n**Riesgos:**\n\n*   Dolor inicial\n*   Sangrado leve\n*   Incontinencia muy rara.\n\n\n\n",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 248,
+          "time_s": 56.71,
+          "speed": 4.4
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Antes de la cirugía, se recomienda un ayuno de 6–8 horas.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 18,
+          "time_s": 11.38,
+          "speed": 1.6
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Después de la cirugía mayor abdominal, se recomienda empezar a caminar el mismo día de la operación. La inmovilización puede causar complicaciones como coágulos y neumonía. Se proporcionará analgesia y se minimizarán sondas y drenajes.\n\nEl objetivo de levantarse el mismo día de la operación es evitar complicaciones asociadas a la inmovilización. La analgesia (medicamentos para el dolor) se proporcionará para aliviar el dolor.\n\nEl segundo día tras la operación, es posible el retiro de la sonda y el drenaje. Si tolera líquidos, puede comenzar con una dieta triturada. Se administrarán analgésicos orales. Continuar con ejercicios respiratorios y paseando.\n\nEs importante recordar que el dolor es esperado después de la cirugía, pero la analgesia ayudará a controlarlo.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 170,
+          "time_s": 39.99,
+          "speed": 4.3
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Sí, el dolor después de la operación es normal. El dolor es mayor en las primeras 24 horas y disminuye con el tiempo.\n\nEl anestesiólogo prescribirá un tratamiento del dolor personalizado. El dolor postoperatorio se trata con calmantes cada 6 u 8 horas y un calmante 'de rescate' a solicitud. Se administran por vía intravenosa las primeras 24-48 horas y luego por vía oral. Puede haber una bomba de analgesia controlada por el paciente.\n\nSe recomienda empezar a caminar el mismo día de la operación. Al día siguiente, el paciente debe levantarse y dar cortos paseos. Se proporcionará analgesia y se minimizarán sondas y drenajes.\n\n**Recomendaciones adicionales:**\n\n*   Baños de asiento.\n*   Dieta rica en fibra y líquidos.\n*   El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 195,
+          "time_s": 41.06,
+          "speed": 4.7
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber cómo se está llevando bien la recuperación, es importante cumplir con las indicaciones del equipo médico.  Se enfocarán en movilización precoz, alimentación oral temprana y ejercicios de fisioterapia respiratoria para prevenir complicaciones.\n\nPara el alta en un RICA, se requiere: control del dolor con analgésicos orales, buena tolerancia a líquidos y dieta, y autonomía en movilidad.\n\nPara prevenir complicaciones respiratorias tras cirugía, use el espirómetro incentivador 4-6 horas después de la intervención, cada 2 horas durante 10 minutos.\n\nSi tiene dudas, consulte con el personal sanitario.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 128,
+          "time_s": 28.96,
+          "speed": 4.4
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Si el dolor postoperatorio es muy intenso y los calmantes no son efectivos, se recomienda contactar al personal sanitario. El tratamiento con calmantes se realiza cada 6 u 8 horas, y hay un calmante \"de rescate\" disponible a solicitud. Inicialmente se administran por vía intravenosa durante las primeras 24-48 horas y luego por vía oral. El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n\nAdemás, se menciona que puede haber una bomba de analgesia controlada por el paciente.\n\nEs importante recordar que si no se opera, los síntomas de las hemorroides pueden empeorar y la fisura anal puede cronificarse, siguiendo causando dolor.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 147,
+          "time_s": 31.91,
+          "speed": 4.6
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "La cirugía mayor abdominal implica una recuperación de días o semanas. No se especifica un número exacto de días en el hospital, pero se indica que se proporcionarán cuidados para la recuperación física y emocional, previniendo complicaciones y reduciendo la estancia hospitalaria. El paciente puede ser dado de alta en el segundo día tras la operación, dependiendo de su tolerancia a líquidos y su estado general.\n",
+          "coverage": 0.25,
+          "spans_hit": "1/4",
+          "comp_tokens": 80,
+          "time_s": 22.58,
+          "speed": 3.5
+        }
+      ],
+      "avg_coverage": 78.1,
+      "avg_tokens": 142.9,
+      "avg_time": 33.86,
+      "total_time": 270.9
+    },
+    {
+      "config": "structured_compact",
+      "system_key": "structured",
+      "template_key": "compact",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Aquí tienes la información sobre tu procedimiento, organizada según los fragmentos proporcionados:\n\n*   **Procedimiento:** Hemorroidectomía. Es la cirugía para extirpar hemorroides que causan sangrado o dolor y no mejoran con tratamientos menos invasivos.\n*   **Duración:** Entre 30 y 60 minutos.\n*   **Ubicación:** Se realiza en quirófano.\n*   **Anestesia:** Puede ser con anestesia regional o general.\n*   **Riesgos:**\n    *   Dolor postoperatorio.\n    *   Sangrado leve.\n    *   Complicaciones graves son poco frecuentes.\n*   **Recuperación:** Dura de 2 a 4 semanas.\n*   **Alternativas a la cirugía:** Pomadas, baños y cambios en la dieta. También se pueden usar ligadura con bandas elásticas o coagulación con láser o infrarrojos.\n*   **Si no se opera:** Los síntomas de las hemorroides pueden empeorar. La fisura anal puede cronificarse y seguir causando dolor.\n*   **Derecho a retirar el consentimiento:** Puedes retirar tu consentimiento en cualquier momento antes de la cirugía",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 256,
+          "time_s": 46.24,
+          "speed": 5.5
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Aquí tienes la información sobre tu recuperación después de la cirugía de hemorroides, organizada en puntos claros, basada en los fragmentos proporcionados:\n\n*   **Tiempo de recuperación:** 2 a 4 semanas.\n*   **Preparación preoperatoria:**\n    *   Ayuno de 6–8 horas antes de la cirugía.\n    *   Ajustar la medicación habitual.\n*   **Postoperatorio (durante la recuperación):**\n    *   Dolor leve-moderado.\n    *   Baños de asiento.\n    *   Dieta rica en fibra y líquidos.\n*   **Recomendaciones postoperatorias:**\n    *   Movilización precoz: Sentarse fuera de la cama hasta dos horas el mismo día de la cirugía.\n    *   El día siguiente, sentarse hasta seis horas y caminar 4 series de 60 metros.\n    *   Ejercicios de fisioterapia respiratoria para prevenir complicaciones.\n    *   Colaborar con el equipo médico para seguir sus indicaciones.\n*   **Riesgos:** Dolor inicial, sangrado leve e incontinencia muy rara.\n*   **Tratamiento de la fisura anal (",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 256,
+          "time_s": 47.74,
+          "speed": 5.4
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "*   **Cirugía abdominal:** Ayuno de 6–8 horas antes de la cirugía.\n*   **Cirugía de hemorroides:** Ayuno de 6–8 horas antes de la cirugía.\n*   **Fisura anal:** Se mencionan pomadas relajantes del esfínter y toxina botulínica como tratamiento inicial. Si no son efectivos, la cirugía es la opción más eficaz.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 89,
+          "time_s": 20.32,
+          "speed": 4.4
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Aquí tienes la respuesta basada en los fragmentos proporcionados, organizada en puntos claros:\n\n*   **Levantarse el mismo día de la operación:** Se recomienda comenzar a caminar el mismo día de la operación, incluso si hay dolor.\n*   **Beneficios de levantarse:** La inmovilización puede causar complicaciones como coágulos y neumonía. Levantarse ayuda a prevenir estas complicaciones.\n*   **Analgesia:** Se proporcionará analgesia para controlar el dolor.\n*   **Progresión de la alimentación:** Se recomienda comenzar a beber y comer dentro de las primeras 24 horas, de forma progresiva.\n*   **Dieta:** Se puede comenzar con líquidos con carbohidratos hasta 2 horas antes de la operación (200-400 ml). Si tolera líquidos, se puede comenzar con dieta triturada el segundo día.\n*   **Ejercicios respiratorios y caminatas:** Continuar con ejercicios respiratorios y paseando, incluso si hay dolor.\n*   **Consulta con el cirujano:** Es importante resolver dudas con el cirujano.\n",
+          "coverage": 0.3333333333333333,
+          "spans_hit": "1/3",
+          "comp_tokens": 234,
+          "time_s": 46.3,
+          "speed": 5.1
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Aquí tienes la respuesta basada en los fragmentos proporcionados:\n\n*   **Dolor postoperatorio:** Es normal experimentar dolor después de la cirugía.\n*   **Dosis de analgésicos:** Se utilizan calmantes cada 6 u 8 horas y un calmante \"de rescate\" a solicitud.\n*   **Administración de analgésicos:** Inicialmente se administran por vía intravenosa las primeras 24-48 horas, y luego por vía oral.\n*   **Bomba de analgesia:** Puede haber una bomba de analgesia controlada por el paciente.\n*   **Disponibilidad del personal:** El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n*   **Duración del dolor:** El dolor es mayor en las primeras 24 horas y disminuye con el tiempo.\n*   **Recomendaciones postoperatorias:** Se recomienda baños de asiento, dieta rica en fibra y líquidos.\n*   **Recuperación:** La recuperación completa puede tardar entre 2 y 3 semanas.\n*   **Medicación habitual:** Se debe ajustar la medicación habitual antes de la cirugía.\n*   **Ayuno:** Se recomienda un ayuno de",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 47.52,
+          "speed": 5.4
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Aquí te presento los puntos clave para evaluar tu recuperación, basados en los fragmentos proporcionados:\n\n*   **Control del dolor:** Debes controlar el dolor con analgésicos orales.\n*   **Tolerancia a líquidos y dieta:** Debes tener buena tolerancia a líquidos y dieta.\n*   **Movilidad:** Debes tener autonomía en movilidad.\n*   **Movilización precoz:** Sigue las indicaciones del equipo médico para la movilización temprana.\n*   **Fisioterapia respiratoria:** Realiza ejercicios de fisioterapia respiratoria.\n*   **Espirómetro incentivador:** Utiliza el espirómetro incentivador 4-6 horas después de la intervención, cada 2 horas durante 10 minutos.\n*   **Colaboración:** Es importante colaborar con el equipo médico y familiares/cuidadores.\n*   **Consulta:** Si tienes dudas, consulta con el personal sanitario.\n\n**Para saber si te va bien la recuperación, evalúa si cumples con estos puntos y si te sientes cómodo con las indicaciones recibidas.**\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 224,
+          "time_s": 42.23,
+          "speed": 5.3
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Aquí tienes la respuesta basada en los fragmentos proporcionados, organizada en puntos claros:\n\n*   **Dolor postoperatorio:**\n    *   Se utilizan calmantes cada 6 u 8 horas.\n    *   Hay un calmante \"de rescate\" disponible a solicitud.\n    *   Se administran por vía intravenosa durante las primeras 24-48 horas.\n    *   Luego, se pasa a la vía oral.\n    *   Puede haber una bomba de analgesia controlada por el paciente.\n    *   El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n*   **Si los calmantes no son efectivos:**\n    *   Si el dolor persiste a pesar de los calmantes, informa inmediatamente al personal sanitario. Ellos están disponibles 24 horas para ajustar el tratamiento.\n\n**Importante:** Los fragmentos no especifican qué hacer si los calmantes no son efectivos, pero indican que el personal sanitario está disponible para ajustar el tratamiento.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 210,
+          "time_s": 40.3,
+          "speed": 5.2
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "Según los fragmentos, la recuperación de una cirugía mayor abdominal implica días o semanas.  La duración exacta dependerá de la complejidad de la operación y la recuperación individual del paciente.\n\n*   **Día 1:** Se recomienda empezar a caminar el mismo día de la operación y levantarse al día siguiente para dar cortos paseos. Se minimizan sondas y drenajes, y se proporciona analgesia.\n*   **Segundo día:** Posible retiro de sonda y drenaje. Si tolera líquidos, se puede comenzar con dieta triturada. Se administran analgésicos orales y se continúan ejercicios respiratorios y paseos.\n*   **Recuperación general:** La recuperación física y emocional se enfoca en prevenir complicaciones y reducir la estancia hospitalaria, que puede durar días o semanas.\n\nEs importante recordar que la información proporcionada es general y la duración exacta dependerá de las indicaciones específicas del cirujano.\n",
+          "coverage": 0.5,
+          "spans_hit": "2/4",
+          "comp_tokens": 195,
+          "time_s": 40.79,
+          "speed": 4.8
+        }
+      ],
+      "avg_coverage": 77.1,
+      "avg_tokens": 215.0,
+      "avg_time": 41.43,
+      "total_time": 331.4
+    },
+    {
+      "config": "structured_instruct",
+      "system_key": "structured",
+      "template_key": "instructive",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Aquí tienes la información detallada sobre la cirugía para hemorroides, basada en los fragmentos proporcionados:\n\n*   **Procedimiento:** Se realizará una hemorroidectomía, que es la cirugía para extirpar las hemorroides que causan sangrado o dolor y no mejoran con tratamientos menos invasivos.\n*   **Duración:** La cirugía dura entre 30 y 60 minutos.\n*   **Ubicación:** Se realiza en quirófano.\n*   **Anestesia:** Se utilizará anestesia regional o general.\n*   **Riesgos:** Los riesgos incluyen dolor postoperatorio y sangrado leve. Las complicaciones graves son poco frecuentes.\n*   **Recuperación:** La recuperación puede durar de 2 a 4 semanas.\n*   **Alternativas a la cirugía:** Si no se opera, los síntomas de las hemorroides pueden empeorar. La fisura anal puede cronificarse y seguir causando dolor.\n*   **Consentimiento:** El paciente puede retirar su consentimiento en cualquier momento antes de la cirugía.\n*   **Tratamientos no invasivos:** Se pueden tratar las hemorroides con pomadas, baños y cambios en la dieta",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 256,
+          "time_s": 46.02,
+          "speed": 5.6
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Aquí tienes la información sobre tu recuperación después de la cirugía de hemorroides, basada en los fragmentos proporcionados:\n\n*   **Tiempo de recuperación:** La recuperación completa toma de **2 a 4 semanas**.\n*   **Preparación para la cirugía:**\n    *   Debes realizar un **ayuno de 6-8 horas** antes de la cirugía.\n    *   Ajusta tu medicación habitual antes de la cirugía.\n*   **Después de la cirugía:**\n    *   Es probable que experimentes **dolor leve-moderado**.\n    *   Se recomienda utilizar **baños de asiento** para aliviar el dolor.\n    *   Es importante seguir una **dieta rica en fibra y líquidos**.\n    *   Se recomienda **movilización precoz** tras la cirugía.\n    *   El mismo día de la cirugía, debes **sentarte fuera de la cama hasta dos horas**.\n    *   Al día siguiente, puedes **sentarte hasta seis horas** y realizar **4 series de 60 metros de caminata**.\n*   **Recomendaciones adicionales:**\n    *   Se enfocarán en **movilización precoz**, **alimentación oral temprana** y **",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 256,
+          "time_s": 47.03,
+          "speed": 5.4
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Aquí tienes la información sobre el tiempo de ayuno antes de la cirugía, basada en los fragmentos proporcionados:\n\n*   **Cirugía mayor abdominal:** Ayuno de 6–8 horas antes de la cirugía.\n*   **Preparación para cirugía de hemorroides:** Ayuno de 6–8 horas antes de la cirugía.\n*   **En general:** Se recomienda evitar ayunos prolongados.\n*   **Después de la cirugía:** Se puede comenzar a beber y comer dentro de las primeras 24 horas, con una alimentación progresiva. La primera defecación suele ocurrir 2 o 3 días después de reiniciar la alimentación, sin aumentar el riesgo de abrir la herida.\n\nEs importante seguir las indicaciones específicas del equipo médico para la recuperación postoperatoria.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 163,
+          "time_s": 31.29,
+          "speed": 5.2
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Aquí tienes la respuesta detallada basada en los fragmentos proporcionados, abordando la pregunta sobre por qué se recomienda levantarse el mismo día de la operación, incluso con dolor:\n\n*   **Recomendación inmediata:** Se recomienda comenzar a caminar el mismo día de la operación.\n*   **Beneficios de levantarse:** La inmovilización prolongada puede aumentar el riesgo de complicaciones como coágulos sanguíneos y neumonía.\n*   **Control del dolor:** Se proporcionará analgesia (medicamentos para el dolor) para ayudar a controlar el dolor.\n*   **Progresión de la alimentación:** Se recomienda comenzar a beber líquidos con carbohidratos hasta 2 horas antes de la operación (200-400 ml).\n*   **Dieta progresiva:** Se recomienda comenzar a beber y comer dentro de las primeras 24 horas, con una alimentación progresiva.\n*   **Ejercicios respiratorios y caminatas:** Continuar con ejercicios respiratorios y pasear, incluso si hay dolor.\n*   **Seguimiento con el cirujano:** Es importante resolver cualquier duda con el cirujano.\n*   **Dolor postoperatorio:** Se espera que haya molestias abdominal",
+          "coverage": 0.3333333333333333,
+          "spans_hit": "1/3",
+          "comp_tokens": 256,
+          "time_s": 48.59,
+          "speed": 5.3
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Aquí tienes la respuesta basada en los fragmentos proporcionados:\n\n*   **Dolor postoperatorio:** Es normal experimentar dolor después de la cirugía. El dolor es mayor en las primeras 24 horas y disminuye con el tiempo.\n*   **Tratamiento del dolor:**\n    *   Se utilizarán calmantes cada 6 u 8 horas.\n    *   Habrá un \"calmante de rescate\" disponible a solicitud.\n    *   La analgesia se administrará inicialmente por vía intravenosa durante las primeras 24-48 horas y luego por vía oral.\n    *   Puede haber una bomba de analgesia controlada por el paciente.\n    *   El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n*   **Ayuno:** Se recomienda un ayuno de 6-8 horas antes de la cirugía.\n*   **Dieta:** Después de la cirugía, se recomienda una dieta rica en fibra y líquidos.\n*   **Recuperación:** La recuperación completa puede tardar entre 2 y 3 semanas.\n*   **Actividad:** Se recomienda empezar a caminar el mismo día de la operación. Al día siguiente, el paciente debe levantarse",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 48.03,
+          "speed": 5.3
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para evaluar tu recuperación y detectar posibles problemas, considera lo siguiente, basándonos en los fragmentos proporcionados:\n\n*   **Control del dolor:** Debes controlar el dolor con analgésicos orales.\n*   **Tolerancia a líquidos y dieta:** Es importante que tengas buena tolerancia a líquidos y a la dieta.\n*   **Movilidad:** Debes tener autonomía en movilidad.\n*   **Movilización precoz:** Sigue las indicaciones del equipo médico para la movilización precoz.\n*   **Fisioterapia respiratoria:** Realiza ejercicios de fisioterapia respiratoria.\n*   **Espirómetro incentivador:** Utiliza el espirómetro incentivador 4-6 horas después de la intervención, cada 2 horas durante 10 minutos.\n*   **Colaboración:** Es crucial tu colaboración con el equipo médico para la recuperación.\n*   **Apoyo familiar/cuidador:** Los familiares y cuidadores deben estar informados y apoyarte en el reinicio de la alimentación y la movilización.\n*   **Alta:** Para el alta en un RICA, se requiere cumplir con los requisitos mencionados anteriormente.\n*   **Complicaciones:** Estate atento a posibles complicaciones como",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 48.32,
+          "speed": 5.3
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Aquí tienes la respuesta basada en los fragmentos proporcionados, organizada en puntos claros:\n\n*   **Dolor postoperatorio intenso:** Si los calmantes no alivian el dolor, es necesario contactar al personal sanitario.\n*   **Tratamiento del dolor:** El dolor postoperatorio se trata con calmantes cada 6 u 8 horas. Se dispone de un calmante \"de rescate\" a solicitud.\n*   **Administración de calmantes:** Inicialmente, se administran por vía intravenosa durante las primeras 24-48 horas. Posteriormente, se continúa con la administración por vía oral.\n*   **Bomba de analgesia:** Puede haber una bomba de analgesia controlada por el paciente.\n*   **Disponibilidad del personal:** El personal sanitario está disponible 24 horas para ajustar el tratamiento del dolor.\n*   **Importancia de contactar:** Es crucial contactar al personal sanitario si el dolor persiste a pesar de la medicación.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 208,
+          "time_s": 39.68,
+          "speed": 5.2
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "Según los fragmentos proporcionados:\n\n*   La cirugía mayor abdominal implica una recuperación de **días o semanas**.\n*   Se proporcionarán cuidados para la recuperación física y emocional, con el objetivo de **prevenir complicaciones y reducir la estancia hospitalaria**.\n*   El tiempo exacto de estancia hospitalaria no se especifica, pero se indica que es de **días o semanas**.\n\nEs importante consultar con el cirujano para obtener una estimación más precisa de la duración de su estancia hospitalaria.\n",
+          "coverage": 0.0,
+          "spans_hit": "0/4",
+          "comp_tokens": 107,
+          "time_s": 26.4,
+          "speed": 4.1
+        }
+      ],
+      "avg_coverage": 70.8,
+      "avg_tokens": 219.8,
+      "avg_time": 41.92,
+      "total_time": 335.4
+    },
+    {
+      "config": "patient_compact",
+      "system_key": "patient_friendly",
+      "template_key": "compact",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Entiendo tu nerviosismo. Aquí te explico lo que te van a hacer:\n\nSi no se opera, los síntomas de las hemorroides pueden empeorar. La cirugía para quitar las hemorroides elimina el sangrado y el dolor. \n\nLa cirugía se llama hemorroidectomía.  Esto significa que se extirpan las hemorroides que causan sangrado o dolor y que no mejoran con otros tratamientos.\n\nLa cirugía se realiza en el quirófano, con anestesia regional o general, y dura entre 30 y 60 minutos.\n\nDespués de la cirugía, puedes esperar dolor postoperatorio y un sangrado leve.  La recuperación dura de 2 a 4 semanas.\n\nSi no se opera, la fisura anal (un pequeño corte en el ano) puede empeorar y seguir causando dolor.\n\nRecuerda que puedes retirar tu consentimiento en cualquier momento antes de la cirugía.\n",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 196,
+          "time_s": 37.25,
+          "speed": 5.3
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación toma de 2 a 4 semanas.\n\n**Qué debes hacer:**\n\n*   **Ayuno:** Haz un ayuno de 6–8 horas antes de la cirugía y ajusta tu medicación habitual.\n*   **Postoperatorio:** Espera dolor leve-moderado. Usa baños de asiento.\n*   **Dieta:** Consume una dieta rica en fibra y líquidos.\n*   **Movilización precoz:** Sienta fuera de la cama el mismo día de la cirugía hasta dos horas. Al día siguiente, siéntate hasta seis horas y camina 4 series de 60 metros.\n*   **Recuperación:** La recuperación completa toma de 2 a 3 semanas.\n*   **Colaboración:** Sigue las indicaciones del equipo médico para tu recuperación.\n*   **Fisioterapia respiratoria:** Realiza ejercicios de fisioterapia respiratoria para prevenir complicaciones.\n",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 201,
+          "time_s": 38.7,
+          "speed": 5.2
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Antes de la cirugía, se recomienda un ayuno de 6–8 horas.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 18,
+          "time_s": 10.2,
+          "speed": 1.8
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Después de la cirugía mayor abdominal, se recomienda empezar a caminar el mismo día de la operación. La inmovilización puede causar complicaciones como coágulos y neumonía. Se proporcionará analgesia (medicamentos para el dolor) y se minimizarán sondas y drenajes.\n\nAunque te duela, levantarte el mismo día de la operación es importante para prevenir complicaciones.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 78,
+          "time_s": 22.19,
+          "speed": 3.5
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Sí, el dolor después de la operación es normal. El anestesiólogo prescribirá un tratamiento del dolor personalizado.\n\nPara el dolor postoperatorio, se utilizan calmantes cada 6 u 8 horas y un calmante \"de rescate\" a solicitud. Las primeras 24-48 horas se administran por vía intravenosa y luego por vía oral. También puede haber una bomba de analgesia controlada por el paciente. El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 107,
+          "time_s": 28.07,
+          "speed": 3.8
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber cómo se está llevando bien tu recuperación y si tienes algún problema, debes cumplir con las indicaciones del equipo médico. Esto incluye:\n\n*   **Control del dolor:** Utilizar los analgésicos orales según lo indicado.\n*   **Tolerancia a líquidos y dieta:** Poder beber líquidos y comer sin problemas.\n*   **Movilidad:** Ser capaz de moverte con autonomía.\n*   **Espirómetro incentivador:** Usar el espirómetro incentivador 4-6 horas después de la intervención, cada 2 horas durante 10 minutos.\n\nSi tienes dudas, consulta con el personal sanitario.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 133,
+          "time_s": 28.8,
+          "speed": 4.6
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Si el dolor postoperatorio es muy intenso y los calmantes no funcionan, el personal sanitario está disponible 24 horas para ajustar el tratamiento.\n",
+          "coverage": 0.3333333333333333,
+          "spans_hit": "1/3",
+          "comp_tokens": 31,
+          "time_s": 13.57,
+          "speed": 2.3
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "La cirugía mayor abdominal implica una recuperación de días o semanas. Esto significa que tu estancia en el hospital puede durar varios días o semanas, dependiendo de cómo te recuperes.\n",
+          "coverage": 0.0,
+          "spans_hit": "0/4",
+          "comp_tokens": 36,
+          "time_s": 15.56,
+          "speed": 2.3
+        }
+      ],
+      "avg_coverage": 70.8,
+      "avg_tokens": 100.0,
+      "avg_time": 24.29,
+      "total_time": 194.4
+    },
+    {
+      "config": "patient_instruct",
+      "system_key": "patient_friendly",
+      "template_key": "instructive",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Entiendo tu nerviosismo. Te explicaré lo que te van a hacer durante la cirugía para quitar hemorroides.\n\nLa cirugía se llama hemorroidectomía. Es una operación para extirpar las hemorroides que causan sangrado o dolor y no mejoran con otros tratamientos.\n\n**¿Cómo se realiza la cirugía?**\n\n*   Se realiza en el quirófano.\n*   Se utiliza anestesia regional (anestesia que se administra en la zona del cuerpo que se va a operar) o anestesia general (anestesia que te hace dormir).\n*   La cirugía dura entre 30 y 60 minutos.\n\n**¿Qué se hace exactamente?**\n\nLa cirugía elimina las hemorroides.  Si no se opera, los síntomas de las hemorroides pueden empeorar, y la fisura anal (una pequeña herida en el ano que puede causar dolor) puede cronificarse, es decir, seguir causando dolor.\n\n**¿Cuáles son los riesgos?**\n\nLos riesgos incluyen dolor postoperatorio y sangrado leve. Las complicaciones graves son poco frecuentes.\n\n**¿Cuánto tiempo tardará en recuperarse?**\n\nLa recuperación dura de 2 a 4 semanas",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 256,
+          "time_s": 45.59,
+          "speed": 5.6
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación generalmente toma de **2 a 4 semanas**.\n\nAquí te detallo lo que debes hacer:\n\n*   **Ayuno:** Debes ayunar de **6 a 8 horas** antes de la cirugía.\n*   **Medicamentos:** Ajusta tu medicación habitual con el equipo médico.\n*   **Dolor:** Espera un dolor **leve-moderado** después de la cirugía.\n*   **Baños de asiento:** Se recomienda usar baños de asiento para aliviar el dolor.\n*   **Dieta:** Consume una dieta **rica en fibra y líquidos**.\n*   **Movilización precoz:** Es importante comenzar a movilizarte lo antes posible.\n    *   El mismo día de la cirugía, debes sentarte fuera de la cama hasta **dos horas**.\n    *   Al día siguiente, puedes estar sentado hasta **seis horas** y caminar **4 series de 60 metros**.\n*   **Recuperación:** La recuperación completa puede tomar de **2 a 3 semanas**.\n*   **Colaboración:** Sigue las indicaciones del equipo médico para tu recuperación.\n*   **Fisioterapia respiratoria:** Se recomienda",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 256,
+          "time_s": 46.87,
+          "speed": 5.5
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Para la cirugía, debes ayunar de 6 a 8 horas antes de la operación.\n\nSi es para la preparación de la cirugía de hemorroides, el ayuno debe ser de 6-8 horas.\n\nEn general, después de la cirugía, es importante comenzar a beber y comer dentro de las primeras 24 horas, pero evita ayunos prolongados.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 78,
+          "time_s": 18.88,
+          "speed": 4.1
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Después de la cirugía mayor abdominal, se recomienda empezar a caminar el mismo día de la operación. Esto se hace para evitar complicaciones como coágulos y neumonía, ya que la inmovilización puede causarlos. \n\nAunque te duela, es importante levantarte y dar cortos paseos el día siguiente. Se te proporcionará analgesia (medicamentos para el dolor) y se minimizarán las sondas y drenajes para facilitar tu recuperación.\n\nRecuerda que se recomienda beber líquidos con carbohidratos hasta 2 horas antes de la operación, entre 200 y 400 ml.  Esto ayuda a evitar incomodidad por el ayuno.  Además, se te administrarán analgésicos orales y se continuarán con ejercicios respiratorios y paseando.  La alimentación debe ser progresiva y se recomienda comenzar a beber y comer dentro de las primeras 24 horas, evitando ayunos prolongados. La primera defecación suele ocurrir 2 o 3 días después de reiniciar la alimentación.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 214,
+          "time_s": 42.82,
+          "speed": 5.0
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Sí, el dolor después de la operación es normal. Es importante que no lo tolere, ya que puede complicar la recuperación. El dolor es más fuerte en las primeras 24 horas y disminuye con el tiempo.\n\nPara el dolor, el anestesiólogo te recetará un tratamiento personalizado. Este tratamiento incluye calmantes que se administran cada 6 u 8 horas, y un calmante \"de rescate\" que puedes pedir cuando necesites más alivio.  Las primeras 24-48 horas, estos calmantes se administran por vía intravenosa (a través de una vena), y luego se pasa a la vía oral (por la boca).\n\nTambién puedes usar baños de asiento para aliviar el dolor.\n\nSi necesitas más alivio, se puede usar una bomba de analgesia controlada por el paciente. El personal sanitario está disponible 24 horas para ajustar el tratamiento según sea necesario.\n\nEs importante recordar que después de la cirugía mayor abdominal, se recomienda empezar a caminar el mismo día de la operación. Al día siguiente, debes levantarte y dar cortos paseos. Esto ayuda a prevenir complicaciones como coágulos y neumonía. Se te proporcionará analgesia y se minimizarán las sondas",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 48.55,
+          "speed": 5.3
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber cómo se está llevando bien tu recuperación, es importante seguir las indicaciones del equipo médico.  Se enfocarán en:\n\n*   **Movilización precoz:**  Comenzar a moverse lo antes posible.\n*   **Alimentación oral temprana:**  Comenzar a comer lo antes posible.\n*   **Ejercicios de fisioterapia respiratoria:**  Realizar ejercicios para fortalecer los músculos respiratorios y prevenir complicaciones.\n\nAdemás, para el alta en un RICA (Rehabilitación Intensiva), necesitas:\n\n*   **Control del dolor:**  Usar analgésicos orales para controlar el dolor.\n*   **Tolerancia a líquidos y dieta:**  Tener buena tolerancia a líquidos y a la dieta.\n*   **Autonomía en movilidad:**  Ser capaz de moverte con independencia.\n\nLa fecha de alta se te comunicará con antelación y debes estar preparado en casa. Si tienes dudas, consulta con el personal sanitario.\n\nTambién es importante usar el espirómetro incentivador 4-6 horas después de la intervención, y luego cada 2 horas durante 10 minutos, para ayudar a aumentar la ventilación pulmonar y prevenir complicaciones respiratorias.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 255,
+          "time_s": 46.86,
+          "speed": 5.4
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Si el dolor postoperatorio es muy intenso y los calmantes no te alivian, es importante que hables con el personal sanitario. El dolor postoperatorio se trata con calmantes cada 6 u 8 horas y hay un calmante \"de rescate\" que se administra a solicitud. Inicialmente, se administran por vía intravenosa durante las primeras 24-48 horas y luego por vía oral.  El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n\nSi el dolor persiste a pesar de los calmantes, es crucial que te pongas en contacto con ellos para que puedan evaluar tu situación y ajustar el tratamiento según sea necesario.\n",
+          "coverage": 0.3333333333333333,
+          "spans_hit": "1/3",
+          "comp_tokens": 139,
+          "time_s": 32.13,
+          "speed": 4.3
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "La cirugía mayor abdominal implica una recuperación de días o semanas.  La duración exacta en el hospital dependerá de la complejidad de la operación, pero se espera que sea de días o semanas.\n\nAquí te detallo lo que puedes esperar:\n\n*   **Día 1:** Se enfocarán en movilización precoz, alimentación oral temprana y ejercicios de fisioterapia respiratoria. Se minimizarán sondas y drenajes.\n*   **Día 2:** Posible retiro de la sonda y el drenaje. Si tolere líquidos, puedes comenzar con una dieta triturada. Se administrarán analgésicos orales. Continuar con ejercicios respiratorios y paseando.\n*   **Recuperación:** La recuperación física y emocional es importante. Se proporcionarán cuidados para prevenir complicaciones y reducir la estancia hospitalaria.\n\nEs importante que consultes con el cirujano para obtener una estimación más precisa de tu tiempo de hospitalización, ya que esto puede variar.\n",
+          "coverage": 0.5,
+          "spans_hit": "2/4",
+          "comp_tokens": 203,
+          "time_s": 45.47,
+          "speed": 4.5
+        }
+      ],
+      "avg_coverage": 77.1,
+      "avg_tokens": 207.1,
+      "avg_time": 40.9,
+      "total_time": 327.2
+    },
+    {
+      "config": "exhaustive_numbered",
+      "system_key": "exhaustive",
+      "template_key": "numbered",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Entiendo tu nerviosismo. Aquí te detallo lo que te harán durante la cirugía para quitar hemorroides, según la información disponible:\n\nLa cirugía, llamada hemorroidectomía, se realiza para extirpar hemorroides que causan sangrado o dolor y no mejoran con tratamientos menos invasivos.  Se realiza en quirófano, con anestesia regional o general, y dura entre 30 y 60 minutos.\n\nLos riesgos incluyen dolor postoperatorio y sangrado leve. Las complicaciones graves son poco frecuentes.\n\nLa recuperación dura de 2 a 4 semanas.\n\nSi no se opera, los síntomas de las hemorroides pueden empeorar y la fisura anal puede cronificarse, siguiendo causando dolor.\n\nEs importante que sepas que puedes retirar tu consentimiento en cualquier momento antes de la cirugía.\n",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 176,
+          "time_s": 34.96,
+          "speed": 5.0
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación dura de 2 a 4 semanas. Se espera dolor moderado, y se recomiendan baños de asiento. Se debe seguir una dieta rica en fibra y líquidos.\n\n**Pasos y recomendaciones postoperatorios:**\n\n*   **Ayuno:** 6–8 horas antes de la cirugía. Ajustar la medicación habitual.\n*   **Postoperatorio:** Baños de asiento, dieta rica en fibra y líquidos.\n*   **Recuperación:** 2–3 semanas.\n*   **Movilización precoz:** Se recomienda inmediatamente después de la cirugía.\n*   **Primer día:** Sentarse fuera de la cama hasta dos horas.\n*   **Segundo día:** Sentarse hasta seis horas y caminar 4 series de 60 metros.\n*   **Colaboración:** Seguir las indicaciones del equipo médico para la recuperación.\n*   **Enfoque:** Movilización precoz, alimentación oral temprana y ejercicios de fisioterapia respiratoria para prevenir complicaciones.\n*   **Riesgos:** Dolor inicial, sangrado leve e incontinencia muy rara.\n*   **Cirugía para fisura anal:** Cicatriza la herida",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 256,
+          "time_s": 47.43,
+          "speed": 5.4
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Según los fragmentos proporcionados, se recomienda un ayuno de **6–8 horas** antes de la cirugía.  Además, se debe ajustar la medicación habitual.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 36,
+          "time_s": 13.08,
+          "speed": 2.8
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Después de la cirugía mayor abdominal, se recomienda empezar a caminar el mismo día de la operación. Al día siguiente, el paciente debe levantarse y dar cortos paseos. La inmovilización puede causar complicaciones como coágulos y neumonía. Se proporcionará analgesia y se minimizarán sondas y drenajes.\n\nAunque te duela, levantarse el mismo día de la operación es importante para prevenir complicaciones como coágulos y neumonía. Se proporciona analgesia para aliviar el dolor.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 104,
+          "time_s": 27.01,
+          "speed": 3.8
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Sí, el dolor después de la operación es normal. El dolor es mayor en las primeras 24 horas y disminuye con el tiempo.\n\nPara el dolor, se recomienda un tratamiento personalizado prescrito por el anestesiólogo. El dolor postoperatorio se trata con calmantes cada 6 u 8 horas y un calmante \"de rescate\" a solicitud. Se administran por vía intravenosa las primeras 24-48 horas y luego por vía oral. Puede haber una bomba de analgesia controlada por el paciente. El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n\nSe recomienda empezar a caminar el mismo día de la operación. Al día siguiente, el paciente debe levantarse y dar cortos paseos.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 155,
+          "time_s": 33.45,
+          "speed": 4.6
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber cómo se está llevando bien la recuperación, según la información proporcionada, debes tener:\n\n*   **Control del dolor:** Con analgésicos orales.\n*   **Buena tolerancia a líquidos y dieta:** Es decir, puedes beber líquidos y comer normalmente.\n*   **Autonomía en movilidad:** Puedes moverte con facilidad.\n\nAdemás, para prevenir complicaciones respiratorias, debes usar el espirómetro incentivador 4-6 horas después de la intervención, cada 2 horas durante 10 minutos.\n\n**Recomendación:** Consulta con el personal sanitario si tienes dudas.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 126,
+          "time_s": 28.26,
+          "speed": 4.5
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Si el dolor postoperatorio es muy intenso y los calmantes no son efectivos, se recomienda contactar al personal sanitario. El tratamiento inicial con calmantes se realiza cada 6 u 8 horas, y hay un calmante \"de rescate\" disponible a solicitud.  Las primeras 24-48 horas se administran por vía intravenosa y luego por vía oral. El personal sanitario está disponible 24 horas para ajustar el tratamiento.\n\nNo disponible: Se menciona una bomba de analgesia controlada por el paciente, pero no se detalla cómo acceder a ella.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 120,
+          "time_s": 26.68,
+          "speed": 4.5
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "La cirugía mayor abdominal implica una recuperación de días o semanas. No se especifica un número exacto de días en el hospital, pero se indica que la recuperación es de días o semanas.\n",
+          "coverage": 0.0,
+          "spans_hit": "0/4",
+          "comp_tokens": 39,
+          "time_s": 16.62,
+          "speed": 2.3
+        }
+      ],
+      "avg_coverage": 75.0,
+      "avg_tokens": 126.5,
+      "avg_time": 28.44,
+      "total_time": 227.5
+    },
+    {
+      "config": "no_sys_instruct",
+      "system_key": "no_system",
+      "template_key": "instructive",
+      "max_tokens": 256,
+      "text_source": "compact",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Entiendo tu nerviosismo. Vamos a aclarar exactamente qué te van a hacer durante la cirugía para las hemorroides.\n\nLa cirugía que te van a realizar se llama **hemorroidectomía**.  Es una cirugía para **extirpar** las hemorroides que causan sangrado o dolor y que no mejoran con otros tratamientos menos invasivos.\n\nAquí te detallo el proceso:\n\n*   **¿Qué es la hemorroide?** Las hemorroides son venas hinchadas en el recto y el ano.\n*   **¿Qué se va a extirpar?** La hemorroidectomía se enfoca en eliminar las hemorroides que están causando problemas.\n*   **¿Cómo se realiza la cirugía?** Se realiza en el quirófano, con anestesia regional (local) o general, dependiendo de tu preferencia y la complejidad del caso.\n*   **¿Cuánto dura la cirugía?** La cirugía suele durar entre 30 y 60 minutos.\n*   **¿Qué se espera después de la cirugía?**  La recuperación puede durar de 2 a 4 semanas.  Es importante tener paciencia durante este tiempo.\n\n**¿Cuáles",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 256,
+          "time_s": 45.26,
+          "speed": 5.7
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación generalmente toma de **2 a 4 semanas**.  Aquí te detallo lo que debes esperar y qué debes hacer:\n\n**Durante el postoperatorio (2-3 semanas):**\n\n*   **Dolor:** Espera un dolor leve a moderado.  Se recomienda usar baños de asiento para aliviar el dolor.\n*   **Dieta:** Es crucial seguir una dieta rica en fibra y líquidos. Esto ayuda a prevenir el estreñimiento, que puede empeorar el dolor y la recuperación.\n*   **Movilización Precoz:**  Es muy importante comenzar a movilizarse lo antes posible.  Se recomienda sentarse fuera de la cama durante dos horas el mismo día de la cirugía. El día siguiente, puedes sentarte hasta seis horas y caminar 4 series de 60 metros. Esto ayuda a acelerar la recuperación y prevenir complicaciones como la parálisis intestinal.\n*   **Alimentación Oral Temprana:**  Se te indicará comenzar a comer de nuevo lo antes posible.\n*   **Recuperación:**  La recuperación completa puede tomar de 2 a 3 semanas.\n\n**Después de la cirugía:**\n\n*   **Seguir las",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 256,
+          "time_s": 47.85,
+          "speed": 5.4
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Según los fragmentos de documentos médicos proporcionados, la duración del ayuno antes de la cirugía varía dependiendo del tipo de cirugía:\n\n*   **Cirugía mayor abdominal:** Se recomienda un ayuno de **6-8 horas** antes de la cirugía.\n*   **Cirugía de hemorroides:** Se recomienda un ayuno de **6-8 horas** antes de la cirugía.\n\nEn general, se aconseja un ayuno de 6-8 horas antes de la cirugía, pero es importante **ajustar la medicación habitual** antes de la cirugía.\n\nDespués de la cirugía, se recomienda comenzar a beber y comer dentro de las primeras 24 horas, con una alimentación progresiva. Se debe evitar ayunos prolongados. La primera defecación suele ocurrir 2 o 3 días después de reiniciar la alimentación, sin aumentar el riesgo de abrir la herida.\n\n**Es crucial seguir las indicaciones específicas del equipo médico para su recuperación después de la cirugía.**\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 203,
+          "time_s": 37.54,
+          "speed": 5.4
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Entiendo tu preocupación, es natural que te duela después de la cirugía. Sin embargo, es importante que sepas que se te recomienda comenzar a caminar el mismo día de la operación por varias razones importantes:\n\n* **Prevención de complicaciones:** La inmovilización prolongada, como permanecer acostado, aumenta el riesgo de desarrollar coágulos sanguíneos (trombosis venosa profunda) y neumonía. Caminar ayuda a prevenir estas complicaciones.\n* **Recuperación más rápida:**  Caminar, aunque sea por cortos períodos, ayuda a mejorar la circulación sanguínea y a reducir la inflamación. Esto acelera el proceso de recuperación.\n* **Facilita la recuperación:**  Levantarse y moverse ayuda a prevenir la rigidez y a facilitar la recuperación general.\n* **Disminuye el riesgo de complicaciones:** Al minimizar el tiempo de inmovilización, se reduce el riesgo de complicaciones postoperatorias.\n\n**Es cierto que te duela.**  La analgesia (medicamentos para el dolor) se te proporcionará para controlar el dolor.  El objetivo es que puedas tolerar el movimiento y la alimentación, pero sin que el dolor sea insoportable.  \n\n**La alimentación también se recomienda comenzar dentro de",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 48.99,
+          "speed": 5.2
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Sí, el dolor después de la operación es normal, especialmente en las primeras 24 horas. Es importante no tolerar el dolor, ya que puede complicar la recuperación. El dolor suele ser mayor en las primeras 24 horas y disminuye con el tiempo.\n\nLa cirugía de fisura anal puede causar dolor inicial y sangrado leve.  \n\nPara el dolor postoperatorio, se utilizan calmantes. Se administran cada 6 u 8 horas y hay un calmante \"de rescate\" disponible a solicitud.  Las primeras 24-48 horas se administran por vía intravenosa y luego se pasa a la vía oral.  También puede haber una bomba de analgesia controlada por el paciente. El personal sanitario está disponible 24 horas para ajustar el tratamiento según sea necesario.\n\nSi el dolor es intenso, se pueden utilizar calmantes más fuertes.\n\nAdemás del tratamiento farmacológico, se recomienda utilizar baños de asiento para aliviar el dolor. También es importante seguir una dieta rica en fibra y líquidos para facilitar la recuperación.\n\nLa recuperación completa suele tardar entre 2 y 3 semanas.\n\nEs importante recordar que el personal sanitario está disponible 24 horas para ajustar el tratamiento del dolor según sea necesario.",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 47.17,
+          "speed": 5.4
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Entiendo tu preocupación por saber cómo evaluar tu recuperación. Basándome en los fragmentos de información proporcionados, aquí te explico cómo puedes evaluar tu progreso y qué señales de alerta debes tener en cuenta:\n\n**Indicadores de una buena recuperación:**\n\n*   **Control del dolor:**  Es fundamental que puedas controlar el dolor con analgésicos orales según las indicaciones del equipo médico. Si el dolor es intenso o no responde a los medicamentos, debes contactar con el personal sanitario.\n*   **Tolerancia a líquidos y dieta:**  Deberías poder tolerar bien los líquidos y la dieta, progresando gradualmente a una alimentación más sólida según lo indicado.\n*   **Autonomía en movilidad:**  Es importante que puedas realizar actividades básicas de la vida diaria con relativa facilidad, como levantarte de la cama, caminar y realizar tareas domésticas.\n*   **Movilización precoz:**  Seguir las indicaciones del equipo médico para la movilización temprana es crucial. Esto ayuda a prevenir complicaciones y a acelerar la recuperación.\n*   **Fisioterapia respiratoria:**  Realizar los ejercicios de fisioterapia respiratoria según las indicaciones también es importante para prevenir complicaciones respiratorias.\n*   **Buen estado general",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 46.68,
+          "speed": 5.5
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Entiendo que estás experimentando un dolor intenso después de la cirugía y que los calmantes no están siendo efectivos. Es importante que sepas que **el personal sanitario está disponible 24 horas para ajustar el tratamiento**.\n\nSi los calmantes no alivian el dolor, es crucial que **contactes con el personal sanitario inmediatamente**. Ellos podrán evaluar tu situación y ajustar la medicación, o considerar otras opciones de manejo del dolor. \n\nAdemás, es importante recordar que el dolor postoperatorio se trata con calmantes cada 6 u 8 horas y un calmante 'de rescate' a solicitud.  La administración inicial es por vía intravenosa durante las primeras 24-48 horas, y luego se pasa a la vía oral.  Existe la posibilidad de una bomba de analgesia controlada por el paciente, y el personal sanitario está disponible para ajustar el tratamiento según sea necesario.\n\nSi el dolor persiste a pesar de la medicación, no dudes en comunicarte con ellos. Ellos pueden evaluar la situación y determinar el mejor curso de acción.\n",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 217,
+          "time_s": 41.48,
+          "speed": 5.2
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "Estimado paciente,\n\nLa duración total de su estancia en el hospital después de la cirugía mayor abdominal puede variar entre días o semanas, dependiendo de varios factores.\n\nSegún la información proporcionada, la cirugía implica una recuperación de días o semanas.  \n\n*   **En el segundo día:** Es posible que se retire la sonda y el drenaje, y si lo tolera, se pueda comenzar con una dieta triturada. Se administrarán analgésicos orales y se continuarán con los ejercicios respiratorios y los paseos.\n*   **En los días siguientes:** La duración dependerá de su progreso en la recuperación, la tolerancia a la dieta y la respuesta a los analgésicos.  Se le proporcionará información detallada por enfermería en la primera consulta para que pueda resolver cualquier duda con el cirujano.\n\nEn general, la recuperación de una cirugía mayor abdominal puede durar **varios días a semanas**.  Es importante seguir estrictamente las indicaciones del equipo médico, incluyendo la movilización precoz, la alimentación oral temprana y los ejercicios de fisioterapia respiratoria, para prevenir complicaciones y acelerar su recuperación.\n\nLe recomendamos que no dude en contactar con el cirujano si tiene alguna duda o preocupación.\n\n",
+          "coverage": 0.5,
+          "spans_hit": "2/4",
+          "comp_tokens": 256,
+          "time_s": 48.24,
+          "speed": 5.3
+        }
+      ],
+      "avg_coverage": 89.6,
+      "avg_tokens": 244.5,
+      "avg_time": 45.4,
+      "total_time": 363.2
+    },
+    {
+      "config": "exhaustive_full",
+      "system_key": "exhaustive",
+      "template_key": "compact",
+      "max_tokens": 256,
+      "text_source": "full",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "La hemorroidectomía es la cirugía para extirpar las hemorroides internas o externas cuando producen sangrado, dolor o molestias importantes y no han mejorado con tratamientos menos invasivos. Se realiza en quirófano, con anestesia regional o general. La duración de la cirugía es de 30–60 minutos.\n\nSi no se opera, los síntomas pueden empeorar. Puede retirar su consentimiento en cualquier momento antes de la cirugía.\n\nLos beneficios de la cirugía son la eliminación del sangrado y el dolor. Los riesgos incluyen dolor postoperatorio, sangrado leve y complicaciones graves poco frecuentes. La recuperación toma 2–4 semanas.\n",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 137,
+          "time_s": 42.45,
+          "speed": 3.2
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación toma entre 2-4 semanas. Debes ajustar tu medicación habitual y seguir una dieta rica en fibra y líquidos.  Se recomienda un baño de asiento y evitar el dolor moderado.\n\nPara ayudar a prevenir complicaciones, debes realizar movilización precoz, alimentación oral temprana y ejercicios de fisioterapia respiratoria.\n\nPara recuperarte bien, es importante que te muevas pronto.  Al día siguiente de la intervención, podrás permanecer sentado a intervalos en el sillón hasta seis horas, además de caminar distancias cortas, alrededor de cuatro series de 60 metros. Continuarás caminando e intentando una progresión constante.\n",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 141,
+          "time_s": 54.92,
+          "speed": 2.6
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "Antes de la cirugía, debes ayunar 6–8 horas.\n",
+          "coverage": 0.3333333333333333,
+          "spans_hit": "1/3",
+          "comp_tokens": 15,
+          "time_s": 32.55,
+          "speed": 0.5
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "El mismo día de la cirugía puede sentarse en un sillón con la ayuda del personal sanitario o de un familiar. El objetivo es comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones.",
+          "coverage": 0.0,
+          "spans_hit": "0/3",
+          "comp_tokens": 42,
+          "time_s": 67.52,
+          "speed": 0.6
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "Si tiene dolor no debe aguantarse pensando 'es normal que me duela después de una operación'. Esta actitud puede provocar complicaciones y retrasar su recuperación. El anestesiólogo o anestesióloga responsable de su cuidado le prescribirá un tratamiento del dolor adaptado a sus necesidades individuales y al tipo de cirugía. El dolor es una sensación personal de cada paciente y los fármacos que se le administrarán son calmantes que se ponen a un ritmo fijo cada 6 u 8 horas y un calmante denominado 'de rescate' que se dará en los momentos en que lo solicite. Estos fármacos le serán administrados por vía intravenosa (gotero) las primeras 24 o 48 horas y luego por vía oral (pastillas). Para algunas cirugías, el anestesiólogo o anestesiólogo colocará además unos dispositivos especiales para controlar mejor el dolor. Por ejemplo, una bomba de analgesia controlada por el paciente (ACP). Es un aparato que administra los calmantes a un ritmo fijo. Posee una 'perilla' con un botón para que usted mismo pueda darse más dosis. Todo está programado, por lo que no existe peligro de que 'se dé más de la cuenta'. El personal",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 79.45,
+          "speed": 3.2
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber si estás bien en tu recuperación, debes cumplir con los siguientes criterios para el alta:\n\n*   Control efectivo del dolor con analgésicos orales.\n*   Buena tolerancia oral a líquidos y dieta, sin náuseas ni vómitos.\n*   Autonomía en la movilidad.\n\nSi cumples con estos criterios, tu alta hospitalaria está basada en ellos.\n\nSi tienes dudas, consulta con tu médico o la enfermera de la Unidad.",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 99,
+          "time_s": 58.99,
+          "speed": 1.7
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Con una serie de calmantes que se ponen a un ritmo fijo cada 6 u 8 horas y un calmante denominado 'de rescate' que se dará en los momentos en que lo solicite. Estos fármacos le serán administrados por vía intravenosa (gotero) las primeras 24 o 48 horas y luego por vía oral (pastillas). El personal sanitario está a su disposición las 24 horas para controlar su dolor y resolver sus dudas al respecto. El personal de enfermería le controlará el nivel de dolor e irá ajustando el tratamiento prescrito en función del mismo.\n\nNo disponible.\n",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 129,
+          "time_s": 56.09,
+          "speed": 2.3
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "No disponible. Los fragmentos no especifican la duración exacta de la estancia hospitalaria después de la cirugía abdominal.",
+          "coverage": 0.0,
+          "spans_hit": "0/4",
+          "comp_tokens": 23,
+          "time_s": 54.95,
+          "speed": 0.4
+        }
+      ],
+      "avg_coverage": 62.5,
+      "avg_tokens": 105.2,
+      "avg_time": 55.87,
+      "total_time": 446.9
+    },
+    {
+      "config": "structured_full",
+      "system_key": "structured",
+      "template_key": "instructive",
+      "max_tokens": 256,
+      "text_source": "full",
+      "queries": [
+        {
+          "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+          "answer": "Aquí tienes la información sobre la cirugía de hemorroides, organizada en puntos claros, basada en los fragmentos proporcionados:\n\n**1. ¿Qué es la cirugía de hemorroides?**\n\n*   Es una cirugía para extirpar las hemorroides internas o externas cuando producen sangrado, dolor o molestias importantes y no han mejorado con tratamientos menos invasivos.\n*   Se realiza en quirófano, con anestesia regional o general.\n\n**2. ¿Cuánto tiempo dura la cirugía?**\n\n*   La duración de la cirugía es de 30–60 minutos.\n\n**3. ¿Qué se hace exactamente durante la cirugía?**\n\n*   La hemorroidectomía es la cirugía para extirpar las hemorroides internas o externas.\n\n**4. ¿Por qué necesito esta cirugía?**\n\n*   Si no se opera, los síntomas pueden empeorar.\n*   Puede retirar su consentimiento en cualquier momento antes de la cirugía.\n\n**5. ¿Qué riesgos tiene la cirugía?**\n\n*   Dolor postoperatorio.\n*   Sangrado leve.\n*   Complicaciones graves poco frecuentes.\n\n**6. ¿Cuánto tiempo tardaré en recuperarme después de",
+          "coverage": 1.0,
+          "spans_hit": "2/2",
+          "comp_tokens": 256,
+          "time_s": 59.64,
+          "speed": 4.3
+        },
+        {
+          "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+          "answer": "Después de la cirugía de hemorroides, la recuperación generalmente toma **2-4 semanas**.\n\n**Preparación y cuidados posteriores:**\n\n*   **Ayuno:** Debes ayunar durante **6-8 horas** antes de la cirugía.\n*   **Medicamentos:** Ajusta tu medicación habitual. Si tomas anticoagulantes, es importante que los ajustes.\n*   **Dieta:** Sigue una dieta rica en fibra y líquidos después de la operación.\n*   **Dolor:** Espera un dolor moderado después de la cirugía.\n*   **Baños de asiento:** Realiza baños de asiento para aliviar el dolor.\n*   **Recuperación:** La recuperación completa puede tomar 2-4 semanas.\n\n**Movilización Precoz:**\n\n*   Se recomienda comenzar a moverse lo antes posible para acelerar la recuperación.\n*   El personal de enfermería te ayudará a incorporarte de la cama al día de la intervención.\n*   Deberías intentar permanecer sentado fuera de la cama hasta **dos horas** al día.\n*   El día siguiente, podrás permanecer sentado a intervalos en el sillón hasta **seis horas**, además de caminar distancias cortas (alrededor",
+          "coverage": 1.0,
+          "spans_hit": "1/1",
+          "comp_tokens": 256,
+          "time_s": 73.01,
+          "speed": 3.5
+        },
+        {
+          "query": "cuanto tienpo de ayuno antes de la sirugia",
+          "answer": "**Tiempo de ayuno antes de la cirugía:**\n\n*   **Cirugía de fisura anal:** 6–8 horas.\n*   **Cirugía mayor abdominal:** Se recomienda comenzar a beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas después de la operación. Progresivamente, primero unos sorbos de agua en posición semisentada, luego alimentos fáciles de digerir, siempre y cuando no haya náuseas o vómitos.\n*   **Cirugía de hemorroides:** 6–8 horas.\n\n**Ajuste de medicación:**\n\n*   Ajustar la medicación habitual antes de la cirugía.\n\n**Cuidados posteriores:**\n\n*   **Cirugía de fisura anal:**\n    *   Dolor leve-moderado.\n    *   Baños de asiento.\n    *   Dieta con fibra y líquidos.\n    *   Recuperación en 2–3 semanas.\n*   **Cirugía mayor abdominal:**\n    *   El movimiento intestinal se detiene de forma pasajera, pero en la mayoría de los casos se resuelve de forma espontánea en las primeras horas, aunque puede requerir de 3 a 5 días",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 70.76,
+          "speed": 3.6
+        },
+        {
+          "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+          "answer": "Aquí tienes la respuesta detallada, basada en la información proporcionada, abordando la",
+          "coverage": 0.0,
+          "spans_hit": "0/3",
+          "comp_tokens": 17,
+          "time_s": 64.08,
+          "speed": 0.3
+        },
+        {
+          "query": "dolor despues de la operacion es normal? que me dan para el ",
+          "answer": "**Dolor después de la operación: ¿Es normal?**\n\n*   No es normal aguantarse el dolor después de una cirugía mayor abdominal. Puede provocar complicaciones y retrasar la recuperación.\n*   La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.\n\n**¿Qué me dan para el dolor?**\n\n*   Se utilizan calmantes que se administran a un ritmo fijo cada 6 u 8 horas.\n*   También se administra un calmante \"de rescate\" en los momentos en que lo solicite.\n*   Estos fármacos se administran por vía intravenosa (gotero) las primeras 24 o 48 horas y luego por vía oral (pastillas).\n*   Para algunas cirugías, el anestesiólogo o anestesióloga puede colocar dispositivos especiales para controlar el dolor, como una bomba de analgesia controlada por el paciente (ACP). Esta bomba administra los calmantes a un ritmo fijo, con un botón para que puedas dar más dosis si es necesario.\n*   El personal sanitario está disponible las 24 horas para controlar tu dolor y resolver tus dudas.\n\n**¿Cómo se controla el dolor?",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 80.05,
+          "speed": 3.2
+        },
+        {
+          "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+          "answer": "Para saber si tu recuperación está progresando bien y no tienes problemas, considera lo siguiente:\n\n*   **Control efectivo del dolor:** Debes poder controlar el dolor con analgésicos orales.\n*   **Tolerancia oral a líquidos y dieta:** Debes tolerar bien los líquidos y la dieta, sin experimentar náuseas ni vómitos.\n*   **Autonomía en la movilidad:** Debes ser capaz de moverte con autonomía.\n\n**Tiempo de alta:** Tu alta hospitalaria está basada en criterios y objetivos específicos que se cumplirán cuando estés listo. Tu médico te comunicará la fecha probable de alta con antelación.\n\n**Ejercicios de fisioterapia respiratoria:**  A partir de las 4-6 horas después de la intervención, podrás empezar a usar el espirómetro incentivador. La frecuencia de uso será cada 2 horas durante 10 minutos en cada ocasión. Estos ejercicios ayudan a aumentar la ventilación pulmonar, aumentar la fuerza de la musculatura respiratoria y evitar la acumulación de secreciones respiratorias, previniendo infecciones.\n\n**Consulta con el personal sanitario:** Si tienes cualquier duda sobre tu recuperación, no dudes en consultar con tu médico o la enfermera de la",
+          "coverage": 1.0,
+          "spans_hit": "3/3",
+          "comp_tokens": 256,
+          "time_s": 83.56,
+          "speed": 3.1
+        },
+        {
+          "query": "que pasa si me duele mucho despues de la operacion y los cal",
+          "answer": "Si le duele mucho después de la operación y los calmantes no le hacen nada, es importante que se ponga en contacto con el personal sanitario. Aquí hay información relevante de los fragmentos:\n\n*   **Calmantes:** Se le administrarán calmantes a un ritmo fijo cada 6 u 8 horas, y un calmante \"de rescate\" según sea necesario. Estos fármacos se administran por vía intravenosa (gotero) las primeras 24 o 48 horas y luego por vía oral (pastillas).\n*   **Bomba de analgesia controlada por el paciente (ACP):** Para algunas cirugías, el anestesiólogo o anestesióloga puede colocar una bomba de analgesia controlada por el paciente. Esta bomba administra los calmantes a un ritmo fijo y permite ajustar la dosis según sea necesario.\n*   **Control del dolor:** El personal sanitario está disponible las 24 horas para controlar su dolor y resolver sus dudas. El personal de enfermería controlará el nivel de dolor e irá ajustando el tratamiento prescrito en función del mismo.\n*   **Si los calmantes no funcionan:** Si los calmantes no son efectivos, es crucial que se ponga en contacto",
+          "coverage": 0.6666666666666666,
+          "spans_hit": "2/3",
+          "comp_tokens": 256,
+          "time_s": 76.43,
+          "speed": 3.3
+        },
+        {
+          "query": "cuantos dias estare en el hospital despues de la operacion d",
+          "answer": "Según los fragmentos, el tiempo de permanencia en el hospital después de la cirugía mayor abdominal varía, pero no se especifica un número exacto de días. \n\n*   La cirugía mayor es una operación compleja que suele requerir anestesia general y la recuperación posterior puede llevar varios días o semanas.\n*   El segundo día después de la operación, se le quitará la sonda urinaria (si la tiene) y el drenaje (si lo tiene).\n*   Si tolera bien los líquidos, puede comenzar a tomar dieta triturada.\n*   Se le administrarán analgésicos para el dolor por vía oral.\n*   Se le indicará que continúe con los ejercicios respiratorios y paseos.\n\nEs importante que hable con su cirujano o cirujana para obtener información más precisa sobre el tiempo de permanencia en el hospital, ya que esto puede variar según el tipo de operación y su estado de salud.\n",
+          "coverage": 0.5,
+          "spans_hit": "2/4",
+          "comp_tokens": 198,
+          "time_s": 82.99,
+          "speed": 2.4
+        }
+      ],
+      "avg_coverage": 77.1,
+      "avg_tokens": 218.9,
+      "avg_time": 73.81,
+      "total_time": 590.5
+    }
+  ]
+}

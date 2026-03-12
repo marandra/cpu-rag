@@ -1,0 +1,79 @@
+[
+  {
+    "model": "SmolLM3-3B",
+    "size_gb": 1.92,
+    "load_time": 3.7,
+    "avg_coverage": 77.1,
+    "avg_tokens": 245.2,
+    "avg_time": 102.7,
+    "avg_ttft": 30.93,
+    "avg_speed": 2.39,
+    "total_time": 821.3,
+    "queries": [
+      {
+        "query": "me van a operar de hemorroides y estoy muy nervioso que me v",
+        "coverage": 1.0,
+        "tokens": 256,
+        "time": 105.8,
+        "ttft": 28.05,
+        "speed": 2.4
+      },
+      {
+        "query": "despues de que me operen de las almorranas cuanto tiempo tar",
+        "coverage": 1.0,
+        "tokens": 256,
+        "time": 99.6,
+        "ttft": 30.82,
+        "speed": 2.6
+      },
+      {
+        "query": "cuanto tienpo de ayuno antes de la sirugia",
+        "coverage": 1.0,
+        "tokens": 170,
+        "time": 76.4,
+        "ttft": 22.38,
+        "speed": 2.2
+      },
+      {
+        "query": "por que me hacen levantarme el mismo dia de la operacion si ",
+        "coverage": 0.667,
+        "tokens": 256,
+        "time": 111.6,
+        "ttft": 35.56,
+        "speed": 2.3
+      },
+      {
+        "query": "dolor despues de la operacion es normal? que me dan para el ",
+        "coverage": 0.667,
+        "tokens": 256,
+        "time": 122.2,
+        "ttft": 32.4,
+        "speed": 2.1
+      },
+      {
+        "query": "como se yo que me esta llendo bien la recuperacion y que no ",
+        "coverage": 1.0,
+        "tokens": 256,
+        "time": 128.2,
+        "ttft": 35.42,
+        "speed": 2.0
+      },
+      {
+        "query": "que pasa si me duele mucho despues de la operacion y los cal",
+        "coverage": 0.333,
+        "tokens": 256,
+        "time": 93.4,
+        "ttft": 31.22,
+        "speed": 2.7
+      },
+      {
+        "query": "cuantos dias estare en el hospital despues de la operacion d",
+        "coverage": 0.5,
+        "tokens": 256,
+        "time": 84.3,
+        "ttft": 31.6,
+        "speed": 3.0
+      }
+    ]
+  }
+]
