@@ -1,12 +1,13 @@
 """
-Interactive RAG chat: load once, ask many questions with streaming output.
+Interactive RAG: load once, ask many questions with streaming output.
 
 Shows per-stage timing (retrieval, TTFT, generation) and a final summary.
 
 Usage:
     python inspect_rag.py
+    python inspect_rag.py --model gemma-3n
     python inspect_rag.py --strategy hybrid --top-k 5
-    python inspect_rag.py --model models/google_gemma-3n-E2B-it-Q4_K_M.gguf
+    python inspect_rag.py --retrieval-only
 """
 
 import argparse
@@ -20,17 +21,34 @@ from src.retrieval import STRATEGIES, build_retriever
 # --- Defaults ---
 QDRANT_PATH = "./qdrant_manual"
 COLLECTION_NAME = "medical_docs"
-DEFAULT_MODEL = "./models/granite-4.0-1b-Q4_K_M.gguf"
+DEFAULT_MODEL = "granite-1b"
 DEFAULT_STRATEGY = "hybrid"
 DEFAULT_TOP_K = 5
 DEFAULT_MAX_TOKENS = 256
+
+# --- Model aliases (--model accepts short name or full path) ---
+MODEL_ALIASES = {
+    "granite-1b":   "./models/granite-4.0-1b-Q4_K_M.gguf",
+    "gemma-3n":     "./models/google_gemma-3n-E2B-it-Q4_K_M.gguf",
+    "gemma-1b":     "./models/gemma-3-1b-it-Q4_K_M.gguf",
+    "qwen3.5-2b":   "./models/Qwen3.5-2B-Q4_K_M.gguf",
+    "qwen3.5-0.8b": "./models/Qwen3.5-0.8B-Q4_K_M.gguf",
+    "qwen3-0.6b":   "./models/Qwen3-0.6B-Q4_K_M.gguf",
+    "qwen2.5-1.5b": "./models/qwen2.5-1.5b-instruct-Q4_K_M.gguf",
+    "qwen2.5-0.5b": "./models/qwen2.5-0.5b-instruct-Q4_K_M.gguf",
+    "llama-3b":     "./models/llama-3.2-3b-instruct-Q4_K_M.gguf",
+    "llama-1b":     "./models/llama-3.2-1b-instruct-Q4_K_M.gguf",
+    "smollm2":      "./models/SmolLM2-1.7B-Instruct-Q4_K_M.gguf",
+    "smollm3":      "./models/SmolLM3-3B-Q4_K_M.gguf",
+    "ministral":    "./models/Ministral-3-3B-Q4_K_M.gguf",
+    "pleias":       "./models/Pleias-RAG-1B.gguf",
+}
 
 # --- Reranker options (uncomment one) ---
 # RERANK_MODEL = "BAAI/bge-reranker-v2-m3"                    # 568M, multilingual, best quality
 RERANK_MODEL = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"  # 66M, multilingual (mMARCO, includes Spanish), fast
 # RERANK_MODEL = "cross-encoder/mmarco-mMiniLMv2-L6-H384-v1"   # 22M, multilingual, fastest
 RERANK_CANDIDATES = 8  # chunks scored by reranker; best top_k are kept
-MAX_HISTORY_TURNS = 3
 
 SYSTEM_PROMPT_TEMPLATE = (
     "Eres un asistente médico{procedure_clause}.\n\n"
@@ -64,29 +82,53 @@ def build_prompt(query: str, chunks: list[tuple]) -> str:
     return PROMPT_TEMPLATE.format(context=context, query=query)
 
 
-def build_messages(
-    system_prompt: str, chat_history: list[tuple[str, str]], current_prompt: str
-) -> list[dict]:
-    """Build messages list with system prompt, conversation history, and current prompt.
+def print_chunk(i: int, doc, score: float):
+    """Display a retrieved chunk with color-coded sections.
 
-    Previous turns include only the bare question (no chunks) so the model has
-    conversational context without wasting tokens re-reading old fragments.
+    [i] score + source    — bold white
+    [full] original text  — yellow (the actual document text)
+    [compact] summary     — cyan
+    questions + concerns  — cyan
     """
-    messages = [{"role": "system", "content": system_prompt}]
-    for q, a in chat_history[-MAX_HISTORY_TURNS:]:
-        messages.append({"role": "user", "content": q})
-        messages.append({"role": "assistant", "content": a})
-    messages.append({"role": "user", "content": current_prompt})
-    return messages
+    src = doc.metadata.get("source", "?")
+    original = doc.metadata.get("page_content_original", "")
+    compact = doc.metadata.get("page_content_compact", "")
+    questions = doc.metadata.get("doc2query_questions", [])
+    concerns = doc.metadata.get("doc2query_concerns", [])
+
+    # Header
+    print(f"\033[1m  [{i}] score={score:.4f}  src={src}\033[0m")
+    print()
+
+    # Original text (yellow)
+    print(f"\033[33m  [full] {original or doc.page_content}\033[0m")
+    print()
+
+    # Compact summary (cyan)
+    if compact:
+        print(f"\033[36m  [compact] {compact}\033[0m")
+        print()
+
+    # Questions (dim)
+    if questions:
+        print(f"\033[2m  Preguntas frecuentes:\033[0m")
+        for q in questions:
+            print(f"\033[2m  {q}\033[0m")
+        print()
+
+    # Concerns (dim)
+    if concerns:
+        print(f"\033[2m  El paciente dice:\033[0m")
+        for c in concerns:
+            print(f"\033[2m  {c}\033[0m")
+
+    print()
 
 
 def stream_and_print(model, messages: list[dict], max_tokens: int, t_question: float):
     """Stream generation, printing tokens as they arrive.
 
-    t_question is the perf_counter timestamp when the user submitted the question.
-    Returns (ttft, decode_time, n_tokens, text) where:
-      - ttft: time from question submission to first visible token
-      - decode_time: time from first token to last token (pure decode speed)
+    Returns (ttft, decode_time, n_tokens, text).
     """
     t_first_token = None
     full_text = ""
@@ -113,9 +155,8 @@ def stream_and_print(model, messages: list[dict], max_tokens: int, t_question: f
 
 def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt: str,
                      *, retrieval_only: bool = False, procedure: str | None = None):
-    """Interactive chat loop with conversation history. Returns timing dicts."""
+    """Interactive loop: one query at a time (no conversation history)."""
     timing_history = []
-    chat_history: list[tuple[str, str]] = []  # (bare_query, response) pairs
     print("\nType your question (or 'exit' / Ctrl+D to quit).\n")
 
     while True:
@@ -138,13 +179,7 @@ def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt
         # Show chunks
         print(f"\n\033[2m── retrieved {len(results)} chunks in {t_retrieval:.2f}s ──\033[0m\n")
         for i, (doc, score) in enumerate(results, 1):
-            src = doc.metadata.get("source", "?")
-            compact = doc.metadata.get("page_content_compact", "")
-            print(f"\033[1;2m  [{i}] score={score:.4f}  src={src}\033[0m")
-            if compact and compact != doc.page_content:
-                print(f"\033[36m  [compact] {compact}\033[0m")
-            print(f"\033[36m  [full] {doc.page_content}\033[0m")
-            print()
+            print_chunk(i, doc, score)
 
         if retrieval_only:
             timing_history.append({
@@ -154,23 +189,24 @@ def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt
             })
             continue
 
-        # --- Build prompt and messages ---
+        # --- Build prompt and generate ---
         prompt = build_prompt(query, results)
-        messages = build_messages(system_prompt, chat_history, prompt)
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt},
+        ]
         prompt_tokens = len(model.tokenize(prompt.encode("utf-8"), add_bos=False))
 
-        # Show prompt
-        hist_note = f", history={len(chat_history)} turns" if chat_history else ""
-        print(f"\033[2m── prompt ({prompt_tokens} tokens{hist_note}) ──\033[0m")
-        print(f"\033[33m{prompt}\033[0m")
+        # Show system prompt + user prompt together
+        print(f"\033[2m── prompt ({prompt_tokens} tokens) ──\033[0m")
+        print(f"\033[35m{system_prompt}\033[0m")
+        print()
+        print(f"\033[36m{prompt}\033[0m")
 
         # --- Generate (streaming) ---
         tag = f"q{len(timing_history) + 1}"
         print(f"\n\033[2m── generating ({tag}) ──\033[0m\n")
         ttft, decode_time, n_tokens, text = stream_and_print(model, messages, max_tokens, t_question)
-
-        # Save conversation for context in follow-up questions
-        chat_history.append((query, text))
 
         # Timing
         speed = (n_tokens - 1) / decode_time if decode_time > 0 and n_tokens > 1 else 0
@@ -254,12 +290,24 @@ def print_summary(history: list[dict], setup_times: dict):
     print()
 
 
+def resolve_model(name: str) -> str:
+    """Resolve a model alias to its path, or return the name as-is if it's a path."""
+    return MODEL_ALIASES.get(name, name)
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Interactive RAG chat with timing")
+    aliases_list = ", ".join(MODEL_ALIASES)
+    parser = argparse.ArgumentParser(
+        description="Interactive RAG chat with timing",
+        epilog=f"Model aliases: {aliases_list}",
+    )
     parser.add_argument("--strategy", default=DEFAULT_STRATEGY, choices=STRATEGIES)
     parser.add_argument("--top-k", type=int, default=DEFAULT_TOP_K)
     parser.add_argument("--tokenizer", default="spacy")
-    parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument(
+        "--model", default=DEFAULT_MODEL,
+        help="Model alias (e.g. gemma-3n) or path to .gguf file",
+    )
     parser.add_argument("--max-tokens", type=int, default=DEFAULT_MAX_TOKENS)
     parser.add_argument("--n-ctx", type=int, default=2048)
     parser.add_argument(
@@ -274,6 +322,8 @@ def main():
         help="Skip model loading and generation; only show retrieved chunks.",
     )
     args = parser.parse_args()
+
+    model_path = resolve_model(args.model)
 
     # --- Build system prompt ---
     if args.procedure:
@@ -303,14 +353,14 @@ def main():
 
     model = None
     if not args.retrieval_only:
-        print(f"\033[2mLoading model ({args.model})...\033[0m", end="", flush=True)
+        print(f"\033[2mLoading model ({args.model} → {model_path})...\033[0m", end="", flush=True)
         t0 = time.perf_counter()
         # Suppress llama.cpp C++ stderr warnings (e.g. n_ctx < n_ctx_train)
         devnull = os.open(os.devnull, os.O_WRONLY)
         old_stderr = os.dup(2)
         os.dup2(devnull, 2)
         try:
-            model = load_model(args.model, n_ctx=args.n_ctx)
+            model = load_model(model_path, n_ctx=args.n_ctx)
         finally:
             os.dup2(old_stderr, 2)
             os.close(devnull)
@@ -318,10 +368,22 @@ def main():
         setup_times["LLM"] = time.perf_counter() - t0
         print(f"\033[2m {setup_times['LLM']:.2f}s\033[0m")
 
+        # Warmup: exercise prefill with a prompt similar in length to a real
+        # RAG query so mmap pages are loaded and caches are hot.
+        print(f"\033[2mWarming up model...\033[0m", end="", flush=True)
+        t0 = time.perf_counter()
+        warmup_prompt = "FRAGMENTOS:\n" + "Texto médico de ejemplo. " * 60 + "\n\nPREGUNTA: pregunta"
+        model.create_chat_completion(
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": warmup_prompt},
+            ],
+            max_tokens=1, temperature=0,
+        )
+        setup_times["Warmup"] = time.perf_counter() - t0
+        print(f"\033[2m {setup_times['Warmup']:.2f}s\033[0m")
+
     print(f"\033[2mtop_k={args.top_k}  max_tokens={args.max_tokens}  n_ctx={args.n_ctx}\033[0m")
-    if not args.retrieval_only:
-        print(f"\033[2m── system prompt ──\033[0m")
-        print(f"\033[35m{system_prompt}\033[0m\n")
 
     # --- Interactive loop ---
     try:
