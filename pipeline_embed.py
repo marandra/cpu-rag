@@ -19,8 +19,8 @@ from src.embeddings import (
 
 # --- Configuration ---
 CHUNKS_DIR = "./chunks"
-VECTOR_SIZE = 384
-QDRANT_PATH = "./qdrant_data"
+VECTOR_SIZE = 768
+QDRANT_PATH = "./qdrant_manual"
 COLLECTION_NAME = "medical_docs"
 
 # --- Load chunks ---

@@ -18,12 +18,18 @@ from src.llm import load_model
 from src.retrieval import STRATEGIES, build_retriever
 
 # --- Defaults ---
-QDRANT_PATH = "./sweep_qdrant/mt512_ov0.20_cp_llm"
+QDRANT_PATH = "./qdrant_manual"
 COLLECTION_NAME = "medical_docs"
 DEFAULT_MODEL = "./models/granite-4.0-1b-Q4_K_M.gguf"
 DEFAULT_STRATEGY = "hybrid"
-DEFAULT_TOP_K = 3
+DEFAULT_TOP_K = 5
 DEFAULT_MAX_TOKENS = 256
+
+# --- Reranker options (uncomment one) ---
+# RERANK_MODEL = "BAAI/bge-reranker-v2-m3"                    # 568M, multilingual, best quality
+RERANK_MODEL = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"  # 66M, multilingual (mMARCO, includes Spanish), fast
+# RERANK_MODEL = "cross-encoder/mmarco-mMiniLMv2-L6-H384-v1"   # 22M, multilingual, fastest
+RERANK_CANDIDATES = 8  # chunks scored by reranker; best top_k are kept
 MAX_HISTORY_TURNS = 3
 
 SYSTEM_PROMPT_TEMPLATE = (
@@ -105,7 +111,8 @@ def stream_and_print(model, messages: list[dict], max_tokens: int, t_question: f
     return ttft, decode_time, n_tokens, full_text
 
 
-def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt: str):
+def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt: str,
+                     *, retrieval_only: bool = False, procedure: str | None = None):
     """Interactive chat loop with conversation history. Returns timing dicts."""
     timing_history = []
     chat_history: list[tuple[str, str]] = []  # (bare_query, response) pairs
@@ -122,9 +129,10 @@ def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt
 
         t_question = time.perf_counter()
 
-        # --- Retrieval ---
+        # --- Retrieval (augment query with procedure context) ---
+        retrieval_query = f"{procedure}: {query}" if procedure else query
         t0 = time.perf_counter()
-        results = retriever.retrieve(query, top_k=top_k)
+        results = retriever.retrieve(retrieval_query, top_k=top_k)
         t_retrieval = time.perf_counter() - t0
 
         # Show chunks
@@ -137,6 +145,14 @@ def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt
                 print(f"\033[36m  [compact] {compact}\033[0m")
             print(f"\033[36m  [full] {doc.page_content}\033[0m")
             print()
+
+        if retrieval_only:
+            timing_history.append({
+                "query": query,
+                "tag": f"q{len(timing_history) + 1}",
+                "retrieval": t_retrieval,
+            })
+            continue
 
         # --- Build prompt and messages ---
         prompt = build_prompt(query, results)
@@ -195,7 +211,21 @@ def print_summary(history: list[dict], setup_times: dict):
         return
 
     # Per-query table
+    retrieval_only = "ttft" not in history[0]
     print(f"\n  Queries ({len(history)} total)")
+    if retrieval_only:
+        print(f"  {'─' * 25}")
+        print(f"  {'#':5s} {'Retrieval':>10s}")
+        print(f"  {'─' * 25}")
+        for h in history:
+            print(f"  {h['tag']:5s} {h['retrieval']:>9.2f}s")
+        if len(history) > 1:
+            avg_ret = sum(h["retrieval"] for h in history) / len(history)
+            print(f"  {'─' * 25}")
+            print(f"  {'avg':5s} {avg_ret:>9.2f}s")
+        print()
+        return
+
     print(f"  {'─' * 65}")
     print(f"  {'#':5s} {'Retrieval':>10s} {'TTFT':>8s} {'Decode':>8s} {'Total':>8s} {'Tokens':>7s} {'tok/s':>7s}")
     print(f"  {'─' * 65}")
@@ -238,6 +268,11 @@ def main():
         help="Procedure context, e.g. 'cirugía de hemorroides'. "
         "Helps the model resolve ambiguous questions.",
     )
+    parser.add_argument(
+        "--retrieval-only",
+        action="store_true",
+        help="Skip model loading and generation; only show retrieved chunks.",
+    )
     args = parser.parse_args()
 
     # --- Build system prompt ---
@@ -258,34 +293,41 @@ def main():
     print(f"\033[2mLoading retriever ({args.strategy}, {args.tokenizer})...\033[0m", end="", flush=True)
     t0 = time.perf_counter()
     retriever = build_retriever(
-        client, COLLECTION_NAME, strategy=args.strategy, tokenizer=args.tokenizer
+        client, COLLECTION_NAME, strategy=args.strategy, tokenizer=args.tokenizer,
+        rerank_model=RERANK_MODEL, rerank_candidates=RERANK_CANDIDATES,
     )
+    if hasattr(retriever, "preload"):
+        retriever.preload()
     setup_times["Retriever"] = time.perf_counter() - t0
     print(f"\033[2m {setup_times['Retriever']:.2f}s\033[0m")
 
-    print(f"\033[2mLoading model ({args.model})...\033[0m", end="", flush=True)
-    t0 = time.perf_counter()
-    # Suppress llama.cpp C++ stderr warnings (e.g. n_ctx < n_ctx_train)
-    devnull = os.open(os.devnull, os.O_WRONLY)
-    old_stderr = os.dup(2)
-    os.dup2(devnull, 2)
-    try:
-        model = load_model(args.model, n_ctx=args.n_ctx)
-    finally:
-        os.dup2(old_stderr, 2)
-        os.close(devnull)
-        os.close(old_stderr)
-    setup_times["LLM"] = time.perf_counter() - t0
-    print(f"\033[2m {setup_times['LLM']:.2f}s\033[0m")
+    model = None
+    if not args.retrieval_only:
+        print(f"\033[2mLoading model ({args.model})...\033[0m", end="", flush=True)
+        t0 = time.perf_counter()
+        # Suppress llama.cpp C++ stderr warnings (e.g. n_ctx < n_ctx_train)
+        devnull = os.open(os.devnull, os.O_WRONLY)
+        old_stderr = os.dup(2)
+        os.dup2(devnull, 2)
+        try:
+            model = load_model(args.model, n_ctx=args.n_ctx)
+        finally:
+            os.dup2(old_stderr, 2)
+            os.close(devnull)
+            os.close(old_stderr)
+        setup_times["LLM"] = time.perf_counter() - t0
+        print(f"\033[2m {setup_times['LLM']:.2f}s\033[0m")
 
     print(f"\033[2mtop_k={args.top_k}  max_tokens={args.max_tokens}  n_ctx={args.n_ctx}\033[0m")
-    print(f"\033[2m── system prompt ──\033[0m")
-    print(f"\033[35m{system_prompt}\033[0m\n")
+    if not args.retrieval_only:
+        print(f"\033[2m── system prompt ──\033[0m")
+        print(f"\033[35m{system_prompt}\033[0m\n")
 
     # --- Interactive loop ---
     try:
         history = run_interactive(
-            retriever, model, args.top_k, args.max_tokens, system_prompt
+            retriever, model, args.top_k, args.max_tokens, system_prompt,
+            retrieval_only=args.retrieval_only, procedure=args.procedure,
         )
     except Exception:
         import traceback

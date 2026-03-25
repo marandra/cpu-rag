@@ -48,7 +48,7 @@ with _suppress_stderr():
 _model: NomicEmbeddings | None = None
 
 
-def _get_model(dimensionality: int = 384) -> NomicEmbeddings:
+def _get_model(dimensionality: int = 768) -> NomicEmbeddings:
     """Get or initialize the embedding model (singleton)."""
     global _model
     if _model is None:
@@ -62,7 +62,7 @@ def _get_model(dimensionality: int = 384) -> NomicEmbeddings:
     return _model
 
 
-def embed_documents(texts: list[str], dimensionality: int = 384) -> list[list[float]]:
+def embed_documents(texts: list[str], dimensionality: int = 768) -> list[list[float]]:
     """Embed a list of texts. Returns list of vectors."""
     if not texts:
         return []
@@ -71,7 +71,7 @@ def embed_documents(texts: list[str], dimensionality: int = 384) -> list[list[fl
         return model.embed_documents(texts)
 
 
-def embed_query(text: str, dimensionality: int = 384) -> list[float]:
+def embed_query(text: str, dimensionality: int = 768) -> list[float]:
     """Embed a single query text. Returns one vector."""
     model = _get_model(dimensionality)
     with _suppress_stderr():
@@ -87,7 +87,7 @@ class VectorStoreConfig:
 
     path: str = "./qdrant_data"
     collection_name: str = "medical_docs"
-    vector_size: int = 384
+    vector_size: int = 768
     distance: str = "Cosine"
 
 

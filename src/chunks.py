@@ -25,7 +25,7 @@ from langchain_text_splitters import (
 
 DOCUMENT_TYPE_PRESETS = {
     "paper": {"max_tokens": 512, "overlap_ratio": 0.25},
-    "guideline": {"max_tokens": 768, "overlap_ratio": 0.30},
+    "guideline": {"max_tokens": 512, "overlap_ratio": 0.20},
     "educational": {"max_tokens": 512, "overlap_ratio": 0.25},
     "faq": {"max_tokens": 256, "overlap_ratio": 0.10},
 }
@@ -43,7 +43,7 @@ class ChunkConfig:
 
     max_tokens: int = 512
     overlap_ratio: float = 0.25
-    min_chunk_size: int = 100
+    min_chunk_size: int = 50
     tokenizer_model: str = "gpt-4o-mini"
     output_dir: str = "chunks"
     custom_metadata: dict | None = None
@@ -197,7 +197,7 @@ def split_faq(markdown_text: str, config: ChunkConfig) -> list[Document]:
     """
     blocks = re.split(r"\n\n+", markdown_text)
 
-    avg_chars_per_token = 4
+    avg_chars_per_token = 5
     max_chars = config.max_tokens * avg_chars_per_token
     overlap_chars = int(max_chars * config.overlap_ratio)
 
@@ -263,7 +263,7 @@ def split_markdown(markdown_text: str, config: ChunkConfig, doctype: str | None 
     sections = header_splitter.split_text(markdown_text)
 
     # 2. Token-based split within sections
-    avg_chars_per_token = 4
+    avg_chars_per_token = 5
     max_chars = config.max_tokens * avg_chars_per_token
     overlap_chars = int(max_chars * config.overlap_ratio)
 
@@ -342,17 +342,27 @@ def enrich_chunks(documents: list[Document]) -> list[Document]:
 _ENRICHMENT_PROMPT = """\
 Eres un asistente especializado en documentación médica para pacientes.
 
-Dado el siguiente fragmento de una guía médica, genera DOS cosas:
+Dado el siguiente fragmento de una guía médica, genera TRES cosas:
 
 1. **compact**: Un resumen muy conciso en español (máximo 40-60 palabras) que \
 preserve los datos clave del fragmento: cifras, dosis, duraciones, nombres de \
 procedimientos, medicamentos y recomendaciones concretas. Elimina redundancias, \
 explicaciones y texto de relleno. No añadas nada que no esté en el fragmento.
 
-2. **questions**: Exactamente {n} preguntas distintas que un paciente podría \
-hacer cuya respuesta esté en este fragmento. Usa lenguaje coloquial de paciente \
-(no terminología médica), varía el tipo (¿qué?, ¿cuándo?, ¿por qué?, ¿cómo?, \
-¿puedo...?).
+2. **questions**: Exactamente {n} preguntas distintas que un paciente haría \
+cuya respuesta esté en este fragmento. Ponte en la piel del paciente: está \
+preocupado, tiene miedo, no entiende bien qué le van a hacer, o quiere saber \
+sus opciones. Usa lenguaje coloquial y emocional (como hablaría un paciente \
+real, no un médico). Varía entre preguntas directas, expresiones de \
+preocupación y peticiones de consejo. \
+Ejemplo: en vez de "¿Cuáles son los tratamientos médicos?", escribe \
+"¿Hay algo que pueda hacer para no tener que operarme?".
+
+3. **concerns**: Exactamente 3 frases cortas que un paciente diría cuando \
+NECESITA esta información pero no sabe pedirla. Son expresiones emocionales \
+o situacionales, no preguntas formales. \
+Ejemplo: "No quiero que me operen", "Me da miedo la cirugía", \
+"Quiero probar otra cosa antes".
 
 Fragmento:
 ---
@@ -360,7 +370,7 @@ Fragmento:
 ---
 
 Responde SOLO con JSON válido (sin markdown):
-{{"compact": "resumen aquí", "questions": ["pregunta 1", "pregunta 2"]}}"""
+{{"compact": "resumen aquí", "questions": ["p1", "p2"], "concerns": ["c1", "c2", "c3"]}}"""
 
 
 def generate_chunk_enrichment(
@@ -399,9 +409,12 @@ def generate_chunk_enrichment(
         parsed = json.loads(response.choices[0].message.content)
         compact = parsed.get("compact", "")
         questions = parsed.get("questions", [])
+        concerns = parsed.get("concerns", [])
 
         enriched_content = (
-            doc.page_content + "\n\nPreguntas frecuentes:\n" + "\n".join(questions)
+            doc.page_content
+            + "\n\nPreguntas frecuentes:\n" + "\n".join(questions)
+            + "\n\nEl paciente dice:\n" + "\n".join(concerns)
         )
         enriched.append(
             Document(
@@ -410,12 +423,14 @@ def generate_chunk_enrichment(
                     **doc.metadata,
                     "page_content_compact": compact,
                     "doc2query_questions": questions,
+                    "doc2query_concerns": concerns,
                 },
             )
         )
         n_q = len(questions)
+        n_c = len(concerns)
         compact_len = len(compact)
-        print(f"    [{i + 1}/{len(documents)}] +{n_q} questions, compact={compact_len} chars")
+        print(f"    [{i + 1}/{len(documents)}] +{n_q} questions, +{n_c} concerns, compact={compact_len} chars")
 
     return enriched
 

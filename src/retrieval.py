@@ -145,7 +145,7 @@ class HybridRetriever(Retriever):
         vector: Retriever,
         keyword: Retriever,
         rrf_k: int = 60,
-        candidate_factor: int = 3,
+        candidate_factor: int = 5,
     ):
         self.vector = vector
         self.keyword = keyword
@@ -205,10 +205,36 @@ class RerankedRetriever(Retriever):
     def _get_model(self):
         """Lazy-load cross-encoder (singleton per model_name)."""
         if self.model_name not in self._model_cache:
-            from sentence_transformers import CrossEncoder
-
-            self._model_cache[self.model_name] = CrossEncoder(self.model_name)
+            self._load_model()
         return self._model_cache[self.model_name]
+
+    def _load_model(self):
+        """Load the cross-encoder, suppressing noisy library output."""
+        import logging
+        import os
+
+        from sentence_transformers import CrossEncoder
+
+        # Suppress progress bars, load reports, and HF warnings
+        loggers = ["sentence_transformers", "transformers", "huggingface_hub"]
+        old_levels = {name: logging.getLogger(name).level for name in loggers}
+        for name in loggers:
+            logging.getLogger(name).setLevel(logging.ERROR)
+        old_stderr = os.dup(2)
+        devnull = os.open(os.devnull, os.O_WRONLY)
+        os.dup2(devnull, 2)
+        try:
+            self._model_cache[self.model_name] = CrossEncoder(self.model_name)
+        finally:
+            os.dup2(old_stderr, 2)
+            os.close(devnull)
+            os.close(old_stderr)
+            for name, level in old_levels.items():
+                logging.getLogger(name).setLevel(level)
+
+    def preload(self):
+        """Eagerly load the cross-encoder model (call during setup)."""
+        self._get_model()
 
     def _retrieve(self, query: str, top_k: int) -> list[tuple[Document, float]]:
         candidates = self.base.retrieve(query, top_k=self.candidates)
@@ -216,7 +242,10 @@ class RerankedRetriever(Retriever):
             return []
 
         model = self._get_model()
-        pairs = [(query, doc.page_content) for doc, _score in candidates]
+        pairs = [
+            (query, doc.metadata.get("page_content_compact") or doc.page_content)
+            for doc, _score in candidates
+        ]
         rerank_scores = model.predict(pairs)
 
         scored = list(zip(candidates, rerank_scores))
