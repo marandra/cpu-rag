@@ -22,7 +22,7 @@ from src.retrieval import STRATEGIES, build_retriever
 QDRANT_PATH = "./qdrant_manual"
 COLLECTION_NAME = "medical_docs"
 DEFAULT_MODEL = "granite-1b"
-DEFAULT_STRATEGY = "hybrid"
+DEFAULT_STRATEGY = "hybrid+rerank"
 DEFAULT_TOP_K = 5
 DEFAULT_MAX_TOKENS = 256
 
@@ -49,6 +49,13 @@ MODEL_ALIASES = {
 RERANK_MODEL = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"  # 66M, multilingual (mMARCO, includes Spanish), fast
 # RERANK_MODEL = "cross-encoder/mmarco-mMiniLMv2-L6-H384-v1"   # 22M, multilingual, fastest
 RERANK_CANDIDATES = 8  # chunks scored by reranker; best top_k are kept
+
+# --- Known procedures (used as retrieval context and in system prompt) ---
+PROCEDURES = {
+    "hemorroides": "cirugía de hemorroides",
+    "fisura":      "cirugía de fisura anal",
+}
+DEFAULT_PROCEDURE = "hemorroides"
 
 SYSTEM_PROMPT_TEMPLATE = (
     "Eres un asistente médico{procedure_clause}.\n\n"
@@ -310,11 +317,12 @@ def main():
     )
     parser.add_argument("--max-tokens", type=int, default=DEFAULT_MAX_TOKENS)
     parser.add_argument("--n-ctx", type=int, default=2048)
+    procedures_list = ", ".join(f"{k} ({v})" for k, v in PROCEDURES.items())
     parser.add_argument(
         "--procedure",
         default=None,
-        help="Procedure context, e.g. 'cirugía de hemorroides'. "
-        "Helps the model resolve ambiguous questions.",
+        choices=list(PROCEDURES),
+        help=f"Procedure context key. Available: {procedures_list}",
     )
     parser.add_argument(
         "--retrieval-only",
@@ -325,9 +333,12 @@ def main():
 
     model_path = resolve_model(args.model)
 
+    # --- Resolve procedure ---
+    procedure = PROCEDURES[args.procedure] if args.procedure else None
+
     # --- Build system prompt ---
-    if args.procedure:
-        procedure_clause = f" que responde preguntas de pacientes sobre {args.procedure}"
+    if procedure:
+        procedure_clause = f" que responde preguntas de pacientes sobre {procedure}"
     else:
         procedure_clause = " que responde preguntas de pacientes"
     system_prompt = SYSTEM_PROMPT_TEMPLATE.format(procedure_clause=procedure_clause)
@@ -389,7 +400,7 @@ def main():
     try:
         history = run_interactive(
             retriever, model, args.top_k, args.max_tokens, system_prompt,
-            retrieval_only=args.retrieval_only, procedure=args.procedure,
+            retrieval_only=args.retrieval_only, procedure=procedure,
         )
     except Exception:
         import traceback

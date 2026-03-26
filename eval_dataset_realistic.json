@@ -1,6 +1,6 @@
 [
   {
-    "query": "me van a operar de hemorroides y estoy muy nervioso que me van a hacer exactamente",
+    "query": "me van a operar y estoy muy nervioso que me van a hacer exactamente",
     "intent": "Descripción del procedimiento de hemorroidectomía",
     "answerable": true,
     "profile": "ansioso",
@@ -21,7 +21,7 @@
     ]
   },
   {
-    "query": "cuanto dura la operasion de emorroide",
+    "query": "cuanto dura la operasion",
     "intent": "Duración de la hemorroidectomía",
     "answerable": true,
     "profile": "baja_alfabetización",
@@ -41,7 +41,7 @@
     ]
   },
   {
-    "query": "q pasa si no me opero de las hemorroides",
+    "query": "q pasa si no me opero",
     "intent": "Consecuencias de no operarse de hemorroides",
     "answerable": true,
     "profile": "joven",
@@ -59,7 +59,7 @@
     ]
   },
   {
-    "query": "hay alguna otra cosa que se pueda hacer antes de operar las hemorroides? no quiero operarme",
+    "query": "hay alguna otra cosa que se pueda hacer antes de operar? no quiero operarme",
     "intent": "Alternativas a la cirugía de hemorroides",
     "answerable": true,
     "profile": "ansioso",
@@ -81,7 +81,7 @@
     ]
   },
   {
-    "query": "riesgos operacion hemorroides",
+    "query": "riesgos",
     "intent": "Complicaciones de la hemorroidectomía",
     "answerable": true,
     "profile": "joven",
@@ -103,7 +103,7 @@
     ]
   },
   {
-    "query": "despues de que me operen de las almorranas cuanto tiempo tardo en recuperarme y que tengo que hacer",
+    "query": "despues de que me operen cuanto tiempo tardo en recuperarme y que tengo que hacer",
     "intent": "Recuperación post-hemorroidectomía",
     "answerable": true,
     "profile": "mayor",
@@ -145,7 +145,7 @@
     ]
   },
   {
-    "query": "operacion fisura anal en que consiste",
+    "query": "en que consiste la operacion",
     "intent": "Descripción de la esfinterotomía lateral interna",
     "answerable": true,
     "profile": "joven",
@@ -166,7 +166,7 @@
     ]
   },
   {
-    "query": "me pueden quedar problemas para aguantar despues de la operacion de fisura",
+    "query": "me pueden quedar problemas para aguantar despues de la operacion",
     "intent": "Riesgo de incontinencia tras esfinterotomía",
     "answerable": true,
     "profile": "mayor",
@@ -731,7 +731,7 @@
     ]
   },
   {
-    "query": "cuanto cuesta la operacion de hemorroides",
+    "query": "cuanto cuesta la operacion",
     "intent": "Coste económico de la cirugía",
     "answerable": false,
     "profile": "joven",
@@ -753,7 +753,7 @@
     "relevant_spans": []
   },
   {
-    "query": "hay algun remedio natural o hierba que cure las hemorroides sin operarse",
+    "query": "hay algun remedio natural o hierba para no tener que operarme",
     "intent": "Remedios naturales/alternativos para hemorroides",
     "answerable": false,
     "profile": "baja_alfabetización",
@@ -830,5 +830,60 @@
       "alta hospitalaria está basada en criterios y objetivos específicos",
       "fecha de alta probable se le habrá comunicado con antelación"
     ]
+  },
+  {
+    "query": "que es python",
+    "intent": "Pregunta sobre tecnología, completamente fuera de ámbito",
+    "answerable": false,
+    "profile": "joven",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy",
+    "relevant_spans": []
+  },
+  {
+    "query": "en que continente esta españa",
+    "intent": "Pregunta de geografía, completamente fuera de ámbito",
+    "answerable": false,
+    "profile": "mayor",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy",
+    "relevant_spans": []
+  },
+  {
+    "query": "cuales son los principales sistemas politicos",
+    "intent": "Pregunta de política, completamente fuera de ámbito",
+    "answerable": false,
+    "profile": "joven",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy",
+    "relevant_spans": []
+  },
+  {
+    "query": "que me tomo para el dolor de cabeza",
+    "intent": "Pregunta médica no cubierta por los documentos del sistema",
+    "answerable": false,
+    "profile": "mayor",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "medium",
+    "relevant_spans": []
+  },
+  {
+    "query": "como se hace una paella",
+    "intent": "Pregunta sobre cocina, completamente fuera de ámbito",
+    "answerable": false,
+    "profile": "baja_alfabetización",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy",
+    "relevant_spans": []
   }
 ]
