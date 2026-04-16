@@ -18,7 +18,8 @@
     "relevant_spans": [
       "hemorroidectomía es la cirugía para extirpar las hemorroides internas o externas",
       "Se realiza en quirófano, con anestesia regional o general"
-    ]
+    ],
+    "procedure": "hemorroides"
   },
   {
     "query": "cuanto dura la operasion",
@@ -38,7 +39,8 @@
     "difficulty": "medium",
     "relevant_spans": [
       "Duración: 30–60 minutos"
-    ]
+    ],
+    "procedure": "hemorroides"
   },
   {
     "query": "q pasa si no me opero",
@@ -56,7 +58,8 @@
     "difficulty": "medium",
     "relevant_spans": [
       "Si no se opera, los síntomas pueden empeorar"
-    ]
+    ],
+    "procedure": "hemorroides"
   },
   {
     "query": "hay alguna otra cosa que se pueda hacer antes de operar? no quiero operarme",
@@ -78,7 +81,8 @@
     "relevant_spans": [
       "Tratamientos médicos (pomadas, baños, dieta)",
       "Ligadura con bandas elásticas, coagulación con láser o infrarrojos"
-    ]
+    ],
+    "procedure": "hemorroides"
   },
   {
     "query": "riesgos",
@@ -100,7 +104,8 @@
       "dolor al defecar, sangrado leve",
       "infección, retraso en la cicatrización",
       "estrechamiento anal, incontinencia, sangrado abundante"
-    ]
+    ],
+    "procedure": "hemorroides"
   },
   {
     "query": "despues de que me operen cuanto tiempo tardo en recuperarme y que tengo que hacer",
@@ -120,7 +125,8 @@
     "difficulty": "hard",
     "relevant_spans": [
       "dolor moderado, baños de asiento, dieta rica en fibra y líquidos, recuperación en 2–4 semanas"
-    ]
+    ],
+    "procedure": "hemorroides"
   },
   {
     "query": "me duele mucho el ano cuando voy al baño y el medico dice que es una fisura, me tienen que operar?",
@@ -142,7 +148,8 @@
     "relevant_spans": [
       "esfinterotomía lateral interna",
       "pomadas relajantes del esfínter, toxina botulínica"
-    ]
+    ],
+    "procedure": "fisura"
   },
   {
     "query": "en que consiste la operacion",
@@ -163,7 +170,8 @@
     "relevant_spans": [
       "esfinterotomía lateral interna",
       "pequeño corte en el músculo del ano (esfínter) para reducir la tensión"
-    ]
+    ],
+    "procedure": "fisura"
   },
   {
     "query": "me pueden quedar problemas para aguantar despues de la operacion",
@@ -182,7 +190,8 @@
     "difficulty": "hard",
     "relevant_spans": [
       "incontinencia leve de gases o heces líquidas"
-    ]
+    ],
+    "procedure": "fisura"
   },
   {
     "query": "cuanto tienpo de ayuno antes de la sirugia",
@@ -885,5 +894,105 @@
     "category": "fuera_de_alcance",
     "difficulty": "easy",
     "relevant_spans": []
+  },
+  {
+    "query": "quien eres tu",
+    "intent": "Pregunta meta sobre la identidad del chatbot, fuera de ámbito",
+    "answerable": false,
+    "profile": "joven",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy",
+    "relevant_spans": []
+  },
+  {
+    "query": "cual es la capital de francia",
+    "intent": "Pregunta de cultura general / trivia, completamente fuera de ámbito",
+    "answerable": false,
+    "profile": "joven",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "easy",
+    "relevant_spans": []
+  },
+  {
+    "query": "me duele mucho la rodilla desde hace meses que puedo hacer",
+    "intent": "Pregunta médica no relacionada (traumatología), fuera de ámbito",
+    "answerable": false,
+    "profile": "mayor",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "medium",
+    "relevant_spans": []
+  },
+  {
+    "query": "mi hijo tiene fiebre y le duele la barriga que le puedo dar",
+    "intent": "Pregunta médica pediátrica, fuera de ámbito",
+    "answerable": false,
+    "profile": "ansioso",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "medium",
+    "relevant_spans": []
+  },
+  {
+    "query": "que medicamento es mejor para bajar la tension arterial",
+    "intent": "Pregunta farmacológica no relacionada (cardiología), fuera de ámbito",
+    "answerable": false,
+    "profile": "mayor",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "fuera_de_alcance",
+    "difficulty": "medium",
+    "relevant_spans": []
+  },
+  {
+    "query": "puedo tomar ibuprofeno para el dolor de hemorroides",
+    "intent": "Zona gris: medicamento específico para la condición, respuesta no en los documentos",
+    "answerable": false,
+    "profile": "joven",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "zona_gris",
+    "difficulty": "hard",
+    "relevant_spans": []
+  },
+  {
+    "query": "puedo conducir para volver a casa despues de la operacion",
+    "intent": "Zona gris: pregunta práctica post-operatoria, posiblemente no cubierta en documentos",
+    "answerable": false,
+    "profile": "mayor",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "zona_gris",
+    "difficulty": "hard",
+    "relevant_spans": []
+  },
+  {
+    "query": "las hemorroides salen por estar mucho tiempo sentado eso es verdad",
+    "intent": "Zona gris: etiología/causas de hemorroides, no cubierto en documentos quirúrgicos",
+    "answerable": false,
+    "profile": "baja_alfabetización",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "zona_gris",
+    "difficulty": "hard",
+    "relevant_spans": []
+  },
+  {
+    "query": "me duele mucho el ano cuando voy al baño y el medico dice que es una fisura, me tienen que operar?",
+    "intent": "Pregunta sobre otro procedimiento (fisura anal) - debe rechazarse en contexto de hemorroides",
+    "answerable": false,
+    "profile": "ansioso",
+    "relevant_sources": [],
+    "expected_keywords": [],
+    "category": "otro_procedimiento",
+    "difficulty": "hard",
+    "relevant_spans": [],
+    "procedure": "hemorroides"
   }
 ]
