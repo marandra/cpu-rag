@@ -5,15 +5,27 @@ LLM wrapper for local inference via llama-cpp-python (CPU-only).
 from __future__ import annotations
 
 import os
+import re
 
 from llama_cpp import Llama
+import llama_cpp.llama_chat_format as _lcf
+from jinja2 import TemplateSyntaxError
 
 _DEFAULT_THREADS = min(os.cpu_count() or 4, 9)
+
+_THINK_RE = re.compile(r"<think>.*?</think>\s*", flags=re.DOTALL)
+
+
+_CHATML_TEMPLATE = (
+    "{% for message in messages %}"
+    "<|im_start|>{{ message.role }}\n{{ message.content }}<|im_end|>\n"
+    "{% endfor %}<|im_start|>assistant\n"
+)
 
 
 def load_model(path: str, n_ctx: int = 2048, n_threads: int = _DEFAULT_THREADS) -> Llama:
     """Load a GGUF model from disk with CPU speed optimizations."""
-    return Llama(
+    kwargs = dict(
         model_path=path,
         n_ctx=n_ctx,
         n_threads=n_threads,
@@ -22,6 +34,25 @@ def load_model(path: str, n_ctx: int = 2048, n_threads: int = _DEFAULT_THREADS) 
         flash_attn=True,
         verbose=False,
     )
+    try:
+        return Llama(**kwargs)
+    except TemplateSyntaxError:
+        # Models with unsupported Jinja tags (e.g. SmolLM3 {% generation %})
+        # Monkey-patch to fall back to chatml for unparseable templates.
+        original_init = _lcf.Jinja2ChatFormatter.__init__
+
+        def _safe_init(self, *args, **kw):
+            try:
+                original_init(self, *args, **kw)
+            except TemplateSyntaxError:
+                kw["template"] = _CHATML_TEMPLATE
+                original_init(self, *args, **kw)
+
+        _lcf.Jinja2ChatFormatter.__init__ = _safe_init
+        try:
+            return Llama(**kwargs)
+        finally:
+            _lcf.Jinja2ChatFormatter.__init__ = original_init
 
 
 def generate_stream(
@@ -67,5 +98,6 @@ def generate(
         temperature=temperature,
     )
     text = response["choices"][0]["message"]["content"]
+    text = _THINK_RE.sub("", text).strip()
     usage = response.get("usage", {})
     return text, usage
