@@ -15,6 +15,7 @@ Usage:
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime
@@ -44,7 +45,7 @@ TEMPERATURE = 0.3
 NEEDS_NO_THINK = {"qwen3-0.6b"}
 
 # Models that fail to load with current llama-cpp-python (skip them)
-SKIP_MODELS = {"qwen3.5-2b", "qwen3.5-0.8b", "smollm3", "ministral"}
+SKIP_MODELS = set()
 
 # Representative queries: minimal, anxious, low-literacy, GPC-pain, off-topic, medical-OOS
 DEFAULT_QUERY_IDS = [4, 0, 1, 19, 41, 44]
@@ -104,8 +105,11 @@ def generate_timed(model, messages, max_tokens, temperature):
     decode_time = total_time - ttft
     speed = (n_tokens - 1) / decode_time if decode_time > 0 and n_tokens > 1 else 0
 
+    # Strip reasoning tokens (e.g. SmolLM3 <think>...</think>)
+    clean_text = re.sub(r"<think>.*?</think>\s*", "", full_text, flags=re.DOTALL).strip()
+
     return {
-        "answer": full_text.strip(),
+        "answer": clean_text,
         "tokens": n_tokens,
         "ttft": round(ttft, 2),
         "decode_time": round(decode_time, 2),
