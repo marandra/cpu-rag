@@ -21,10 +21,11 @@ from src.retrieval import STRATEGIES, build_retriever
 # --- Defaults ---
 QDRANT_PATH = "./qdrant_manual"
 COLLECTION_NAME = "medical_docs"
-DEFAULT_MODEL = "granite-1b"
+DEFAULT_MODEL = "ministral"
 DEFAULT_STRATEGY = "hybrid+rerank"
 DEFAULT_TOP_K = 5
 DEFAULT_MAX_TOKENS = 256
+DEFAULT_MIN_SCORE = None  # reranker score threshold disabled by default
 
 # --- Model aliases (--model accepts short name or full path) ---
 MODEL_ALIASES = {
@@ -59,15 +60,23 @@ DEFAULT_PROCEDURE = "hemorroides"
 
 SYSTEM_PROMPT_TEMPLATE = (
     "Eres un asistente médico{procedure_clause}.\n\n"
-    "Reglas:\n"
-    "1. Usa SOLO la información de los fragmentos proporcionados. "
-    "No inventes ni añadas datos externos.\n"
-    "2. Si los fragmentos no contienen la respuesta, responde: "
-    '"No tengo información sobre eso."\n'
-    "3. Responde en un párrafo breve y directo.\n"
-    "4. Habla directamente al paciente.\n"
-    "5. No menciones los fragmentos ni tu razonamiento. "
-    "Ve directo a la respuesta."
+    "REGLAS ESTRICTAS:\n"
+    "1. Si los fragmentos contienen información relacionada con la pregunta, "
+    "DEBES responder usando SOLO esa información.\n"
+    "2. NUNCA uses tu conocimiento general. PROHIBIDO inventar datos, medicamentos, "
+    "precios o plazos que NO estén en los fragmentos.\n"
+    "3. Si los fragmentos NO contienen información relevante para la pregunta, "
+    'responde: "No tengo información sobre eso."\n'
+    "4. Si la pregunta no tiene relación con cirugía y cuidados perioperatorios, "
+    'responde: "No tengo información sobre eso."\n'
+    "5. Responde en un párrafo breve y directo al paciente.\n"
+    "6. No menciones los fragmentos ni tu razonamiento.\n\n"
+    "Ejemplos de preguntas que DEBES rechazar con "
+    '"No tengo información sobre eso.":\n'
+    "- Preguntas sobre temas no médicos (geografía, tecnología, cocina...)\n"
+    "- Preguntas médicas cuya respuesta NO aparece en los fragmentos\n"
+    "- Preguntas sobre costes, seguros, bajas laborales, trámites o segunda opinión\n"
+    "- Preguntas sobre quién eres o qué haces"
 )
 
 PROMPT_TEMPLATE = "FRAGMENTOS:\n{context}\n\nPREGUNTA: {query}"
@@ -161,7 +170,8 @@ def stream_and_print(model, messages: list[dict], max_tokens: int, t_question: f
 
 
 def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt: str,
-                     *, retrieval_only: bool = False, procedure: str | None = None):
+                     *, retrieval_only: bool = False, procedure: str | None = None,
+                     min_score: float | None = None):
     """Interactive loop: one query at a time (no conversation history)."""
     timing_history = []
     print("\nType your question (or 'exit' / Ctrl+D to quit).\n")
@@ -180,7 +190,7 @@ def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt
         # --- Retrieval (augment query with procedure context) ---
         retrieval_query = f"{procedure}: {query}" if procedure else query
         t0 = time.perf_counter()
-        results = retriever.retrieve(retrieval_query, top_k=top_k)
+        results = retriever.retrieve(retrieval_query, top_k=top_k, min_score=min_score)
         t_retrieval = time.perf_counter() - t0
 
         # Show chunks
@@ -193,6 +203,26 @@ def run_interactive(retriever, model, top_k: int, max_tokens: int, system_prompt
                 "query": query,
                 "tag": f"q{len(timing_history) + 1}",
                 "retrieval": t_retrieval,
+            })
+            continue
+
+        # --- Zero chunks: auto-refuse without calling LLM ---
+        if not results:
+            auto_refusal = "No tengo información sobre eso."
+            print(f"\033[2m── no chunks above min_score={min_score}, auto-refusing ──\033[0m\n")
+            print(auto_refusal)
+            print()
+            timing_history.append({
+                "query": query,
+                "tag": f"q{len(timing_history) + 1}",
+                "retrieval": t_retrieval,
+                "ttft": 0,
+                "decode_time": 0,
+                "total": time.perf_counter() - t_question,
+                "n_tokens": 0,
+                "prompt_tokens": 0,
+                "speed": 0,
+                "auto_refused": True,
             })
             continue
 
@@ -329,6 +359,11 @@ def main():
         action="store_true",
         help="Skip model loading and generation; only show retrieved chunks.",
     )
+    parser.add_argument(
+        "--min-score", type=float, default=None,
+        help="Drop chunks with reranker score below this threshold. "
+             "Disabled by default. Example: --min-score=-3.0",
+    )
     args = parser.parse_args()
 
     model_path = resolve_model(args.model)
@@ -394,13 +429,16 @@ def main():
         setup_times["Warmup"] = time.perf_counter() - t0
         print(f"\033[2m {setup_times['Warmup']:.2f}s\033[0m")
 
-    print(f"\033[2mtop_k={args.top_k}  max_tokens={args.max_tokens}  n_ctx={args.n_ctx}\033[0m")
+    min_score = args.min_score  # None by default (no filtering)
+    min_score_str = f"min_score={min_score}" if min_score is not None else "min_score=off"
+    print(f"\033[2mtop_k={args.top_k}  {min_score_str}  max_tokens={args.max_tokens}  n_ctx={args.n_ctx}\033[0m")
 
     # --- Interactive loop ---
     try:
         history = run_interactive(
             retriever, model, args.top_k, args.max_tokens, system_prompt,
             retrieval_only=args.retrieval_only, procedure=procedure,
+            min_score=min_score,
         )
     except Exception:
         import traceback
