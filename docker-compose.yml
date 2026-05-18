@@ -1,0 +1,24 @@
+services:
+  rag-api:
+    build: .
+    image: cpu-rag-api:1.0.0
+    ports:
+      - "8000:8000"
+    volumes:
+      # Models are embedded in the image; uncomment to override with host models/
+      # - ./models:/app/models:ro
+      # Mount corpus for live distillation edits without rebuilding the image
+      - ./corpus:/app/corpus:ro
+      # Persisted per-procedure KV snapshots (pickled LlamaState)
+      - ./snapshots:/app/snapshots
+    env_file:
+      - .env
+    environment:
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
