@@ -1,6 +1,6 @@
 ##########################################
 # Service: cpu-rag-api
-# Size target: <800MB (includes LLM deps)
+# Size target: <500MB (code + runtime only — model lives in a mounted volume)
 ##########################################
 
 # Stage 1: Dependencies
@@ -19,6 +19,17 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install --upgrade pip
 
 COPY pyproject.toml .
+
+# llama.cpp build flags. Default = portable AVX2+FMA baseline that runs on
+# any modern x86_64 (laptop, HPC, EC2). Override per architecture via:
+#   docker build --build-arg CMAKE_FLAGS='-DGGML_NATIVE=ON' -t cpu-rag-api:native .
+# Common flavors:
+#   portable: -DGGML_NATIVE=OFF -DGGML_AVX2=ON -DGGML_FMA=ON
+#   x86_64-v3: + -DGGML_F16C=ON -DGGML_BMI2=ON  (Haswell+, broadly portable)
+#   native:    -DGGML_NATIVE=ON  (uses -march=native; HPC/EC2-specific image)
+ARG CMAKE_FLAGS="-DGGML_NATIVE=OFF -DGGML_AVX2=ON -DGGML_FMA=ON"
+ENV CMAKE_ARGS="${CMAKE_FLAGS}" \
+    FORCE_CMAKE=1
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install .
@@ -43,11 +54,9 @@ WORKDIR /app
 COPY --from=deps /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=deps /usr/local/bin /usr/local/bin
 
-# Layer order matters: copy what changes least first so code edits don't bust
-# the model layer (3GB). Order: model → src/ (rare changes) → app/ (frequent).
-
-# Embed the default LLM so the image is self-contained for transfer
-COPY --chown=appuser:appuser models/Ministral-3-3B-Q4_K_M.gguf /app/models/Ministral-3-3B-Q4_K_M.gguf
+# The model GGUF is NOT embedded — it ships in the mounted model-pack volume
+# (see docker-compose.yml). Keeps the image small and lets us benchmark
+# different models without rebuilding.
 
 # Copy application code (src/ before app/ — app/ changes more often)
 COPY --chown=appuser:appuser src/ ./src/
@@ -63,7 +72,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 # Metadata
 LABEL service="cpu-rag-api" \
-      version="1.0.0" \
+      version="1.2.0" \
       description="RAG API service for medical FAQ chatbot"
 
 # Health check

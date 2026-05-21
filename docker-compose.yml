@@ -1,24 +1,100 @@
+###############################################################################
+# Pool of N identical RAG replicas behind nginx (least_conn).
+#
+# Each replica serializes generation via gen_lock (1 request at a time), so
+# concurrency = number of replicas. Replicas share the snapshots volume; the
+# snapshot for a procedure is staged to a local dir at startup (SNAPSHOT_STAGE_DIR,
+# default /tmp/cpu-rag-snapshots) and read from there per request — decouples
+# request-path I/O from the (possibly NFS-backed) snapshots dir.
+#
+# CPU pinning and thread counts are parametrized via .env so the same compose
+# file works on the laptop (i7-1365U: 0,2 = P-cores; 4,5 = E-cores) and on
+# homogeneous CPUs (HPC, EC2) — just edit RAG_*_CPUSET / RAG_N_THREADS.
+#
+# Image flavor is selected via RAG_IMAGE; build all 3 flavors locally with:
+#   docker build --build-arg CMAKE_FLAGS='...' -t cpu-rag-api:1.2.0-<flavor> .
+###############################################################################
+
+x-rag-common: &rag-common
+  image: ${RAG_IMAGE:-cpu-rag-api:1.2.0-portable}
+  build: .
+  volumes:
+    - ./models:/app/models:ro
+    - ./corpus:/app/corpus:ro
+    - ./snapshots:/app/snapshots
+    # Bind host /tmp so snapshot staging lands on the host's local scratch,
+    # not the container's overlayfs. On HPC compute nodes host /tmp is local.
+    - /tmp:/tmp
+  env_file:
+    - .env
+  restart: unless-stopped
+  healthcheck:
+    test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+    interval: 30s
+    timeout: 5s
+    start_period: 60s
+    retries: 3
+
+x-rag-env: &rag-env
+  LOG_LEVEL: INFO
+  N_THREADS: ${RAG_N_THREADS:-2}
+  OMP_NUM_THREADS: ${RAG_N_THREADS:-2}
+  OPENBLAS_NUM_THREADS: 1
+  MKL_NUM_THREADS: 1
+  GGML_N_THREADS: ${RAG_N_THREADS:-2}
+  SNAPSHOT_STAGE_DIR: ${RAG_SNAPSHOT_STAGE_DIR:-/tmp/cpu-rag-snapshots}
+
 services:
-  rag-api:
-    build: .
-    image: cpu-rag-api:1.0.0
+  rag-1:
+    <<: *rag-common
+    container_name: rag-1
+    cpuset: ${RAG_1_CPUSET:-0,2}
+    environment:
+      <<: *rag-env
+      REPLICA_ID: rag-1
+
+  rag-2:
+    <<: *rag-common
+    container_name: rag-2
+    cpuset: ${RAG_2_CPUSET:-4,5}
+    environment:
+      <<: *rag-env
+      REPLICA_ID: rag-2
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: rag-nginx
+    depends_on:
+      - rag-1
+      - rag-2
     ports:
-      - "8000:8000"
+      - "${RAG_LB_PORT:-8000}:80"
     volumes:
-      # Models are embedded in the image; uncomment to override with host models/
-      # - ./models:/app/models:ro
-      # Mount corpus for live distillation edits without rebuilding the image
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/lb-health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # One-shot snapshot generation job. Same image, alternate CMD. Run with:
+  #   docker compose --profile generate run --rm rag-generate
+  # Idempotent: cached snapshots are skipped. Use PROCEDURE_FILTER to
+  # restrict to a single procedure.
+  rag-generate:
+    image: ${RAG_IMAGE:-cpu-rag-api:1.2.0-portable}
+    build: .
+    profiles: ["generate"]
+    cpuset: ${RAG_1_CPUSET:-0,2}
+    volumes:
+      - ./models:/app/models:ro
       - ./corpus:/app/corpus:ro
-      # Persisted per-procedure KV snapshots (pickled LlamaState)
       - ./snapshots:/app/snapshots
     env_file:
       - .env
     environment:
-      - LOG_LEVEL=INFO
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 5s
-      start_period: 60s
-      retries: 3
+      <<: *rag-env
+      # Stage_dir not needed for the generate job — it only writes to snapshots_dir.
+      SNAPSHOT_STAGE_DIR: ""
+    command: ["python", "-m", "app.generate"]
