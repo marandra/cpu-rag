@@ -14,6 +14,11 @@ models/
 corpus/markdown/
 snapshots/
 
+# Packaged deliverables / portable images (multi-GB, built artifacts)
+*.tar
+*.tar.gz
+*.sif
+
 # Generated eval outputs
 reports/
 
