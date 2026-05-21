@@ -36,6 +36,38 @@ def get_health(api_url: str = DEFAULT_API_URL, timeout: float = 5.0) -> dict:
         return r.json()
 
 
+def retrieve(
+    question: str,
+    procedure: str,
+    *,
+    top_k: int | None = None,
+    api_url: str | None = None,
+    api_key: str | None = None,
+    timeout: float = 30.0,
+) -> dict:
+    """Call POST /retrieve and return {chunks, usage}.
+
+    Retrieval-only — does not invoke the LLM. Useful for inspecting the
+    retrieval stack without paying generation cost.
+    """
+    api_url = api_url or DEFAULT_API_URL
+    api_key = api_key or os.environ.get("RAG_API_KEY")
+    if not api_key:
+        raise RuntimeError("RAG_API_KEY missing. Export it or add it to .env.")
+
+    payload: dict = {"question": question, "procedure": procedure}
+    if top_k is not None:
+        payload["top_k"] = top_k
+
+    headers = {"X-API-Key": api_key, "Content-Type": "application/json"}
+
+    with httpx.Client(timeout=timeout) as client:
+        r = client.post(f"{api_url}/retrieve", json=payload, headers=headers)
+        if r.status_code != 200:
+            raise RuntimeError(f"HTTP {r.status_code}: {r.text}")
+        return r.json()
+
+
 def stream_query(
     question: str,
     procedure: str,

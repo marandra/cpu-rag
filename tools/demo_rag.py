@@ -26,14 +26,16 @@ from rag_client import (
 )
 
 EVAL_DATASETS = {
-    "diabetes": "./eval_dataset_diabetes_v1.json",
-    "cirugia-abdominal": "./eval_dataset_cirugia_coverage.json",
+    "diabetes":          "./eval_dataset_diabetes_coverage.json",
+    "hemorroides":       "./eval_dataset_hemorroides_coverage.json",
+    "cirugia_abdominal": "./eval_dataset_cirugia-abdominal_coverage.json",
 }
 
 # Maps friendly arg key → API procedure slug.
 PROCEDURE_KEYS = {
-    "diabetes": "diabetes",
-    "cirugia-abdominal": "cirugia-abdominal",
+    "diabetes":          "diabetes",
+    "hemorroides":       "hemorroides",
+    "cirugia_abdominal": "cirugia-abdominal",
 }
 
 
@@ -187,7 +189,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Demo RAG client (Docker API)")
     parser.add_argument("--api-url", default=DEFAULT_API_URL)
-    parser.add_argument("--procedure", default="diabetes", choices=list(PROCEDURE_KEYS))
+    parser.add_argument("--procedure", default="hemorroides", choices=list(PROCEDURE_KEYS))
     parser.add_argument("--dataset",
                         help="Path to a custom eval dataset JSON. Overrides the "
                              "default dataset selected by --procedure.")
