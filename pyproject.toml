@@ -6,7 +6,10 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     # LLM
-    "llama-cpp-python>=0.3.19",
+    # Pinned: 0.3.19's ggml honors -DGGML_AVX512_VNNI / -DGGML_AMX_INT8 and emits
+    # vpdpbusd/tdpbssd; 0.3.23's ggml reworked CPU flag handling and drops them
+    # under GGML_NATIVE=OFF. This is the version the HPC sweep validated.
+    "llama-cpp-python==0.3.19",
     # API service
     "fastapi>=0.111.0",
     "uvicorn[standard]>=0.30.0",
