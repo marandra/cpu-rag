@@ -6,6 +6,7 @@ Models are loaded once at startup and shared across requests.
 
 import asyncio
 import logging
+import shutil
 import sys
 import time
 from contextlib import asynccontextmanager
@@ -32,7 +33,7 @@ class AppState:
     model_name: str = ""
     procedures: set = field(default_factory=set)
     fulldoc_texts: dict = field(default_factory=dict)  # procedure -> full markdown text
-    snapshots: dict = field(default_factory=dict)  # procedure -> LlamaState
+    snapshot_paths: dict = field(default_factory=dict)  # procedure -> Path to pkl
     # Serializes generation across requests: one Llama, one live KV state.
     gen_lock: asyncio.Lock = field(default_factory=asyncio.Lock)
 
@@ -41,30 +42,66 @@ app_state = AppState()
 
 
 def _load_models():
-    """Load fulldoc markdowns and the LLM, then build per-procedure KV snapshots."""
+    """Discover snapshots via sidecar scan, then load the LLM (no warm)."""
     from src.llm import load_model
 
-    if settings.procedure_filter:
-        if settings.procedure_filter not in settings.fulldoc_procedures:
-            raise RuntimeError(
-                f"procedure_filter={settings.procedure_filter!r} not in "
-                f"fulldoc_procedures keys {sorted(settings.fulldoc_procedures)}"
-            )
-        procedures = {
-            settings.procedure_filter: settings.fulldoc_procedures[
-                settings.procedure_filter
-            ]
-        }
-        logger.info(f"Procedure filter active: only loading {settings.procedure_filter!r}")
-    else:
-        procedures = settings.fulldoc_procedures
+    from app.snapshot_cache import scan_meta
 
-    for proc, path in procedures.items():
-        text = path.read_text(encoding="utf-8")
+    sidecars = scan_meta(settings.snapshots_dir)
+    if not sidecars:
+        raise RuntimeError(
+            f"No snapshots found in {settings.snapshots_dir}. Run "
+            f"`docker compose --profile generate run --rm rag-generate` first."
+        )
+
+    proc_filter = settings.procedure_filter
+    if proc_filter:
+        logger.info(f"Procedure filter active: only serving {proc_filter!r}")
+        if proc_filter not in sidecars:
+            raise RuntimeError(
+                f"procedure_filter={proc_filter!r} not found in sidecars "
+                f"{sorted(sidecars)}"
+            )
+        sidecars = {proc_filter: sidecars[proc_filter]}
+
+    # Stage snapshots to a local directory if configured. This decouples
+    # request-path reads from the (possibly NFS-backed) snapshots_dir.
+    stage_dir = Path(settings.snapshot_stage_dir) if settings.snapshot_stage_dir else None
+    if stage_dir:
+        stage_dir.mkdir(parents=True, exist_ok=True)
+
+    for proc, meta in sidecars.items():
+        fulldoc_path = Path(meta["fulldoc_path"])
+        text = fulldoc_path.read_text(encoding="utf-8")
         app_state.fulldoc_texts[proc] = text
+
+        src_pkl = settings.snapshots_dir / meta["snapshot_pkl"]
+        if stage_dir:
+            dst_pkl = stage_dir / meta["snapshot_pkl"]
+            src_stat = src_pkl.stat()
+            try:
+                dst_stat = dst_pkl.stat()
+                fresh = (dst_stat.st_size == src_stat.st_size
+                         and dst_stat.st_mtime_ns >= src_stat.st_mtime_ns)
+            except FileNotFoundError:
+                fresh = False
+            if not fresh:
+                t0 = time.perf_counter()
+                shutil.copy2(src_pkl, dst_pkl)
+                logger.info(
+                    f"Staged snapshot procedure={proc!r} "
+                    f"{src_pkl} -> {dst_pkl} "
+                    f"({src_stat.st_size/1e6:.0f}MB in "
+                    f"{(time.perf_counter()-t0)*1000:.0f}ms)"
+                )
+            app_state.snapshot_paths[proc] = dst_pkl
+        else:
+            app_state.snapshot_paths[proc] = src_pkl
+
         app_state.procedures.add(proc)
         logger.info(
-            f"Fulldoc loaded: procedure={proc!r} chars={len(text)} path={path}"
+            f"Discovered: procedure={proc!r} chars={len(text)} "
+            f"pkl={app_state.snapshot_paths[proc]}"
         )
 
     logger.info(f"Loading LLM from {settings.model_path}...")
@@ -74,84 +111,10 @@ def _load_models():
         logger.info(f"Using n_threads={settings.n_threads} (overridden)")
     app_state.llm = load_model(**load_kwargs)
     app_state.model_name = Path(settings.model_path).stem
-    logger.info(f"LLM ready: {app_state.model_name}")
-
-    _build_snapshots()
-    logger.info(f"Snapshots ready for procedures: {sorted(app_state.snapshots)}")
-
-
-def _build_snapshots() -> None:
-    """Build a KV snapshot per procedure.
-
-    For each procedure: check the on-disk cache (Phase 2). Hit → unpickle.
-    Miss → live-warm the LLM with the exact `(system + fulldoc)` prefix used
-    by `/query`, then `save_state()` and pickle. Snapshots are stored in
-    `app_state.snapshots[procedure]` and loaded into the live LLM on each
-    request. The LLM's post-loop state is irrelevant — every request begins
-    with `load_state`.
-    """
-    from app.prompt import get_system_prompt
-    from app.snapshot_cache import (
-        cache_path,
-        compute_key,
-        load_snapshot,
-        save_snapshot,
+    logger.info(
+        f"LLM ready: {app_state.model_name}; serving procedures: "
+        f"{sorted(app_state.procedures)} (snapshots loaded lazily per request)"
     )
-
-    snapshots_dir = settings.snapshots_dir
-
-    for proc, text in app_state.fulldoc_texts.items():
-        system_prompt = get_system_prompt(proc)
-        key = compute_key(
-            model_path=settings.model_path,
-            n_ctx=settings.n_ctx,
-            flash_attn=True,
-            system_prompt=system_prompt,
-            fulldoc_text=text,
-        )
-        path = cache_path(snapshots_dir, key)
-
-        if path.exists():
-            logger.info(
-                f"Snapshot cache HIT (procedure={proc!r}): {path.name}"
-            )
-            state = load_snapshot(path)
-            if state is not None:
-                try:
-                    app_state.llm.load_state(state)
-                except Exception:
-                    logger.exception(
-                        f"load_state failed for cached snapshot {path.name}; "
-                        f"falling back to live warm"
-                    )
-                else:
-                    app_state.snapshots[proc] = state
-                    continue
-
-        logger.info(
-            f"Snapshot cache MISS (procedure={proc!r}); warming "
-            f"(chars={len(text)})..."
-        )
-        t0 = time.perf_counter()
-        # Must match the byte-for-byte prefix used by /query so the cached
-        # KV covers everything up to the user's question tokens.
-        app_state.llm.create_chat_completion(
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": f"INFORMACIÓN:\n{text}\n\nPREGUNTA: hola"},
-            ],
-            max_tokens=1,
-            temperature=0.1,
-        )
-        # Capture immediately, before any other call mutates KV.
-        state = app_state.llm.save_state()
-        app_state.snapshots[proc] = state
-        warm_s = time.perf_counter() - t0
-        logger.info(
-            f"Warmed (procedure={proc!r}) in {warm_s:.1f}s; pickling snapshot..."
-        )
-        if save_snapshot(state, path):
-            logger.info(f"Snapshot saved: {path.name}")
 
 
 @asynccontextmanager

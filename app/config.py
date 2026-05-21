@@ -49,15 +49,23 @@ class Settings(BaseSettings):
     # context. KV cache prefix-matching makes the (system + fulldoc) prefix
     # cheap to reuse across queries for the same procedure.
     fulldoc_procedures: dict[str, Path] = {
-        "diabetes": Path("./corpus/markdown/diabetes/GUIA_DIABETES.md"),
-        "cirugia-abdominal": Path(
-            "./corpus/markdown/cirugia-abdominal/gpc_555_v2_distilled_2105.md"
-        ),
+        "diabetes": Path("./corpus/markdown/diabetes.md"),
+        "hemorroides": Path("./corpus/markdown/hemorroides.md"),
+        "cirugia-abdominal": Path("./corpus/markdown/cirugia-abdominal.md"),
     }
 
     # Per-procedure KV snapshots (Llama.save_state) are pickled here so we
     # don't re-pay ~80s warmup per procedure on every container start.
     snapshots_dir: Path = Path("./snapshots")
+
+    # At startup, copy pkls from snapshots_dir to this directory and read
+    # from there. Decouples request-path I/O from the original (possibly
+    # NFS-mounted) snapshots_dir. Empty string disables staging.
+    snapshot_stage_dir: str = "/tmp/cpu-rag-snapshots"
+
+    # Identifies this replica in logs and metrics. Set by compose to e.g.
+    # "rag-1", "rag-2". Defaults to "rag" for single-instance setups.
+    replica_id: str = "rag"
 
     # Logging
     log_level: str = "INFO"
