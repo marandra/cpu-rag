@@ -16,12 +16,16 @@ Usage:
 
 import argparse
 import json
+import os
+import sys
 import time
 
+# Make tools/rag_client importable regardless of the cwd it's launched from.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from rag_client import (
-    DEFAULT_API_URL,
     get_health,
     load_dotenv,
+    resolve_api_url,
     stream_query,
 )
 
@@ -188,7 +192,9 @@ def main():
     load_dotenv()
 
     parser = argparse.ArgumentParser(description="Demo RAG client (Docker API)")
-    parser.add_argument("--api-url", default=DEFAULT_API_URL)
+    parser.add_argument("--api-url", default=None,
+                        help="API base URL. Defaults to $RAG_API_URL (incl. .env) "
+                             "or http://localhost:8000.")
     parser.add_argument("--procedure", default="hemorroides", choices=list(PROCEDURE_KEYS))
     parser.add_argument("--dataset",
                         help="Path to a custom eval dataset JSON. Overrides the "
@@ -202,6 +208,7 @@ def main():
                              "(in addition to the console output).")
     parser.add_argument("--session-id", default=None)
     args = parser.parse_args()
+    args.api_url = resolve_api_url(args.api_url)
 
     dataset_path = args.dataset or EVAL_DATASETS[args.procedure]
     dataset = load_dataset(dataset_path)
@@ -223,8 +230,8 @@ def main():
             queries = [it for it in dataset if it["answerable"]]
         elif cat == "oos":
             queries = [it for it in dataset if not it["answerable"]]
-        elif cat in categories:
-            queries = categories[cat]
+        elif (match := next((k for k in categories if k.lower() == cat), None)):
+            queries = categories[match]
         else:
             print(f"Unknown category: {args.category}")
             return 1

@@ -24,7 +24,7 @@ from pathlib import Path
 # Allow `tools/rag_client.py` to be importable when run from repo root.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from rag_client import DEFAULT_API_URL, get_health, load_dotenv, stream_query
+from rag_client import get_health, load_dotenv, resolve_api_url, stream_query
 
 PROCEDURES = ["diabetes", "hemorroides", "cirugia-abdominal"]
 SETS = ["coverage", "grayzone"]
@@ -249,7 +249,9 @@ def write_report(label: str, results, health: dict,
 def main():
     load_dotenv()
     p = argparse.ArgumentParser()
-    p.add_argument("--api-url", default=DEFAULT_API_URL)
+    p.add_argument("--api-url", default=None,
+                   help="API base URL. Defaults to $RAG_API_URL (incl. .env) "
+                        "or http://localhost:8000.")
     p.add_argument("--procedure", default="all",
                    help="diabetes | hemorroides | cirugia-abdominal | all")
     p.add_argument("--set", default="all", choices=["coverage", "grayzone", "all"])
@@ -258,6 +260,7 @@ def main():
                    help="When --dataset is used, the API procedure slug")
     p.add_argument("--label", help="When --dataset is used, label for report file")
     args = p.parse_args()
+    args.api_url = resolve_api_url(args.api_url)
 
     try:
         health = get_health(args.api_url)

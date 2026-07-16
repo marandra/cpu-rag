@@ -10,6 +10,16 @@ import httpx
 DEFAULT_API_URL = os.environ.get("RAG_API_URL", "http://localhost:8000")
 
 
+def resolve_api_url(explicit: str | None = None) -> str:
+    """Resolve the API URL at call time (not import time).
+
+    Precedence: explicit arg > RAG_API_URL env (incl. a .env loaded after
+    import) > localhost default. Reading the env here — rather than binding
+    DEFAULT_API_URL at import time — is what lets load_dotenv() take effect.
+    """
+    return explicit or os.environ.get("RAG_API_URL") or "http://localhost:8000"
+
+
 def load_dotenv(path: str = ".env") -> None:
     """Minimal .env loader (no override of already-set vars)."""
     if not os.path.exists(path):
@@ -29,7 +39,8 @@ class StreamEvent:
     data: dict
 
 
-def get_health(api_url: str = DEFAULT_API_URL, timeout: float = 5.0) -> dict:
+def get_health(api_url: str | None = None, timeout: float = 5.0) -> dict:
+    api_url = resolve_api_url(api_url)
     with httpx.Client(timeout=timeout) as client:
         r = client.get(f"{api_url}/health")
         r.raise_for_status()
@@ -50,7 +61,7 @@ def retrieve(
     Retrieval-only — does not invoke the LLM. Useful for inspecting the
     retrieval stack without paying generation cost.
     """
-    api_url = api_url or DEFAULT_API_URL
+    api_url = resolve_api_url(api_url)
     api_key = api_key or os.environ.get("RAG_API_KEY")
     if not api_key:
         raise RuntimeError("RAG_API_KEY missing. Export it or add it to .env.")
@@ -82,7 +93,7 @@ def stream_query(
     Yields StreamEvent for each `event:`/`data:` block. Terminal events:
     `done` (success) or `error` (server-side failure).
     """
-    api_url = api_url or DEFAULT_API_URL
+    api_url = resolve_api_url(api_url)
     api_key = api_key or os.environ.get("RAG_API_KEY")
     if not api_key:
         raise RuntimeError(
