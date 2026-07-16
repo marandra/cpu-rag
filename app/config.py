@@ -48,8 +48,9 @@ class Settings(BaseSettings):
     # Fulldoc mode: one distilled markdown per procedure, sent in full as
     # context. KV cache prefix-matching makes the (system + fulldoc) prefix
     # cheap to reuse across queries for the same procedure.
+    # Diabetes is served by a separate instance and is deliberately absent
+    # here, even though corpus/markdown/diabetes.md is still in the repo.
     fulldoc_procedures: dict[str, Path] = {
-        "diabetes": Path("./corpus/markdown/diabetes.md"),
         "hemorroides": Path("./corpus/markdown/hemorroides.md"),
         "cirugia-abdominal": Path("./corpus/markdown/cirugia-abdominal.md"),
     }

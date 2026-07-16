@@ -30,14 +30,12 @@ from rag_client import (
 )
 
 EVAL_DATASETS = {
-    "diabetes":          "./eval/datasets/eval_dataset_diabetes_coverage.json",
     "hemorroides":       "./eval/datasets/eval_dataset_hemorroides_coverage.json",
     "cirugia_abdominal": "./eval/datasets/eval_dataset_cirugia-abdominal_coverage.json",
 }
 
 # Maps friendly arg key → API procedure slug.
 PROCEDURE_KEYS = {
-    "diabetes":          "diabetes",
     "hemorroides":       "hemorroides",
     "cirugia_abdominal": "cirugia-abdominal",
 }

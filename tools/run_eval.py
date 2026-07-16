@@ -26,7 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from rag_client import get_health, load_dotenv, resolve_api_url, stream_query
 
-PROCEDURES = ["diabetes", "hemorroides", "cirugia-abdominal"]
+PROCEDURES = ["hemorroides", "cirugia-abdominal"]
 SETS = ["coverage", "grayzone"]
 DATASETS_DIR = Path("./eval/datasets")
 REFUSAL = "no tengo información sobre eso"
