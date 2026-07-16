@@ -101,9 +101,14 @@ models/              GGUF model files (symlinked into gpu-rag)
 tools/
   bench_kv_context.py
   count_tokens.py
-demo_rag.py          Eval-dataset driver against /query
-rag_client.py        HTTP client helpers
-eval_dataset_diabetes_v1.json
+  demo_rag.py        Eval-dataset driver against /query
+  rag_client.py      HTTP client helpers
+  run_eval.py        Baseline eval → reports/
+  hpc/               Apptainer pool launcher (HPC)
+  sweep/             Performance sweep jobs
+eval/
+  datasets/          Per-procedure coverage + grayzone eval datasets
+reports/             Generated eval + sweep outputs (gitignored)
 docs/                Historical notes (HPC setup, prompt history, lessons)
 ```
 

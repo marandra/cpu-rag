@@ -10,7 +10,7 @@ Usage:
     python demo_rag.py --list-categories        # show available categories
     python demo_rag.py --auto                   # run all queries automatically
     python demo_rag.py --procedure hemorroides
-    python demo_rag.py --dataset ./eval_dataset_hemorroides.json
+    python demo_rag.py --dataset ./eval/datasets/eval_dataset_hemorroides_coverage.json
     python demo_rag.py --auto --output run.md      # also save a report
 """
 
@@ -30,9 +30,9 @@ from rag_client import (
 )
 
 EVAL_DATASETS = {
-    "diabetes":          "./eval_dataset_diabetes_coverage.json",
-    "hemorroides":       "./eval_dataset_hemorroides_coverage.json",
-    "cirugia_abdominal": "./eval_dataset_cirugia-abdominal_coverage.json",
+    "diabetes":          "./eval/datasets/eval_dataset_diabetes_coverage.json",
+    "hemorroides":       "./eval/datasets/eval_dataset_hemorroides_coverage.json",
+    "cirugia_abdominal": "./eval/datasets/eval_dataset_cirugia-abdominal_coverage.json",
 }
 
 # Maps friendly arg key → API procedure slug.

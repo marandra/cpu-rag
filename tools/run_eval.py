@@ -7,7 +7,7 @@ a Markdown report per dataset under ./reports/.
 Usage:
     uv run python tools/run_eval.py --procedure diabetes
     uv run python tools/run_eval.py --procedure all
-    uv run python tools/run_eval.py --dataset eval_dataset_diabetes_coverage.json \\
+    uv run python tools/run_eval.py --dataset eval/datasets/eval_dataset_diabetes_coverage.json \\
         --procedure-slug diabetes --label diabetes_coverage
 """
 
@@ -28,6 +28,7 @@ from rag_client import get_health, load_dotenv, resolve_api_url, stream_query
 
 PROCEDURES = ["diabetes", "hemorroides", "cirugia-abdominal"]
 SETS = ["coverage", "grayzone"]
+DATASETS_DIR = Path("./eval/datasets")
 REFUSAL = "no tengo información sobre eso"
 REPORTS_DIR = Path("./reports")
 
@@ -282,7 +283,7 @@ def main():
     sets = SETS if args.set == "all" else [args.set]
     for proc in procs:
         for s in sets:
-            path = Path(f"./eval_dataset_{proc}_{s}.json")
+            path = DATASETS_DIR / f"eval_dataset_{proc}_{s}.json"
             if not path.exists():
                 print(f"  skip (missing): {path}")
                 continue
