@@ -55,30 +55,6 @@ def load_model(path: str, n_ctx: int = 2048, n_threads: int = _DEFAULT_THREADS) 
             _lcf.Jinja2ChatFormatter.__init__ = original_init
 
 
-def generate_stream(
-    model: Llama,
-    prompt: str,
-    system_prompt: str | None = None,
-    max_tokens: int = 512,
-    temperature: float = 0.3,
-):
-    """Stream a response token by token. Yields text chunks."""
-    messages = []
-    if system_prompt:
-        messages.append({"role": "system", "content": system_prompt})
-    messages.append({"role": "user", "content": prompt})
-
-    for chunk in model.create_chat_completion(
-        messages=messages,
-        max_tokens=max_tokens,
-        temperature=temperature,
-        stream=True,
-    ):
-        text = chunk["choices"][0]["delta"].get("content", "")
-        if text:
-            yield text
-
-
 def generate(
     model: Llama,
     prompt: str,

@@ -7,15 +7,14 @@ from typing import Iterator
 
 import httpx
 
-DEFAULT_API_URL = os.environ.get("RAG_API_URL", "http://localhost:8000")
-
 
 def resolve_api_url(explicit: str | None = None) -> str:
     """Resolve the API URL at call time (not import time).
 
     Precedence: explicit arg > RAG_API_URL env (incl. a .env loaded after
     import) > localhost default. Reading the env here — rather than binding
-    DEFAULT_API_URL at import time — is what lets load_dotenv() take effect.
+    it to a module constant at import time — is what lets load_dotenv() take
+    effect.
     """
     return explicit or os.environ.get("RAG_API_URL") or "http://localhost:8000"
 
@@ -47,45 +46,12 @@ def get_health(api_url: str | None = None, timeout: float = 5.0) -> dict:
         return r.json()
 
 
-def retrieve(
-    question: str,
-    procedure: str,
-    *,
-    top_k: int | None = None,
-    api_url: str | None = None,
-    api_key: str | None = None,
-    timeout: float = 30.0,
-) -> dict:
-    """Call POST /retrieve and return {chunks, usage}.
-
-    Retrieval-only — does not invoke the LLM. Useful for inspecting the
-    retrieval stack without paying generation cost.
-    """
-    api_url = resolve_api_url(api_url)
-    api_key = api_key or os.environ.get("RAG_API_KEY")
-    if not api_key:
-        raise RuntimeError("RAG_API_KEY missing. Export it or add it to .env.")
-
-    payload: dict = {"question": question, "procedure": procedure}
-    if top_k is not None:
-        payload["top_k"] = top_k
-
-    headers = {"X-API-Key": api_key, "Content-Type": "application/json"}
-
-    with httpx.Client(timeout=timeout) as client:
-        r = client.post(f"{api_url}/retrieve", json=payload, headers=headers)
-        if r.status_code != 200:
-            raise RuntimeError(f"HTTP {r.status_code}: {r.text}")
-        return r.json()
-
-
 def stream_query(
     question: str,
     procedure: str,
     *,
     api_url: str | None = None,
     api_key: str | None = None,
-    session_id: str | None = None,
     timeout: float = 180.0,
 ) -> Iterator[StreamEvent]:
     """Stream a query through the /query SSE endpoint.
@@ -101,8 +67,6 @@ def stream_query(
         )
 
     payload: dict = {"question": question, "procedure": procedure}
-    if session_id:
-        payload["session_id"] = session_id
 
     headers = {
         "X-API-Key": api_key,

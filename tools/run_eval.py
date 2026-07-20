@@ -5,10 +5,10 @@ deterministic metrics (keyword coverage, refusal correctness) and writes
 a Markdown report per dataset under ./reports/.
 
 Usage:
-    uv run python tools/run_eval.py --procedure diabetes
+    uv run python tools/run_eval.py --procedure hemorroides
     uv run python tools/run_eval.py --procedure all
-    uv run python tools/run_eval.py --dataset eval/datasets/eval_dataset_diabetes_coverage.json \\
-        --procedure-slug diabetes --label diabetes_coverage
+    uv run python tools/run_eval.py --dataset eval/datasets/eval_dataset_hemorroides_coverage.json \\
+        --procedure-slug hemorroides --label hemorroides_coverage
 """
 
 from __future__ import annotations
@@ -80,14 +80,13 @@ def run_one_query(item: dict, api_url: str, procedure_slug: str) -> dict:
 
     ttft = (t_first or t_end) - t_start
     total = t_end - t_start
-    gen_s = usage.get("generation_ms", 0) / 1000.0
     n_tok = usage.get("completion_tokens", 0)
     decode_s = (t_end - t_first) if t_first else 0.0
     tps = (n_tok - 1) / decode_s if decode_s > 0 and n_tok > 1 else 0.0
 
     return {
         "response": response, "ttft": ttft, "total": total,
-        "generation_s": gen_s, "n_tokens": n_tok, "tps": tps,
+        "n_tokens": n_tok, "tps": tps,
     }
 
 
@@ -238,7 +237,6 @@ def write_report(label: str, results, health: dict,
         L.append(
             f"- Timing: total={res.get('total',0):.2f}s "
             f"TTFT={res.get('ttft',0):.2f}s "
-            f"gen={res.get('generation_s',0):.2f}s "
             f"tokens={res.get('n_tokens',0)} ({res.get('tps',0):.1f} tok/s)"
         )
 
@@ -254,7 +252,7 @@ def main():
                    help="API base URL. Defaults to $RAG_API_URL (incl. .env) "
                         "or http://localhost:8000.")
     p.add_argument("--procedure", default="all",
-                   help="diabetes | hemorroides | cirugia-abdominal | all")
+                   help="hemorroides | cirugia-abdominal | all")
     p.add_argument("--set", default="all", choices=["coverage", "grayzone", "all"])
     p.add_argument("--dataset", help="Override: explicit dataset path")
     p.add_argument("--procedure-slug",

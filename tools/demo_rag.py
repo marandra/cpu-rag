@@ -29,16 +29,13 @@ from rag_client import (
     stream_query,
 )
 
-EVAL_DATASETS = {
-    "hemorroides":       "./eval/datasets/eval_dataset_hemorroides_coverage.json",
-    "cirugia_abdominal": "./eval/datasets/eval_dataset_cirugia-abdominal_coverage.json",
-}
+PROCEDURES = ["hemorroides", "cirugia-abdominal"]
+DATASETS_DIR = "./eval/datasets"
 
-# Maps friendly arg key → API procedure slug.
-PROCEDURE_KEYS = {
-    "hemorroides":       "hemorroides",
-    "cirugia_abdominal": "cirugia-abdominal",
-}
+
+def default_dataset(procedure: str) -> str:
+    """Coverage dataset path for a procedure slug (matches run_eval naming)."""
+    return f"{DATASETS_DIR}/eval_dataset_{procedure}_coverage.json"
 
 
 def load_dataset(path: str) -> list[dict]:
@@ -68,20 +65,17 @@ def print_query_header(item: dict, index: int, total: int):
     print()
 
 
-def run_query(item: dict, api_url: str, procedure_slug: str,
-              session_id: str | None) -> dict:  # noqa: C901
+def run_query(item: dict, api_url: str, procedure_slug: str) -> dict:  # noqa: C901
     """Run a single query, stream tokens, return result summary."""
     query = item["query"]
     t_start = time.perf_counter()
     t_first_token: float | None = None
     text_parts: list[str] = []
-    sources: list[dict] = []
     usage: dict = {}
     error: dict | None = None
 
     try:
-        for ev in stream_query(query, procedure_slug,
-                               api_url=api_url, session_id=session_id):
+        for ev in stream_query(query, procedure_slug, api_url=api_url):
             if ev.event == "chunk":
                 if t_first_token is None:
                     t_first_token = time.perf_counter()
@@ -89,7 +83,6 @@ def run_query(item: dict, api_url: str, procedure_slug: str,
                 print(token, end="", flush=True)
                 text_parts.append(token)
             elif ev.event == "done":
-                sources = ev.data.get("sources", [])
                 usage = ev.data.get("usage", {})
             elif ev.event == "error":
                 error = ev.data
@@ -114,31 +107,20 @@ def run_query(item: dict, api_url: str, procedure_slug: str,
 
     ttft = (t_first_token or t_end) - t_start
     total = t_end - t_start
-    retrieval_s = usage.get("retrieval_ms", 0) / 1000.0
-    generation_s = usage.get("generation_ms", 0) / 1000.0
     n_tokens = usage.get("completion_tokens", len(text_parts))
     decode_s = (t_end - t_first_token) if t_first_token else 0.0
     tps = (n_tokens - 1) / decode_s if decode_s > 0 and n_tokens > 1 else 0.0
 
-    if sources:
-        srcs = ", ".join(s.get("source", "?") for s in sources[:3])
-        more = f" +{len(sources) - 3}" if len(sources) > 3 else ""
-        print(f"\n\033[2m  sources: {srcs}{more}\033[0m")
-
     print(
         f"\033[32m  total={total:.2f}s  TTFT={ttft:.2f}s  "
-        f"retrieval={retrieval_s:.2f}s  gen={generation_s:.2f}s  "
         f"tokens={n_tokens} ({tps:.1f} tok/s)\033[0m\n"
     )
     return {
         "response": "".join(text_parts),
         "ttft": ttft,
         "total": total,
-        "retrieval_s": retrieval_s,
-        "generation_s": generation_s,
         "n_tokens": n_tokens,
         "tps": tps,
-        "sources": sources,
     }
 
 
@@ -193,7 +175,7 @@ def main():
     parser.add_argument("--api-url", default=None,
                         help="API base URL. Defaults to $RAG_API_URL (incl. .env) "
                              "or http://localhost:8000.")
-    parser.add_argument("--procedure", default="hemorroides", choices=list(PROCEDURE_KEYS))
+    parser.add_argument("--procedure", default="hemorroides", choices=PROCEDURES)
     parser.add_argument("--dataset",
                         help="Path to a custom eval dataset JSON. Overrides the "
                              "default dataset selected by --procedure.")
@@ -204,11 +186,10 @@ def main():
     parser.add_argument("--output",
                         help="Write a Markdown report of the run to this path "
                              "(in addition to the console output).")
-    parser.add_argument("--session-id", default=None)
     args = parser.parse_args()
     args.api_url = resolve_api_url(args.api_url)
 
-    dataset_path = args.dataset or EVAL_DATASETS[args.procedure]
+    dataset_path = args.dataset or default_dataset(args.procedure)
     dataset = load_dataset(dataset_path)
     categories = get_categories(dataset)
     print(f"\033[2mLoaded {len(dataset)} queries from {dataset_path}\033[0m")
@@ -240,7 +221,7 @@ def main():
 
     print(f"\n\033[2mSelected {len(queries)} queries\033[0m\n")
 
-    procedure_slug = PROCEDURE_KEYS[args.procedure]
+    procedure_slug = args.procedure
 
     try:
         health = get_health(args.api_url)
@@ -248,8 +229,7 @@ def main():
         print(f"\033[31mCannot reach API at {args.api_url}: {e}\033[0m")
         return 1
 
-    print(f"\033[2mAPI: {args.api_url}  model={health.get('model')}  "
-          f"chunks={health.get('chunks_loaded')}\033[0m")
+    print(f"\033[2mAPI: {args.api_url}  model={health.get('model')}\033[0m")
     available = health.get("procedures") or []
     if available and procedure_slug not in available:
         print(f"\033[31m  warning: procedure {procedure_slug!r} not loaded on server "
@@ -259,7 +239,7 @@ def main():
     for i, item in enumerate(queries, 1):
         print_query_header(item, i, len(queries))
         try:
-            result = run_query(item, args.api_url, procedure_slug, args.session_id)
+            result = run_query(item, args.api_url, procedure_slug)
         except Exception as e:
             print(f"\033[31mError: {e}\033[0m")
             result = {"error": "client_exception", "detail": str(e)}
@@ -296,7 +276,6 @@ def write_report(path: str, results: list[tuple[dict, dict]],
     lines.append(f"- Procedure: `{args.procedure}`")
     lines.append(f"- Dataset: `{dataset_path}`")
     lines.append(f"- Model: `{health.get('model', '?')}`")
-    lines.append(f"- Chunks loaded: {health.get('chunks_loaded', '?')}")
     lines.append(f"- Queries run: {len(results)}")
     lines.append("")
 
@@ -341,16 +320,9 @@ def write_report(path: str, results: list[tuple[dict, dict]],
         lines.append("```")
         lines.append(res.get("response", "").rstrip() or "(empty)")
         lines.append("```")
-        srcs = res.get("sources") or []
-        if srcs:
-            srcs_str = ", ".join(f"{s.get('source','?')} (score={s.get('score','?')})"
-                                 for s in srcs)
-            lines.append(f"- Sources: {srcs_str}")
         lines.append(
             f"- Timing: total={res.get('total', 0):.2f}s "
             f"TTFT={res.get('ttft', 0):.2f}s "
-            f"retrieval={res.get('retrieval_s', 0):.2f}s "
-            f"gen={res.get('generation_s', 0):.2f}s "
             f"tokens={res.get('n_tokens', 0)} ({res.get('tps', 0):.1f} tok/s)"
         )
 
