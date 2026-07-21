@@ -7,7 +7,26 @@ All settings have sensible defaults except RAG_API_KEY.
 
 from pathlib import Path
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Deployment profiles: each maps the procedures it owns to their distilled
+# fulldoc markdown. One image ships every profile; the PROFILE env var picks
+# the active one.
+#
+# The profiles are the two downstream projects sharing this codebase —
+# glucowise (diabetes) and aiciblock (the rest). Keeping both here instead of
+# forking means one code path to maintain; when the projects split for good,
+# forking is just deleting the other entry.
+PROFILES: dict[str, dict[str, Path]] = {
+    "glucowise": {
+        "diabetes": Path("./corpus/markdown/diabetes.md"),
+    },
+    "aiciblock": {
+        "hemorroides": Path("./corpus/markdown/hemorroides.md"),
+        "cirugia-abdominal": Path("./corpus/markdown/cirugia-abdominal.md"),
+    },
+}
 
 
 class Settings(BaseSettings):
@@ -40,20 +59,34 @@ class Settings(BaseSettings):
     # (min(cpu_count, 9)). Set when pinning to a cpuset smaller than that to
     # avoid thread oversubscription.
     n_threads: int | None = None
-    # Optional single-procedure filter. When set, only this procedure is
-    # loaded from fulldoc_procedures. Used by multi-instance deployments
-    # that pin each procedure to a dedicated cpuset.
+    # Active profile, keyed into PROFILES. Governs both what `app.generate`
+    # builds snapshots for and what the server is allowed to serve, so a
+    # glucowise instance can never answer an aiciblock procedure even if both
+    # sets of snapshots end up in the same directory.
+    profile: str = "aiciblock"
+
+    # Optional single-procedure filter, applied on top of the profile. Used
+    # by multi-instance deployments that pin each procedure to its own cpuset.
     procedure_filter: str | None = None
 
-    # Fulldoc mode: one distilled markdown per procedure, sent in full as
-    # context. KV cache prefix-matching makes the (system + fulldoc) prefix
-    # cheap to reuse across queries for the same procedure.
-    # Diabetes is served by a separate instance and is deliberately absent
-    # here, even though corpus/markdown/diabetes.md is still in the repo.
-    fulldoc_procedures: dict[str, Path] = {
-        "hemorroides": Path("./corpus/markdown/hemorroides.md"),
-        "cirugia-abdominal": Path("./corpus/markdown/cirugia-abdominal.md"),
-    }
+    @field_validator("profile")
+    @classmethod
+    def _known_profile(cls, v: str) -> str:
+        if v not in PROFILES:
+            raise ValueError(
+                f"Unknown profile {v!r}. Known profiles: {sorted(PROFILES)}"
+            )
+        return v
+
+    @property
+    def fulldoc_procedures(self) -> dict[str, Path]:
+        """Procedures owned by the active profile.
+
+        Fulldoc mode: one distilled markdown per procedure, sent in full as
+        context. KV cache prefix-matching makes the (system + fulldoc) prefix
+        cheap to reuse across queries for the same procedure.
+        """
+        return dict(PROFILES[self.profile])
 
     # Per-procedure KV snapshots (Llama.save_state) are pickled here so we
     # don't re-pay ~80s warmup per procedure on every container start.

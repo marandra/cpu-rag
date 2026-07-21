@@ -54,6 +54,24 @@ def _load_models():
             f"`docker compose --profile generate run --rm rag-generate` first."
         )
 
+    # Serve only what the active profile owns. Snapshots from another profile
+    # may share the directory without colliding (pkls are content-addressed);
+    # dropping them here is what stops a glucowise instance from answering an
+    # aiciblock procedure.
+    owned = set(settings.fulldoc_procedures)
+    foreign = sorted(set(sidecars) - owned)
+    if foreign:
+        logger.info(
+            f"Ignoring snapshots outside profile {settings.profile!r}: {foreign}"
+        )
+    sidecars = {p: m for p, m in sidecars.items() if p in owned}
+    if not sidecars:
+        raise RuntimeError(
+            f"No snapshots for profile {settings.profile!r} in "
+            f"{settings.snapshots_dir} (expected one of {sorted(owned)}). Run "
+            f"`docker compose --profile generate run --rm rag-generate` first."
+        )
+
     proc_filter = settings.procedure_filter
     if proc_filter:
         logger.info(f"Procedure filter active: only serving {proc_filter!r}")
@@ -112,8 +130,9 @@ def _load_models():
     app_state.llm = load_model(**load_kwargs)
     app_state.model_name = Path(settings.model_path).stem
     logger.info(
-        f"LLM ready: {app_state.model_name}; serving procedures: "
-        f"{sorted(app_state.procedures)} (snapshots loaded lazily per request)"
+        f"LLM ready: {app_state.model_name}; profile={settings.profile!r}; "
+        f"serving procedures: {sorted(app_state.procedures)} "
+        f"(snapshots loaded lazily per request)"
     )
 
 

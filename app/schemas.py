@@ -11,6 +11,7 @@ class QueryRequest(BaseModel):
 class HealthResponse(BaseModel):
     status: str
     model: str
+    profile: str
     procedures: list[str]
 
 

@@ -2,6 +2,7 @@
 
 from fastapi import APIRouter
 
+from app.config import settings
 from app.schemas import HealthResponse
 
 router = APIRouter()
@@ -14,5 +15,6 @@ async def health():
     return HealthResponse(
         status="healthy",
         model=app_state.model_name,
+        profile=settings.profile,
         procedures=sorted(app_state.procedures),
     )

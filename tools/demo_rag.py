@@ -29,7 +29,6 @@ from rag_client import (
     stream_query,
 )
 
-PROCEDURES = ["hemorroides", "cirugia-abdominal"]
 DATASETS_DIR = "./eval/datasets"
 
 
@@ -175,7 +174,10 @@ def main():
     parser.add_argument("--api-url", default=None,
                         help="API base URL. Defaults to $RAG_API_URL (incl. .env) "
                              "or http://localhost:8000.")
-    parser.add_argument("--procedure", default="hemorroides", choices=PROCEDURES)
+    parser.add_argument("--procedure", default=None,
+                        help="Procedure slug. Defaults to the first one the "
+                             "server reports at /health, so the same command "
+                             "works against any profile.")
     parser.add_argument("--dataset",
                         help="Path to a custom eval dataset JSON. Overrides the "
                              "default dataset selected by --procedure.")
@@ -189,13 +191,35 @@ def main():
     args = parser.parse_args()
     args.api_url = resolve_api_url(args.api_url)
 
-    dataset_path = args.dataset or default_dataset(args.procedure)
+    # Ask the server what it serves; that is the source of truth for the
+    # active profile. Only strictly needed when --procedure is omitted, so a
+    # dead API still allows offline use with an explicit procedure.
+    health: dict | None = None
+    try:
+        health = get_health(args.api_url)
+    except Exception as e:
+        if not args.procedure:
+            print(f"\033[31mCannot reach API at {args.api_url}: {e}\033[0m")
+            print("\033[31mPass --procedure to work offline.\033[0m")
+            return 1
+        print(f"\033[33mwarning: cannot reach API at {args.api_url}: {e}\033[0m")
+
+    served = (health or {}).get("procedures") or []
+    procedure_slug = args.procedure or (served[0] if served else None)
+    if not procedure_slug:
+        print("\033[31mServer reports no procedures and none given.\033[0m")
+        return 1
+    if served and procedure_slug not in served:
+        print(f"\033[31m  warning: procedure {procedure_slug!r} not served "
+              f"(available: {served})\033[0m")
+
+    dataset_path = args.dataset or default_dataset(procedure_slug)
     dataset = load_dataset(dataset_path)
     categories = get_categories(dataset)
     print(f"\033[2mLoaded {len(dataset)} queries from {dataset_path}\033[0m")
 
     if args.list_categories:
-        print(f"\nCategories for procedure '{args.procedure}':\n")
+        print(f"\nCategories for procedure '{procedure_slug}':\n")
         for cat, items in sorted(categories.items()):
             scope = "in-scope" if items[0]["answerable"] else "OOS"
             print(f"  {cat:20s} {len(items):3d} queries  ({scope})")
@@ -221,19 +245,12 @@ def main():
 
     print(f"\n\033[2mSelected {len(queries)} queries\033[0m\n")
 
-    procedure_slug = args.procedure
-
-    try:
-        health = get_health(args.api_url)
-    except Exception as e:
-        print(f"\033[31mCannot reach API at {args.api_url}: {e}\033[0m")
+    if health is None:
+        print(f"\033[31mCannot reach API at {args.api_url}\033[0m")
         return 1
 
-    print(f"\033[2mAPI: {args.api_url}  model={health.get('model')}\033[0m")
-    available = health.get("procedures") or []
-    if available and procedure_slug not in available:
-        print(f"\033[31m  warning: procedure {procedure_slug!r} not loaded on server "
-              f"(available: {available})\033[0m")
+    print(f"\033[2mAPI: {args.api_url}  profile={health.get('profile', '?')}  "
+          f"model={health.get('model')}\033[0m")
 
     results: list[tuple[dict, dict]] = []
     for i, item in enumerate(queries, 1):
@@ -254,7 +271,8 @@ def main():
 
     if args.output:
         try:
-            write_report(args.output, results, args, health, dataset_path)
+            write_report(args.output, results, args, health, dataset_path,
+                         procedure_slug)
             print(f"\033[2mReport written to {args.output}\033[0m")
         except Exception as e:
             print(f"\033[31mFailed to write report: {e}\033[0m")
@@ -264,7 +282,8 @@ def main():
 
 
 def write_report(path: str, results: list[tuple[dict, dict]],
-                 args, health: dict, dataset_path: str) -> None:
+                 args, health: dict, dataset_path: str,
+                 procedure_slug: str) -> None:
     """Write a Markdown report of the run."""
     from datetime import datetime
 
@@ -273,7 +292,8 @@ def write_report(path: str, results: list[tuple[dict, dict]],
     lines.append("")
     lines.append("## Setup")
     lines.append(f"- API: `{args.api_url}`")
-    lines.append(f"- Procedure: `{args.procedure}`")
+    lines.append(f"- Profile: `{health.get('profile', '?')}`")
+    lines.append(f"- Procedure: `{procedure_slug}`")
     lines.append(f"- Dataset: `{dataset_path}`")
     lines.append(f"- Model: `{health.get('model', '?')}`")
     lines.append(f"- Queries run: {len(results)}")

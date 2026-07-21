@@ -13,6 +13,13 @@
 #
 # Image flavor is selected via RAG_IMAGE; build all 3 flavors locally with:
 #   docker build --build-arg CMAKE_FLAGS='...' -t cpu-rag-api:1.2.0-<flavor> .
+#
+# Deployment profile (glucowise | aiciblock) is selected via profiles/*.env.
+# Use ./run.sh, which wires --env-file and -p for you:
+#   ./run.sh glucowise up -d
+#   ./run.sh aiciblock generate
+# Each profile gets its own snapshots subdir, container names and LB port, so
+# the two can coexist on one host.
 ###############################################################################
 
 x-rag-common: &rag-common
@@ -21,12 +28,15 @@ x-rag-common: &rag-common
   volumes:
     - ./models:/app/models:ro
     - ./corpus:/app/corpus:ro
-    - ./snapshots:/app/snapshots
+    - ./snapshots/${PROFILE:-aiciblock}:/app/snapshots
     # Bind host /tmp so snapshot staging lands on the host's local scratch,
     # not the container's overlayfs. On HPC compute nodes host /tmp is local.
     - /tmp:/tmp
+  # .env carries secrets (gitignored); the profile file carries the profile
+  # settings and is safe to commit. Later files win.
   env_file:
     - .env
+    - ${RAG_ENV_FILE:-profiles/aiciblock.env}
   restart: unless-stopped
   healthcheck:
     test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
@@ -47,7 +57,7 @@ x-rag-env: &rag-env
 services:
   rag-1:
     <<: *rag-common
-    container_name: rag-1
+    container_name: ${PROFILE:-aiciblock}-1
     cpuset: ${RAG_1_CPUSET:-0,2}
     environment:
       <<: *rag-env
@@ -55,7 +65,7 @@ services:
 
   rag-2:
     <<: *rag-common
-    container_name: rag-2
+    container_name: ${PROFILE:-aiciblock}-2
     cpuset: ${RAG_2_CPUSET:-4,5}
     environment:
       <<: *rag-env
@@ -63,7 +73,7 @@ services:
 
   nginx:
     image: nginx:1.27-alpine
-    container_name: rag-nginx
+    container_name: ${PROFILE:-aiciblock}-nginx
     depends_on:
       - rag-1
       - rag-2
@@ -90,9 +100,10 @@ services:
     volumes:
       - ./models:/app/models:ro
       - ./corpus:/app/corpus:ro
-      - ./snapshots:/app/snapshots
+      - ./snapshots/${PROFILE:-aiciblock}:/app/snapshots
     env_file:
       - .env
+      - ${RAG_ENV_FILE:-profiles/aiciblock.env}
     environment:
       <<: *rag-env
       # Stage_dir not needed for the generate job — it only writes to snapshots_dir.

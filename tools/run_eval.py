@@ -26,7 +26,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from rag_client import get_health, load_dotenv, resolve_api_url, stream_query
 
-PROCEDURES = ["hemorroides", "cirugia-abdominal"]
 SETS = ["coverage", "grayzone"]
 DATASETS_DIR = Path("./eval/datasets")
 REFUSAL = "no tengo información sobre eso"
@@ -252,7 +251,8 @@ def main():
                    help="API base URL. Defaults to $RAG_API_URL (incl. .env) "
                         "or http://localhost:8000.")
     p.add_argument("--procedure", default="all",
-                   help="hemorroides | cirugia-abdominal | all")
+                   help="A procedure slug, or 'all' (default) for every "
+                        "procedure the server reports at /health.")
     p.add_argument("--set", default="all", choices=["coverage", "grayzone", "all"])
     p.add_argument("--dataset", help="Override: explicit dataset path")
     p.add_argument("--procedure-slug",
@@ -266,8 +266,9 @@ def main():
     except Exception as e:
         print(f"Cannot reach API at {args.api_url}: {e}")
         return 1
-    print(f"API: {args.api_url}  model={health.get('model')}  "
-          f"procedures={health.get('procedures')}")
+    served = health.get("procedures") or []
+    print(f"API: {args.api_url}  profile={health.get('profile', '?')}  "
+          f"model={health.get('model')}  procedures={served}")
 
     if args.dataset:
         run_dataset(Path(args.dataset),
@@ -277,7 +278,19 @@ def main():
                     health)
         return 0
 
-    procs = PROCEDURES if args.procedure == "all" else [args.procedure]
+    # The server is the source of truth for what it serves, so the same
+    # command works against any profile without editing this file.
+    if args.procedure == "all":
+        if not served:
+            print("Server reports no procedures; nothing to evaluate.")
+            return 1
+        procs = served
+    else:
+        procs = [args.procedure]
+        if served and args.procedure not in served:
+            print(f"  warning: procedure {args.procedure!r} not served "
+                  f"(available: {served})")
+
     sets = SETS if args.set == "all" else [args.set]
     for proc in procs:
         for s in sets:
