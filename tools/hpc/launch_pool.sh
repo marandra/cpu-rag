@@ -42,6 +42,22 @@
 #   LB_PORT              Port nginx listens on (>=1024)       (default 8080)
 #   NUMA_START           First NUMA node; replica i -> NUMA_START+i (default 0)
 #   STAGE_ROOT           Local scratch for per-replica snapshot staging (default /tmp/cpu-rag)
+#   APP_DIR              Host app/ to mount over the image's       (default: unset)
+#
+# APP_DIR is the prompt-iteration escape hatch. app/ is baked into the SIF, so
+# editing app/prompt.py normally costs a Docker rebuild on a laptop, an scp of
+# the tar and an `apptainer build` — half an hour to change one string. Setting
+#
+#     APP_DIR=./app tools/hpc/launch_pool.sh
+#
+# mounts the working tree over /app/app instead, so the cycle becomes edit ->
+# regenerate snapshot -> relaunch. Snapshots need no manual invalidation: their
+# cache key hashes the system prompt (app/snapshot_cache.py), so a changed
+# prompt is simply a different key and old snapshots stay valid and reusable.
+#
+# Deliberately opt-in and never a default: the point of baking app/ is that the
+# shipped image is self-contained and reproducible. Leave it unset for anything
+# that is not an experiment.
 ###############################################################################
 set -euo pipefail
 cd "$(dirname "$0")/../.."   # repo root
@@ -80,6 +96,16 @@ if ! ls "$SNAPSHOTS_DIR"/*.pkl >/dev/null 2>&1; then
   echo "      --env RAG_API_KEY=\$RAG_API_KEY --env PROFILE=$PROFILE \\" >&2
   echo "      $SIF_IMAGE python -m app.generate" >&2
   exit 1
+fi
+
+# Optional override of the image's app/ — see APP_DIR in the header.
+APP_BIND=()
+if [[ -n "${APP_DIR:-}" ]]; then
+  [[ -d "$APP_DIR" ]] || { echo "ERROR: APP_DIR is not a directory: $APP_DIR" >&2; exit 1; }
+  [[ -f "$APP_DIR/main.py" ]] || { echo "ERROR: $APP_DIR has no main.py — expected the app package, not the repo root." >&2; exit 1; }
+  APP_DIR="$(readlink -f "$APP_DIR")"
+  APP_BIND=(--bind "${APP_DIR}:/app/app:ro")
+  echo "==> APP_DIR override: serving ${APP_DIR} instead of the image's app/"
 fi
 
 NUMACTL=()
@@ -165,6 +191,7 @@ for ((i=0; i<N_REPLICAS; i++)); do
     --pwd /app \
     --bind "${MODELS_DIR}:/app/models:ro" \
     --bind "${SNAPSHOTS_DIR}:/app/snapshots:ro" \
+    "${APP_BIND[@]}" \
     --env RAG_API_KEY="$RAG_API_KEY" \
     --env PROFILE="$PROFILE" \
     --env REPLICA_ID="r${i}" \
