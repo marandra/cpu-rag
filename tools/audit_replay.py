@@ -8,11 +8,13 @@ same records with our fresh answer merged in as `our_answer`.
         --questions reports/audit_questions.json \
         --api-url http://eurehpccomputo01:8080 \
         --procedure diabetes \
-        --out reports/audit_replay_diabetes.json
+        --out eval/audit_replay/diabetes.json
 
 One pool serves one profile, so this runs once per procedure and each run picks
 out only the rows for that procedure. Generation is temperature 0.1 with no
 fixed seed: answers are equivalent in behaviour, never identical byte for byte.
+That is why the output is versioned under eval/audit_replay/ instead of the
+ignored reports/: a replay cannot be reproduced, only replaced by a new one.
 """
 
 from __future__ import annotations

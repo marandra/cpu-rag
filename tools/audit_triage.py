@@ -33,6 +33,12 @@ from pathlib import Path
 
 PROCEDURES = ("diabetes", "cirugia-abdominal", "hemorroides")
 
+# The replays are versioned, unlike everything else the audit tooling writes.
+# Generation is temperature 0.1 with no fixed seed and the pool that produced them
+# is long gone, so they cannot be reproduced — they are the evidence behind every
+# verdict below, not a regenerable artefact. Hence eval/, not the ignored reports/.
+REPLAY_DIR = "eval/audit_replay"
+
 # Fulldoc size, for the corpus-brevity analysis: chars, lines.
 CORPUS_SIZE = {
     "diabetes": (13301, 194),
@@ -286,10 +292,10 @@ def refused(text: str | None) -> bool:
     return "no tengo informaci" in (text or "").lower()
 
 
-def load_rows(reports: Path) -> list[dict]:
+def load_rows(replays: Path) -> list[dict]:
     rows: list[dict] = []
     for proc in PROCEDURES:
-        payload = json.loads((reports / f"audit_replay_{proc}.json").read_text(encoding="utf-8"))
+        payload = json.loads((replays / f"{proc}.json").read_text(encoding="utf-8"))
         rows += payload["rows"]
     rows.sort(key=lambda r: r["id"])
     return rows
@@ -297,11 +303,11 @@ def load_rows(reports: Path) -> list[dict]:
 
 def main() -> int:
     p = argparse.ArgumentParser()
-    p.add_argument("--reports", default="reports")
+    p.add_argument("--replays", default=REPLAY_DIR)
     p.add_argument("--out", default="reports/audit_triage.md")
     args = p.parse_args()
 
-    rows = load_rows(Path(args.reports))
+    rows = load_rows(Path(args.replays))
     missing = [r["id"] for r in rows if r["id"] not in TRIAGE]
     if missing:
         raise SystemExit(f"No triage verdict for IDs: {missing}")
@@ -349,7 +355,7 @@ def main() -> int:
     A("# Triaje de la auditoría externa — cpu-rag")
     A("")
     A(f"134 preguntas re-lanzadas contra los pools reales el "
-      f"{json.loads((Path(args.reports) / 'audit_replay_diabetes.json').read_text(encoding='utf-8'))['generated']}. "
+      f"{json.loads((Path(args.replays) / 'diabetes.json').read_text(encoding='utf-8'))['generated']}. "
       "Sin fallos de red.")
     A("")
     A("## 1. ¿Se reproduce el comportamiento?")
