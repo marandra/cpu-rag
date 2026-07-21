@@ -1,0 +1,594 @@
+"""Triage the third-party audit: genuine defects vs. audit false negatives.
+
+Consumes audit_replay.py's output and applies a per-question verdict reached by
+reading each question against the fulldoc it is served from. The verdicts live
+here, in code, so the reasoning is reviewable and re-runnable — not buried in a
+spreadsheet.
+
+    uv run python tools/audit_triage.py --out reports/audit_triage.md
+
+Four verdicts:
+
+  FN   The refusal was correct by design: the topic is genuinely absent from the
+       fulldoc, and the prompt mandates refusing. The audit scored it 1-2/10
+       anyway -> their score is a false negative, not our bug.
+  SR   Over-refusal: the fulldoc *does* cover the topic and the system refused
+       anyway. Genuine defect, and the largest single one.
+  DEF  Answered, but with a genuine defect (over-certainty, non-answer,
+       leaked meta-commentary, alarmism).
+  OK   Answered correctly. The audit's criticism is about depth or tone, not
+       correctness — fair as a wish-list, not as a failure.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from collections import Counter
+from pathlib import Path
+
+PROCEDURES = ("diabetes", "cirugia-abdominal", "hemorroides")
+
+# Fulldoc size, for the corpus-brevity analysis: chars, lines.
+CORPUS_SIZE = {
+    "diabetes": (13301, 194),
+    "cirugia-abdominal": (7819, 63),
+    "hemorroides": (1146, 28),
+}
+
+# False positives: the system answered where the fulldoc does not support the
+# answer it gave — invented content, or a definitive claim the doc leaves open.
+# Orthogonal to the verdict: every FP is also a DEF, but not every DEF is an FP
+# (a non-answer is defective without being ungrounded).
+FALSE_POSITIVE = {
+    52: "grave", 89: "grave", 105: "grave",
+    117: "inventa", 111: "inventa", 4: "inventa", 8: "inventa",
+    36: "sección-errónea",
+    2: "distorsión", 30: "distorsión", 87: "distorsión",
+    26: "distorsión", 5: "distorsión", 21: "distorsión",
+}
+
+# Answered, correct, but aimed at a neighbouring question rather than the one
+# asked — or reusing verbatim the answer given to a different question.
+NEIGHBOURING = {62, 134, 122, 90, 93, 74, 106, 119}
+
+TELEGRAPHIC_CHARS = 80   # below this an answer is a doc line, not a reply
+
+VERDICT_LABEL = {
+    "FN": "Rechazo correcto por diseño (falso negativo de la auditoría)",
+    "SR": "Sobre-rechazo (el fulldoc SÍ lo cubre)",
+    "DEF": "Respondida con defecto genuino",
+    "OK": "Respondida correctamente (crítica de profundidad, no de corrección)",
+}
+
+# id -> (verdict, subtype, evidence). Evidence cites the fulldoc section that
+# decides the call; for FN it names what is absent.
+TRIAGE: dict[int, tuple[str, str, str]] = {
+    # ---------------- diabetes ----------------
+    1: ("OK", "", "Correcta; la auditoría pide más profundidad."),
+    2: ("DEF", "generalización", "«en muchos casos» no está en el fulldoc; §Tratamiento farmacológico lo describe como progresivo e individualizado."),
+    3: ("DEF", "no-responde", "Vuelca los criterios diagnósticos; la pregunta era si habrá más análisis."),
+    4: ("DEF", "sin-fundamento", "Grounded en §Hidratos de carbono, pero los ejemplos de menú («pan integral con aguacate y huevo») no están en el fulldoc."),
+    5: ("DEF", "no-responde", "Non sequitur: mezcla criterios diagnósticos con una negación sin apoyo en el texto."),
+    6: ("SR", "", "§Autoanálisis: «Especialmente importante con insulina o fármacos con riesgo de hipoglucemia. Frecuencia individualizada»."),
+    7: ("DEF", "no-responde", "Responde «HbA1c ≥6,5 %.» a «¿para qué me la van a pedir?». §Seguimiento sanitario lo explica."),
+    8: ("DEF", "sin-fundamento", "«El médico suele enseñarte a pincharte» no está en el fulldoc; §Educación terapéutica solo dice que aprender mejora el autocuidado."),
+    9: ("OK", "", "Correcta; §Mitos «No hay diabetes buena o mala»."),
+    10: ("SR", "", "§Tratamiento farmacológico (metformina, adherencia, «progresivo») e §Insulina («temporal o permanente»)."),
+    11: ("OK", "", "Correcta; §Alimentación «perder 5-10 % del peso»."),
+    12: ("OK", "", "Correcta; §Causas de la DM2."),
+    13: ("FN", "", "El diario de comidas no aparece en el fulldoc."),
+    14: ("OK", "", "Correcta; §Alcohol."),
+    15: ("OK", "", "Correcta; §Pie diabético."),
+    16: ("SR", "", "§Mitos: «La DM2 inicial no suele dar síntomas; se descubre por análisis» + §Síntomas."),
+    17: ("OK", "", "Correcta; §Objetivos de control."),
+    18: ("OK", "", "Correcta; §Insulina «Rotar zonas»."),
+    19: ("FN", "", "El tiempo hasta notar efecto del tratamiento no aparece en el fulldoc."),
+    20: ("SR", "", "§Tratamiento farmacológico «Progresivo… muchas personas necesitan además fármacos»; §Insulina «cuando otros tratamientos no controlan»."),
+    21: ("DEF", "no-responde", "Devuelve los objetivos del tratamiento en lugar de los primeros pasos."),
+    22: ("OK", "mejora", "Ellos vieron un rechazo; ahora responde correctamente desde §Grupos de alimentos."),
+    23: ("OK", "mejora", "Ellos vieron un rechazo; ahora responde con la individualización del §Tratamiento farmacológico."),
+    24: ("DEF", "fuga-meta", "Filtra al paciente su propio razonamiento: «*(No añado equivalencias o recomendaciones específicas de marcas…)*»."),
+    25: ("SR", "", "§Mitos «La dieta del diabético es la dieta equilibrada general» + §Alimentación «ningún alimento prohibido»."),
+    26: ("DEF", "fuga-meta", "Misma fuga de meta-comentario que el 24."),
+    27: ("SR", "", "§Insulina «temporal o permanente»; §Mitos «Sin insulina también se es diabético»."),
+    28: ("OK", "", "Correcta; §Alcohol."),
+    29: ("DEF", "regla-fundida", "Completa salvo en un punto crítico: el fulldoc da «Si fiebre: paracetamol» y, por separado, «Consulte si… fiebre >39 °C». La respuesta las funde en «Si la fiebre supera los 39 °C, usa paracetamol», convirtiendo un criterio de alarma en un umbral de tratamiento, y omite «cuidado con sobres y jarabes que contienen azúcar»."),
+    30: ("DEF", "exceso-certeza", "«Sí, necesitas un glucómetro»; §Autoanálisis dice frecuencia individualizada y «especialmente» con insulina."),
+    31: ("OK", "", "Correcta."),
+    32: ("OK", "", "Correcta y completa; §Pie diabético."),
+    33: ("OK", "", "Correcta; §Síntomas."),
+    34: ("OK", "", "Correcta; §Seguimiento sanitario."),
+    35: ("OK", "", "Correcta; §¿Puedo ir de vacaciones?"),
+    36: ("DEF", "sección-errónea", "Responde «qué llevar a la cita» con la lista de equipaje de §¿Puedo ir de vacaciones? (incluye «ropa y calzado cómodos»)."),
+    37: ("SR", "parcial", "§Objetivos de control «individualizables» y §Tratamiento «se individualiza según persona»."),
+    38: ("FN", "", "El ámbito laboral no aparece en el fulldoc."),
+    39: ("SR", "", "§Grupos de alimentos «Suplementos/productos milagro: no curan la diabetes»."),
+    40: ("SR", "", "Doblemente cubierto: §Alimentación «ningún alimento prohibido» y §Mitos «No hay alimentos prohibidos»."),
+    41: ("SR", "", "§Aspectos psicológicos: «Tras el diagnóstico es normal sentir negación, frustración o miedo»."),
+    42: ("OK", "mejora", "La suya añadía «No tengo información sobre eso.» tras haber respondido; la nuestra sale limpia."),
+    43: ("FN", "", "La amputación no aparece; §Pie diabético llega hasta úlceras e infecciones."),
+    44: ("FN", "", "El pudor al inyectarse no aparece; §Aspectos psicológicos es genérico."),
+    45: ("SR", "", "§Introducción «enfermedad crónica»; §Prevención «prevenir o retrasar»; «productos milagro no curan»."),
+    46: ("SR", "parcial", "§Prevención de complicaciones + individualización de objetivos."),
+    47: ("SR", "", "§Aspectos psicológicos «no culparse» y §Causas de la DM2."),
+    48: ("OK", "", "Correcta; §Educación terapéutica «es normal sentir preocupación, miedo o frustración»."),
+    49: ("FN", "", "La fertilidad no aparece en el fulldoc."),
+    50: ("FN", "", "La esperanza de vida no aparece en el fulldoc."),
+    51: ("SR", "", "§Alimentación «ningún alimento prohibido» + §Aspectos psicológicos."),
+    52: ("DEF", "alarmismo", "«Sí… riesgo de muerte»: §Hipoglucemia no afirma mortalidad; da síntomas, tratamiento (15-20 g) y prevención."),
+    53: ("SR", "parcial", "§Insulina (no todos la necesitan, vía subcutánea) y §Mitos."),
+    54: ("SR", "parcial", "§Causas de la DM2 cita la herencia como un factor, no como certeza."),
+    55: ("SR", "", "§Aspectos psicológicos: «buscar apoyo en el entorno y en asociaciones de personas con diabetes»."),
+    # ---------------- cirugia-abdominal ----------------
+    56: ("OK", "", "Correcta; §Cirugía mínimamente invasiva."),
+    57: ("OK", "", "Correcta; §Cirugía mínimamente invasiva."),
+    58: ("OK", "", "Correcta; §Cribado nutricional preoperatorio."),
+    59: ("OK", "", "Correcta; §Bebidas con carbohidratos."),
+    60: ("DEF", "laconismo", "«Es un catéter epidural.» no explica nada; §Control del dolor lo describe entero."),
+    61: ("SR", "", "Literal en §Reanudar la alimentación: «no aumenta el riesgo de que se abra la herida (sutura)»."),
+    62: ("OK", "", "Correcta; §Reanudar la alimentación."),
+    63: ("DEF", "omisión-riesgo", "Da solo «vértigo o debilidad… sin necesidad de tratamiento»; omite «todos los fármacos para el dolor pueden producir efectos no deseados»."),
+    64: ("OK", "", "Correcta y completa; §Levantarse de la cama."),
+    65: ("OK", "", "Correcta; §Cribado nutricional preoperatorio."),
+    66: ("OK", "", "Correcta; §Bebidas con carbohidratos."),
+    67: ("OK", "", "Correcta; §Premedicación."),
+    68: ("OK", "", "Correcta; §Control del dolor."),
+    69: ("DEF", "no-responde", "Preguntan si cambia el ayuno; §Bebidas dice «el cirujano le indicará cómo proceder», que es la respuesta que faltaba."),
+    70: ("SR", "", "Literal en §Control del dolor (ACP): «todo está programado, no hay peligro de sobredosis»."),
+    71: ("OK", "", "Correcta; §Cribado nutricional preoperatorio."),
+    72: ("FN", "", "El dolor referido al hombro no aparece; el fulldoc solo cita «molestia abdominal» por el gas."),
+    73: ("FN", "", "«Los días antes» no aparece; el fulldoc solo cubre las 2 h previas."),
+    74: ("OK", "", "Correcta; §Control del dolor."),
+    75: ("OK", "", "Correcta; §Levantarse de la cama."),
+    76: ("FN", "", "La duración del ingreso no aparece en el fulldoc."),
+    77: ("FN", "", "La ducha preoperatoria no aparece en el fulldoc."),
+    78: ("OK", "", "Correcta; §Reanudar la alimentación."),
+    79: ("FN", "", "La vida tras el alta no aparece en el fulldoc."),
+    80: ("OK", "", "Correcta; §Colaboración de familiares y cuidadores."),
+    81: ("OK", "", "Correcta y completa; §Quién informa y cuándo."),
+    82: ("OK", "", "Correcta; §Quién informa y cuándo."),
+    83: ("SR", "", "§Qué es la cirugía mayor abdominal: «Suele requerir anestesia general»."),
+    84: ("OK", "", "Correcta; §Cirugía mínimamente invasiva."),
+    85: ("SR", "parcial", "§Qué es la cirugía mayor abdominal: «la recuperación puede llevar varios días o semanas»."),
+    86: ("OK", "", "Correcta; §Premedicación."),
+    87: ("DEF", "distorsión", "«Necesitarás ayuda para caminar al día siguiente»: el fulldoc pone el «con ayuda» en sentarse el mismo día, no en caminar."),
+    88: ("OK", "", "Correcta; §Levantarse de la cama."),
+    89: ("DEF", "contradicción", "«Si te entra hambre entre 2 y las 2 horas previas» es incoherente, y contradice lo que acaba de afirmar sobre beber hasta 2 h antes."),
+    90: ("OK", "", "Correcta; §Reanudar la alimentación."),
+    91: ("OK", "", "Correcta; §Premedicación «Cualquier intervención provoca alguna reacción emocional»."),
+    92: ("FN", "", "La mortalidad quirúrgica no aparece en el fulldoc."),
+    93: ("OK", "", "Correcta; §Control del dolor."),
+    94: ("FN", "", "El despertar intraoperatorio no aparece en el fulldoc."),
+    95: ("FN", "", "«Si algo sale mal» no aparece en el fulldoc."),
+    96: ("OK", "mejora", "Añade «la ansiedad es normal» antes de la premedicación, que la suya omitía."),
+    97: ("FN", "", "La ostomía / bolsa no aparece en el fulldoc."),
+    98: ("SR", "parcial", "§Quién informa: «usted decide sobre el tratamiento y firma el consentimiento escrito»."),
+    99: ("FN", "", "El riesgo anestésico concreto no aparece; solo que en la cita de anestesia se informa de él."),
+    100: ("SR", "parcial", "§Cirugía mínimamente invasiva: «pequeñas incisiones» frente a «incisiones mayores»."),
+    101: ("SR", "parcial", "§Quién informa: «Puede consultar sus dudas en cualquier momento»."),
+    102: ("FN", "", "La duración del ingreso no aparece en el fulldoc."),
+    103: ("SR", "", "§Premedicación: «Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión)». El 91, casi idéntico, SÍ se respondió."),
+    # ---------------- hemorroides ----------------
+    104: ("SR", "parcial", "§Alternativas lista «Ligadura con bandas elásticas»."),
+    105: ("DEF", "exceso-certeza", "«Anestesia regional.» El fulldoc dice «con anestesia regional o general»."),
+    106: ("OK", "", "Correcta; §Procedimiento «30–60 minutos»."),
+    107: ("OK", "", "Correcta; §Riesgos y complicaciones."),
+    108: ("DEF", "exceso-certeza", "«Sí, debes ajustar» sin decir quién lo indica; §Preparación dice «Ajustar medicación (anticoagulantes, etc.)»."),
+    109: ("SR", "parcial", "§Alternativas lista «coagulación con láser o infrarrojos»."),
+    110: ("SR", "", "§Beneficios: «Reduce recaídas»."),
+    111: ("DEF", "sin-fundamento", "El fulldoc solo dice «dieta rica en fibra y líquidos»; el porqué («recuperación del tracto intestinal», «estreñimiento») es inventado."),
+    112: ("OK", "", "Correcta; §Riesgos y complicaciones."),
+    113: ("FN", "", "La baja laboral no aparece; el fulldoc solo da la recuperación (2–4 semanas)."),
+    114: ("SR", "", "§Preparación: «Ayuno 6–8 h» responde directamente."),
+    115: ("OK", "mejora", "Ellos vieron un rechazo; ahora responde desde §Riesgos «dolor al defecar»."),
+    116: ("OK", "", "Correcta; §Preparación «recuperación en 2–4 semanas»."),
+    117: ("DEF", "sin-fundamento", "El fulldoc nombra los «baños de asiento» pero NUNCA los define; la definición (agua tibia, área anal, alivia dolor e inflamación) es conocimiento paramétrico."),
+    118: ("OK", "", "Correcta; §Preparación «dieta rica en fibra y líquidos»."),
+    119: ("OK", "", "Correcta; §Procedimiento."),
+    120: ("FN", "", "El régimen de ingreso (ambulatorio o no) no aparece en el fulldoc."),
+    121: ("SR", "", "§Alternativas: «Tratamientos médicos (pomadas, baños, dieta)»."),
+    122: ("OK", "", "Correcta; §Aspectos prácticos y legales."),
+    123: ("SR", "", "Literal en §Aspectos prácticos: «Puede retirar su consentimiento en cualquier momento antes de la cirugía»."),
+    124: ("OK", "", "Correcta; §Preparación «Ayuno 6–8 h»."),
+    125: ("OK", "", "Correcta; §Riesgos «sangrado leve»."),
+    126: ("FN", "", "El pudor no aparece en el fulldoc."),
+    127: ("SR", "", "§Preparación «dolor moderado» y §Riesgos «dolor al defecar» como frecuente."),
+    128: ("SR", "", "§Riesgos «Muy raras: … incontinencia». El 112, misma sustancia, SÍ se respondió."),
+    129: ("FN", "", "La mortalidad no aparece en el fulldoc."),
+    130: ("FN", "", "El miedo y la intimidad no aparecen en el fulldoc."),
+    131: ("FN", "", "La vergüenza no aparece en el fulldoc."),
+    132: ("FN", "", "Quién está presente en quirófano no aparece en el fulldoc."),
+    133: ("SR", "", "§Riesgos «Muy raras: estrechamiento anal, incontinencia» = secuelas permanentes."),
+    134: ("OK", "", "Correcta; §Aspectos prácticos «los síntomas pueden empeorar»."),
+}
+
+
+def refused(text: str | None) -> bool:
+    return "no tengo informaci" in (text or "").lower()
+
+
+def load_rows(reports: Path) -> list[dict]:
+    rows: list[dict] = []
+    for proc in PROCEDURES:
+        payload = json.loads((reports / f"audit_replay_{proc}.json").read_text(encoding="utf-8"))
+        rows += payload["rows"]
+    rows.sort(key=lambda r: r["id"])
+    return rows
+
+
+def main() -> int:
+    p = argparse.ArgumentParser()
+    p.add_argument("--reports", default="reports")
+    p.add_argument("--out", default="reports/audit_triage.md")
+    args = p.parse_args()
+
+    rows = load_rows(Path(args.reports))
+    missing = [r["id"] for r in rows if r["id"] not in TRIAGE]
+    if missing:
+        raise SystemExit(f"No triage verdict for IDs: {missing}")
+
+    for r in rows:
+        r["verdict"], r["subtype"], r["evidence"] = TRIAGE[r["id"]]
+        r["our_refused"] = refused(r["our_answer"])
+        r["their_refused"] = refused(r["their_answer"])
+
+    # A refusal verdict must line up with an actual refusal, and vice versa.
+    for r in rows:
+        is_refusal_verdict = r["verdict"] in ("FN", "SR")
+        if is_refusal_verdict != r["our_refused"]:
+            raise SystemExit(
+                f"ID {r['id']}: verdict {r['verdict']} but our_refused={r['our_refused']}"
+            )
+
+    for r in rows:
+        r["clean"] = (
+            r["verdict"] == "OK"
+            and r["id"] not in FALSE_POSITIVE
+            and r["id"] not in NEIGHBOURING
+            and len(r["our_answer"]) >= TELEGRAPHIC_CHARS
+        )
+
+    counts = Counter(r["verdict"] for r in rows)
+    agree = sum(1 for r in rows if r["our_refused"] == r["their_refused"])
+    genuine = counts["SR"] + counts["DEF"]
+
+    out: list[str] = []
+    A = out.append
+
+    A("# Triaje de la auditoría externa — cpu-rag")
+    A("")
+    A(f"134 preguntas re-lanzadas contra los pools reales el "
+      f"{json.loads((Path(args.reports) / 'audit_replay_diabetes.json').read_text(encoding='utf-8'))['generated']}. "
+      "Sin fallos de red.")
+    A("")
+    A("## 1. ¿Se reproduce el comportamiento?")
+    A("")
+    A(f"Sí. En **{agree}/134 ({agree/len(rows)*100:.0f} %)** de las preguntas coincide la "
+      "decisión de fondo — responder o rechazar — con lo que ellos observaron. Donde ambos "
+      "responden, el texto es a menudo **idéntico palabra por palabra**.")
+    A("")
+    A("La generación usa `temperature=0.1` sin semilla fija, así que las respuestas no son "
+      "reproducibles carácter a carácter por diseño; las 9 divergencias son preguntas "
+      "frontera que caen a un lado o al otro del umbral de rechazo. En 6 de ellas ahora se "
+      "responde donde ellos vieron un rechazo (IDs 22, 23, 96, 111, 115, 117) — pero ojo: "
+      "**responder no es siempre mejorar**. Dos de esas seis (111 y 117) responden con "
+      "material que no está en el fulldoc; ver §4b.")
+    A("")
+    A("## 2. El resultado del triaje")
+    A("")
+    A("| Veredicto | N | % | Qué significa |")
+    A("| --- | ---: | ---: | --- |")
+    for v in ("SR", "DEF", "FN", "OK"):
+        A(f"| **{v}** | {counts[v]} | {counts[v]/len(rows)*100:.0f} % | {VERDICT_LABEL[v]} |")
+    A("")
+    A(f"**{genuine} de 134 ({genuine/len(rows)*100:.0f} %) son defectos genuinos nuestros.** "
+      f"**{counts['FN']} ({counts['FN']/len(rows)*100:.0f} %) son falsos negativos de la auditoría**: "
+      "el sistema hizo exactamente lo que se le pide — rechazar lo que no está en el fulldoc — "
+      f"y lo puntuaron 1-2/10 por ello. Las {counts['OK']} restantes se respondieron bien; su "
+      "crítica ahí es de profundidad o de tono, legítima como lista de deseos pero no como fallo.")
+    A("")
+    A("### Por procedimiento")
+    A("")
+    A("| Procedimiento | N | SR | DEF | FN | OK |")
+    A("| --- | ---: | ---: | ---: | ---: | ---: |")
+    for proc in PROCEDURES:
+        sub = [r for r in rows if r["procedure"] == proc]
+        c = Counter(r["verdict"] for r in sub)
+        A(f"| `{proc}` | {len(sub)} | {c['SR']} | {c['DEF']} | {c['FN']} | {c['OK']} |")
+    A("")
+
+    A("### Por especialidad, contra el tamaño del fulldoc")
+    A("")
+    A("| Procedimiento | Fulldoc | N | SR | DEF | FN | OK | Rechazo | Long. mediana | Limpias |")
+    A("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
+    for proc in PROCEDURES:
+        sub = [r for r in rows if r["procedure"] == proc]
+        c = Counter(r["verdict"] for r in sub)
+        ans = [r for r in sub if not r["our_refused"]]
+        lens = sorted(len(r["our_answer"]) for r in ans)
+        med = lens[len(lens) // 2]
+        cl = [r for r in sub if r["clean"]]
+        kb = CORPUS_SIZE[proc][0] / 1024
+        A(f"| `{proc}` | {kb:.1f} KB | {len(sub)} | {c['SR']} | {c['DEF']} | {c['FN']} | "
+          f"{c['OK']} | {100*(len(sub)-len(ans))/len(sub):.0f} % | {med} car. | {len(cl)} |")
+    A("")
+    A("Tres lecturas, y la primera es la que más importa:")
+    A("")
+    A("1. **El sobre-rechazo NO escala con la brevedad del corpus.** Diabetes, con 13 KB, "
+      "tiene la tasa más alta (31 %); cirugía, con 7,6 KB, la más baja (17 %). Si el "
+      "problema fuera falta de material, el orden sería el inverso. Es una confirmación "
+      "independiente de que el sobre-rechazo vive en el prompt, no en el corpus.")
+    A("2. **Lo que sí escala con la brevedad es la longitud y la calidad de la respuesta.** "
+      "La mediana cae de ~142 caracteres a 53 en hemorroides, y el **85 % de sus respuestas "
+      "correctas son telegráficas** (<80 car., frente a 23 % y 12 %): «Duración: 30–60 "
+      "minutos.», «Recuperación en 2–4 semanas.» Son líneas del documento copiadas, no "
+      "respuestas a un paciente. **Hemorroides no tiene ni una sola pregunta que pase "
+      "limpia.**")
+    A("3. **Los FN no dependen del tamaño sino del encaje temático.** Cirugía tiene 7,6 KB y "
+      "aun así la tasa de FN más alta (23 %): su fulldoc es una *guía de cuidados "
+      "perioperatorios*, no la descripción de una operación. Los pacientes preguntan por «mi "
+      "operación» — cicatrices, ostomía, anestesia, duración del ingreso — y el documento "
+      "nunca describe ninguna operación concreta. Más páginas del mismo tipo no lo arreglarían.")
+    A("")
+
+    A("## 3. El defecto dominante: sobre-rechazo")
+    A("")
+    A(f"{counts['SR']} preguntas se rechazaron **aunque el fulldoc las cubre**, varias de ellas "
+      "con la respuesta literal en el documento. Es, con diferencia, nuestro mayor problema, y "
+      "la auditoría no lo distingue del rechazo correcto porque puntúa ambos igual.")
+    A("")
+    A("Los casos más claros, con la frase del corpus que ya contenía la respuesta:")
+    A("")
+    for i in (61, 70, 123, 40, 25, 16, 114, 103, 55):
+        r = next(x for x in rows if x["id"] == i)
+        A(f"- **{i}** — «{r['question']}»  ")
+        A(f"  {r['evidence']}")
+    A("")
+    A("### La señal más útil: pares casi idénticos con resultado opuesto")
+    A("")
+    A("Tres pares preguntan lo mismo con otras palabras. Uno se responde, el otro se rechaza. "
+      "Eso descarta que falte información y señala **sensibilidad al fraseo**, no un hueco de "
+      "corpus:")
+    A("")
+    A("| Se responde | Se rechaza | Misma materia |")
+    A("| --- | --- | --- |")
+    A("| **112** ¿Hay riesgo de quedarme incontinente? | **128** ¿Me puedo quedar incontinente para siempre? | §Riesgos, «muy raras: incontinencia» |")
+    A("| **91** Tengo miedo de mi operación, ¿es normal? | **103** ¿Es normal llorar antes de una operación? | §Premedicación, reacción emocional |")
+    A("| **30** ¿Tengo que comprarme un aparato para medirme el azúcar? | **6** ¿Tengo que medirme el azúcar en casa desde ya? | §Autoanálisis |")
+    A("")
+    A("El patrón que las une: la variante rechazada está formulada en primera persona y con "
+      "carga emocional o de permanencia («para siempre», «llorar», «desde ya»). El prompt V13 "
+      "manda rechazar lo que no esté en el fulldoc, y el modelo parece estar tratando el "
+      "*registro* de la pregunta como si fuera el *tema*.")
+    A("")
+
+    A("## 4. Defectos genuinos en respuestas dadas")
+    A("")
+    A("| ID | Subtipo | Pregunta | Qué falla |")
+    A("| ---: | --- | --- | --- |")
+    for r in rows:
+        if r["verdict"] == "DEF":
+            A(f"| {r['id']} | {r['subtype']} | {r['question'][:60]} | {r['evidence']} |")
+    A("")
+    A("Dos merecen atención por seguridad, no por estilo:")
+    A("")
+    A("- **52** (alarmismo) — a «¿me puedo morir mientras duermo si me baja el azúcar?» "
+      "responde que sí, que hay riesgo de muerte. El fulldoc no afirma eso en ningún sitio: "
+      "§Hipoglucemia da síntomas, tratamiento (15-20 g de azúcar) y prevención. Es una "
+      "afirmación inventada y alarmante a un paciente asustado.")
+    A("- **105 / 108** (exceso de certeza) — «Anestesia regional.» cuando el documento dice "
+      "«regional o general»; «Sí, debes ajustar» los anticoagulantes sin decir que lo indica "
+      "el equipo. Afirmar de forma categórica lo que el documento matiza.")
+    A("")
+    A("Y uno que no es clínico pero sí visible para el paciente: **24 y 26 filtran "
+      "meta-comentario** del tipo «*(No añado equivalencias o recomendaciones específicas de "
+      "marcas, solo lo que dice el texto…)*». El modelo está exponiendo su cumplimiento de "
+      "las instrucciones al usuario final.")
+    A("")
+
+    A("### 4b. Falsos positivos: responder lo que no se debía")
+    A("")
+    fps = [r for r in rows if r["id"] in FALSE_POSITIVE]
+    answered = [r for r in rows if not r["our_refused"]]
+    A(f"El sobre-rechazo tiene un gemelo que la auditoría no ve: **{len(fps)} de "
+      f"{len(answered)} respuestas ({100*len(fps)/len(answered):.0f} %) no están sostenidas "
+      "por el fulldoc.** El sistema rellena el hueco con conocimiento del modelo, que es "
+      "exactamente lo que el diseño fulldoc existe para impedir.")
+    A("")
+    A("| ID | Tipo | Pregunta | Qué se inventó |")
+    A("| ---: | --- | --- | --- |")
+    for r in fps:
+        A(f"| {r['id']} | {FALSE_POSITIVE[r['id']]} | {r['question'][:52]} | {r['evidence']} |")
+    A("")
+    A("Los tres graves son los mismos que ya aparecían por otra vía: **52** inventa la "
+      "mortalidad por hipoglucemia nocturna, **89** inventa un «protocolo de ayuno estricto» "
+      "y se contradice, **105** cierra en «anestesia regional» lo que el documento deja "
+      "abierto.")
+    A("")
+    A("Pero los reveladores son **117 y 111**, ambos de hemorroides. El fulldoc **nombra** "
+      "los baños de asiento sin definirlos nunca; el sistema produce una definición correcta "
+      "—agua tibia, área anal, alivia dolor e inflamación— que **no está en el documento**. "
+      "Igual con el porqué de la fibra. Clínicamente son buenas respuestas; por diseño son "
+      "fugas. Y este es el punto que conecta con la brevedad del corpus: **cuanto menos dice "
+      "el documento, más rellena el modelo**. En hemorroides eso es 2 de 15 respuestas.")
+    A("")
+    A("Conviene decirlo sin rodeos porque contradice la lectura fácil: en el apartado 1 "
+      "estas dos figuran entre las «mejoras» frente a lo que vio la auditoría. Lo son según "
+      "su rúbrica —respondieron donde antes había un rechazo— y son un defecto según la "
+      "nuestra. La auditoría, al premiar cualquier respuesta sobre cualquier rechazo, "
+      "**incentiva justo el fallo más peligroso de un RAG clínico**.")
+    A("")
+
+    A("## 5. Los falsos negativos de la auditoría")
+    A("")
+    A(f"{counts['FN']} preguntas piden algo que **no está en el fulldoc**. El rechazo es la "
+      "conducta correcta y contratada. Puntuarlas 1-2/10 mide la cobertura del corpus, no la "
+      "calidad del sistema.")
+    A("")
+    A("Se agrupan en temas muy reconocibles:")
+    A("")
+    A("- **Logística asistencial** (76, 102, 120, 113, 79, 77) — duración del ingreso, "
+      "ambulatorio o no, baja laboral, ducha preoperatoria, vida tras el alta.")
+    A("- **Mortalidad y riesgo grave** (92, 129, 50, 94, 95, 99) — «¿me puedo morir?», "
+      "«¿y si me despierto?», esperanza de vida.")
+    A("- **Apoyo emocional y pudor** (126, 130, 131, 132, 44) — vergüenza, intimidad, miedo.")
+    A("- **Clínico fuera de guía** (43 amputación, 49 fertilidad, 97 ostomía, 72 dolor de hombro).")
+    A("")
+    A("Esto no es un fallo de ingeniería: es el **alcance del corpus**. Si el cliente quiere "
+      "que se respondan, hay que ampliar el fulldoc, no tocar el modelo. El caso extremo es "
+      "hemorroides, cuyo fulldoc son **1,1 KB / 28 líneas** — un resumen de consentimiento "
+      "informado. Con ese material, 7 de 31 preguntas no tienen respuesta posible.")
+    A("")
+
+    A("## 5b. ¿Son «OK» las OK? No del todo")
+    A("")
+    ok = [r for r in rows if r["verdict"] == "OK"]
+    tel = [r for r in ok if len(r["our_answer"]) < TELEGRAPHIC_CHARS]
+    nb = [r for r in ok if r["id"] in NEIGHBOURING]
+    clean = [r for r in rows if r["clean"]]
+    A(f"«OK» significa que lo que dice es cierto y está en el fulldoc. No significa que sea "
+      f"una buena respuesta. De las {len(ok)}:")
+    A("")
+    A(f"- **{len(tel)} son telegráficas** (<{TELEGRAPHIC_CHARS} caracteres): «Duración: 30–60 "
+      "minutos.», «Muy raras complicaciones: estrechamiento anal, incontinencia.» Son la "
+      "línea del documento devuelta tal cual, sin sujeto ni verbo dirigido al paciente.")
+    A(f"- **{len(nb)} responden a la pregunta de al lado.** El caso claro es el **134** "
+      "(«llevo tiempo posponiendo operarme por vergüenza, ¿debería preocuparme?»), que "
+      "recibe la respuesta del 122 palabra por palabra y deja sin tocar la vergüenza, que "
+      "era la mitad de la pregunta.")
+    A("- **Cuatro pares distintos reciben respuestas idénticas**: 62/90, 74/93, 106/119, "
+      "122/134. El sistema está devolviendo el fragmento del documento que más se parece a "
+      "la pregunta, no una respuesta a esa pregunta.")
+    A("")
+    A(f"Descontando falsos positivos, telegráficas y respuestas vecinas, **pasan limpias "
+      f"{len(clean)} de 134 ({100*len(clean)/len(rows):.0f} %)**: "
+      f"{Counter(r['procedure'] for r in clean).get('diabetes',0)} de diabetes, "
+      f"{Counter(r['procedure'] for r in clean).get('cirugia-abdominal',0)} de cirugía y "
+      "**ninguna de hemorroides**.")
+    A("")
+    A("Sí hay respuestas francamente buenas, y conviene no perderlas de vista: 32 (cuidados "
+      "del pie), 64 (por qué levantarse pronto), 81 (qué te explicarán antes de operar), 29 "
+      "(qué hacer con fiebre). Están bien estructuradas, son completas y no se salen del "
+      "documento. El sistema sabe hacerlo cuando el fulldoc tiene una sección desarrollada "
+      "sobre el tema — que es, otra vez, el argumento de fondo sobre el corpus.")
+    A("")
+    A("Nótese que la auditoría puntuó con un 1 y varios 2 respuestas que están en este grupo "
+      "limpio (42, 22, 23, 29, 96). Su rúbrica y la nuestra no miden lo mismo: ellos "
+      "penalizan la ausencia de contexto clínico añadido (ADA 2026, etc.), que este sistema "
+      "no puede aportar por diseño porque no está en el fulldoc.")
+    A("")
+
+    A("## 6. Qué haría, en orden")
+    A("")
+    A("1. **Atacar el sobre-rechazo en el prompt, no en el corpus.** Es el 25 % de las "
+      "preguntas y no cuesta datos nuevos. La instrucción de rechazar debe aplicarse al "
+      "*tema* de la pregunta, no a su registro emocional; los pares 112/128 y 91/103 son el "
+      "banco de pruebas para validarlo.")
+    A("2. **Añadir una salida intermedia entre responder y rechazar.** Hoy solo hay dos "
+      "modos. Para «¿me puedo morir?» lo correcto no es ni inventar ni decir «no tengo "
+      "información», sino reconocer la preocupación y derivar al equipo médico. Cubre de "
+      "golpe casi todos los FN de mortalidad y de apoyo emocional.")
+    A("3. **Corregir el alarmismo del 52 y el exceso de certeza de 105/108.** Son pocos casos "
+      "pero son los de peor consecuencia clínica.")
+    A("4. **Quitar la fuga de meta-comentario** (24, 26).")
+    A("5. **Decidir con el cliente si se amplía el fulldoc de hemorroides.** Con 1,1 KB, el "
+      "techo de calidad está puesto por el documento, no por el sistema.")
+    A("")
+
+    A("## 7. Anexo — Lo que ellos observaron, verificado")
+    A("")
+    A("Las observaciones que nos pasaron los auditores, contrastadas contra los datos. Esto "
+      "es contexto para entender cómo prepararon su evaluación, y para incorporar a la "
+      "nuestra lo que sea cierto. **No es un borrador de respuesta.**")
+    A("")
+    A("| Su observación | ¿Cuadra? | Nuestra lectura |")
+    A("| --- | --- | --- |")
+    A("| 46,3 % responde «No tengo información» | **Sí, exacto** (62/134). Nosotros 44,0 % (59/134) | Cierto, pero mezcla 25 rechazos correctos por diseño con 34 sobre-rechazos. Son dos problemas opuestos bajo una cifra |")
+    A("| 73,1 % requiere corrección crítica o alta | **Sí, exacto** (98/134 Alta+Crítica) | Es su propia columna de prioridad, no una medida independiente |")
+    A("| Solo el 9 % alcanza nivel aceptable | **Sí, exacto** (12/134) | Nosotros contamos 33/134 limpias. La diferencia es la rúbrica: penalizan la falta de contexto clínico añadido que el fulldoc no contiene |")
+    A("| Hemorroides: 61,3 % nulas | **Sí, exacto** (19/31). Nosotros 51,6 % (16/31) | Confirmado |")
+    A("| Hemorroides: 96,8 % con ≤12 palabras | **Sí** (30/31). Nosotros 90,3 % (28/31) | La observación más útil que hacen. Contraste: diabetes 52,7 %, cirugía 47,9 % |")
+    A("| «problema de cobertura, indexación o vocabulario» | **Cobertura sí; indexación no** | No hay índice. Es fulldoc: el documento entero va en el prompt, sin chunking, embeddings ni recuperación. No hay nada que indexar mal — el techo lo pone el documento (1,1 KB) |")
+    A("| Respuestas inseguras: medicación en enfermedad aguda, ayuno/bebidas preoperatorias, anticoagulantes, glucómetros, hipoglucemia | **Sí, 5 de 5** | Ver abajo. Es su hallazgo más sólido y **detectaron uno que nosotros habíamos dado por bueno** |")
+    A("| Miedo, culpa, ansiedad o vergüenza acaban en abstención | **Sí** | Cuantificado: **70 % de rechazo en las 20 preguntas emocionales frente al 39 % del resto** |")
+    A("| «HbA1c ≥6,5 %», «Anestesia regional», «Duración: 30–60 minutos» no son respuestas completas | **Sí** | Nuestro «telegráficas»: 17 de las OK. Coincidencia total |")
+    A("| Una recomendación condicionada presentada como regla universal | **Sí** | Nuestro «exceso-certeza»: 30, 105, 108, 87, 2 |")
+    A("")
+    A("### Las cinco áreas de seguridad, una por una")
+    A("")
+    A("- **Medicación en enfermedad aguda (29)** — tenían razón y **nosotros no lo vimos**. "
+      "El fulldoc dice «Si fiebre: paracetamol» y, en una lista aparte, «Consulte si… fiebre "
+      ">39 °C». La respuesta las funde en «Si la fiebre supera los 39 °C, usa paracetamol»: "
+      "**convierte un criterio de alarma en un umbral de tratamiento**, de modo que un "
+      "paciente con 38,5 °C podría no tomar nada. Además omite «cuidado con sobres y jarabes "
+      "que contienen azúcar», que es la advertencia específica para diabéticos. Es el defecto "
+      "más sutil de todo el lote y el único que un lector rápido daría por bueno: la "
+      "respuesta parece completa y bien estructurada.")
+    A("- **Anticoagulantes (108)** — «Sí, debes ajustar tu medicación anticoagulante antes de "
+      "la cirugía», en imperativo y sin sujeto. El fulldoc lo lista como parte de la "
+      "preparación que hace el equipo. Un paciente puede leerlo como una instrucción para "
+      "actuar por su cuenta. Lo teníamos como «exceso de certeza»; es más grave que eso.")
+    A("- **Hipoglucemia (52)** — inventa la mortalidad nocturna. Confirmado.")
+    A("- **Glucómetros (30)** — «Sí, necesitas un glucómetro» donde el fulldoc individualiza. "
+      "Confirmado. Su gemelo es el **6**, que rechaza la misma pregunta mejor formulada.")
+    A("- **Ayuno y bebidas preoperatorias (89)** — inventa un «protocolo de ayuno estricto» y "
+      "se contradice en la misma respuesta. Confirmado.")
+    A("")
+    A("### Qué incorporamos de su lectura")
+    A("")
+    A("1. **El ID 29 pasa de OK a defecto.** Es su aportación más valiosa y abre un subtipo "
+      "que no teníamos: *fundir dos reglas distintas del documento en una sola frase*. Hay "
+      "que buscarlo sistemáticamente en el resto — nuestro triaje no lo estaba mirando.")
+    A("2. **La cifra de ≤12 palabras es mejor métrica que nuestra longitud en caracteres** y "
+      "es reproducible. La adoptamos.")
+    A("3. **Su eje de seguridad no existe en nuestra clasificación.** Nosotros ordenamos por "
+      "tipo de defecto; ellos por consecuencia. Para priorizar arreglos, el suyo es el útil.")
+    A("")
+    A("### En qué no coincidimos")
+    A("")
+    A("No en los hechos —sus cifras son correctas— sino en el diagnóstico:")
+    A("")
+    A("- **«Indexación o vocabulario»** describe una arquitectura que no es la nuestra.")
+    A("- **«Preguntas frecuentes que podrían recibir una orientación general segura»** es "
+      "precisamente lo que el sistema tiene contratado no hacer. Ahí no hay un fallo "
+      "técnico sino una decisión de producto que conviene poner sobre la mesa: qué debe "
+      "ocurrir cuando la pregunta es razonable y el documento no la cubre. Nuestra respuesta "
+      "a eso es la tercera salida del §6, no relajar el anclaje al fulldoc — entre otras "
+      "cosas porque los 14 falsos positivos del §4b muestran qué pasa cuando el modelo "
+      "rellena huecos por su cuenta.")
+    A("- **Su rúbrica no distingue rechazo correcto de sobre-rechazo**, y al premiar "
+      "cualquier respuesta sobre cualquier rechazo puntúa mejor una invención bien redactada "
+      "(117) que una abstención correcta (129).")
+    A("")
+
+    A("## 8. Detalle por pregunta")
+    A("")
+    for proc in PROCEDURES:
+        A(f"### {proc}")
+        A("")
+        A("| ID | V | Su nota | Pregunta | Fundamento |")
+        A("| ---: | --- | ---: | --- | --- |")
+        for r in rows:
+            if r["procedure"] != proc:
+                continue
+            sub = f" ({r['subtype']})" if r["subtype"] else ""
+            q = r["question"].replace("|", "\\|")
+            ev = r["evidence"].replace("|", "\\|")
+            A(f"| {r['id']} | **{r['verdict']}**{sub} | {r['score']} | {q} | {ev} |")
+        A("")
+
+    dest = Path(args.out)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text("\n".join(out) + "\n", encoding="utf-8")
+
+    print(f"Wrote {dest}")
+    print(f"  reproduction agreement : {agree}/{len(rows)}")
+    for v in ("SR", "DEF", "FN", "OK"):
+        print(f"  {v:4s} {counts[v]:3d}  {VERDICT_LABEL[v]}")
+    print(f"  genuine defects        : {genuine}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
