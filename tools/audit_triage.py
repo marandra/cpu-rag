@@ -136,6 +136,108 @@ RULE_BOUNDARY_LABEL = {
     "disyunción": "Alternativa cerrada en una rama",
 }
 
+# Clinical consequence, the axis their rubric has and ours lacked. The question
+# is deliberately narrow and answerable: **what happens to the patient who
+# believes this answer and acts on it?** Not how wrong it is, not how far from
+# ADA — what it makes someone do.
+#
+#   G1  induces a clinically dangerous action, or defuses an alarm criterion
+#       that should have sent the patient to care
+#   G2  false certainty, invented protocol or omitted risk that changes a
+#       decision (consent, preparation, when to worry) without commanding a
+#       dangerous act outright
+#   G3  ungrounded or distorted content that shapes expectations but drives no
+#       risky action
+#   G4  form and focus: does not answer, telegraphic, leaks meta-commentary
+#
+# Over-refusals (SR) are NOT graded here. Their harm is abandonment, not a wrong
+# instruction, so they do not belong on the same scale — mixing them would rank
+# "said nothing" against "said something dangerous" as if commensurable.
+CLINICAL_LABEL = {
+    "G1": "Crítico — puede inducir una acción peligrosa o desactivar una alarma",
+    "G2": "Alto — altera una decisión (consentimiento, preparación, cuándo alarmarse)",
+    "G3": "Medio — desinforma sin derivar en acción de riesgo",
+    "G4": "Bajo — defecto de forma o de foco",
+}
+
+CLINICAL: dict[int, tuple[str, str]] = {
+    # ---- G1 ----------------------------------------------------------------
+    4: ("G1", "Le dice al paciente que **ajuste él su dosis de insulina** según la glucemia "
+        "postprandial. Autotitular insulina es la vía directa a la hipoglucemia, y contradice "
+        "la única regla de seguridad que el fulldoc enuncia dos veces."),
+    29: ("G1", "Convierte «Consulte si… fiebre >39 °C» —un criterio de alarma— en «si supera "
+         "39 °C, usa paracetamol», un umbral de tratamiento. **Desactiva el disparador de "
+         "consulta** justo en el escenario (enfermedad intercurrente en diabetes) donde se "
+         "incuba la descompensación."),
+    108: ("G1", "«Sí, debes ajustar tu medicación anticoagulante»: imperativo al paciente sobre "
+          "su anticoagulación, sin decir que lo indica el equipo. Suspender o cambiar "
+          "anticoagulantes por cuenta propia es trombosis o sangrado."),
+    # ---- G2 ----------------------------------------------------------------
+    52: ("G2", "Afirma riesgo de muerte por hipoglucemia nocturna, que el fulldoc no dice. "
+         "Calibra mal la alarma: angustia desproporcionada, y a la vez desplaza la atención "
+         "del tratamiento concreto (15-20 g) que el documento sí da."),
+    63: ("G2", "Da solo los efectos benignos y **omite** que «todos los fármacos para el dolor "
+         "pueden producir efectos no deseados». Falsa seguridad sobre la analgesia."),
+    87: ("G2", "«Necesitarás ayuda para caminar al día siguiente» traslada el «con ayuda» que "
+         "el documento pone en sentarse el día 0. Desincentiva la deambulación precoz, que es "
+         "justo lo que el fulldoc manda hacer al día siguiente."),
+    89: ("G2", "Inventa un «protocolo de ayuno estricto» que el documento no contiene, con una "
+         "ventana incoherente («entre 2 y las 2 horas previas»). Ayuno preoperatorio mal "
+         "entendido: suspensión de la intervención, o llegar sin la carga de carbohidratos."),
+    105: ("G2", "«Anestesia regional.» cierra en una rama lo que el documento deja abierto "
+          "(«regional **o** general»). El paciente firma el consentimiento con una expectativa "
+          "que puede no cumplirse."),
+    # ---- G3 ----------------------------------------------------------------
+    2: ("G3", "«En muchos casos» cuantifica algo que el fulldoc describe como progresivo e "
+        "individualizado. Expectativa mal fijada sobre la evolución."),
+    5: ("G3", "Non sequitur entre criterios diagnósticos y una negación sin apoyo: el paciente "
+        "se queda sin respuesta y con una afirmación que no puede verificar."),
+    8: ("G3", "«El médico suele enseñarte a pincharte» no está en el fulldoc. Crea una "
+        "expectativa sobre lo que ocurrirá en consulta."),
+    22: ("G3", "Sube «moderar edulcorantes» a «evitar» y se contradice en la misma frase. "
+         "Restricción dietética que el documento niega expresamente («ningún alimento "
+         "prohibido»)."),
+    26: ("G3", "«150 minutos semanales repartidos en sesiones de al menos 30-45 minutos "
+         "diarios» es aritméticamente imposible. Un objetivo inalcanzable desalienta; el "
+         "riesgo es el abandono del ejercicio, no una lesión."),
+    30: ("G3", "«Sí, necesitas un glucómetro» donde el fulldoc dice frecuencia individualizada. "
+         "Gasto y autovigilancia que quizá no le corresponden."),
+    36: ("G3", "Responde «qué llevar a la cita» con la lista de equipaje de vacaciones. "
+         "Desorienta sobre la preparación de la visita."),
+    67: ("G3", "Promete la premedicación que el documento condiciona a ansiedad elevada. "
+         "Expectativa incumplida ante el equipo, sin riesgo físico."),
+    68: ("G3", "Pierde el paso a vía oral: el paciente se queda con la idea de gotero "
+         "indefinido. Preocupación evitable sobre la recuperación."),
+    84: ("G3", "Responde «qué es mínimamente invasiva» describiendo la laparoscopia: confunde "
+         "el género con una de sus especies. Comprensión incorrecta de su propia cirugía."),
+    111: ("G3", "Inventa el porqué de la dieta rica en fibra. El consejo final coincide con el "
+          "documento; lo añadido es la justificación."),
+    117: ("G3", "Define los baños de asiento con conocimiento paramétrico — el fulldoc los "
+          "nombra pero nunca los define. La definición resulta ser benigna, pero es contenido "
+          "sin respaldo presentado como del documento."),
+    # ---- G4 ----------------------------------------------------------------
+    3: ("G4", "Vuelca criterios diagnósticos en lugar de decir si habrá más análisis."),
+    7: ("G4", "Responde «HbA1c ≥6,5 %.» a «¿para qué me la van a pedir?»."),
+    21: ("G4", "Devuelve los objetivos del tratamiento en lugar de los primeros pasos."),
+    24: ("G4", "Filtra al paciente su propio razonamiento interno entre paréntesis. Defecto de "
+         "confianza y de registro, sin consecuencia clínica."),
+    60: ("G4", "«Es un catéter epidural.» no explica nada de lo que el documento sí describe."),
+    69: ("G4", "No responde si cambia el ayuno, teniendo la frase que lo resolvía."),
+}
+
+# Persistence of each rule-boundary break across 9 seeds at t=0.1, measured by
+# tools/audit_seed_sweep.py (job 7246, 2026-07-21) and confirmed by reading the
+# texts, not by keyword. This is what separates a defect worth iterating on from
+# one that is a coin flip. "n/r" = did not reproduce in that configuration, which
+# conflates seed with build (the sweep rebuilt the snapshot and ran nT=32 vs the
+# pool's nT=8) — it is NOT evidence the defect is unreal; the replay documents it.
+BOUNDARY_PERSISTENCE: dict[int, str] = {
+    105: "9/9", 108: "9/9", 67: "9/9", 87: "9/9", 84: "9/9",
+    29: "8/9", 26: "3/9",
+    4: "n/r", 22: "n/r", 89: "n/r",
+    68: "no concluyente",
+}
+
 TELEGRAPHIC_CHARS = 80   # below this an answer is a doc line, not a reply
 
 VERDICT_LABEL = {
@@ -292,6 +394,28 @@ def refused(text: str | None) -> bool:
     return "no tengo informaci" in (text or "").lower()
 
 
+SWEEP_DIR = "eval/audit_seed_sweep"
+
+
+def load_seed_flipped(sweep_dir: Path) -> set[int]:
+    """IDs whose answer-vs-refuse decision moved across seeds at t=0.1.
+
+    From tools/audit_seed_sweep.py. Absent files are not an error: the triage
+    predates the sweep and must still run from a clone without it.
+    """
+    flipped: set[int] = set()
+    for proc in PROCEDURES:
+        path = sweep_dir / f"{proc}.json"
+        if not path.exists():
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for q in payload["questions"]:
+            calls = [refused(a) for k, a in q["answers"].items() if k.startswith("0.1|")]
+            if calls and len(set(calls)) > 1:
+                flipped.add(q["id"])
+    return flipped
+
+
 def load_rows(replays: Path) -> list[dict]:
     rows: list[dict] = []
     for proc in PROCEDURES:
@@ -304,10 +428,12 @@ def load_rows(replays: Path) -> list[dict]:
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--replays", default=REPLAY_DIR)
+    p.add_argument("--sweep", default=SWEEP_DIR)
     p.add_argument("--out", default="reports/audit_triage.md")
     args = p.parse_args()
 
     rows = load_rows(Path(args.replays))
+    seed_flipped = load_seed_flipped(Path(args.sweep))
     missing = [r["id"] for r in rows if r["id"] not in TRIAGE]
     if missing:
         raise SystemExit(f"No triage verdict for IDs: {missing}")
@@ -337,6 +463,20 @@ def main() -> int:
         if r["verdict"] == "OK":
             raise SystemExit(f"RULE_BOUNDARY ID {rid} is marked OK; it is a defect")
 
+    # The clinical axis must cover exactly the answers that carry a defect —
+    # no DEF left ungraded, and nothing graded that is not a DEF (grading an SR
+    # would put "said nothing" on the same scale as "said something dangerous").
+    def_ids = {r["id"] for r in rows if r["verdict"] == "DEF"}
+    if def_ids - set(CLINICAL):
+        raise SystemExit(f"DEF sin gravedad clínica: {sorted(def_ids - set(CLINICAL))}")
+    if set(CLINICAL) - def_ids:
+        raise SystemExit(f"CLINICAL sobre no-DEF: {sorted(set(CLINICAL) - def_ids)}")
+    if set(BOUNDARY_PERSISTENCE) - set(RULE_BOUNDARY):
+        raise SystemExit(
+            f"BOUNDARY_PERSISTENCE fuera de RULE_BOUNDARY: "
+            f"{sorted(set(BOUNDARY_PERSISTENCE) - set(RULE_BOUNDARY))}"
+        )
+
     for r in rows:
         r["clean"] = (
             r["verdict"] == "OK"
@@ -364,9 +504,13 @@ def main() -> int:
       "decisión de fondo — responder o rechazar — con lo que ellos observaron. Donde ambos "
       "responden, el texto es a menudo **idéntico palabra por palabra**.")
     A("")
-    A("La generación usa `temperature=0.1` sin semilla fija, así que las respuestas no son "
-      "reproducibles carácter a carácter por diseño; las 9 divergencias son preguntas "
-      "frontera que caen a un lado o al otro del umbral de rechazo. En 6 de ellas ahora se "
+    A("La generación usa `temperature=0.1` y en el código no se fija ninguna semilla, pero "
+      "**el sistema resulta ser determinista carácter a carácter**: el pickle del snapshot "
+      "guarda un seed y se restaura antes de cada petición, así que toda respuesta de un "
+      "procedimiento sale siempre de la misma semilla. Verificado con 10 pasadas × 134 "
+      "preguntas: 1340 generaciones idénticas. Las 9 divergencias frente a ellos no son, por "
+      "tanto, ruido de muestreo, sino diferencias de build (su imagen lleva llama-cpp 0.3.23; "
+      "el cluster, 0.3.19 nativo) y de orden de warmup. En 6 de ellas ahora se "
       "responde donde ellos vieron un rechazo (IDs 22, 23, 96, 111, 115, 117) — pero ojo: "
       "**responder no es siempre mejorar**. Dos de esas seis (111 y 117) responden con "
       "material que no está en el fulldoc; ver §4b.")
@@ -558,11 +702,72 @@ def main() -> int:
       "elevado» y el 67 lo pierde. Igual que **87 frente a 88** con el «con ayuda». La "
       "frontera no se rompe por falta de información, sino por inestabilidad de la generación.")
     A("")
-    A("Ese último punto es el que cambia el orden de trabajo: los pares 67/86 y 87/88 son al "
-      "defecto de frontera lo que 112/128 y 91/103 son al sobre-rechazo. **Las cuatro parejas "
-      "dicen lo mismo** — el sistema tiene el documento delante y decide distinto según cómo "
-      "esté formulada la pregunta. Sobre-rechazo y regla rota son la misma inestabilidad "
-      "mirada desde los dos lados.")
+    A("Los pares 67/86 y 87/88 son al defecto de frontera lo que 112/128 y 91/103 son al "
+      "sobre-rechazo: el sistema tiene el documento delante y decide distinto según cómo esté "
+      "formulada la pregunta.")
+    A("")
+    A("**Corrección (barrido de seeds, 2026-07-21):** una versión anterior de este informe "
+      "concluía aquí que sobre-rechazo y regla rota eran «la misma inestabilidad mirada desde "
+      "los dos lados». **No lo son.** Repitiendo con 9 semillas distintas a la misma "
+      "temperatura, la decisión responder/rechazar voltea en el **30 %** de las preguntas "
+      "discutidas, mientras las fronteras rotas se reproducen casi siempre: 105, 108, 67, 87 y "
+      "84 rompen en **9 de 9** semillas y 29 en 8 de 9. Solo 26 es intermitente (3/9). La "
+      "regla rota es un defecto firme; el sobre-rechazo es en buena parte muestreo.")
+    A("")
+
+    A("### 4d. Los mismos defectos, ordenados por consecuencia clínica")
+    A("")
+    A("Las categorías anteriores ordenan por **mecanismo** — cómo se rompió la respuesta. Para "
+      "decidir qué se arregla primero hace falta el otro eje, el que su rúbrica sí tiene: "
+      "**qué le pasa al paciente que se cree la respuesta y actúa en consecuencia.** No cuán "
+      "equivocada está, ni cuánto se aleja de ADA: qué le hace hacer.")
+    A("")
+    A("Los sobre-rechazos no entran en esta escala. Su daño es el abandono, no una instrucción "
+      "equivocada, y mezclarlos ordenaría «no dijo nada» contra «dijo algo peligroso» como si "
+      "fueran comparables.")
+    A("")
+    grade_counts = Counter(CLINICAL[i][0] for i in sorted(def_ids))
+    A("| Gravedad | N | Qué significa |")
+    A("| --- | ---: | --- |")
+    for g in ("G1", "G2", "G3", "G4"):
+        A(f"| **{g}** | {grade_counts[g]} | {CLINICAL_LABEL[g]} |")
+    A("")
+    A("La columna de estabilidad viene del barrido de 9 semillas a t=0,1. **Un defecto grave y "
+      "estable se puede atacar y medir; uno grave e intermitente exige más cuidado "
+      "estadístico.** Cómo leerla:")
+    A("")
+    A("- `9/9`, `8/9`, `3/9` — cuántas semillas reprodujeron **el defecto concreto**. Solo se "
+      "midió para los de §4c, porque comprobar que una frontera sigue rota exige leer el texto "
+      "contra el documento, no buscar una palabra.")
+    A("- `decisión inestable` — con algunas semillas la pregunta ni se responde: el defecto "
+      "compite con un rechazo.")
+    A("- `n/r` — no se reprodujo en la configuración del barrido. **No significa que no "
+      "exista**: el barrido reconstruyó el snapshot y corrió a `nT=32` frente a los `nT=8` del "
+      "pool, así que solo 29 de 54 respuestas coincidieron con el replay. El replay documenta "
+      "el defecto.")
+    A("- `—` — no se midió la persistencia del defecto; su decisión sí fue estable.")
+    A("")
+    A("| ID | Grav. | Proc. | Estabilidad | Qué le pasa al paciente |")
+    A("| ---: | :---: | --- | :---: | --- |")
+    for g in ("G1", "G2", "G3", "G4"):
+        for rid in sorted(i for i in def_ids if CLINICAL[i][0] == g):
+            r = by_id[rid]
+            stab = BOUNDARY_PERSISTENCE.get(rid, "—")
+            if rid in seed_flipped:
+                stab = f"{stab} · decisión inestable" if stab != "—" else "decisión inestable"
+            A(f"| {rid} | **{g}** | {r['procedure']} | {stab} | {CLINICAL[rid][1]} |")
+    A("")
+    g1 = sorted(i for i in def_ids if CLINICAL[i][0] == "G1")
+    A(f"**Los tres G1 ({', '.join(str(i) for i in g1)}) comparten forma**: los tres convierten "
+      "en instrucción al paciente algo que el documento dirige al equipo clínico, o desactivan "
+      "un criterio de alarma. Ninguno inventa un hecho médico — todos reasignan o funden reglas "
+      "que están en el corpus. Es el mismo mecanismo de §4c, y por eso ese apartado es la "
+      "prioridad y no el de contenido inventado.")
+    A("")
+    A("**El 29 tiene además una capa que no es nuestra.** Su contenido de fondo —«nunca "
+      "suspenda medicación de la diabetes»— está literal en el corpus y contradice las reglas "
+      "de días de enfermedad de ADA, que sí exigen pausar SGLT2i. Eso es un **defecto clínico "
+      "del corpus**, para escalar al cliente clínico, no para arreglar en el prompt.")
     A("")
 
     A("## 5. Los falsos negativos de la auditoría")

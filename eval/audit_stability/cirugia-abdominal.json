@@ -1,0 +1,923 @@
+{
+ "procedure": "cirugia-abdominal",
+ "generated": "2026-07-21 18:38 CEST",
+ "api_url": "http://eurehpccomputo01:8081",
+ "profile": "aiciblock",
+ "model": "Ministral-3-3B-Q4_K_M",
+ "runs": 10,
+ "failures": 0,
+ "questions": [
+  {
+   "id": 56,
+   "question": "He leído que hay operaciones por cámara y operaciones abiertas, ¿cambia mucho la recuperación entre una y otra?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención.",
+    "La recuperación puede variar según el tipo de cirugía:\n\n- **Cirugía mínimamente invasiva (laparoscópica)**: recuperación más rápida, menos dolor inicial, pero puede haber molestias abdominales por el gas insuflado durante 1 o 2 días.\n- **Cirugía abierta**: dolor más intenso y recuperación más lenta, según el tipo de intervención."
+   ]
+  },
+  {
+   "id": 57,
+   "question": "¿Es verdad que me van a meter gas en la tripa durante la operación y que eso da molestias después?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento."
+   ]
+  },
+  {
+   "id": 58,
+   "question": "Antes de operarme me van a revisar cómo estoy de alimentación, ¿para qué sirve eso exactamente?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina).",
+    "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y valorar su estado nutricional mediante peso, talla, cambios de peso, hábitos alimenticios, duración de la enfermedad y datos analíticos (como albúmina)."
+   ]
+  },
+  {
+   "id": 59,
+   "question": "¿Para qué me dan esa bebida especial antes de entrar a quirófano?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio."
+   ]
+  },
+  {
+   "id": 60,
+   "question": "Me han hablado de un tubito en la espalda para el dolor, ¿qué es eso exactamente?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**.",
+    "Es un **catéter epidural**."
+   ]
+  },
+  {
+   "id": 61,
+   "question": "¿Es verdad que si como pronto después de operarme se me puede abrir la herida por dentro?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 62,
+   "question": "¿Cuánto tardo en ir al baño con normalidad después de que me operen?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**."
+   ]
+  },
+  {
+   "id": 63,
+   "question": "¿Qué riesgos tiene ese tubito que me ponen en la espalda para el dolor?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento."
+   ]
+  },
+  {
+   "id": 64,
+   "question": "¿Por qué le dan tanta importancia a que me levante pronto después de la operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.",
+    "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones."
+   ]
+  },
+  {
+   "id": 65,
+   "question": "Además de las pruebas normales, ¿me van a hacer algo más antes de operarme?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).",
+    "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina)."
+   ]
+  },
+  {
+   "id": 66,
+   "question": "¿Desde cuántas horas antes de la operación tengo que dejar de beber líquidos?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**."
+   ]
+  },
+  {
+   "id": 67,
+   "question": "Si me pongo muy nervioso antes de entrar a quirófano, ¿me pueden dar algo para calmarme?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención.",
+    "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 o 2 horas antes de la intervención."
+   ]
+  },
+  {
+   "id": 68,
+   "question": "¿Cómo me van a controlar el dolor los primeros días después de operarme?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas."
+   ]
+  },
+  {
+   "id": 69,
+   "question": "Como tengo diabetes, ¿cambia algo el ayuno antes de mi operación?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación."
+   ]
+  },
+  {
+   "id": 70,
+   "question": "Me han hablado de un aparatito con un botón para el dolor, ¿tiene riesgo de que me pase con la dosis?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 71,
+   "question": "¿Por qué le dan tanta importancia a que llegue bien alimentado a la operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones."
+   ]
+  },
+  {
+   "id": 72,
+   "question": "Me han dicho que puedo quedarme con molestia en el hombro después de operarme, ¿eso es normal?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 73,
+   "question": "¿Puedo comer con normalidad los días antes de la operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 74,
+   "question": "¿Me va a doler mucho después de que me operen?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente."
+   ]
+  },
+  {
+   "id": 75,
+   "question": "¿Cuándo podré levantarme de la cama después de la operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y al día siguiente debe levantarse y dar cortos paseos por la habitación."
+   ]
+  },
+  {
+   "id": 76,
+   "question": "¿Cuánto tiempo voy a estar ingresado?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 77,
+   "question": "¿Puedo ducharme antes de ir al hospital el día de la operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 78,
+   "question": "¿Cuándo podré volver a comer después de la operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir.",
+    "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas tras la operación, siempre que no haya náuseas ni vómitos. La alimentación progresiva suele iniciarse dentro de las primeras 24 horas, con alimentos fáciles de digerir."
+   ]
+  },
+  {
+   "id": 79,
+   "question": "¿Podré hacer vida normal después de que me den el alta?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 80,
+   "question": "¿Mi familia puede acompañarme o ayudarme durante mi recuperación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "Sí, tu familia puede acompañarte y ayudarte durante la recuperación."
+   ]
+  },
+  {
+   "id": 81,
+   "question": "¿Qué me van a explicar antes de mi operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.",
+    "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito."
+   ]
+  },
+  {
+   "id": 82,
+   "question": "¿Tengo que firmar algo antes de que me operen?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento."
+   ]
+  },
+  {
+   "id": 83,
+   "question": "¿Me van a dormir del todo para mi operación?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 84,
+   "question": "Me han dicho que es una cirugía \"mínimamente invasiva\", ¿eso qué significa para mí?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo."
+   ]
+  },
+  {
+   "id": 85,
+   "question": "¿Cuánto dura mi recuperación en casa después de operarme?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 86,
+   "question": "¿Me van a dar algo para los nervios antes de entrar a quirófano?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 o 2 horas antes de la intervención."
+   ]
+  },
+  {
+   "id": 87,
+   "question": "¿Voy a necesitar ayuda para caminar después de mi operación?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía.",
+    "Sí, necesitarás ayuda para caminar al día siguiente de la cirugía."
+   ]
+  },
+  {
+   "id": 88,
+   "question": "¿Es peligroso que me levante el mismo día de la operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**.",
+    "El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y **al día siguiente debe levantarse y dar cortos paseos por la habitación**."
+   ]
+  },
+  {
+   "id": 89,
+   "question": "¿Qué pasa si me entra hambre justo antes de mi operación?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía).",
+    "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi te entra hambre **entre 2 y las 2 horas previas**, debes seguir el protocolo de ayuno estricto: no comer ni beber nada sólido ni líquido (excepto las bebidas con carbohidratos específicas que te den entre 200 y 400 ml unas horas antes de la cirugía)."
+   ]
+  },
+  {
+   "id": 90,
+   "question": "¿Cuándo iré al baño por primera vez después de que me operen?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**."
+   ]
+  },
+  {
+   "id": 91,
+   "question": "Tengo miedo de mi operación, ¿es normal sentirme así?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "Sí, es normal sentir miedo antes de una cirugía mayor."
+   ]
+  },
+  {
+   "id": 92,
+   "question": "¿Me puedo morir en esta operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 93,
+   "question": "¿Duele mucho esta operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente."
+   ]
+  },
+  {
+   "id": 94,
+   "question": "¿Y si me despierto en mitad de mi operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 95,
+   "question": "¿Y si algo sale mal durante mi cirugía?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 96,
+   "question": "Tengo mucha ansiedad, no puedo dormir pensando en mi operación, ¿qué hago?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención.",
+    "La ansiedad es normal antes de la cirugía. El equipo médico te dará una pastilla para dormir la noche antes y otra 1 o 2 horas antes de la intervención."
+   ]
+  },
+  {
+   "id": 97,
+   "question": "¿Me voy a despertar con una bolsa después de esta operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 98,
+   "question": "¿Qué pasa si me arrepiento justo antes de entrar a quirófano?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 99,
+   "question": "Nunca me han operado antes y tengo pánico a la anestesia, ¿es peligrosa?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 100,
+   "question": "¿Me van a quedar cicatrices grandes de esta operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 101,
+   "question": "¿Puedo hablar con el cirujano a solas si tengo dudas que me dan vergüenza preguntar delante de mi familia?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 102,
+   "question": "Estoy muy nervioso por dejar a mis hijos solos mientras estoy ingresado, ¿cuánto tiempo voy a estar fuera de casa?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 103,
+   "question": "¿Es normal llorar antes de una operación como esta?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  }
+ ]
+}

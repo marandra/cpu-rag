@@ -1,0 +1,600 @@
+{
+ "procedure": "hemorroides",
+ "generated": "2026-07-21 18:39 CEST",
+ "api_url": "http://eurehpccomputo01:8081",
+ "profile": "aiciblock",
+ "model": "Ministral-3-3B-Q4_K_M",
+ "runs": 10,
+ "failures": 0,
+ "questions": [
+  {
+   "id": 104,
+   "question": "¿En qué se diferencia la operación que me van a hacer de esas bandas elásticas de las que había oído hablar?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 105,
+   "question": "¿Me van a dormir del todo o solo la zona para operarme?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional.",
+    "Anestesia regional."
+   ]
+  },
+  {
+   "id": 106,
+   "question": "¿Cuánto dura mi operación en sí?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos."
+   ]
+  },
+  {
+   "id": 107,
+   "question": "¿Qué complicaciones raras pero serias podría tener mi operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante."
+   ]
+  },
+  {
+   "id": 108,
+   "question": "Tomo anticoagulantes, ¿tengo que dejar de tomarlos antes de que me operen?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía.",
+    "Sí, debes ajustar tu medicación anticoagulante antes de la cirugía."
+   ]
+  },
+  {
+   "id": 109,
+   "question": "¿En qué se diferencia mi operación de tratarlo con láser?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 110,
+   "question": "¿Es normal que me vuelvan a salir las hemorroides después de haberme operado?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 111,
+   "question": "¿Por qué me van a mandar comer mucha fibra después de operarme?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento.",
+    "Después de la cirugía, la dieta debe ser rica en fibra y líquidos para favorecer la recuperación del tracto intestinal y evitar complicaciones como estreñimiento."
+   ]
+  },
+  {
+   "id": 112,
+   "question": "¿Hay riesgo de quedarme incontinente por esta operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "Muy raras complicaciones: estrechamiento anal, incontinencia."
+   ]
+  },
+  {
+   "id": 113,
+   "question": "¿Cuánto tiempo de baja me van a dar después de esta operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 114,
+   "question": "¿Puedo comer con normalidad el día antes de mi operación?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 115,
+   "question": "¿Duele mucho ir al baño después de que me operen?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente.",
+    "El dolor al defecar tras la cirugía es frecuente."
+   ]
+  },
+  {
+   "id": 116,
+   "question": "¿Cuánto tiempo tardaré en recuperarme de esta operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**.",
+    "Recuperación en **2–4 semanas**."
+   ]
+  },
+  {
+   "id": 117,
+   "question": "Me han mencionado unos \"baños de asiento\", ¿qué son exactamente?",
+   "verdict": "DEF",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides."
+   ]
+  },
+  {
+   "id": 118,
+   "question": "¿Qué debo comer después de que me operen?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**."
+   ]
+  },
+  {
+   "id": 119,
+   "question": "¿Es una operación larga?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos.",
+    "Duración: 30–60 minutos."
+   ]
+  },
+  {
+   "id": 120,
+   "question": "¿Me tienen que ingresar o vuelvo a casa el mismo día?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 121,
+   "question": "¿Puedo evitar pasar por quirófano con alguna crema o tratamiento?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 122,
+   "question": "¿Qué pasa si al final no me opero?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar."
+   ]
+  },
+  {
+   "id": 123,
+   "question": "¿Puedo arrepentirme y no operarme al final?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 124,
+   "question": "¿Cuánto tiempo tengo que estar en ayunas antes de mi operación?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía.",
+    "Ayuno **6–8 horas** antes de la cirugía."
+   ]
+  },
+  {
+   "id": 125,
+   "question": "¿Voy a sangrar después de que me operen?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**.",
+    "Sí, tras la hemorroidectomía puede haber **sangrado leve**."
+   ]
+  },
+  {
+   "id": 126,
+   "question": "Me da mucha vergüenza este tema, ¿es normal sentirme así antes de mi operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 127,
+   "question": "¿Duele mucho esta operación?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 128,
+   "question": "¿Me puedo quedar incontinente para siempre después de esto?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 129,
+   "question": "¿Me puedo morir por esta operación?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 130,
+   "question": "Tengo miedo a que me hagan daño en una zona tan íntima, ¿es un miedo normal?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 131,
+   "question": "¿Es una operación de la que debería avergonzarme?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 132,
+   "question": "¿Van a ver mi zona íntima muchas personas en el quirófano?",
+   "verdict": "FN",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 133,
+   "question": "¿Me va a quedar alguna secuela para siempre de esta operación?",
+   "verdict": "SR",
+   "n": 10,
+   "refused": 10,
+   "answers": [
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso.",
+    "No tengo información sobre eso."
+   ]
+  },
+  {
+   "id": 134,
+   "question": "Llevo tiempo posponiendo operarme por vergüenza, ¿debería preocuparme más por hacerlo ya?",
+   "verdict": "OK",
+   "n": 10,
+   "refused": 0,
+   "answers": [
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar.",
+    "Si decides no operarte, los síntomas pueden empeorar."
+   ]
+  }
+ ]
+}
