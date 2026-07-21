@@ -9,9 +9,13 @@ spreadsheet.
 
 Four verdicts:
 
-  FN   The refusal was correct by design: the topic is genuinely absent from the
-       fulldoc, and the prompt mandates refusing. The audit scored it 1-2/10
+  FN   The refusal was correct by design: the fulldoc does not answer the
+       question, and the prompt mandates refusing. The audit scored it 1-2/10
        anyway -> their score is a false negative, not our bug.
+       Subtype "parcial" is the grey zone: the fulldoc *names* the topic but
+       never develops it. Under the adopted definition (grey zone = topic
+       related but NOT answerable from the fulldoc -> must refuse) these are
+       correct refusals, not over-refusals. There is no third group.
   SR   Over-refusal: the fulldoc *does* cover the topic and the system refused
        anyway. Genuine defect, and the largest single one.
   DEF  Answered, but with a genuine defect (over-certainty, non-answer,
@@ -52,6 +56,80 @@ FALSE_POSITIVE = {
 # asked — or reusing verbatim the answer given to a different question.
 NEIGHBOURING = {62, 134, 122, 90, 93, 74, 106, 119}
 
+# Rule-boundary violations. Every ingredient comes from the fulldoc, so the answer
+# reads as complete and sourced — but the *boundary* between two rules is broken.
+# Harder to spot than an invention and worse in consequence, because nothing looks
+# wrong. Four mechanisms:
+#
+#   fusión      two independent statements welded into one conditional
+#   des-scope   a rule loses the condition that scoped it
+#   sujeto      the rule keeps its content but changes who acts
+#   disyunción  an "A or B" is closed to A
+#
+# id -> (mechanism, corpus rules crossed, what the fusion produced)
+RULE_BOUNDARY: dict[int, tuple[str, str, str]] = {
+    4: ("sujeto",
+        "§Raciones «útil sobre todo con insulina» + §Insulina «rápidas: control postprandial» "
+        "vs. §Tratamiento farmacológico «no modificar dosis ni suspender sin indicación»",
+        "«Si usas insulina, ajustar la dosis según la glucemia postprandial»: convierte una "
+        "descripción de cómo actúan las insulinas en una instrucción de autoajuste dirigida al "
+        "paciente, contradiciendo la regla de adherencia explícita del documento."),
+    22: ("fusión",
+         "§Grupos de alimentos, categorías distintas «Limitar: … dulces» y «Moderar: edulcorantes»",
+         "«**evitar** los edulcorantes (excepto moderación con los mencionados)»: colapsa dos "
+         "categorías del documento, sube «moderar» a «evitar» y se contradice en la misma frase."),
+    26: ("fusión",
+         "§Ejercicio «Al menos 150 minutos semanales repartidos» + «Caminar 30-45 min diarios es "
+         "muy beneficioso»",
+         "«150 minutos semanales … repartidos en sesiones de al menos 30-45 minutos diarios»: "
+         "aritméticamente imposible (30-45 diarios son 210-315 semanales) y convierte un ejemplo "
+         "beneficioso sobre caminar en una duración mínima de sesión obligatoria."),
+    29: ("fusión",
+         "§Si estoy enfermo «Si fiebre: paracetamol» + «Consulte si… fiebre >39 °C»; y la rama "
+         "«Si diarrea… Evitar leche y derivados, legumbres, verduras crudas, fritos, café»",
+         "Dos roturas en la misma respuesta: «Si la fiebre supera los 39 °C, usa paracetamol» "
+         "convierte un criterio de alarma en umbral de tratamiento; y «**Evita** leche y "
+         "derivados…» sale de la rama de diarrea y queda como prohibición general para cualquier "
+         "enfermedad intercurrente."),
+    67: ("des-scope",
+         "§Premedicación «**Cuando el grado de ansiedad y temor sea elevado**, le darán medicación»",
+         "«Sí, el equipo te dará medicación para llegar relajado al quirófano»: pierde la "
+         "condición y promete al paciente una premedicación que el documento condiciona. El 86 "
+         "responde lo mismo conservándola — mismo contenido, distinta frontera."),
+    68: ("fusión",
+         "§Control del dolor «vía intravenosa las primeras 24 o 48 horas **y luego vía oral**»",
+         "Reparte la regla de vía entre los dos tipos de calmante y pierde el paso a vía oral: "
+         "el paciente queda con la idea de gotero indefinido."),
+    84: ("fusión",
+         "§Cirugía mínimamente invasiva: la definición general vs. la laparoscopia como caso",
+         "Responde «qué es mínimamente invasiva» con la descripción de la laparoscopia, "
+         "equiparando el género con una de sus especies."),
+    87: ("sujeto",
+         "§Levantarse de la cama «el mismo día … puede sentarse en un sillón **con ayuda**, y al "
+         "día siguiente debe levantarse y dar cortos paseos»",
+         "Traslada el «con ayuda» del sentarse del día 0 al caminar del día 1. El 88 cita ambos "
+         "tramos sin cruzarlos."),
+    89: ("fusión",
+         "§Bebidas con carbohidratos «líquidos hasta 2 horas antes» + «entre 200 y 400 ml unas "
+         "horas antes»",
+         "Funde las dos en un «protocolo de ayuno estricto» que el documento no contiene, con una "
+         "ventana temporal incoherente («entre 2 y las 2 horas previas»)."),
+    105: ("disyunción",
+          "§Procedimiento «con anestesia regional **o general**»",
+          "«Anestesia regional.» — cierra en una rama lo que el documento deja abierto."),
+    108: ("sujeto",
+          "§Preparación «Ajustar medicación (anticoagulantes, etc.)», paso del equipo",
+          "«Sí, **debes** ajustar tu medicación anticoagulante»: convierte un paso de preparación "
+          "del equipo en un imperativo al paciente sobre su anticoagulación."),
+}
+
+RULE_BOUNDARY_LABEL = {
+    "fusión": "Dos reglas soldadas en una",
+    "des-scope": "Regla que pierde su condición",
+    "sujeto": "Regla que cambia de sujeto",
+    "disyunción": "Alternativa cerrada en una rama",
+}
+
 TELEGRAPHIC_CHARS = 80   # below this an answer is a doc line, not a reply
 
 VERDICT_LABEL = {
@@ -68,7 +146,7 @@ TRIAGE: dict[int, tuple[str, str, str]] = {
     1: ("OK", "", "Correcta; la auditoría pide más profundidad."),
     2: ("DEF", "generalización", "«en muchos casos» no está en el fulldoc; §Tratamiento farmacológico lo describe como progresivo e individualizado."),
     3: ("DEF", "no-responde", "Vuelca los criterios diagnósticos; la pregunta era si habrá más análisis."),
-    4: ("DEF", "sin-fundamento", "Grounded en §Hidratos de carbono, pero los ejemplos de menú («pan integral con aguacate y huevo») no están en el fulldoc."),
+    4: ("DEF", "regla-fundida", "Dos defectos. Los ejemplos de menú («pan integral con aguacate y huevo») no están en el fulldoc; y «Si usas insulina, ajustar la dosis según la glucemia postprandial» reasigna al paciente una regla que el documento reserva al prescriptor — §Tratamiento farmacológico dice «no modificar dosis ni suspender sin indicación»."),
     5: ("DEF", "no-responde", "Non sequitur: mezcla criterios diagnósticos con una negación sin apoyo en el texto."),
     6: ("SR", "", "§Autoanálisis: «Especialmente importante con insulina o fármacos con riesgo de hipoglucemia. Frecuencia individualizada»."),
     7: ("DEF", "no-responde", "Responde «HbA1c ≥6,5 %.» a «¿para qué me la van a pedir?». §Seguimiento sanitario lo explica."),
@@ -86,14 +164,14 @@ TRIAGE: dict[int, tuple[str, str, str]] = {
     19: ("FN", "", "El tiempo hasta notar efecto del tratamiento no aparece en el fulldoc."),
     20: ("SR", "", "§Tratamiento farmacológico «Progresivo… muchas personas necesitan además fármacos»; §Insulina «cuando otros tratamientos no controlan»."),
     21: ("DEF", "no-responde", "Devuelve los objetivos del tratamiento en lugar de los primeros pasos."),
-    22: ("OK", "mejora", "Ellos vieron un rechazo; ahora responde correctamente desde §Grupos de alimentos."),
+    22: ("DEF", "regla-fundida", "Ellos vieron un rechazo y ahora responde, pero cruza dos categorías de §Grupos de alimentos: el fulldoc dice «Moderar: edulcorantes» y la respuesta manda «evitar los edulcorantes (excepto moderación con los mencionados)», contradiciéndose dentro de la misma frase. Reclasificada desde OK por el barrido de fronteras."),
     23: ("OK", "mejora", "Ellos vieron un rechazo; ahora responde con la individualización del §Tratamiento farmacológico."),
     24: ("DEF", "fuga-meta", "Filtra al paciente su propio razonamiento: «*(No añado equivalencias o recomendaciones específicas de marcas…)*»."),
     25: ("SR", "", "§Mitos «La dieta del diabético es la dieta equilibrada general» + §Alimentación «ningún alimento prohibido»."),
-    26: ("DEF", "fuga-meta", "Misma fuga de meta-comentario que el 24."),
+    26: ("DEF", "regla-fundida", "Misma fuga de meta-comentario que el 24, y además funde §Ejercicio «al menos 150 minutos semanales» con «caminar 30-45 min diarios es muy beneficioso» en «150 minutos semanales… repartidos en sesiones de al menos 30-45 minutos diarios», que es aritméticamente imposible."),
     27: ("SR", "", "§Insulina «temporal o permanente»; §Mitos «Sin insulina también se es diabético»."),
     28: ("OK", "", "Correcta; §Alcohol."),
-    29: ("DEF", "regla-fundida", "Completa salvo en un punto crítico: el fulldoc da «Si fiebre: paracetamol» y, por separado, «Consulte si… fiebre >39 °C». La respuesta las funde en «Si la fiebre supera los 39 °C, usa paracetamol», convirtiendo un criterio de alarma en un umbral de tratamiento, y omite «cuidado con sobres y jarabes que contienen azúcar»."),
+    29: ("DEF", "regla-fundida", "Completa salvo en dos fronteras rotas: el fulldoc da «Si fiebre: paracetamol» y, por separado, «Consulte si… fiebre >39 °C», y la respuesta las funde en «Si la fiebre supera los 39 °C, usa paracetamol», convirtiendo un criterio de alarma en un umbral de tratamiento; además saca «Evitar leche y derivados…» de la rama de diarrea y la deja como prohibición general. Omite «cuidado con sobres y jarabes que contienen azúcar»."),
     30: ("DEF", "exceso-certeza", "«Sí, necesitas un glucómetro»; §Autoanálisis dice frecuencia individualizada y «especialmente» con insulina."),
     31: ("OK", "", "Correcta."),
     32: ("OK", "", "Correcta y completa; §Pie diabético."),
@@ -101,7 +179,7 @@ TRIAGE: dict[int, tuple[str, str, str]] = {
     34: ("OK", "", "Correcta; §Seguimiento sanitario."),
     35: ("OK", "", "Correcta; §¿Puedo ir de vacaciones?"),
     36: ("DEF", "sección-errónea", "Responde «qué llevar a la cita» con la lista de equipaje de §¿Puedo ir de vacaciones? (incluye «ropa y calzado cómodos»)."),
-    37: ("SR", "parcial", "§Objetivos de control «individualizables» y §Tratamiento «se individualiza según persona»."),
+    37: ("FN", "parcial", "§Objetivos de control «individualizables» y §Tratamiento «se individualiza según persona»."),
     38: ("FN", "", "El ámbito laboral no aparece en el fulldoc."),
     39: ("SR", "", "§Grupos de alimentos «Suplementos/productos milagro: no curan la diabetes»."),
     40: ("SR", "", "Doblemente cubierto: §Alimentación «ningún alimento prohibido» y §Mitos «No hay alimentos prohibidos»."),
@@ -110,15 +188,15 @@ TRIAGE: dict[int, tuple[str, str, str]] = {
     43: ("FN", "", "La amputación no aparece; §Pie diabético llega hasta úlceras e infecciones."),
     44: ("FN", "", "El pudor al inyectarse no aparece; §Aspectos psicológicos es genérico."),
     45: ("SR", "", "§Introducción «enfermedad crónica»; §Prevención «prevenir o retrasar»; «productos milagro no curan»."),
-    46: ("SR", "parcial", "§Prevención de complicaciones + individualización de objetivos."),
+    46: ("FN", "parcial", "§Prevención de complicaciones + individualización de objetivos."),
     47: ("SR", "", "§Aspectos psicológicos «no culparse» y §Causas de la DM2."),
     48: ("OK", "", "Correcta; §Educación terapéutica «es normal sentir preocupación, miedo o frustración»."),
     49: ("FN", "", "La fertilidad no aparece en el fulldoc."),
     50: ("FN", "", "La esperanza de vida no aparece en el fulldoc."),
     51: ("SR", "", "§Alimentación «ningún alimento prohibido» + §Aspectos psicológicos."),
     52: ("DEF", "alarmismo", "«Sí… riesgo de muerte»: §Hipoglucemia no afirma mortalidad; da síntomas, tratamiento (15-20 g) y prevención."),
-    53: ("SR", "parcial", "§Insulina (no todos la necesitan, vía subcutánea) y §Mitos."),
-    54: ("SR", "parcial", "§Causas de la DM2 cita la herencia como un factor, no como certeza."),
+    53: ("FN", "parcial", "§Insulina (no todos la necesitan, vía subcutánea) y §Mitos."),
+    54: ("FN", "parcial", "§Causas de la DM2 cita la herencia como un factor, no como certeza."),
     55: ("SR", "", "§Aspectos psicológicos: «buscar apoyo en el entorno y en asociaciones de personas con diabetes»."),
     # ---------------- cirugia-abdominal ----------------
     56: ("OK", "", "Correcta; §Cirugía mínimamente invasiva."),
@@ -132,8 +210,8 @@ TRIAGE: dict[int, tuple[str, str, str]] = {
     64: ("OK", "", "Correcta y completa; §Levantarse de la cama."),
     65: ("OK", "", "Correcta; §Cribado nutricional preoperatorio."),
     66: ("OK", "", "Correcta; §Bebidas con carbohidratos."),
-    67: ("OK", "", "Correcta; §Premedicación."),
-    68: ("OK", "", "Correcta; §Control del dolor."),
+    67: ("DEF", "regla-fundida", "Pierde la condición: §Premedicación dice «**cuando el grado de ansiedad y temor sea elevado**, le darán medicación» y la respuesta promete la premedicación sin condicionarla. El 86 responde lo mismo conservándola. Reclasificada desde OK por el barrido de fronteras."),
+    68: ("DEF", "regla-fundida", "Reparte «vía intravenosa las primeras 24 o 48 horas» entre los dos tipos de calmante y pierde el «**y luego vía oral (pastillas)**» del fulldoc: deja al paciente con la idea de gotero indefinido. Reclasificada desde OK por el barrido de fronteras."),
     69: ("DEF", "no-responde", "Preguntan si cambia el ayuno; §Bebidas dice «el cirujano le indicará cómo proceder», que es la respuesta que faltaba."),
     70: ("SR", "", "Literal en §Control del dolor (ACP): «todo está programado, no hay peligro de sobredosis»."),
     71: ("OK", "", "Correcta; §Cribado nutricional preoperatorio."),
@@ -149,8 +227,8 @@ TRIAGE: dict[int, tuple[str, str, str]] = {
     81: ("OK", "", "Correcta y completa; §Quién informa y cuándo."),
     82: ("OK", "", "Correcta; §Quién informa y cuándo."),
     83: ("SR", "", "§Qué es la cirugía mayor abdominal: «Suele requerir anestesia general»."),
-    84: ("OK", "", "Correcta; §Cirugía mínimamente invasiva."),
-    85: ("SR", "parcial", "§Qué es la cirugía mayor abdominal: «la recuperación puede llevar varios días o semanas»."),
+    84: ("DEF", "regla-fundida", "Responde «qué es mínimamente invasiva» con la descripción de la laparoscopia: el fulldoc las distingue como género y caso. Reclasificada desde OK por el barrido de fronteras."),
+    85: ("FN", "parcial", "§Qué es la cirugía mayor abdominal: «la recuperación puede llevar varios días o semanas»."),
     86: ("OK", "", "Correcta; §Premedicación."),
     87: ("DEF", "distorsión", "«Necesitarás ayuda para caminar al día siguiente»: el fulldoc pone el «con ayuda» en sentarse el mismo día, no en caminar."),
     88: ("OK", "", "Correcta; §Levantarse de la cama."),
@@ -163,19 +241,19 @@ TRIAGE: dict[int, tuple[str, str, str]] = {
     95: ("FN", "", "«Si algo sale mal» no aparece en el fulldoc."),
     96: ("OK", "mejora", "Añade «la ansiedad es normal» antes de la premedicación, que la suya omitía."),
     97: ("FN", "", "La ostomía / bolsa no aparece en el fulldoc."),
-    98: ("SR", "parcial", "§Quién informa: «usted decide sobre el tratamiento y firma el consentimiento escrito»."),
+    98: ("FN", "parcial", "§Quién informa: «usted decide sobre el tratamiento y firma el consentimiento escrito»."),
     99: ("FN", "", "El riesgo anestésico concreto no aparece; solo que en la cita de anestesia se informa de él."),
-    100: ("SR", "parcial", "§Cirugía mínimamente invasiva: «pequeñas incisiones» frente a «incisiones mayores»."),
-    101: ("SR", "parcial", "§Quién informa: «Puede consultar sus dudas en cualquier momento»."),
+    100: ("FN", "parcial", "§Cirugía mínimamente invasiva: «pequeñas incisiones» frente a «incisiones mayores»."),
+    101: ("FN", "parcial", "§Quién informa: «Puede consultar sus dudas en cualquier momento»."),
     102: ("FN", "", "La duración del ingreso no aparece en el fulldoc."),
     103: ("SR", "", "§Premedicación: «Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión)». El 91, casi idéntico, SÍ se respondió."),
     # ---------------- hemorroides ----------------
-    104: ("SR", "parcial", "§Alternativas lista «Ligadura con bandas elásticas»."),
+    104: ("FN", "parcial", "§Alternativas lista «Ligadura con bandas elásticas»."),
     105: ("DEF", "exceso-certeza", "«Anestesia regional.» El fulldoc dice «con anestesia regional o general»."),
     106: ("OK", "", "Correcta; §Procedimiento «30–60 minutos»."),
     107: ("OK", "", "Correcta; §Riesgos y complicaciones."),
     108: ("DEF", "exceso-certeza", "«Sí, debes ajustar» sin decir quién lo indica; §Preparación dice «Ajustar medicación (anticoagulantes, etc.)»."),
-    109: ("SR", "parcial", "§Alternativas lista «coagulación con láser o infrarrojos»."),
+    109: ("FN", "parcial", "§Alternativas lista «coagulación con láser o infrarrojos»."),
     110: ("SR", "", "§Beneficios: «Reduce recaídas»."),
     111: ("DEF", "sin-fundamento", "El fulldoc solo dice «dieta rica en fibra y líquidos»; el porqué («recuperación del tracto intestinal», «estreñimiento») es inventado."),
     112: ("OK", "", "Correcta; §Riesgos y complicaciones."),
@@ -240,6 +318,18 @@ def main() -> int:
             raise SystemExit(
                 f"ID {r['id']}: verdict {r['verdict']} but our_refused={r['our_refused']}"
             )
+
+    # A rule-boundary finding only makes sense on a question that was answered, and
+    # every one of them is by definition a defect — never an OK.
+    by_id = {r["id"]: r for r in rows}
+    for rid in RULE_BOUNDARY:
+        r = by_id.get(rid)
+        if r is None:
+            raise SystemExit(f"RULE_BOUNDARY ID {rid} is not in the replay")
+        if r["our_refused"]:
+            raise SystemExit(f"RULE_BOUNDARY ID {rid} was refused, not answered")
+        if r["verdict"] == "OK":
+            raise SystemExit(f"RULE_BOUNDARY ID {rid} is marked OK; it is a defect")
 
     for r in rows:
         r["clean"] = (
@@ -420,6 +510,55 @@ def main() -> int:
       "**incentiva justo el fallo más peligroso de un RAG clínico**.")
     A("")
 
+    A("### 4c. Reglas rotas por la frontera: el defecto que no se ve")
+    A("")
+    rb = [r for r in rows if r["id"] in RULE_BOUNDARY]
+    A(f"**{len(rb)} de {len(answered)} respuestas ({100*len(rb)/len(answered):.0f} %) rompen la "
+      "frontera entre dos reglas del documento.** Es la categoría que el triaje inicial no "
+      "estaba buscando: la destapó el ID 29 y solo aparece releyendo cada respuesta contra su "
+      "fulldoc frase a frase.")
+    A("")
+    A("Se diferencia del falso positivo en algo que importa para priorizar: **aquí todos los "
+      "ingredientes salen del documento**. No hay nada que un detector de contenido inventado "
+      "pueda marcar, y la respuesta parece completa y bien fundada. Por eso son los defectos "
+      "de peor consecuencia y los más caros de encontrar — 8 de los 11 son nuevos, y ni la "
+      "auditoría ni nosotros los habíamos visto.")
+    A("")
+    mech = Counter(RULE_BOUNDARY[r["id"]][0] for r in rb)
+    A("| Mecanismo | N | Qué se rompe |")
+    A("| --- | ---: | --- |")
+    for m, n in mech.most_common():
+        A(f"| `{m}` | {n} | {RULE_BOUNDARY_LABEL[m]} |")
+    A("")
+    A("| ID | Mecanismo | Reglas cruzadas | Qué produjo |")
+    A("| ---: | --- | --- | --- |")
+    for r in rb:
+        m, rules, effect = RULE_BOUNDARY[r["id"]]
+        A(f"| {r['id']} | `{m}` | {rules} | {effect} |")
+    A("")
+    A("Tres casos merecen leerse enteros porque fijan el patrón:")
+    A("")
+    A("- **26** es el más limpio y el más fácil de explicar: el documento dice «al menos 150 "
+      "minutos semanales» y, aparte, «caminar 30-45 min diarios es muy beneficioso». La "
+      "respuesta los suelda en «150 minutos semanales repartidos en sesiones de al menos 30-45 "
+      "minutos diarios», que **no puede ser cierto** — 30 diarios ya son 210 semanales. Dos "
+      "frases correctas producen una prescripción imposible.")
+    A("- **4** es el de peor consecuencia: «si usas insulina, ajustar la dosis según la "
+      "glucemia postprandial» contradice de frente la única regla de seguridad que el fulldoc "
+      "enuncia dos veces («no modificar dosis ni suspender sin indicación»). El sistema no "
+      "inventó un hecho: reasignó el sujeto de una regla.")
+    A("- **67 frente a 86** es el par de control. La misma pregunta —algo para los nervios— con "
+      "el mismo material del documento: el 86 conserva «cuando el grado de ansiedad sea "
+      "elevado» y el 67 lo pierde. Igual que **87 frente a 88** con el «con ayuda». La "
+      "frontera no se rompe por falta de información, sino por inestabilidad de la generación.")
+    A("")
+    A("Ese último punto es el que cambia el orden de trabajo: los pares 67/86 y 87/88 son al "
+      "defecto de frontera lo que 112/128 y 91/103 son al sobre-rechazo. **Las cuatro parejas "
+      "dicen lo mismo** — el sistema tiene el documento delante y decide distinto según cómo "
+      "esté formulada la pregunta. Sobre-rechazo y regla rota son la misma inestabilidad "
+      "mirada desde los dos lados.")
+    A("")
+
     A("## 5. Los falsos negativos de la auditoría")
     A("")
     A(f"{counts['FN']} preguntas piden algo que **no está en el fulldoc**. El rechazo es la "
@@ -481,18 +620,22 @@ def main() -> int:
 
     A("## 6. Qué haría, en orden")
     A("")
-    A("1. **Atacar el sobre-rechazo en el prompt, no en el corpus.** Es el 25 % de las "
-      "preguntas y no cuesta datos nuevos. La instrucción de rechazar debe aplicarse al "
+    A(f"1. **Atacar el sobre-rechazo en el prompt, no en el corpus.** Es el "
+      f"{100*counts['SR']/len(rows):.0f} % de las preguntas y no cuesta datos nuevos. La instrucción de rechazar debe aplicarse al "
       "*tema* de la pregunta, no a su registro emocional; los pares 112/128 y 91/103 son el "
       "banco de pruebas para validarlo.")
     A("2. **Añadir una salida intermedia entre responder y rechazar.** Hoy solo hay dos "
       "modos. Para «¿me puedo morir?» lo correcto no es ni inventar ni decir «no tengo "
       "información», sino reconocer la preocupación y derivar al equipo médico. Cubre de "
       "golpe casi todos los FN de mortalidad y de apoyo emocional.")
-    A("3. **Corregir el alarmismo del 52 y el exceso de certeza de 105/108.** Son pocos casos "
+    A("3. **Cerrar las fronteras entre reglas** (apartado 4c): una regla del documento no puede "
+      "absorber la condición, el umbral ni el sujeto de otra. Es el 15 % de las respuestas y el "
+      "defecto de peor consecuencia, porque el resultado parece correcto. Casos guía: 26, 4, 29, "
+      "108.")
+    A("4. **Corregir el alarmismo del 52 y el exceso de certeza de 105/108.** Son pocos casos "
       "pero son los de peor consecuencia clínica.")
-    A("4. **Quitar la fuga de meta-comentario** (24, 26).")
-    A("5. **Decidir con el cliente si se amplía el fulldoc de hemorroides.** Con 1,1 KB, el "
+    A("5. **Quitar la fuga de meta-comentario** (24, 26).")
+    A("6. **Decidir con el cliente si se amplía el fulldoc de hemorroides.** Con 1,1 KB, el "
       "techo de calidad está puesto por el documento, no por el sistema.")
     A("")
 
@@ -504,9 +647,9 @@ def main() -> int:
     A("")
     A("| Su observación | ¿Cuadra? | Nuestra lectura |")
     A("| --- | --- | --- |")
-    A("| 46,3 % responde «No tengo información» | **Sí, exacto** (62/134). Nosotros 44,0 % (59/134) | Cierto, pero mezcla 25 rechazos correctos por diseño con 34 sobre-rechazos. Son dos problemas opuestos bajo una cifra |")
+    A(f"| 46,3 % responde «No tengo información» | **Sí, exacto** (62/134). Nosotros 44,0 % (59/134) | Cierto, pero mezcla {counts['FN']} rechazos correctos por diseño con {counts['SR']} sobre-rechazos. Son dos problemas opuestos bajo una cifra |")
     A("| 73,1 % requiere corrección crítica o alta | **Sí, exacto** (98/134 Alta+Crítica) | Es su propia columna de prioridad, no una medida independiente |")
-    A("| Solo el 9 % alcanza nivel aceptable | **Sí, exacto** (12/134) | Nosotros contamos 33/134 limpias. La diferencia es la rúbrica: penalizan la falta de contexto clínico añadido que el fulldoc no contiene |")
+    A(f"| Solo el 9 % alcanza nivel aceptable | **Sí, exacto** (12/134) | Nosotros contamos {len(clean)}/134 limpias. La diferencia es la rúbrica: penalizan la falta de contexto clínico añadido que el fulldoc no contiene |")
     A("| Hemorroides: 61,3 % nulas | **Sí, exacto** (19/31). Nosotros 51,6 % (16/31) | Confirmado |")
     A("| Hemorroides: 96,8 % con ≤12 palabras | **Sí** (30/31). Nosotros 90,3 % (28/31) | La observación más útil que hacen. Contraste: diabetes 52,7 %, cirugía 47,9 % |")
     A("| «problema de cobertura, indexación o vocabulario» | **Cobertura sí; indexación no** | No hay índice. Es fulldoc: el documento entero va en el prompt, sin chunking, embeddings ni recuperación. No hay nada que indexar mal — el techo lo pone el documento (1,1 KB) |")
