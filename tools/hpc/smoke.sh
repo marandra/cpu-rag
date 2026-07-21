@@ -11,7 +11,25 @@ cd "$(dirname "$0")/../.."
 export RAG_API_KEY="${RAG_API_KEY:-smoke-key}"
 PORT="${PORT:-8001}"
 SIF="${SIF_IMAGE:-./rag-spr-native.sif}"
-PROC="${PROC:-hemorroides}"   # shortest prefix → fastest smoke
+PROFILE="${PROFILE:-aiciblock}"
+SNAPSHOTS_DIR="${SNAPSHOTS_DIR:-./snapshots/${PROFILE}}"
+# Default to a procedure the profile actually owns (aiciblock: shortest prefix
+# → fastest smoke). Override with PROC= to smoke a specific one.
+# QUESTION must be on-topic for PROC: the prompt correctly refuses anything
+# outside the loaded fulldoc, and a refusal decodes ~6 tokens — enough to say
+# "it streamed", not enough to measure decode speed on.
+if [[ -z "${PROC:-}" ]]; then
+  case "$PROFILE" in
+    glucowise) PROC=diabetes ;;
+    *)         PROC=hemorroides ;;
+  esac
+fi
+if [[ -z "${QUESTION:-}" ]]; then
+  case "$PROC" in
+    diabetes) QUESTION="¿Qué debo hacer si tengo una hipoglucemia?" ;;
+    *)        QUESTION="¿Puedo ducharme después de la operación?" ;;
+  esac
+fi
 STAGE="/tmp/cpu-rag/smoke-stage"
 mkdir -p "$STAGE"
 
@@ -23,12 +41,15 @@ i = llama_print_system_info()
 print((i.decode() if hasattr(i, "decode") else i))
 PY
 
-echo "=== starting replica on :$PORT (NUMA node 0) ==="
+echo "=== starting replica on :$PORT (NUMA node 0, profile $PROFILE) ==="
 pin=(); command -v numactl >/dev/null && pin=(numactl --cpunodebind=0 --membind=0)
+# --pwd /app: without it the container runs the host's app/ and resolves the
+# relative paths in config.py against the host repo, ignoring these binds.
 "${pin[@]}" apptainer exec \
+  --pwd /app \
   --bind "$(readlink -f ./models):/app/models:ro" \
-  --bind "$(readlink -f ./snapshots):/app/snapshots:ro" \
-  --env RAG_API_KEY="$RAG_API_KEY" --env REPLICA_ID=smoke \
+  --bind "$(readlink -f "$SNAPSHOTS_DIR"):/app/snapshots:ro" \
+  --env RAG_API_KEY="$RAG_API_KEY" --env PROFILE="$PROFILE" --env REPLICA_ID=smoke \
   --env N_THREADS=8 --env OMP_NUM_THREADS=8 --env GGML_N_THREADS=8 \
   --env OPENBLAS_NUM_THREADS=1 --env MKL_NUM_THREADS=1 \
   --env SNAPSHOT_STAGE_DIR="$STAGE" \
@@ -47,10 +68,12 @@ done
 echo "health OK"
 
 echo "=== /query (procedure=$PROC) ==="
+echo "--- $QUESTION"
 t0=$(date +%s.%N)
 curl -sS -N "http://127.0.0.1:$PORT/query" \
   -H "X-API-Key: $RAG_API_KEY" -H "Content-Type: application/json" \
-  -d "{\"procedure\":\"$PROC\",\"question\":\"¿Puedo ducharme después de la operación?\"}" \
+  -d "$(PROC="$PROC" QUESTION="$QUESTION" python3 -c \
+        'import json,os; print(json.dumps({"procedure": os.environ["PROC"], "question": os.environ["QUESTION"]}))')" \
   | tee /tmp/cpu-rag/smoke_answer.txt
 t1=$(date +%s.%N)
 echo ""

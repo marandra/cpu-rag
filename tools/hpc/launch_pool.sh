@@ -12,20 +12,30 @@
 #      port directly on the host; no port mapping. nginx talks to 127.0.0.1.
 #   2. Unprivileged containers cannot bind ports <1024 — the LB uses a high port.
 #
+# --pwd /app is load-bearing, do not drop it. Apptainer auto-binds $HOME and
+# inherits the host CWD, so from the repo root `uvicorn app.main:app` imports
+# the *host's* app/ instead of the image's, and every relative default in
+# config.py (./snapshots, ./models) resolves against the host repo — silently
+# ignoring the binds below. That went unnoticed until snapshots moved into
+# per-profile subdirs: before that the host path happened to hold the pkls.
+#
 # Topology defaults to the validated nT8 N8: 8 replicas x 8 threads, one replica
 # pinned per NUMA node (matches 8 NUMA x 8 cores on the Xeon Gold 6430 nodes;
 # --membind keeps memory local, avoiding the -17/-20% cross-socket penalty).
 #
 # Prereqs (run once per shell, also fine in .bashrc):
-#   module load spack/1.1.0 && spack load apptainer numactl
-#   (numactl is not on the base PATH; without it replicas are NOT NUMA-pinned.)
+#   module load singularity/1.4.1                       # apptainer on PATH
+#   module load spack/1.1.0 && spack load numactl target=x86_64_v3
+#   (numactl is not on the base PATH; without it replicas are NOT NUMA-pinned.
+#    The target= disambiguates the v3/v4 builds; a bare `spack load` errors out.)
 # Required env:
 #   RAG_API_KEY          API key the service requires (no default).
 # Common overrides (env vars):
+#   PROFILE              Deployment profile to serve          (default aiciblock)
 #   SIF_IMAGE            Path to the SPR-native RAG .sif      (default ./rag-spr-native.sif)
 #   NGINX_SIF            Path to the nginx .sif               (default ./nginx.sif; built if missing)
 #   MODELS_DIR           Host dir with the GGUF model         (default ./models)
-#   SNAPSHOTS_DIR        Host dir with prebuilt KV snapshots  (default ./snapshots)
+#   SNAPSHOTS_DIR        Host dir with prebuilt KV snapshots  (default ./snapshots/$PROFILE)
 #   N_REPLICAS           Number of RAG replicas               (default 8)
 #   N_THREADS            llama threads per replica            (default 8)
 #   BASE_PORT            First replica port; replicas use BASE_PORT+i (default 8001)
@@ -38,10 +48,14 @@ cd "$(dirname "$0")/../.."   # repo root
 
 # --- config ----------------------------------------------------------------
 : "${RAG_API_KEY:?Set RAG_API_KEY (the service requires it)}"
+# The profile decides what the replicas serve; it must reach them as an env var
+# (the image bakes app/config.py, whose default is aiciblock) and it also picks
+# the snapshots subdir, since each profile gets its own — same layout as ./run.sh.
+PROFILE="${PROFILE:-aiciblock}"
 SIF_IMAGE="${SIF_IMAGE:-./rag-spr-native.sif}"
 NGINX_SIF="${NGINX_SIF:-./nginx.sif}"
 MODELS_DIR="${MODELS_DIR:-./models}"
-SNAPSHOTS_DIR="${SNAPSHOTS_DIR:-./snapshots}"
+SNAPSHOTS_DIR="${SNAPSHOTS_DIR:-./snapshots/${PROFILE}}"
 N_REPLICAS="${N_REPLICAS:-8}"
 N_THREADS="${N_THREADS:-8}"
 BASE_PORT="${BASE_PORT:-8001}"
@@ -51,7 +65,7 @@ STAGE_ROOT="${STAGE_ROOT:-/tmp/cpu-rag}"
 NGINX_RUN="${STAGE_ROOT}/nginx"
 
 # --- preflight --------------------------------------------------------------
-command -v apptainer >/dev/null || { echo "ERROR: apptainer not in PATH. Run: module load spack/1.1.0 && spack load apptainer" >&2; exit 1; }
+command -v apptainer >/dev/null || { echo "ERROR: apptainer not in PATH. Run: module load singularity/1.4.1" >&2; exit 1; }
 [[ -f "$SIF_IMAGE" ]] || { echo "ERROR: RAG image not found: $SIF_IMAGE" >&2
   echo "  Build the SPR-native flavor elsewhere and convert, e.g.:" >&2
   echo "    docker build --build-arg CMAKE_FLAGS='<VNNI/AMX flags>' -t cpu-rag-api:1.2.0-native ." >&2
@@ -63,7 +77,8 @@ command -v apptainer >/dev/null || { echo "ERROR: apptainer not in PATH. Run: mo
 if ! ls "$SNAPSHOTS_DIR"/*.pkl >/dev/null 2>&1; then
   echo "ERROR: no *.pkl in $SNAPSHOTS_DIR — build snapshots first:" >&2
   echo "    apptainer exec --bind $MODELS_DIR:/app/models,$SNAPSHOTS_DIR:/app/snapshots \\" >&2
-  echo "      --env RAG_API_KEY=\$RAG_API_KEY $SIF_IMAGE python -m app.generate" >&2
+  echo "      --env RAG_API_KEY=\$RAG_API_KEY --env PROFILE=$PROFILE \\" >&2
+  echo "      $SIF_IMAGE python -m app.generate" >&2
   exit 1
 fi
 
@@ -80,7 +95,8 @@ SIF_IMAGE="$(readlink -f "$SIF_IMAGE")"
 MODELS_DIR="$(readlink -f "$MODELS_DIR")"
 SNAPSHOTS_DIR="$(readlink -f "$SNAPSHOTS_DIR")"
 
-echo "==> Pool: ${N_REPLICAS} replicas x ${N_THREADS} threads, LB on :${LB_PORT}"
+echo "==> Pool: profile ${PROFILE}, ${N_REPLICAS} replicas x ${N_THREADS} threads, LB on :${LB_PORT}"
+echo "    snapshots: ${SNAPSHOTS_DIR}"
 mkdir -p "$STAGE_ROOT" "$NGINX_RUN"/{client_temp,proxy_temp,fastcgi_temp,uwsgi_temp,scgi_temp}
 
 # --- nginx image (build from docker:// if missing — unprivileged build works) -
@@ -146,9 +162,11 @@ for ((i=0; i<N_REPLICAS; i++)); do
   (( NUMACTL_AVAILABLE )) && pin=(numactl --cpunodebind="$node" --membind="$node")
   echo "==> replica r${i} -> :${port}  (NUMA ${node}, ${N_THREADS} threads)"
   "${pin[@]}" apptainer exec \
+    --pwd /app \
     --bind "${MODELS_DIR}:/app/models:ro" \
     --bind "${SNAPSHOTS_DIR}:/app/snapshots:ro" \
     --env RAG_API_KEY="$RAG_API_KEY" \
+    --env PROFILE="$PROFILE" \
     --env REPLICA_ID="r${i}" \
     --env N_THREADS="$N_THREADS" \
     --env OMP_NUM_THREADS="$N_THREADS" \

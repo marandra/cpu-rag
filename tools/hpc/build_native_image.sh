@@ -48,11 +48,15 @@ cat <<EOF
     scp $OUT_TAR hpc:~/Projects/cpu-rag/
     ssh hpc
       cd ~/Projects/cpu-rag
-      module load spack/1.1.0 && spack load apptainer
+      module load singularity/1.4.1     # apptainer on PATH
       apptainer build rag-spr-native.sif docker-archive://$(basename "$OUT_TAR")
-    # then generate snapshots once, inside the SIF:
-      apptainer exec --bind ./models:/app/models,./snapshots:/app/snapshots \\
-        --env RAG_API_KEY=\$RAG_API_KEY rag-spr-native.sif python -m app.generate
+    # then generate snapshots once per profile, inside the SIF (PROFILE picks
+    # both the procedures built and the subdir they land in):
+      P=glucowise
+      mkdir -p ./snapshots/\$P
+      apptainer exec --bind ./models:/app/models,./snapshots/\$P:/app/snapshots \\
+        --env RAG_API_KEY=\$RAG_API_KEY --env PROFILE=\$P \\
+        rag-spr-native.sif python -m app.generate
     # finally enqueue the pool:
-      sbatch --export=ALL,RAG_API_KEY=\$RAG_API_KEY tools/hpc/pool.sbatch
+      sbatch --export=ALL,PROFILE=\$P tools/hpc/pool.sbatch   # RAG_API_KEY comes from ./.env
 EOF
