@@ -1,0 +1,520 @@
+{
+ "procedure": "hemorroides",
+ "generated": "2026-07-22 12:44 CEST",
+ "profile": "aiciblock",
+ "model": "Ministral-3-3B-Q4_K_M",
+ "snapshot_seed": 872737089,
+ "subset": "all",
+ "seeds": [
+  1894574933,
+  1,
+  2,
+  3,
+  5,
+  8,
+  13,
+  21,
+  34
+ ],
+ "temperatures": [
+  0.1
+ ],
+ "questions": [
+  {
+   "id": 104,
+   "question": "¿En qué se diferencia la operación que me van a hacer de esas bandas elásticas de las que había oído hablar?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "La hemorroidectomía es una cirugía para extirpar las hemorroides cuando no mejoran con tratamientos menos invasivos, mientras que la ligadura con bandas elásticas es un método menos invasivo que consiste en colocar bandas alrededor de las hemorroides para cortar su flujo sanguíneo y provocar su caída.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "La hemorroidectomía es una cirugía para extirpar las hemorroides que no mejoran con tratamientos menos invasivos, mientras que la ligadura con bandas elásticas es un método menos invasivo que consiste en colocar bandas alrededor de las hemorroides para cortar su suministro de sangre y provocar su caída.",
+    "0.1|3": "La hemorroidectomía es una cirugía para extirpar las hemorroides que no mejoran con tratamientos menos invasivos, mientras que la ligadura con bandas elásticas es un método menos invasivo que consiste en colocar bandas alrededor de las hemorroides para cortar su flujo sanguíneo y que caigan.",
+    "0.1|5": "La hemorroidectomía es una cirugía para extirpar las hemorroides, mientras que la ligadura con bandas elásticas es un tratamiento menos invasivo que consiste en colocar bandas alrededor de las hemorroides para cortar su suministro de sangre y hacer que caigan.",
+    "0.1|8": "La hemorroidectomía es una cirugía para extirpar las hemorroides cuando no mejoran con tratamientos menos invasivos, mientras que la ligadura con bandas elásticas es un método menos invasivo que consiste en colocar bandas alrededor de las hemorroides para cortar su suministro de sangre y provocar su retiro natural.",
+    "0.1|13": "La hemorroidectomía es una cirugía para extirpar las hemorroides que no mejoran con tratamientos menos invasivos, mientras que la ligadura con bandas elásticas es un método menos invasivo que consiste en colocar bandas alrededor de las hemorroides para cortar su flujo sanguíneo y que caigan.",
+    "0.1|21": "La hemorroidectomía es una cirugía para extirpar las hemorroides cuando no mejoran con tratamientos menos invasivos, mientras que la ligadura con bandas elásticas es un método menos invasivo que consiste en aplicar bandas elásticas alrededor de las hemorroides para cortar su flujo sanguíneo y que caigan.",
+    "0.1|34": "La hemorroidectomía es una cirugía para extirpar las hemorroides cuando no mejoran con tratamientos menos invasivos, mientras que la ligadura con bandas elásticas es un método menos invasivo que consiste en colocar bandas alrededor de las hemorroides para cortar su flujo sanguíneo y provocar su retención y posterior caída."
+   }
+  },
+  {
+   "id": 105,
+   "question": "¿Me van a dormir del todo o solo la zona para operarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Anestesia regional.",
+    "0.1|1": "Anestesia regional.",
+    "0.1|2": "Anestesia regional.",
+    "0.1|3": "Anestesia regional.",
+    "0.1|5": "Anestesia regional.",
+    "0.1|8": "Anestesia regional.",
+    "0.1|13": "Anestesia regional.",
+    "0.1|21": "Anestesia regional.",
+    "0.1|34": "Anestesia regional."
+   }
+  },
+  {
+   "id": 106,
+   "question": "¿Cuánto dura mi operación en sí?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La cirugía de hemorroides dura **30–60 minutos**.",
+    "0.1|1": "La cirugía de hemorroides dura **30–60 minutos**.",
+    "0.1|2": "Duración: 30–60 minutos.",
+    "0.1|3": "Duración: 30–60 minutos.",
+    "0.1|5": "Duración: 30–60 minutos.",
+    "0.1|8": "Duración: 30–60 minutos.",
+    "0.1|13": "Duración: 30–60 minutos.",
+    "0.1|21": "La cirugía de hemorroides dura **30–60 minutos**.",
+    "0.1|34": "Duración: 30–60 minutos."
+   }
+  },
+  {
+   "id": 107,
+   "question": "¿Qué complicaciones raras pero serias podría tener mi operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sangrado abundante.",
+    "0.1|1": "Sangrado abundante.",
+    "0.1|2": "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "0.1|3": "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "0.1|5": "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "0.1|8": "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "0.1|13": "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante.",
+    "0.1|21": "Sangrado abundante.",
+    "0.1|34": "- Muy raras: estrechamiento anal, incontinencia, sangrado abundante."
+   }
+  },
+  {
+   "id": 108,
+   "question": "Tomo anticoagulantes, ¿tengo que dejar de tomarlos antes de que me operen?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, debes **ajustar tu medicación con anticoagulantes** antes de la cirugía.",
+    "0.1|1": "Sí, debes ajustar tu medicación con anticoagulantes antes de la cirugía.",
+    "0.1|2": "Sí, debes **ajustar tu medicación con anticoagulantes** antes de la cirugía.",
+    "0.1|3": "Sí, debes **ajustar tu medicación con anticoagulantes** antes de la cirugía.",
+    "0.1|5": "Sí, debes ajustar tu medicación con anticoagulantes antes de la cirugía.",
+    "0.1|8": "Sí, debes **ajustar tu medicación con anticoagulantes** antes de la cirugía.",
+    "0.1|13": "Sí, debes **ajustar tu medicación con anticoagulantes** antes de la cirugía.",
+    "0.1|21": "Sí, debes **ajustar tu medicación con anticoagulantes** antes de la cirugía.",
+    "0.1|34": "Sí, debes **ajustar tu medicación con anticoagulantes** antes de la cirugía."
+   }
+  },
+  {
+   "id": 109,
+   "question": "¿En qué se diferencia mi operación de tratarlo con láser?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La hemorroidectomía es una cirugía quirúrgica para extirpar las hemorroides que no mejora con tratamientos menos invasivos, mientras que la coagulación con láser es un método alternativo menos invasivo que se usa para tratar hemorroides leves mediante calor.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 110,
+   "question": "¿Es normal que me vuelvan a salir las hemorroides después de haberme operado?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 111,
+   "question": "¿Por qué me van a mandar comer mucha fibra después de operarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|1": "Dieta rica en fibra y líquidos.",
+    "0.1|2": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|3": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|5": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|8": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|13": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|21": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|34": "Después de la cirugía, debes seguir una **dieta rica en fibra y líquidos**."
+   }
+  },
+  {
+   "id": 112,
+   "question": "¿Hay riesgo de quedarme incontinente por esta operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "0.1|1": "Muy raras complicaciones de la hemorroidectomía incluyen **estrechamiento anal o incontinencia**.",
+    "0.1|2": "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "0.1|3": "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "0.1|5": "Muy raras complicaciones de la hemorroidectomía incluyen **estrechamiento anal o incontinencia**.",
+    "0.1|8": "Muy raras complicaciones de la hemorroidectomía incluyen **estrechamiento anal o incontinencia**.",
+    "0.1|13": "Muy raras complicaciones: estrechamiento anal, incontinencia.",
+    "0.1|21": "Muy raras complicaciones de la hemorroidectomía incluyen **estrechamiento anal o incontinencia**.",
+    "0.1|34": "Muy raras complicaciones: estrechamiento anal, incontinencia."
+   }
+  },
+  {
+   "id": 113,
+   "question": "¿Cuánto tiempo de baja me van a dar después de esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 114,
+   "question": "¿Puedo comer con normalidad el día antes de mi operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 115,
+   "question": "¿Duele mucho ir al baño después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La cirugía de hemorroides puede causar **dolor al defecar** tras la intervención.",
+    "0.1|1": "El dolor al defecar es frecuente tras la cirugía.",
+    "0.1|2": "La cirugía puede causar **dolor al defecar** tras la hemorroidectomía.",
+    "0.1|3": "La cirugía de hemorroides puede causar **dolor al defecar** tras la operación.",
+    "0.1|5": "La cirugía de hemorroides puede causar **dolor al defecar** tras la operación.",
+    "0.1|8": "La cirugía de hemorroides puede causar **dolor al defecar** tras la operación.",
+    "0.1|13": "La cirugía de hemorroides puede causar **dolor al defecar** tras la operación.",
+    "0.1|21": "La cirugía de hemorroides puede causar **dolor al defecar** tras la operación.",
+    "0.1|34": "La cirugía de hemorroides puede causar **dolor al defecar** tras la operación."
+   }
+  },
+  {
+   "id": 116,
+   "question": "¿Cuánto tiempo tardaré en recuperarme de esta operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Recuperación en **2–4 semanas**.",
+    "0.1|1": "Recuperación en **2–4 semanas**.",
+    "0.1|2": "Recuperación en **2–4 semanas**.",
+    "0.1|3": "Recuperación en **2–4 semanas**.",
+    "0.1|5": "Recuperación en **2–4 semanas**.",
+    "0.1|8": "Recuperación en **2–4 semanas**.",
+    "0.1|13": "Recuperación en **2–4 semanas**.",
+    "0.1|21": "Recuperación en **2–4 semanas**.",
+    "0.1|34": "Recuperación en **2–4 semanas**."
+   }
+  },
+  {
+   "id": 117,
+   "question": "Me han mencionado unos \"baños de asiento\", ¿qué son exactamente?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Los baños de asiento son baños de agua tibia en el área anal, generalmente en un recipiente especial o en la bañera, durante 10–15 minutos.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación después de la cirugía.",
+    "0.1|3": "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides.",
+    "0.1|5": "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación después de la cirugía de hemorroides.",
+    "0.1|8": "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación después de la cirugía de hemorroides.",
+    "0.1|13": "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación después de la cirugía de hemorroides.",
+    "0.1|21": "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación después de la cirugía de hemorroides.",
+    "0.1|34": "Los baños de asiento son baños de agua tibia en el área anal para aliviar el dolor y la inflamación tras la cirugía de hemorroides."
+   }
+  },
+  {
+   "id": 118,
+   "question": "¿Qué debo comer después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|1": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|2": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|3": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|5": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|8": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|13": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|21": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.",
+    "0.1|34": "Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**."
+   }
+  },
+  {
+   "id": 119,
+   "question": "¿Es una operación larga?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Duración: 30–60 minutos.",
+    "0.1|1": "La cirugía dura entre **30 y 60 minutos**.",
+    "0.1|2": "Duración: 30–60 minutos.",
+    "0.1|3": "Duración: 30–60 minutos.",
+    "0.1|5": "Duración: 30–60 minutos.",
+    "0.1|8": "Duración: 30–60 minutos.",
+    "0.1|13": "Duración: 30–60 minutos.",
+    "0.1|21": "Duración: 30–60 minutos.",
+    "0.1|34": "Duración: 30–60 minutos."
+   }
+  },
+  {
+   "id": 120,
+   "question": "¿Me tienen que ingresar o vuelvo a casa el mismo día?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La hemorroidectomía se realiza en quirófano y, según la información, **no menciona ingreso hospitalario**, por lo que, en general, suele ser ambulatoria y puedes volver a casa el mismo día.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 121,
+   "question": "¿Puedo evitar pasar por quirófano con alguna crema o tratamiento?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Sí, hay tratamientos médicos menos invasivos que pueden ayudar antes de la cirugía, como pomadas, baños de asiento o dieta.",
+    "0.1|1": "Sí, hay alternativas menos invasivas como tratamientos médicos (pomadas, baños, dieta).",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "Sí, hay tratamientos médicos menos invasivos que pueden ayudar antes de considerar la cirugía:\n\n- Pomadas\n- Baños de asiento\n- Dieta adecuada",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 122,
+   "question": "¿Qué pasa si al final no me opero?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|1": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|2": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|3": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|5": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|8": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|13": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|21": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|34": "Si decides no operarte, los síntomas pueden empeorar."
+   }
+  },
+  {
+   "id": 123,
+   "question": "¿Puedo arrepentirme y no operarme al final?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|3": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|5": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|8": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|13": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|21": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|34": "Si decides no operarte, los síntomas pueden empeorar."
+   }
+  },
+  {
+   "id": 124,
+   "question": "¿Cuánto tiempo tengo que estar en ayunas antes de mi operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Ayuno **6–8 horas** antes de la cirugía.",
+    "0.1|1": "6–8 horas de ayuno.",
+    "0.1|2": "Ayuno **6–8 horas** antes de la cirugía.",
+    "0.1|3": "Ayuno **6–8 horas** antes de la cirugía.",
+    "0.1|5": "Ayuno **6–8 horas** antes de la cirugía.",
+    "0.1|8": "Ayuno **6–8 horas** antes de la cirugía.",
+    "0.1|13": "Ayuno **6–8 horas** antes de la cirugía.",
+    "0.1|21": "Ayuno **6–8 horas** antes de la cirugía.",
+    "0.1|34": "Ayuno **6–8 horas** antes de la cirugía."
+   }
+  },
+  {
+   "id": 125,
+   "question": "¿Voy a sangrar después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|1": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|2": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|3": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|5": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|8": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|13": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|21": "Sí, tras la cirugía puede haber **sangrado leve**.",
+    "0.1|34": "Sí, tras la cirugía puede haber **sangrado leve**."
+   }
+  },
+  {
+   "id": 126,
+   "question": "Me da mucha vergüenza este tema, ¿es normal sentirme así antes de mi operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 127,
+   "question": "¿Duele mucho esta operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "La hemorroidectomía causa **dolor moderado** tras la cirugía.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "La hemorroidectomía puede causar **dolor moderado** tras la cirugía.",
+    "0.1|3": "La hemorroidectomía causa **dolor moderado** tras la cirugía.",
+    "0.1|5": "La hemorroidectomía causa **dolor moderado** tras la cirugía.",
+    "0.1|8": "La hemorroidectomía causa **dolor moderado** tras la cirugía.",
+    "0.1|13": "La hemorroidectomía puede causar dolor moderado.",
+    "0.1|21": "La hemorroidectomía causa **dolor moderado** tras la cirugía.",
+    "0.1|34": "La hemorroidectomía produce **dolor moderado**."
+   }
+  },
+  {
+   "id": 128,
+   "question": "¿Me puedo quedar incontinente para siempre después de esto?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 129,
+   "question": "¿Me puedo morir por esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 130,
+   "question": "Tengo miedo a que me hagan daño en una zona tan íntima, ¿es un miedo normal?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 131,
+   "question": "¿Es una operación de la que debería avergonzarme?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 132,
+   "question": "¿Van a ver mi zona íntima muchas personas en el quirófano?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 133,
+   "question": "¿Me va a quedar alguna secuela para siempre de esta operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 134,
+   "question": "Llevo tiempo posponiendo operarme por vergüenza, ¿debería preocuparme más por hacerlo ya?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|1": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|2": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|3": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|5": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|8": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|13": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|21": "Si decides no operarte, los síntomas pueden empeorar.",
+    "0.1|34": "Si decides no operarte, los síntomas pueden empeorar."
+   }
+  }
+ ]
+}

@@ -1,0 +1,904 @@
+{
+ "procedure": "diabetes",
+ "generated": "2026-07-22 12:43 CEST",
+ "profile": "glucowise",
+ "model": "Ministral-3-3B-Q4_K_M",
+ "snapshot_seed": 872737089,
+ "subset": "all",
+ "seeds": [
+  1894574933,
+  1,
+  2,
+  3,
+  5,
+  8,
+  13,
+  21,
+  34
+ ],
+ "temperatures": [
+  0.1
+ ],
+ "questions": [
+  {
+   "id": 1,
+   "question": "Me han dicho que tengo diabetes tipo 2, ¿tengo que empezar a pincharme insulina desde el primer día?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "No, la insulina no es necesaria desde el primer día. La diabetes tipo 2 suele tratarse inicialmente con **alimentación, ejercicio y pérdida de peso**, y en muchos casos se controla con **antidiabéticos orales** antes de requerir insulina. Solo se recetará insulina cuando otros tratamientos no sean suficientes.",
+    "0.1|1": "No, la insulina no es necesaria desde el primer día. Puede ser necesaria de forma temporal o permanente **cuando otros tratamientos (alimentación, ejercicio, fármacos orales) no controlan la glucosa**.",
+    "0.1|2": "No, no tienes que empezar a pincharte insulina desde el primer día.\n\nLa diabetes tipo 2 se trata inicialmente con **alimentación, ejercicio y pérdida de peso** (si hay sobrepeso/obesidad). La insulina se usa solo cuando otros tratamientos no controlan la glucosa.",
+    "0.1|3": "No, la insulina no es necesaria desde el primer día. Depende de cómo esté tu glucosa y de lo que recomiende tu equipo médico.",
+    "0.1|5": "No, la insulina no es necesaria desde el primer día. Depende de cómo esté tu glucosa y del tratamiento que te receten.",
+    "0.1|8": "No, la insulina no es necesaria desde el primer día. Puede ser necesaria de forma temporal o permanente **cuando otros tratamientos (alimentación, ejercicio, medicación oral) no controlan la glucosa**. Depende de cada caso y se decide con el equipo médico.",
+    "0.1|13": "No, no tienes que empezar a pincharte insulina desde el primer día.\n\nLa insulina se usa cuando otros tratamientos (alimentación, ejercicio, fármacos orales) no controlan bien la glucosa.",
+    "0.1|21": "No, la insulina no es necesaria desde el primer día. En la diabetes tipo 2, el tratamiento inicial suele ser con **alimentación, ejercicio y pérdida de peso**, y muchos pacientes necesitan además **fármacos orales** antes de requerir insulina. La insulina se añade progresivamente según el control glucémico.",
+    "0.1|34": "No, la insulina no es necesaria desde el primer día. Depende del control glucémico y de la evolución del tratamiento."
+   }
+  },
+  {
+   "id": 2,
+   "question": "¿Es verdad que si me controlo bien con dieta y ejercicio puedo evitar la medicación al principio?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|1": "Sí, en algunos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|2": "Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|3": "Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|5": "Sí, en algunos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|8": "Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|13": "Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|21": "Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.",
+    "0.1|34": "Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio."
+   }
+  },
+  {
+   "id": 3,
+   "question": "Antes de empezar el tratamiento, ¿me van a mandar hacer más análisis para confirmarlo?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, para confirmar la diabetes tipo 2 se suelen realizar:\n\n- **Glucemia basal en ayunas ≥126 mg/dl** en dos ocasiones.\n- **Glucosa al azar >200 mg/dl** con síntomas.\n- **Sobrecarga oral >200 mg/dl** a las 2 horas.\n- **HbA1c ≥6,5 %**.",
+    "0.1|1": "La diabetes tipo 2 se diagnostica con **glucemia basal en ayunas ≥126 mg/dl en dos ocasiones**, **glucosa al azar >200 mg/dl con síntomas**, **sobrecarga oral >200 mg/dl a las 2 horas** o **HbA1c ≥6,5 %**. No menciona otros análisis específicos para confirmar el diagnóstico.",
+    "0.1|2": "Sí, el diagnóstico de diabetes tipo 2 requiere **glucemia basal en ayunas ≥126 mg/dl en dos ocasiones** o otros métodos específicos mencionados.",
+    "0.1|3": "Sí, para confirmar la diabetes tipo 2 se suelen realizar:\n\n- **Glucemia basal en ayunas ≥126 mg/dl** en dos ocasiones.\n- **Glucosa al azar >200 mg/dl** con síntomas.\n- **Sobrecarga oral >200 mg/dl** a las 2 horas.\n- **HbA1c ≥6,5 %**.",
+    "0.1|5": "Sí, para confirmar la diabetes tipo 2 se suelen realizar:\n\n- **Glucemia basal en ayunas ≥126 mg/dl** en dos ocasiones.\n- **Glucosa al azar >200 mg/dl** con síntomas.\n- **Sobrecarga oral >200 mg/dl** a las 2 horas.\n- **HbA1c ≥6,5 %**.",
+    "0.1|8": "Sí, para confirmar la diabetes tipo 2 se suelen realizar:\n\n- **Glucemia basal en ayunas ≥126 mg/dl** en dos ocasiones.\n- **Glucosa al azar >200 mg/dl** con síntomas.\n- **Sobrecarga oral >200 mg/dl** a las 2 horas.\n- **HbA1c ≥6,5 %**.",
+    "0.1|13": "Sí, para confirmar el diagnóstico de diabetes tipo 2 se suelen realizar:\n\n- **Glucemia basal en ayunas ≥126 mg/dl** en dos ocasiones.\n- **Glucosa al azar >200 mg/dl** con síntomas.\n- **Sobrecarga oral >200 mg/dl** a las 2 horas.\n- **HbA1c ≥6,5 %**.",
+    "0.1|21": "Sí, para confirmar el diagnóstico de diabetes tipo 2 se suelen realizar:\n\n- **Glucemia basal en ayunas ≥126 mg/dl** en dos ocasiones.\n- **Glucosa al azar >200 mg/dl** con síntomas.\n- **Sobrecarga oral >200 mg/dl** a las 2 horas.\n- **HbA1c ≥6,5 %**.",
+    "0.1|34": "Sí, para confirmar la diabetes tipo 2 se suelen realizar:\n\n- **Glucemia basal en ayunas ≥126 mg/dl** en dos ocasiones.\n- **Glucosa al azar >200 mg/dl** con síntomas.\n- **Sobrecarga oral >200 mg/dl** a las 2 horas.\n- **HbA1c ≥6,5 %**."
+   }
+  },
+  {
+   "id": 4,
+   "question": "He leído que hay que evitar los picos de azúcar, ¿qué significa eso para mis comidas a partir de ahora?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La glucemia debe evitar picos elevados tras las comidas, priorizando **combinar hidratos de carbono con proteína, grasa saludable y fibra** para ralentizar su absorción.\n\nDistribuir las tomas a lo largo del día y elegir **calidad de los hidratos** (legumbres, integrales, fruta entera) sobre los de absorción rápida (bollería, zumos industriales).",
+    "0.1|1": "La glucemia **aumenta después de cada comida** por los hidratos de carbono (HC) que consumes. Para evitar picos, debes:\n- **Combinar HC con proteína, grasa saludable y fibra** (ejemplo: pan integral con aguacate y huevo, legumbres con verduras).\n- **Distribuir las comidas a lo largo del día** (5-6 tomas) para evitar picos bruscos.\n- **Priorizar HC de absorción lenta** (legumbres, integrales, fruta entera) y limitar los de absorción rápida (bollería, zumos industriales, dulces).",
+    "0.1|2": "La glucemia debe evitar picos elevados tras las comidas, priorizando **combinar hidratos de carbono con proteína, grasa saludable y fibra** para ralentizar su absorción.\n\nDistribuir las tomas a lo largo del día y elegir alimentos de **absorción lenta** (legumbres, integrales, fruta entera, avena) en lugar de rápidos (bollería, zumos industriales, dulces).",
+    "0.1|3": "La glucemia debe evitar picos elevados tras las comidas, priorizando **combinar hidratos de carbono (HC) con proteína, grasa saludable y fibra** para ralentizar su absorción.\n\n**Recomendación concreta:**\n- Distribuir las comidas en **5-6 tomas al día** (desayuno, media mañana, comida, merienda, cena).\n- Limitar los HC rápidos (bollería, zumos industriales, dulces, cereales azucarados) y optar por **legumbres, integrales, frutas enteras, avena o pan integral**.\n- Evitar exceso de carbohidratos en una sola comida (ej.: arroz o pasta en exceso sin proteína/grasas).\n\n*Ejemplo práctico:* Si comes pasta, añade pescado o verduras; si es pan, combínalo con fruta y un poco de aceite de oliva.",
+    "0.1|5": "La glucemia **aumenta después de cada comida** por los hidratos de carbono que consumes. Para evitar picos, debes:\n- **Combinar HC con proteína, grasa saludable y fibra** en cada comida.\n- **Distribuir las tomas a lo largo del día** (desayuno, media mañana, comida, merienda, cena).\n- **Limitar los HC de absorción rápida** (bollería, dulces, zumos industriales, cereales azucarados) y priorizar los de absorción lenta (legumbres, integrales, frutas enteras, avena).\n- **Controlar las cantidades**: una ración ≈ una rebanada de pan, dos cucharadas de arroz/pasta cocida, una pieza pequeña de fruta, una patata pequeña o un vaso de leche.\n\nEjemplo: en la comida, combinar arroz con pescado y verduras, o legumbres con pan integral.",
+    "0.1|8": "La glucemia debe evitar picos elevados tras las comidas, priorizando **combinar hidratos de carbono con proteína, grasa saludable y fibra** para ralentizar su absorción.\n\n**Recomendación concreta:**\n- Distribuir las comidas en **5-6 tomas al día** (desayuno, media mañana, comida, merienda, cena).\n- Limitar los **hidratos refinados** (bollería, zumos industriales, cereales azucarados) y priorizar los de **absorción lenta** (legumbres, integrales, fruta entera).\n- Evitar exceso de carbohidratos en una sola comida (ej.: pan blanco con pasta).\n\n*Ejemplo:* Si comes pan integral, añade proteína (huevo, yogur) y fibra (verduras).",
+    "0.1|13": "La glucemia debe evitar picos elevados tras las comidas, priorizando **combinar hidratos de carbono (HC) con proteína, grasa saludable y fibra** para ralentizar su absorción.\n\n**Recomendación concreta:**\n- Distribuir las comidas en **5-6 tomas al día** (desayuno, media mañana, comida, merienda, cena).\n- Limitar los HC rápidos (bollería, zumos industriales, dulces, ultraprocesados) y preferir los de absorción lenta (legumbres, integrales, fruta entera, avena).\n- En cada comida, incluir **una ración de HC + proteína (pescado, huevo, legumbres) o fibra (verduras)** para reducir el aumento de glucosa.",
+    "0.1|21": "La glucemia debe evitar picos elevados tras las comidas, priorizando **combinar hidratos de carbono con proteína, grasa saludable y fibra** para ralentizar su absorción.\n\nDistribuir las tomas a lo largo del día y elegir alimentos de **absorción lenta** (legumbres, integrales, fruta entera, avena) en lugar de rápidos (bollería, zumos industriales, dulces).",
+    "0.1|34": "La glucemia debe evitar picos elevados tras las comidas, priorizando **combinar hidratos de carbono con proteína, grasa saludable y fibra** para ralentizar su absorción.\n\nDistribuir las tomas a lo largo del día y elegir **calidades de hidratos recomendados** (legumbres, integrales, fruta entera, avena) en cantidades adecuadas."
+   }
+  },
+  {
+   "id": 5,
+   "question": "Si me mandan pastillas nada más diagnosticarme, ¿es porque mi caso es más grave?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl o HbA1c ≥6,5 %; si te recetan pastillas al inicio, es porque tu caso requiere tratamiento farmacológico además de alimentación, ejercicio y pérdida de peso.",
+    "0.1|1": "No, es por el tratamiento inicial recomendado en la diabetes tipo 2.",
+    "0.1|2": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl en dos ocasiones. **No hay que interpretar que el tratamiento farmacológico (pastillas) implique mayor gravedad que otros casos.** El tratamiento farmacológico se decide según la evolución individual, factores de riesgo y respuesta al tratamiento no farmacológico (alimentación, ejercicio, pérdida de peso).",
+    "0.1|3": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl en dos ocasiones. **No hay evidencia en la información proporcionada de que el inicio con pastillas implique mayor gravedad que otros casos.** El tratamiento farmacológico se decide según la respuesta individual al tratamiento no farmacológico (alimentación, ejercicio, pérdida de peso).",
+    "0.1|5": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl en dos ocasiones. **No hay que interpretar que el tratamiento farmacológico (pastillas) implique mayor gravedad que otros casos.** El tratamiento farmacológico se decide según la evolución individual, el control glucémico y otros factores (como sobrepeso, resistencia a la insulina, etc.).",
+    "0.1|8": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl en dos ocasiones. **No hay que interpretar que el tratamiento farmacológico inicial implique mayor gravedad; depende de la respuesta individual al tratamiento no farmacológico (alimentación, ejercicio, pérdida de peso).**",
+    "0.1|13": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl en dos ocasiones. **No hay que interpretar que el tratamiento farmacológico inicial implique mayor gravedad; depende de la respuesta individual al tratamiento no farmacológico (alimentación, ejercicio, pérdida de peso).**",
+    "0.1|21": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl en dos ocasiones. **No hay información sobre que las pastillas sean por gravedad, sino que pueden ser parte del tratamiento inicial** (alimentación, ejercicio y pérdida de peso) para muchas personas.",
+    "0.1|34": "La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl en dos ocasiones. Las pastillas se prescriben **cuando la alimentación, ejercicio y pérdida de peso no controlan la glucosa adecuadamente**. No es por gravedad inicial, sino por necesidad de tratamiento farmacológico progresivo."
+   }
+  },
+  {
+   "id": 6,
+   "question": "¿Tengo que empezar a medirme el azúcar en casa desde ya, aunque no me hayan mandado insulina?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "Sí, debes medirte la glucosa en casa al menos antes de cada comida y antes de dormir, aunque no uses insulina.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 7,
+   "question": "Me han hablado de una analítica que mide el azúcar de los últimos meses, ¿para qué me la van a pedir ahora?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**.",
+    "0.1|1": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el **control glucémico a largo plazo** (aproximadamente los últimos 2-3 meses).",
+    "0.1|2": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el **control glucémico a largo plazo** (aproximadamente los últimos 2-3 meses).",
+    "0.1|3": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el **control glucémico a largo plazo** (aproximadamente los últimos 2-3 meses).",
+    "0.1|5": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el **control glucémico a largo plazo** (aproximadamente los últimos 2-3 meses).",
+    "0.1|8": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el **control glucémico a largo plazo** (aproximadamente los últimos 2-3 meses).",
+    "0.1|13": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el **control glucémico a largo plazo** (aproximadamente los últimos 2-3 meses).",
+    "0.1|21": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el **control glucémico a largo plazo** (aproximadamente los últimos 2-3 meses).",
+    "0.1|34": "La analítica que mide el azúcar de los últimos meses es la **HbA1c**. Se pide para evaluar el control glucémico a largo plazo."
+   }
+  },
+  {
+   "id": 8,
+   "question": "Si necesito insulina, ¿el médico me enseña a pincharme o tengo que aprenderlo por mi cuenta?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "El médico suele enseñarte a pincharte con insulina como parte de la educación terapéutica.",
+    "0.1|1": "El médico suele enseñarte a pincharte con insulina en el contexto de la educación terapéutica.",
+    "0.1|2": "El médico suele enseñarte a pincharte con insulina como parte del tratamiento.",
+    "0.1|3": "El médico suele enseñarte a pincharte con insulina como parte del tratamiento.",
+    "0.1|5": "El médico suele enseñarte a pincharte con insulina durante la consulta inicial o en el seguimiento.",
+    "0.1|8": "El médico suele enseñarte a pincharte con insulina en el contexto de la educación terapéutica.",
+    "0.1|13": "El médico suele enseñarte a pincharte con insulina como parte del tratamiento.",
+    "0.1|21": "El médico suele enseñarte a pincharte con insulina en el contexto de la educación terapéutica.",
+    "0.1|34": "El médico suele enseñarte a pincharte con insulina en el contexto de la educación terapéutica."
+   }
+  },
+  {
+   "id": 9,
+   "question": "He oído que hay diabetes \"buena\" y \"mala\", ¿mi caso va a depender de eso?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La diabetes se clasifica según su **control** (glucosa, HbA1c, complicaciones), no por su tipo o gravedad inicial. Tu caso depende de si mantienes cifras en objetivos (glucemia, HbA1c, tensión, colesterol) y evitas complicaciones.",
+    "0.1|1": "No hay diabetes \"buena\" o \"mala\", sino bien o mal controlada.",
+    "0.1|2": "La diabetes se clasifica según su **control** (bien o mal), no por su tipo o gravedad inicial.",
+    "0.1|3": "La diabetes se clasifica según su **control** (bien o mal), no por su tipo o gravedad intrínseca.",
+    "0.1|5": "La diabetes se clasifica como bien o mal controlada según cifras científicas.",
+    "0.1|8": "La diabetes se clasifica según su **control** (bien o mal), no por su tipo o gravedad inicial.",
+    "0.1|13": "La diabetes se clasifica según su **control** (bien o mal), no por su tipo o gravedad intrínseca.",
+    "0.1|21": "La diabetes se clasifica como bien o mal controlada según los objetivos de glucosa, HbA1c, tensión, colesterol y otros factores.",
+    "0.1|34": "La diabetes se clasifica según su **control** (bien o mal), no por su tipo o gravedad inicial."
+   }
+  },
+  {
+   "id": 10,
+   "question": "Si empiezo ahora con la pastilla que dan más, ¿la tendré que tomar para siempre?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "La metformina no es una insulina y no requiere uso permanente en todos los casos. Su efecto depende de la respuesta individual y la evolución de la enfermedad. **No tengo información sobre cuándo dejarla o si es definitiva.**",
+    "0.1|1": "La insulina puede ser necesaria de forma temporal o permanente cuando otros tratamientos no controlan la diabetes. No es un fracaso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "La metformina puede usarse de forma temporal o permanente según la evolución de la diabetes tipo 2. No hay una respuesta definitiva en el texto sobre si se tomará para siempre, pero sí indica que el tratamiento farmacológico es progresivo y depende de la respuesta individual. **No tengo información sobre si la pastilla que dan más se toma para siempre.**",
+    "0.1|21": "La metformina no es una pastilla para siempre; depende de la evolución de la diabetes.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 11,
+   "question": "Me han dicho que tengo que perder peso, ¿cuánto tengo que bajar para que se note en el tratamiento?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La pérdida de peso de **5–10 % del peso actual** mejora glucemia, tensión, lípidos y riesgo cardiovascular.",
+    "0.1|1": "Pérder **5–10 % del peso corporal** mejora la glucemia, tensión, lípidos y riesgo cardiovascular en personas con sobrepeso/obesidad y diabetes tipo 2.",
+    "0.1|2": "La pérdida de peso de **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular.",
+    "0.1|3": "La pérdida de peso de **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular.",
+    "0.1|5": "La pérdida de peso de **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular.",
+    "0.1|8": "La pérdida de peso de **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular.",
+    "0.1|13": "La pérdida de peso de **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular.",
+    "0.1|21": "La pérdida de peso de **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular.",
+    "0.1|34": "La pérdida de peso de **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular."
+   }
+  },
+  {
+   "id": 12,
+   "question": "¿El sobrepeso es la razón de que me haya salido esto ahora?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética y otros factores de estilo de vida también influyen.",
+    "0.1|1": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética y otros factores de estilo de vida también influyen.",
+    "0.1|2": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina y otros factores como la genética, el sedentarismo o la alimentación poco saludable también influyen.",
+    "0.1|3": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética y otros factores de estilo de vida también influyen.",
+    "0.1|5": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética y otros factores de estilo de vida también influyen.",
+    "0.1|8": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética y otros factores como el sedentarismo o la alimentación poco saludable también influyen.",
+    "0.1|13": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética y otros factores de estilo de vida también influyen.",
+    "0.1|21": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética, el sedentarismo y la alimentación poco saludable también influyen.",
+    "0.1|34": "El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la genética y otros factores como la alimentación poco saludable y el sedentarismo también influyen."
+   }
+  },
+  {
+   "id": 13,
+   "question": "De cara a mi próxima revisión, ¿tengo que anotar todo lo que como desde ya?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "Sí, es recomendable anotar todo lo que comes desde ya para evaluar tu alimentación y ajustar tu dieta según los objetivos de glucosa y peso.",
+    "0.1|1": "La diabetes tipo 2 requiere un seguimiento detallado, pero **no es necesario anotar todo lo que comes desde ya** para la revisión.\n\n**Solo hay que llevar a la revisión:**\n- **Resultados de autoanálisis recientes** (glucosa en sangre).\n- **Medicamentos** que tomes (nombre y dosis).\n- **Informe médico previo** con datos clave (HbA1c, tensión, colesterol, peso).\n\nSi quieres, puedes llevar un registro **solo de los últimos días** (ej. 3-5) para mostrar tendencias, pero no es obligatorio. La revisión evalúa **objetivos de control** (glucosa, HbA1c, peso, etc.), no tu dieta diaria.\n\n*Nota: Si tienes dudas sobre cómo ajustar tu alimentación o medicación, consulta con tu equipo sanitario.*",
+    "0.1|2": "Sí, debes anotar **todas las comidas y bebidas** que consumes, incluyendo cantidades y tipos de alimentos, para evaluar tu alimentación diaria.",
+    "0.1|3": "Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos.",
+    "0.1|5": "Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos.",
+    "0.1|8": "Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos.",
+    "0.1|13": "Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos.",
+    "0.1|21": "Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos.",
+    "0.1|34": "Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos de glucosa."
+   }
+  },
+  {
+   "id": 14,
+   "question": "¿El alcohol me va a sentar peor ahora que tengo que controlar el azúcar?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El alcohol puede favorecer hipoglucemias, especialmente si se consume en ayunas o con insulina o ciertos fármacos.\n\nNo tengo información sobre eso.",
+    "0.1|1": "El alcohol puede favorecer hipoglucemias, especialmente si se toma en ayunas o con insulina o ciertos fármacos.\n\nNo tengo información sobre eso.",
+    "0.1|2": "El alcohol puede favorecer hipoglucemias, especialmente si se consume en ayunas o con insulina o ciertos fármacos.",
+    "0.1|3": "El alcohol puede favorecer hipoglucemias, especialmente si se consume en ayunas o con insulina o ciertos fármacos.",
+    "0.1|5": "El alcohol puede favorecer hipoglucemias, especialmente si se toma en ayunas o con insulina o ciertos fármacos.\n\nModera su consumo y evita tomarlo en ayunas.",
+    "0.1|8": "El alcohol puede favorecer hipoglucemias, especialmente si se consume en ayunas o con insulina o ciertos fármacos.\n\nNo tengo información sobre eso.",
+    "0.1|13": "El alcohol puede favorecer hipoglucemias, especialmente si se consume en ayunas o con insulina o ciertos fármacos.",
+    "0.1|21": "El alcohol puede favorecer hipoglucemias, especialmente si se consume en ayunas o con insulina o ciertos fármacos.\n\nNo tengo información sobre eso.",
+    "0.1|34": "El alcohol puede favorecer hipoglucemias, especialmente si se consume en ayunas o con insulina o ciertos fármacos."
+   }
+  },
+  {
+   "id": 15,
+   "question": "Me han comentado que debo vigilar los pies a partir de ahora, ¿por qué justo eso?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|1": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|2": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|3": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|5": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|8": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|13": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|21": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación.",
+    "0.1|34": "La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y circulación."
+   }
+  },
+  {
+   "id": 16,
+   "question": "Si al principio no noto ningún síntoma, ¿puede que el diagnóstico esté equivocado?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|1": "La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|2": "No, el diagnóstico no está equivocado. La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|3": "No, el diagnóstico no está equivocado. La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|5": "No, el diagnóstico no está equivocado. La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|8": "No, el diagnóstico no está equivocado. La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|13": "No, el diagnóstico no está equivocado. La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|21": "La diabetes tipo 2 puede no dar síntomas durante años.",
+    "0.1|34": "No, el diagnóstico no está equivocado. La diabetes tipo 2 puede no dar síntomas durante años."
+   }
+  },
+  {
+   "id": 17,
+   "question": "Me han dicho que también me van a revisar la tensión y el colesterol, ¿tiene que ver con esto?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, la revisión de tensión arterial y colesterol está relacionada con el tratamiento de la diabetes tipo 2.\n\n**Objetivos del tratamiento incluyen controlar tensión arterial (<130/80 mmHg) y colesterol (LDL <100 mg/dl).**",
+    "0.1|1": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol.",
+    "0.1|2": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol.",
+    "0.1|3": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol.",
+    "0.1|5": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol.",
+    "0.1|8": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol.",
+    "0.1|13": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol.",
+    "0.1|21": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol.",
+    "0.1|34": "Sí, la revisión de tensión arterial y colesterol está relacionada con la diabetes tipo 2.\n\nEl tratamiento integral incluye controlar glucosa, tensión arterial y colesterol."
+   }
+  },
+  {
+   "id": 18,
+   "question": "Si empiezo con insulina, ¿me la tengo que poner siempre en el mismo sitio del cuerpo?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "No, debes **rotar las zonas de inyección** para evitar lipodistrofias.",
+    "0.1|1": "No, debes rotar las zonas de inyección de insulina para evitar lipodistrofias.",
+    "0.1|2": "No, debes **rotar las zonas de inyección** para evitar lipodistrofias.",
+    "0.1|3": "No, debes **rotar las zonas de inyección** para evitar lipodistrofias.",
+    "0.1|5": "No, debes rotar las zonas de inyección de insulina.",
+    "0.1|8": "No, debes rotar las zonas de inyección de insulina para evitar lipodistrofias.",
+    "0.1|13": "No, debes **rotar las zonas de inyección** para evitar lipodistrofias.",
+    "0.1|21": "No, debes rotar las zonas de inyección de insulina para evitar lipodistrofias.",
+    "0.1|34": "No, debes **rotar las zonas de inyección** para evitar lipodistrofias."
+   }
+  },
+  {
+   "id": 19,
+   "question": "¿Cuánto tiempo pasa desde que empiezo el tratamiento hasta que noto que hace efecto?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero **no hay un plazo fijo** en la información proporcionada.\n\nNo tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero **no hay un plazo fijo** en la información proporcionada.\n\nNo tengo información sobre eso.",
+    "0.1|3": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero los cambios más visibles suelen notarse en **3–6 meses** si se sigue un plan integral (ejercicio regular, dieta mediterránea, pérdida de peso si hay sobrepeso).\n\n*(Nota: el texto no especifica plazos exactos, solo que el tratamiento es progresivo y requiere constancia).*",
+    "0.1|5": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero **no hay un plazo fijo** en la información proporcionada.\n\nNo tengo información sobre eso.",
+    "0.1|8": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero **no hay un plazo fijo** en la información proporcionada.\n\nNo tengo información sobre eso.",
+    "0.1|13": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero **no hay un plazo fijo universal**. Algunos mejoran en semanas, otros en meses.\n\nNo tengo información sobre plazos específicos.",
+    "0.1|21": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero en general:\n\n- **Pérdida de peso y mejora de glucosa**: puede notarse en **2–4 semanas** (si hay cambios en dieta y actividad física).\n- **Efectos de la metformina o otros antidiabéticos orales**: pueden requerir **1–3 meses** para estabilizar la glucosa.\n- **Insulina**: su efecto se nota en **1–2 semanas** (control de glucosa postprandial), pero el ajuste total puede tardar más.\n\n**No hay un plazo fijo**, pero la mejora más visible suele aparecer en **4–8 semanas** si se siguen las pautas.",
+    "0.1|34": "La eficacia del tratamiento depende de múltiples factores (alimentación, ejercicio, medicación, peso, etc.), pero en general:\n\n- **Pérdida de peso y mejoría metabólica** (glucemia, tensión, colesterol) pueden notarse en **2–4 semanas** si hay cambios en dieta y actividad física.\n- **Efectos de la metformina** (si se usa) suelen aparecer en **1–3 meses**, con mejoría en sensibilidad a la insulina.\n- **Control glucémico con insulina** (si se añade) puede regularse en **1–2 semanas**, pero ajustes precisos requieren seguimiento médico.\n\n*No hay un plazo fijo universal; depende de cada persona.*"
+   }
+  },
+  {
+   "id": 20,
+   "question": "¿Van a cambiarme la medicación pronto si ven que con esta no controlo bien?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La decisión sobre cambiar la medicación depende de los resultados de tu control (glucemia, HbA1c, otros parámetros) y se evalúa en consulta con el equipo médico. **No hay información específica en la guía sobre plazos o criterios concretos para modificarla**, solo que el tratamiento es progresivo y se ajusta individualmente.\n\nNo tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 21,
+   "question": "Me acaban de decir que tengo diabetes, ¿qué es lo primero que tengo que hacer?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Lo primero que debes hacer es **mantener la glucosa, tensión, colesterol y peso controlados** y seguir un **tratamiento integral** (alimentación, ejercicio, medicación si es necesario).\n\nRevisa tus **objetivos de control** (glucemia, HbA1c, tensión, colesterol) y **acude a revisiones periódicas** para detectar complicaciones tempranas.",
+    "0.1|1": "El primer paso es **mantener la glucosa, tensión arterial, colesterol y peso bajo control** mediante un **tratamiento integral** (alimentación, ejercicio, posible medicación).\n\nNo hay que suspender la medicación ni cambiar dosis sin supervisión médica.",
+    "0.1|2": "La diabetes es una enfermedad crónica que requiere un **tratamiento integral** desde el inicio.\n\n**Lo primero que debes hacer:**\n1. **Controlar la glucosa** (glucemia) según los objetivos establecidos (ej. glucemia en ayunas entre 70-130 mg/dl).\n2. **Revisar tus hábitos de alimentación** (evitar ultraprocesados, limitar azúcares añadidos; priorizar dieta mediterránea).\n3. **Hacer ejercicio regular** (al menos 150 min/semana de actividad aeróbica moderada, como caminar).\n4. **Dejar el tabaco** (aumenta el riesgo cardiovascular).\n5. **Revisar tu peso** (si hay sobrepeso/obesidad, perder un 5-10% mejora el control metabólico).\n6. **Consultar con tu médico** para ajustar medicación (si es necesario) y seguir un plan individualizado.\n\n**No tienes que hacer nada prohibido:** solo ajustar cantidades y calidad de alimentos, evitar cambios bruscos y mantener horarios regulares de comida y ejercicio.\n\n---\n**Próximos pasos:**\n- **Seguir las indicaciones de tu equipo médico** (analíticas, revisión oftalmológica, revisión de pies, etc.).\n- **Educación terapéutica:** aprender a manejar la diabetes con autoanálisis, ajustar medicación y prevención de complicaciones.\n\n---\n**Si tienes dudas sobre",
+    "0.1|3": "La diabetes es una enfermedad crónica que requiere un **tratamiento integral** desde el inicio. Lo primero que debes hacer es:\n\n- **Controlar la glucosa** (glucemia) según los objetivos establecidos (ej. glucemia en ayunas entre **70–130 mg/dl**).\n- **Mantener un estilo de vida saludable**: dieta equilibrada, ejercicio regular y evitar el tabaco.\n- **Revisar periódicamente** tus niveles de glucosa, tensión arterial, colesterol y HbA1c.\n- **Seguir las indicaciones del equipo médico** (medicamentos, ajustes, seguimiento).\n\nNo hay alimentos prohibidos, pero debes priorizar **verduras, fruta entera, legumbres, cereales integrales y grasas saludables** (aceite de oliva), y limitar carnes procesadas, ultraprocesados y azúcares añadidos.\n\nSi tienes dudas sobre tu tratamiento, **consulta siempre con tu médico o equipo sanitario**.",
+    "0.1|5": "La diabetes es una enfermedad crónica que requiere un **tratamiento integral** (glucosa, tensión, colesterol, peso, tabaco). Lo primero que debes hacer es:\n\n1. **Controlar tu glucosa** según los objetivos del diagnóstico (glucemia basal ≥126 mg/dl en dos ocasiones o HbA1c ≥6,5 %).\n2. **Consultar con un equipo médico** para ajustar tu tratamiento (alimentación, ejercicio, medicación si es necesaria).\n3. **Adoptar un estilo de vida saludable**:\n   - **Alimentación**: seguir la dieta mediterránea o el método del plato (verificar con tu equipo).\n   - **Ejercicio**: realizar al menos 150 minutos de actividad aeróbica moderada semanal (caminar 30-45 min diarios).\n   - **Pérdida de peso** (si hay sobrepeso/obesidad, perder 5-10 % mejora glucemia, tensión y lípidos).\n   - **Evitar tabaco** (aumenta riesgo cardiovascular).\n\n**No suspendas medicación** (ni insulina ni pastillas) sin supervisión médica.",
+    "0.1|8": "La diabetes es una enfermedad crónica que requiere un **tratamiento integral** desde el inicio. Lo primero que debes hacer es:\n\n1. **Controlar la glucosa** según los objetivos establecidos (glucemia en ayunas: **70–130 mg/dl**, glucosa 2 h tras comidas: **<180 mg/dl**).\n2. **Adoptar una alimentación saludable** basada en la dieta mediterránea, priorizando:\n   - Verduras y hortalizas, fruta entera, legumbres, cereales integrales y aceite de oliva virgen.\n   - Evitar carnes procesadas, ultraprocesados, azúcares añadidos y grasas saturadas/trans.\n3. **Hacer ejercicio regular** (al menos **150 minutos semanales de actividad aeróbica moderada**, como caminar 30–45 min diarios).\n4. **Perder peso si hay sobrepeso/obesidad** (recomendado: **5–10 % del peso corporal** para mejorar glucemia, tensión y lípidos).\n5. **Dejar el tabaco** (aumenta el riesgo cardiovascular).\n6. **Revisar tus pies diariamente** (heridas, cambios de color, grietas) y usar calzado adecuado.\n7. **Asistir a revisiones sanitarias periódicas** (analíticas, HbA1c, tensión arterial, colesterol, revisión oftalmológica",
+    "0.1|13": "Lo primero que debes hacer es **mantener la glucosa, tensión arterial, colesterol y peso controlados** mediante un tratamiento integral que incluya alimentación, ejercicio y, si es necesario, medicación.\n\n*(No añado detalles sobre cómo empezar, solo lo que dice la información: objetivos y prioridades iniciales).*",
+    "0.1|21": "Lo primero que debes hacer es **mantener la glucosa, tensión arterial, colesterol y peso controlados** mediante un tratamiento integral (alimentación, ejercicio, medicación si es necesario).\n\n**Revisarás con tu médico:**\n- **Glucemia basal en ayunas ≥126 mg/dl** (o HbA1c ≥6,5 %).\n- **Objetivos de control:** glucosa ayunas (70–130 mg/dl), HbA1c <7 %, presión arterial <130/80 mmHg, LDL colesterol <100 mg/dl.\n\n**Primeros pasos prácticos:**\n- **Alimentación:** seguir la dieta mediterránea (verificar método del plato: mitad verduras/hortalizas, un cuarto proteínas saludables, un cuarto hidratos integrales).\n- **Ejercicio:** 150 min/semana de actividad aeróbica moderada (caminar 30–45 min diarios).\n- **Evitar tabaco y alcohol** (riesgo de complicaciones cardiovasculares).\n- **Controlar peso:** perder 5–10 % si hay sobrepeso/obesidad.\n\n**No suspender medicación** (ni insulina ni pastillas) sin supervisión médica. **Consultar con urgencia** si hay síntomas graves (vómitos persistentes, fiebre alta, glucemia >300 mg/dl, somnolencia).\n\n---\n*Nota: Si necesitas ajust",
+    "0.1|34": "La diabetes es una enfermedad crónica que requiere un **tratamiento integral** desde el inicio.\n\n**Lo primero que debes hacer:**\n- **Controlar tu glucosa** (glucemia) siguiendo los objetivos establecidos (ej. glucemia en ayunas entre 70 y 130 mg/dl).\n- **Adoptar una alimentación saludable** según el método del plato (mitad verduras/hortalizas, un cuarto proteínas saludables, un cuarto hidratos de calidad).\n- **Hacer ejercicio regular** (al menos 150 minutos semanales de actividad aeróbica moderada, como caminar).\n- **Mantener un peso saludable** (si tienes sobrepeso, perder 5-10 % mejora el control de la diabetes).\n- **Dejar de fumar** (aumenta el riesgo cardiovascular).\n- **Revisar tus pies diariamente** (heridas, cambios de color, grietas) y usar calzado adecuado.\n- **Asistir a revisiones médicas periódicas** (analíticas, HbA1c, tensión arterial, colesterol, revisión oftalmológica, etc.).\n- **Tomar la medicación prescrita** (si es necesario, como metformina u otros antidiabéticos) **según la pauta médica** (no modificar dosis ni suspender sin indicación).\n- **Consultar con tu equipo sanitario** cualquier duda sobre tu tratamiento, síntomas o cambios en tu estado.\n\n**No olv"
+   }
+  },
+  {
+   "id": 22,
+   "question": "¿Tengo que dejar de comer dulces desde ya?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "No, no tienes que dejar de comer dulces. La información dice que hay que **limitar** los dulces (bollería, dulces, zumos industriales, cereales azucarados, ultraprocesados) y que no hay alimentos prohibidos, sino que se ajustan las cantidades.",
+    "0.1|1": "No tienes que dejar de comer dulces. La información dice que **no hay alimentos prohibidos**, solo que debes ajustar las cantidades y preferir opciones de absorción lenta (legumbres, frutas enteras, integrales) frente a los rápidos (bollería, dulces, zumos industriales).",
+    "0.1|2": "No tienes que dejar de comer dulces, pero debes **limitar los de absorción rápida** (bollería, dulces, zumos industriales, cereales azucarados) y preferir alternativas con **absorción lenta** (fruta entera, legumbres, frutos secos en moderación).\n\nLa clave está en **cantidad y calidad**: priorizar fruta entera, frutos secos en moderación y evitar ultraprocesados.",
+    "0.1|3": "No, no tienes que dejar de comer dulces. La información dice que **no hay alimentos prohibidos**, solo que debes limitar los que tienen absorción rápida (refrescos, bollería, dulces, zumos industriales, etc.).",
+    "0.1|5": "No, no tienes que dejar de comer dulces. La información dice que los **limitar** (como bollería, dulces, zumos industriales, cereales azucarados, ultraprocesados) y que **evitar** los edulcorantes ocasionales (como el chocolate ocasional o edulcorantes en moderación). No hay alimentos prohibidos, pero se recomienda reducir la cantidad de dulces.",
+    "0.1|8": "No, no tienes que dejar de comer dulces. La información dice que debes **limitar** los dulces (bollería, dulces, zumos industriales, cereales azucarados, ultraprocesados) y **moderar** el chocolate ocasional.",
+    "0.1|13": "No, no tienes que dejar de comer dulces. La información dice que **no hay alimentos prohibidos** en la diabetes tipo 2; solo se recomienda limitar los de absorción rápida (bollería, dulces, zumos industriales, etc.) y moderar otros como el chocolate ocasional.",
+    "0.1|21": "No, no tienes que dejar de comer dulces. La información dice que **no hay alimentos prohibidos**, solo que debes limitar los de absorción rápida (refrescos, bollería, dulces, zumos industriales, cereales azucarados, ultraprocesados).",
+    "0.1|34": "No, no tienes que dejar de comer dulces. La información dice que **no hay alimentos prohibidos** en la diabetes tipo 2; solo se recomienda limitar los de absorción rápida (refrescos, bollería, dulces, zumos industriales, etc.) y moderar otros como el chocolate ocasional."
+   }
+  },
+  {
+   "id": 23,
+   "question": "¿Me van a mandar pastillas o pinchazos para empezar?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La decisión sobre pastillas o insulina depende de cada caso y se individualiza según la persona. **No hay un tratamiento estándar inicial fijo** en la guía proporcionada.\n\nNo tengo información sobre qué método se recomienda específicamente para empezar.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "La decisión de iniciar pastillas o insulina depende de cada caso y se individualiza según la persona. **No hay un tratamiento estándar fijo al inicio** para todos los pacientes con diabetes tipo 2.\n\nEl texto menciona que el tratamiento inicial suele ser **alimentación, ejercicio y pérdida de peso**, y que muchas personas necesitan luego fármacos o insulina según su evolución. No especifica si es obligatorio empezar con pastillas o pinchazos, sino que se ajusta a lo que cada persona necesite.",
+    "0.1|3": "La decisión sobre pastillas o insulina depende de cada caso y se individualiza según la persona. No hay una respuesta estándar para todos los pacientes al inicio.\n\nNo tengo información sobre eso.",
+    "0.1|5": "La decisión sobre pastillas o insulina depende de cada caso y se individualiza según la persona. **No hay un tratamiento estándar inicial fijo** para todos los pacientes con diabetes tipo 2.\n\nEl texto menciona que el tratamiento **inicialmente** suele ser **alimentación, ejercicio y pérdida de peso**, y que muchas personas necesitan luego fármacos o insulina según su evolución. No especifica si se prioriza un método sobre otro al inicio.\n\nSi tu caso no está claro en el texto, **no puedo responder con certeza**.",
+    "0.1|8": "La diabetes tipo 2 se trata inicialmente con **alimentación saludable, ejercicio y pérdida de peso** si hay sobrepeso/obesidad. Solo después, si no hay control, se añaden **fármacos orales o insulina**. No hay un inicio obligatorio con pastillas o pinchazos.",
+    "0.1|13": "La decisión de iniciar pastillas o insulina depende de cada caso individual y se evalúa en consulta médica.\n\nNo tengo información sobre eso.",
+    "0.1|21": "La decisión sobre pastillas o insulina depende de cada caso individual y se evalúa en consulta médica. No hay una respuesta estandarizada en el texto proporcionado.\n\nNo tengo información sobre eso.",
+    "0.1|34": "La diabetes tipo 2 se trata inicialmente con **alimentación saludable, ejercicio y pérdida de peso** si hay sobrepeso/obesidad. Solo en algunos casos se añaden pastillas o insulina después."
+   }
+  },
+  {
+   "id": 24,
+   "question": "¿Puedo seguir comiendo pan y patatas ahora que tengo esto?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.\n\n*(Si la pregunta especifica cantidades concretas o ajustes, como \"¿cuánto?\", respondería: \"No tengo información sobre eso.\")*",
+    "0.1|1": "Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.\n\n(El texto recomienda **pan integral** y limita los **tubérculos como la patata** a raciones moderadas, pero no las prohíbe.)",
+    "0.1|2": "Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.\n\n*(No añado equivalencias o detalles que no especifica el texto, como \"rebanadas\" o \"tamaños exactos\" de ración).*",
+    "0.1|3": "Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.\n\n(No especifica cantidades exactas, pero sí que son parte de las raciones recomendadas en el método del plato y que deben combinarse con otros grupos para evitar picos de glucosa).",
+    "0.1|5": "Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.\n\n*(Si la pregunta especifica cantidades concretas o ajustes, como \"¿cuánto?\", rechazo por no estar en la información).*",
+    "0.1|8": "Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.\n\n*(No añado equivalencias o recomendaciones concretas de porciones, solo lo que dice la información: \"tubérculos (patata, evitar fritos)\" y \"pan integral\" como ración moderada).*",
+    "0.1|13": "Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.\n\n*(No añado equivalencias ni detalles de cantidades específicas que no estén en la información).*",
+    "0.1|21": "Sí, puedes comer pan y patatas, pero en cantidades controladas y priorizando calidad (integral).\n\n*(No añado equivalencias ni detalles de cantidades concretas por tu pregunta, solo lo que dice la información: \"tubérculos (patata, evitar fritos)\" y \"pan integral\" como ración moderada).*",
+    "0.1|34": "Sí, puedes comer pan y patatas, pero en cantidades controladas y priorizando calidad (integral).\n\n*(No añado equivalencias ni detalles de cantidades específicas que no especifica el texto).*"
+   }
+  },
+  {
+   "id": 25,
+   "question": "¿Tengo que hacer una dieta especial o puedo comer como siempre?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "La dieta para diabetes tipo 2 es una alimentación saludable similar a la dieta equilibrada general, pero con ajustes en cantidades y calidad de los alimentos. No hay alimentos prohibidos; lo importante es la cantidad, frecuencia y calidad.\n\nNo puedes comer como siempre, sino adaptar las cantidades y priorizar alimentos saludables según las recomendaciones.",
+    "0.1|1": "Puedes comer como siempre, siguiendo una alimentación saludable basada en la dieta mediterránea. No hay alimentos prohibidos, sino que es clave repartir las tomas, priorizar calidad y cantidad adecuada de los grupos de alimentos recomendados.",
+    "0.1|2": "No hay una dieta especial para la diabetes tipo 2, sino una alimentación saludable adaptada a tus necesidades. La base es la dieta mediterránea, con cantidades y calidad de los alimentos que mejoran el control de la glucosa.",
+    "0.1|3": "No hay una dieta especial para la diabetes tipo 2, sino una alimentación saludable adaptada a tus necesidades.\n\nLa dieta mediterránea es recomendable, priorizando verduras, fruta entera, legumbres, cereales integrales, aceite de oliva virgen y pescado. Evitar carnes procesadas, ultraprocesados y exceso de azúcares.",
+    "0.1|5": "No hay una dieta especial para la diabetes tipo 2, sino una alimentación saludable adaptada a tus necesidades. Debes priorizar **verduras y hortalizas, fruta entera, legumbres, cereales integrales y aceite de oliva virgen**, repartir las comidas en varias tomas y ajustar las cantidades según tu peso y actividad física.",
+    "0.1|8": "No hay una dieta especial para la diabetes tipo 2, sino una alimentación saludable adaptada a tus necesidades. Debes priorizar **verduras y hortalizas, fruta entera, legumbres, cereales integrales y aceite de oliva virgen**, repartir las comidas en varias tomas y ajustar las cantidades según tu peso y actividad física.",
+    "0.1|13": "No hay una dieta especial, sino una alimentación saludable adaptada a tus necesidades.\n\nLa dieta es equilibrada y similar a la alimentación general: ningún alimento prohibido, pero priorizar calidad, cantidad y distribución de nutrientes.",
+    "0.1|21": "La dieta para la diabetes tipo 2 es una alimentación saludable similar a la dieta equilibrada general, pero con ajustes en cantidades y calidad de los alimentos.\n\nNo hay alimentos prohibidos, pero se recomienda priorizar verduras, fruta entera, legumbres, cereales integrales, pescado, frutos secos y aceite de oliva virgen. Limitar carnes procesadas, ultraprocesados, grasas saturadas y trans, sal, chocolate y bebidas azucaradas.",
+    "0.1|34": "No hay una dieta especial, sino una alimentación saludable adaptada a tus necesidades.\n\nLa dieta mediterránea y el método del plato son guías para equilibrar los alimentos."
+   }
+  },
+  {
+   "id": 26,
+   "question": "¿Cuánto ejercicio tengo que empezar a hacer?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en al menos **30-45 minutos diarios**.",
+    "0.1|1": "La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en al menos **30-45 minutos diarios**.",
+    "0.1|2": "La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en al menos **30-45 minutos diarios**.",
+    "0.1|3": "La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en al menos 30-45 minutos diarios.",
+    "0.1|5": "La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en al menos 30-45 minutos diarios.\n\n*(No especifica una cantidad mínima de días, pero sí que es necesario distribuirlo semanalmente).*",
+    "0.1|8": "La recomendación es hacer **al menos 150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en sesiones de al menos 30 minutos diarios.",
+    "0.1|13": "La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en al menos 30-45 minutos diarios.\n\n*(No especifica un mínimo de días/semana, solo la frecuencia y duración total semanal).*",
+    "0.1|21": "La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en al menos **30-45 minutos diarios**.",
+    "0.1|34": "La recomendación es hacer **al menos 150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en sesiones de al menos 30 minutos diarios."
+   }
+  },
+  {
+   "id": 27,
+   "question": "¿Voy a tener que pincharme todos los días a partir de ahora?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre si necesitas pincharte o no.",
+    "0.1|1": "No tengo información sobre si necesitas pincharte o no.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre si necesitas pincharte o no.",
+    "0.1|5": "No tengo información sobre si necesitas pincharte o no.",
+    "0.1|8": "No tengo información sobre si necesitas pincharte.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre si necesitas pincharte.",
+    "0.1|34": "No tengo información sobre si necesitas pincharte o no."
+   }
+  },
+  {
+   "id": 28,
+   "question": "¿Puedo tomar alcohol si hay alguna celebración?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, puedes tomar alcohol en celebraciones, pero con precauciones:\n\n- **Moderación**: limitar la cantidad.\n- **Nunca en ayunas**.\n- **Evitar bebidas de alta graduación**.\n- **Consumir con comida** para reducir riesgo de hipoglucemia.\n\nSi estás en tratamiento con insulina o ciertos antidiabéticos, el riesgo de hipoglucemia aumenta.",
+    "0.1|1": "Sí, puedes tomar alcohol en celebraciones, pero con precauciones:\n\n- **Moderación**: limitar la cantidad.\n- **Nunca en ayunas**: esperar al menos 2 horas tras la última comida.\n- **Evitar bebidas de alta graduación**.\n- **Consultar antes con tu médico** si tomas insulina o ciertos antidiabéticos (riesgo de hipoglucemia).",
+    "0.1|2": "La diabetes controlada antes del viaje; informe médico con el tratamiento; medicación y material para algunos días más (glucómetro, lancetas, tiras, jeringas, agujas, etc.) en equipaje de mano; azucarillos, fruta, galletas o caramelos por si hay hipoglucemia (con insulina, glucagón en estuche con frío); ropa y calzado cómodos; identificarse como persona diabética; en vuelos largos con cambio horario consultar ajustes.\n\n**Modificación para tu pregunta:**\nSi consumes alcohol, hazlo con moderación, nunca en ayunas y evitando bebidas de alta graduación.",
+    "0.1|3": "La diabetes controlada antes del viaje; informe médico con el tratamiento; medicación y material para algunos días más (glucómetro, lancetas, tiras, jeringas, agujas, etc.) en equipaje de mano; azucarillos, fruta, galletas o caramelos por si hay hipoglucemia (con insulina, glucagón en estuche con frío); ropa y calzado cómodos; identificarse como persona diabética; en vuelos largos con cambio horario consultar ajustes.\n\n**Modificación para tu pregunta:**\nSi consumes alcohol, hazlo con moderación, nunca en ayunas y evitando bebidas de alta graduación.",
+    "0.1|5": "La diabetes controlada **puede consumir alcohol**, pero con precauciones:\n- **Moderación**: máximo 1 copa al día (hombre) o ½ copa (mujer) si no hay riesgo de hipoglucemia.\n- **Nunca en ayunas** ni con medicación que la empeore (insulina, sulfonilureas, etc.).\n- **Evitar bebidas de alta graduación** (más riesgo de hipoglucemia).\n- **Si se consume**, combinar con comida y evitar exceso.\n\n*Si tienes insulina o fármacos con riesgo de hipoglucemia, llevar siempre azúcar rápido.*",
+    "0.1|8": "La ingesta de alcohol debe ser **moderada** y nunca en ayunas, especialmente si tomas insulina o ciertos fármacos.",
+    "0.1|13": "Sí, puedes tomar alcohol en celebraciones, pero con precauciones:\n\n- **Moderación**: limitar la cantidad.\n- **Nunca en ayunas**: esperar al menos 2 horas tras la última comida.\n- **Evitar bebidas de alta graduación**.\n- **Consultar antes con tu médico** si tomas insulina o ciertos antidiabéticos (riesgo de hipoglucemia).",
+    "0.1|21": "Sí, puedes tomar alcohol en celebraciones, pero con precauciones:\n- **Moderación** y evitar en ayunas.\n- **Nunca en ayunas** si tomas insulina o ciertos fármacos.\n- Evitar bebidas de alta graduación.",
+    "0.1|34": "La ingesta de alcohol debe ser **moderada** y **evitarlo en ayunas**. Si se consume, nunca en ayunas y preferiblemente con comida."
+   }
+  },
+  {
+   "id": 29,
+   "question": "¿Qué hago si me pongo malo, con fiebre, ahora que tengo esto?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (insulina o pastillas) salvo que un médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** repartidos cada 3 horas: agua, zumos naturales, infusiones o caldos.\n- **Aumenta ligeramente los hidratos de carbono** de tu dieta habitual (patatas, frutas, arroz, leche).\n- **Reduce las grasas** unos días, pero mantén el aceite de oliva virgen.\n- **Aumenta el autoanálisis** al menos 3 veces al día antes de comer y anota los resultados.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n\n**Consulta de inmediato** si:\n- La glucemia supera los 300 mg/dl,\n- Vómitos sin tolerar nada varias horas,\n- Hay acetona en la orina (una o más cruces),\n- Hay somnolencia o sequedad extrema de boca,\n- Persiste la fiebre o hay dudas.",
+    "0.1|1": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (insulina o pastillas) salvo que el médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** (agua, zumos naturales, infusiones, caldos) cada 3 horas.\n- **Aumenta los hidratos de carbono** de tu dieta habitual (patatas, frutas, arroz, leche).\n- **Reduce grasas** unos días, pero mantén el aceite de oliva virgen.\n- **Aumenta el autoanálisis de glucosa** al menos 3 veces al día antes de comer.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n- **Si vomitas**, cambia a alimentos líquidos o cremosos (caldo de arroz, té con poco azúcar).\n- **Si tienes diarrea**, come puré de patata, arroz hervido, compota de fruta o manzana rallada. Evita leche, legumbres, verduras crudas y fritos.\n- **Consulta de inmediato** si:\n  - La glucemia supera los 300 mg/dl.\n  - Vómitos sin tolerar nada varias horas.\n  - Hay acetona en la orina (una o más cruces).\n  - Hay somnolencia o sequedad extrema de boca.\n  - La fiebre persiste o empeora.",
+    "0.1|2": "Si tienes fiebre y te sientes mal, **no suspendas tu medicación para la diabetes** (ni pastillas ni insulina) salvo que un médico te indique lo contrario.\n\n- **Bebe 2-3 litros de líquidos al día** (agua, zumos naturales, infusiones, caldos) cada 3 horas.\n- Aumenta ligeramente los hidratos de carbono de tu dieta habitual (ej.: patata, fruta, arroz, leche).\n- **Aumenta el autoanálisis de glucosa** al menos 3 veces al día antes de comer.\n- **Si la glucemia supera 300 mg/dl**, consulta a un médico.\n- **Si vomitas**, cambia a líquidos/cremosos (caldo de arroz, té con poco azúcar, zumo de fruta).\n- **Si hay diarrea**, come puré de patata, arroz hervido, compota de manzana o fruta rallada.\n- **Evita** leche y derivados, legumbres, verduras crudas, fritos o café.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n- **Consulta de inmediato** si hay:\n  - Glucemia muy alta (>300 mg/dl),\n  - Vómitos persistentes sin tolerar nada,\n  - Acetona en orina (cruces en análisis),\n  - Somnolencia o sequedad extrema de boca,\n ",
+    "0.1|3": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (insulina o pastillas) salvo que un médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** repartidos cada 3 horas (agua, zumos naturales, infusiones, caldos).\n- **Aumenta ligeramente los hidratos de carbono** de tu dieta habitual (ej.: patata, fruta, arroz, leche).\n- **Reduce grasas** unos días, pero mantén el aceite de oliva virgen.\n- **Mide tu glucemia** al menos 3 veces al día antes de comer y anota los resultados.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n- **Si vomitas**, cambia a alimentos líquidos o cremosos (caldo de arroz, té con poco azúcar, zumo de fruta).\n- **Si tienes diarrea**, come puré de patata, arroz hervido, compota de manzana o té negro.\n- **Evita** leche y derivados, legumbres, verduras crudas, fritos y café.\n- **Consulta de inmediato** si:\n  - La glucemia supera los 300 mg/dl.\n  - Vómitas sin tolerar nada varias horas.\n  - Hay acetona en la orina (una o más cruces).\n  - Hay somnolencia o sequedad extrema de boca.\n ",
+    "0.1|5": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (insulina o pastillas) salvo que el médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** (agua, zumos naturales, infusiones, caldos) cada 3 horas.\n- **Aumenta los hidratos de carbono** de tu dieta habitual (patatas, frutas, arroz, leche).\n- **Reduce grasas** unos días, pero mantén el aceite de oliva virgen.\n- **Aumenta el autoanálisis** de glucosa al menos 3 veces al día antes de comer.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n- **Si vomitas**, cambia a líquidos/cremosos (caldo de arroz, té con poco azúcar, zumo de fruta).\n- **Si tienes diarrea**, come puré de patata, arroz hervido, compota de manzana o té negro.\n- **Evita** leche y derivados, legumbres, verduras crudas, fritos y café.\n- **Consulta de inmediato** si:\n  - La glucemia supera los 300 mg/dl.\n  - Vómitos sin tolerar nada varias horas.\n  - Hay acetona en la orina (una o más cruces).\n  - Hay somnolencia o sequedad extrema de boca.\n  - La fiebre",
+    "0.1|8": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (insulina o pastillas) salvo que un médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** (agua, zumos naturales, infusiones, caldos) cada 3 horas.\n- **Aumenta los hidratos de carbono** de tu dieta habitual (patatas, frutas, arroz, leche).\n- **Reduce grasas** unos días, pero mantén el aceite de oliva virgen.\n- **Mide tu glucemia** al menos 3 veces al día antes de comer y anota los resultados.\n- **Si vomitas**, cambia a alimentos líquidos o cremosos (caldo de arroz, té con poco azúcar, zumo de fruta).\n- **Si tienes diarrea**, come puré de patata o zanahoria, arroz hervido, compota de manzana o té negro.\n- **Evita** leche y derivados, legumbres, verduras crudas, fritos y café.\n\n**Consulta de inmediato** si:\n- Tu glucemia supera los **300 mg/dl**.\n- Vómitas sin tolerar nada varias horas.\n- Hay **acetona en tu orina** (una o más cruces).\n- Te sientes **somnoliento o con sequedad extrema de boca**.\n- La fiebre supera los **39 °C**.\n- Hay **cualquier duda**.",
+    "0.1|13": "Si tienes fiebre y te sientes mal, **no suspendas tu medicación para la diabetes** (ni pastillas ni insulina), salvo que un médico te indique lo contrario.\n\n- **Bebe 2-3 litros de líquidos al día** (agua, zumos naturales, infusiones, caldos) cada 3 horas.\n- **Aumenta ligeramente los hidratos de carbono** de tu dieta habitual (ej.: patata, fruta, arroz, leche).\n- **Aumenta el autoanálisis de glucosa** al menos 3 veces al día antes de comer.\n- **Si la fiebre supera los 39 °C**, usa paracetamol (evita el ibuprofeno si hay riesgo de daño renal).\n- **Si vomitas**, cambia a alimentos líquidos o cremosos (caldo de arroz, té con poco azúcar, zumo de fruta).\n- **Si tienes diarrea**, come puré de patata/zanahoria, arroz hervido, compota de manzana o té negro.\n\n**Consulta de inmediato** si:\n- La glucosa supera los **300 mg/dl**.\n- Vómitas sin tolerar nada varias horas.\n- Hay **acetona en la orina** (una o más cruces).\n- Hay **somnolencia extrema o sequedad extrema de boca**.\n- La fiebre **no baja** o supera los 39 °C.\n\nSi tienes síntomas graves o no",
+    "0.1|21": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (insulina o pastillas) salvo que un médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** (agua, zumos naturales, infusiones, caldos) cada 3 horas.\n- **Aumenta ligeramente los hidratos de carbono** de tu dieta habitual (patatas, frutas, arroz, leche).\n- **Reduce grasas** unos días, pero mantén el aceite de oliva virgen.\n- **Mide tu glucemia** al menos 3 veces al día antes de comer y anota los resultados.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n- **Si vomitas**, cambia a alimentos líquidos o cremosos (caldo de arroz, té con poco azúcar, zumo de fruta).\n- **Si tienes diarrea**, come puré de patata, arroz hervido, compota de manzana o té negro.\n- **Evita** leche y derivados, legumbres, verduras crudas, fritos y café.\n\n**Consulta de inmediato** si:\n- La glucemia supera los 300 mg/dl.\n- Vómitas sin tolerar nada varias horas.\n- Hay acetona en la orina (una o más cruces).\n- Hay somnolencia o sequedad extrema de boca.\n- La fiebre persiste o empeora",
+    "0.1|34": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (insulina o pastillas) salvo que un médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** repartidos cada 3 horas: agua, zumos naturales, infusiones o caldos.\n- **Aumenta ligeramente los hidratos de carbono** de tu dieta habitual (ej.: patata, fruta, arroz, leche).\n- **Reduce grasas** unos días, pero mantén el aceite de oliva virgen.\n- **Mide tu glucemia al menos 3 veces al día** antes de las comidas y anota los resultados.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n- **Si vomitas**, cambia a alimentos líquidos o cremosos (caldo de arroz, té con poco azúcar, zumo de fruta).\n- **Si tienes diarrea**, come puré de patata, arroz hervido, compota de manzana o té negro.\n- **Evita** leche y derivados, legumbres, verduras crudas, fritos y café.\n\n**Consulta de inmediato** si:\n- Tu glucemia supera los 300 mg/dl.\n- Vómitas sin tolerar nada varias horas.\n- Hay acetona en tu orina (una o más cruces).\n- Te sientes muy somnoliento o con sequedad extrema de boca.\n"
+   }
+  },
+  {
+   "id": 30,
+   "question": "¿Tengo que comprarme algún aparato para medirme el azúcar en casa?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, necesitas un glucómetro para medir glucosa en sangre en casa.",
+    "0.1|1": "Sí, necesitarás un glucómetro para medirte la glucosa en sangre en casa.",
+    "0.1|2": "Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.",
+    "0.1|3": "Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.",
+    "0.1|5": "Sí, necesitarás un glucómetro para medirte la glucosa en sangre en casa.",
+    "0.1|8": "Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.",
+    "0.1|13": "Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.",
+    "0.1|21": "Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.",
+    "0.1|34": "Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa."
+   }
+  },
+  {
+   "id": 31,
+   "question": "¿Voy a poder hacer vida normal con este diagnóstico?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, puedes llevar una vida normal con diabetes tipo 2 si se controla adecuadamente.",
+    "0.1|1": "La diabetes tipo 2 **no impide hacer vida normal**, siempre que se cumplan los objetivos de control (glucosa, peso, tensión, colesterol) y se adopten hábitos saludables.",
+    "0.1|2": "Sí, puedes llevar una vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y el autocuidado.",
+    "0.1|3": "Sí, puedes llevar una vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y el autocuidado.",
+    "0.1|5": "Sí, puedes hacer vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y controlas los factores clave (glucosa, peso, tensión, colesterol, etc.).",
+    "0.1|8": "Sí, puedes hacer vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y controlas los factores clave (glucosa, peso, tensión, colesterol). El objetivo es mantener cifras en objetivos para prevenir complicaciones y mejorar calidad de vida.",
+    "0.1|13": "Sí, puedes llevar una vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y el autocuidado.",
+    "0.1|21": "Sí, puedes hacer vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y el control de los factores de riesgo.",
+    "0.1|34": "Sí, puedes llevar una vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y controlas los factores de riesgo."
+   }
+  },
+  {
+   "id": 32,
+   "question": "¿Qué cuidados tengo que tener con los pies a partir de ahora?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "- Revisar pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavar con agua tibia y secar bien, especialmente entre los dedos.\n- Usar crema hidratante (no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarte.\n- Evitar caminar descalzo.\n- No usar callicidas ni manipular callos/heridas sin supervisión.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|1": "La diabetes afecta la sensibilidad y circulación en los pies, por lo que debes revisarlos **diariamente** para detectar heridas, ampollas, cambios de color, grietas o callos.\n\n- **Lavarlos** con agua tibia y secarlos bien, especialmente entre los dedos.\n- Usar **crema hidratante** (no entre los dedos).\n- Cortar uñas **rectas o limarlas** para evitar infecciones.\n- Llevar **calcetines de algodón o lana**, sin costuras ni elásticos que compriman.\n- Calzado **cómodo, amplio y adecuado**; revisar el interior antes de ponérselo. **Nunca caminar descalzo**.\n- Evitar **callicidas o manipular callos/heridas sin supervisión**.\n- Consultar **rápido** ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|2": "- Revisar pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavar con agua tibia y secar bien, especialmente entre los dedos.\n- Usar crema hidratante (no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarte. Nunca caminar descalzo.\n- Evitar callicidas y manipular callos/heridas sin supervisión.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|3": "- Revisar los pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavarlos con agua tibia y secarlos bien, especialmente entre los dedos.\n- Usar crema hidratante (pero no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Llevar calcetines de algodón o lana, sin costuras ni elásticos que compriman.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarse.\n- Nunca caminar descalzo.\n- No usar callicidas ni manipular callos o heridas sin supervisión médica.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|5": "- Revisar los pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavarlos con agua tibia y secarlos bien, especialmente entre los dedos.\n- Usar crema hidratante (pero no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Llevar calcetines de algodón o lana, sin costuras ni elásticos que compriman.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarse.\n- Nunca caminar descalzo.\n- No usar callicidas ni manipular callos o heridas sin supervisión.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|8": "- Revisar los pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavarlos con agua tibia y secarlos bien, especialmente entre los dedos.\n- Usar crema hidratante (pero no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Llevar calcetines de algodón o lana, sin costuras ni elásticos que compriman.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarse.\n- Nunca caminar descalzo.\n- No usar callicidas ni manipular callos o heridas sin supervisión.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|13": "- Revisar pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavar con agua tibia y secar bien, especialmente entre los dedos.\n- Usar crema hidratante (no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarte.\n- Evitar caminar descalzo.\n- No usar callicidas ni manipular callos/heridas sin supervisión.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|21": "- Revisar los pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavarlos con agua tibia y secarlos bien, especialmente entre los dedos.\n- Usar crema hidratante (pero no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Llevar calcetines de algodón o lana, sin costuras ni elásticos que compriman.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarse.\n- Nunca caminar descalzo.\n- No usar callicidas ni manipular callos o heridas sin supervisión.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección.",
+    "0.1|34": "- Revisar pies a diario (heridas, ampollas, cambios de color, grietas).\n- Lavar con agua tibia y secar bien, especialmente entre los dedos.\n- Usar crema hidratante (no entre los dedos).\n- Cortar uñas rectas o limarlas.\n- Calzado cómodo, amplio y adecuado; revisar el interior antes de calzarte.\n- Evitar caminar descalzo.\n- No usar callicidas ni manipular callos/heridas sin supervisión.\n- Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, dolor, hinchazón o signos de infección."
+   }
+  },
+  {
+   "id": 33,
+   "question": "¿Voy a notar algo raro en el cuerpo o me voy a sentir igual que antes?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, con diabetes tipo 2 **puede no haber síntomas iniciales**, pero si la enfermedad está mal controlada, podrías notar:\n- Sed excesiva\n- Aumento de la orina\n- Cansancio\n- Pérdida de peso sin causa aparente\n- Visión borrosa\n- Infecciones frecuentes o mala cicatrización.\n\nSi la glucosa no se controla, pueden aparecer complicaciones (neuropatía, retinopatía, etc.) que generan síntomas específicos.",
+    "0.1|1": "No, no notarás síntomas específicos de la diabetes tipo 2 al inicio, ya que puede no dar síntomas durante años.",
+    "0.1|2": "Sí, con diabetes tipo 2 **puede no haber síntomas durante años**, pero si la enfermedad avanza o no está bien controlada, podrías notar:\n- Sed excesiva\n- Aumento de la orina\n- Cansancio\n- Pérdida de peso sin causa aparente\n- Visión borrosa\n- Infecciones frecuentes\n- Mala cicatrización de heridas.\n\nSi la glucosa no se controla, también pueden aparecer complicaciones como **neuropatía** (hormigueos, dolor, pérdida de sensibilidad) o **pie diabético** (heridas que no cicatrizan).",
+    "0.1|3": "Sí, con diabetes tipo 2 **puede no haber síntomas durante años**, pero si la enfermedad avanza o no está bien controlada, podrías notar:\n- Sed excesiva\n- Aumento de la orina\n- Cansancio\n- Pérdida de peso sin causa aparente\n- Visión borrosa\n- Infecciones frecuentes\n- Mala cicatrización\n\nSi no hay síntomas evidentes, podrías sentirte igual que antes, pero el riesgo de complicaciones (como daño en nervios, ojos o riñones) **no desaparece**.",
+    "0.1|5": "Sí, con la diabetes tipo 2 **puede no haber síntomas iniciales** durante años. Si no hay mal control, luego pueden aparecer: sed excesiva, aumento de orina, cansancio, pérdida de peso sin causa aparente, visión borrosa o infecciones frecuentes.",
+    "0.1|8": "Sí, con diabetes tipo 2 **puede no haber síntomas** durante años, pero si no se controla, pueden aparecer:\n- Sed excesiva\n- Aumento de la orina\n- Cansancio\n- Pérdida de peso sin causa aparente\n- Visión borrosa\n- Infecciones frecuentes\n- Mala cicatrización.",
+    "0.1|13": "Sí, con diabetes tipo 2 **puede no haber síntomas durante años**, pero cuando aparecen suelen ser:\n- Sed excesiva, aumento de orina, cansancio, pérdida de peso sin causa aparente, visión borrosa, infecciones frecuentes o mala cicatrización.\n\nNo necesariamente notarás algo \"raro\" al principio, pero el mal control puede causar complicaciones progresivas.",
+    "0.1|21": "Sí, con la diabetes tipo 2 **puede no haber síntomas durante años**, pero si no se controla, los síntomas pueden aparecer progresivamente: sed excesiva, aumento de la orina, cansancio, pérdida de peso inexplicable, visión borrosa, infecciones frecuentes o mala cicatrización.",
+    "0.1|34": "Sí, con diabetes tipo 2 **puede no haber síntomas iniciales** durante años, pero si la enfermedad progresa o no está bien controlada, podrías notar:\n- Sed excesiva\n- Aumento de la orina\n- Cansancio\n- Pérdida de peso sin causa aparente\n- Visión borrosa\n- Infecciones frecuentes\n- Mala cicatrización\n\nSi no hay síntomas evidentes, podrías sentirte igual que antes, pero el riesgo de complicaciones (corazón, riñones, nervios, etc.) aumenta con el mal control."
+   }
+  },
+  {
+   "id": 34,
+   "question": "¿Voy a tener que ir al médico más a menudo desde ahora?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 requiere revisiones periódicas para detectar complicaciones antes de los síntomas.",
+    "0.1|1": "La diabetes tipo 2 requiere revisiones periódicas para detectar complicaciones antes de los síntomas.",
+    "0.1|2": "Sí, necesitarás revisiones **periódicas** para controlar complicaciones y ajustar el tratamiento.",
+    "0.1|3": "Sí, necesitarás revisiones **periódicas** para controlar complicaciones y ajustar el tratamiento.",
+    "0.1|5": "Sí, necesitarás revisiones **periódicas** para controlar complicaciones y ajustar el tratamiento.",
+    "0.1|8": "Sí, necesitarás revisiones **periódicas** para controlar complicaciones y ajustar el tratamiento.",
+    "0.1|13": "Sí, necesitarás revisiones **periódicas** para controlar complicaciones y ajustar el tratamiento.",
+    "0.1|21": "La diabetes tipo 2 requiere revisiones periódicas para detectar complicaciones antes de los síntomas.",
+    "0.1|34": "Sí, necesitarás revisiones **periódicas** para controlar complicaciones y ajustar el tratamiento."
+   }
+  },
+  {
+   "id": 35,
+   "question": "¿Puedo seguir yendo de viaje o de vacaciones con normalidad?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, puedes ir de vacaciones, pero con precauciones específicas:\n- **Asistencia sanitaria en el destino.**\n- **Informe médico con tratamiento y medicación.**\n- **Material extra (glucómetro, tiras, insulina, azúcar, etc.) en equipaje de mano.**\n- **Ropa y calzado cómodos.**\n- **Identificarte como persona diabética.**\n- **Evitar temperaturas extremas.**\n\nConsulta ajustes si hay cambio horario.",
+    "0.1|1": "Sí, puedes ir de vacaciones, pero con precauciones específicas:\n- **Asistencia sanitaria en el destino.**\n- **Informe médico con tratamiento y medicación.**\n- **Material extra (glucómetro, tiras, insulina, azúcar, etc.) en equipaje de mano.**\n- **Ropa y calzado cómodos.**\n- **Identificarte como persona diabética.**\n- **Evitar temperaturas extremas.**\n\nConsulta ajustes si hay cambio horario.",
+    "0.1|2": "Sí, puedes ir de vacaciones, siempre que:\n- El destino tenga asistencia sanitaria.\n- Evites temperaturas extremas.\n- Lleves tu informe médico con el tratamiento actual.\n- Incluyas glucómetro, tiras reactivas, jeringas, agujas, azucarillos y fruta por si hay hipoglucemia.\n- Uses ropa y calzado cómodos.\n- Identifícate como persona diabética.",
+    "0.1|3": "Sí, puedes ir de vacaciones, pero con precauciones:\n- Destino con asistencia sanitaria.\n- Llevar glucómetro, tiras reactivas, insulina (si aplica), azucarillos y medicación extra.\n- Identificarte como persona diabética.\n- Evitar temperaturas extremas.",
+    "0.1|5": "Sí, puedes ir de vacaciones, pero con precauciones específicas:\n- **Asistencia sanitaria en el destino.**\n- **Informe médico con tratamiento actualizado.**\n- **Medicación y material extra (glucómetro, tiras, jeringas, etc.) en equipaje de mano.**\n- **Azúcar rápido (azúcar, zumo, galletas) por si hay hipoglucemia.**\n- **Ropa y calzado cómodos.**\n- **Identificarte como persona diabética.**\n- **Evitar temperaturas extremas.**\n\nConsulta ajustes si hay cambio horario.",
+    "0.1|8": "Sí, puedes ir de vacaciones, siempre que:\n- El destino tenga asistencia sanitaria.\n- Evites temperaturas extremas.\n- Lleves tu informe médico con el tratamiento actual.\n- Incluyas glucómetro, tiras reactivas, jeringas, agujas, azúcar o caramelos por si hay hipoglucemia.\n- Uses ropa y calzado cómodos.\n- Identifícate como persona diabética.",
+    "0.1|13": "Sí, puedes ir de vacaciones, pero con precauciones:\n- Destino con asistencia sanitaria.\n- Llevar glucómetro, tiras reactivas, insulina extra, azúcar, fruta o caramelos por si hay hipoglucemia.\n- Identificarte como persona diabética.\n- Evitar temperaturas extremas.",
+    "0.1|21": "Sí, puedes ir de vacaciones, siempre que:\n- El destino tenga asistencia sanitaria.\n- Evites temperaturas extremas.\n- Lleves tu informe médico con el tratamiento actual.\n- Incluyas glucómetro, tiras reactivas, jeringas, agujas, azúcar o caramelos por si hay hipoglucemia.\n- Identifícate como persona diabética.\n- En vuelos largos con cambio horario, ajusta horarios de medicación y alimentación según recomendaciones médicas.",
+    "0.1|34": "Sí, puedes ir de vacaciones, pero con precauciones:\n- Destino con asistencia sanitaria.\n- Llevar glucómetro, tiras reactivas, insulina extra, azúcar rápido y ropa cómoda.\n- Identificarte como persona diabética."
+   }
+  },
+  {
+   "id": 36,
+   "question": "¿Qué tengo que llevar preparado a mi próxima cita?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La cita suele incluir:\n- **Analíticas** (glucosa, HbA1c, tensión arterial, colesterol, función renal).\n- **Revisión de pies** (heridas, cambios, sensibilidad).\n- **Revisión oftalmológica** (retinopatía).\n- **Peso y medicación actual** (listado de fármacos, dosis, efectos secundarios).\n- **Informe médico previo** (si hay cambios recientes en el tratamiento).\n\nSi llevas insulina o antidiabéticos orales, también puedes llevar:\n- **Equipo de autoanálisis** (glucómetro, tiras reactivas, lancetas).\n- **Material de emergencia** (azúcar, zumo natural o comprimidos de glucosa por si hay hipoglucemia).\n\n*No lleva* medicamentos no autorizados ni suplementos \"milagro\".",
+    "0.1|1": "Llevar preparado a tu cita:\n- **Informe médico con tu tratamiento actual** (medicamentos, dosis, insulina si aplica).\n- **Material para autoanálisis** (glucómetro, lancetas, tiras reactivas, bolsita cerrada para protegerlas de calor y humedad).\n- **Azúcar o HC de absorción rápida** (azúcar, zumo natural, comprimidos de glucosa) por si hay hipoglucemia.\n- **Ropa y calzado cómodos** para revisión de pies.",
+    "0.1|2": "La cita debe incluir:\n- **Informe médico actualizado** con el tratamiento (medicamentos, dosis, insulina si aplica).\n- **Material para autoanálisis** (glucómetro, tiras reactivas, lancetas, agujas).\n- **Azúcar o HC de absorción rápida** (azúcar, zumo, comprimidos de glucosa) por si hay hipoglucemia.\n- **Ropa y calzado cómodos** para revisión de pies.\n- **Identificación** como persona diabética (si aplica).",
+    "0.1|3": "La cita suele incluir:\n- **Análisis de sangre** (glucosa, HbA1c, colesterol, tensión arterial, función renal).\n- **Revisión de pies** (heridas, cambios, sensibilidad).\n- **Revisión oftalmológica** (retinopatía).\n- **Peso, medicación actual y efectos secundarios** (si los hay).\n- **Informe médico previo** (si aplica, con medicación y ajustes recientes).\n\n**Material útil para llevar:**\n- **Equipo de autoanálisis** (glucómetro, tiras reactivas, lancetas, alcohol).\n- **Lista de medicamentos** (nombre, dosis, fecha de última toma).\n- **Registro de glucosa** (anotar resultados recientes).\n- **Lista de síntomas recientes** (infecciones, cambios en peso, hipoglucemias).\n- **Identificación** (DNI o tarjeta sanitaria).\n\n*No lleva medicamentos extra sin receta o suplementos no autorizados.*",
+    "0.1|5": "La cita suele incluir:\n- **Análisis de sangre** (glucosa, HbA1c, colesterol, tensión arterial, función renal).\n- **Revisión oftalmológica** (si aplica).\n- **Autocuidado del pie** (revisión de heridas, sensibilidad, circulación).\n\nNo tengo información sobre qué documentos específicos debes presentar.",
+    "0.1|8": "La cita suele incluir:\n- **Análisis de sangre** (glucosa, HbA1c, colesterol, tensión arterial, función renal).\n- **Revisión de pies** (heridas, cambios, sensibilidad).\n- **Revisión oftalmológica** (retinopatía).\n- **Peso, medicación actual y efectos secundarios** (si los hay).\n- **Informe médico previo** (si se ha realizado antes).\n\n**Material útil para llevar:**\n- **Equipo de autoanálisis** (glucómetro, tiras reactivas, lancetas, alcohol).\n- **Lista de medicamentos** (nombre, dosis, fecha de inicio).\n- **Registro de glucosa** (anotar valores recientes).\n- **Lista de síntomas recientes** (dolor, infecciones, cambios en pies).\n- **Informes previos** (de revisiones oftalmológicas o renales).\n\n**No necesitas llevar:**\n- Suplementos o \"productos milagro\" (no curan la diabetes).\n- Alimentos específicos (la dieta se ajusta en consulta).\n- Documentación no médica (solo lo relacionado con el seguimiento).\n\nSi hay dudas sobre qué incluir, consulta con tu equipo sanitario.",
+    "0.1|13": "La cita requiere llevar:\n- **Informe médico con el tratamiento actual** (medicamentos, dosis y pluma de insulina si aplica).\n- **Material para autoanálisis** (glucómetro, tiras reactivas, lancetas, agujas).\n- **Azúcar o HC de absorción rápida** (azúcar, zumo, comprimidos de glucosa) por si hay hipoglucemia.\n- **Ropa y calzado cómodos** para revisión de pies.",
+    "0.1|21": "La cita suele incluir:\n- **Análisis de sangre** (glucosa, HbA1c, colesterol, tensión arterial, función renal).\n- **Revisión oftalmológica** (si aplica).\n- **Examen de pies** (inspección de heridas, sensibilidad, circulación).\n- **Peso y medidas** (si el equipo lo solicita).\n\n**Material a llevar:**\n- **Equipo médico personal** (glucómetro, tiras reactivas, lancetas, jeringas si usas insulina).\n- **Informe médico previo** (si hay cambios en medicación o tratamiento).\n- **Lista de medicamentos** (nombre, dosis y fecha de última toma).\n- **Registro de glucosa** (anotaciones de autoanálisis en los últimos días).\n- **Identificación** (DNI o tarjeta sanitaria).\n\n*No lleva* (a menos que el equipo lo indique):\n- Suplementos o \"productos milagro\" (no curan la diabetes).\n- Dietas específicas no autorizadas por el equipo.",
+    "0.1|34": "La cita suele incluir:\n- **Análisis de sangre** (glucosa, HbA1c, colesterol, tensión arterial, función renal).\n- **Revisión de pies** (heridas, cambios, sensibilidad).\n- **Revisión oftalmológica** (retinopatía).\n- **Peso, medicación actual y efectos secundarios** (si los hay).\n- **Informe médico previo** (si aplica, con medicación y ajustes recientes).\n\n**Material útil para llevar:**\n- **Equipo de autoanálisis** (glucómetro, tiras reactivas, lancetas, alcohol).\n- **Lista de medicamentos** (nombre, dosis, fecha de última toma).\n- **Registro de glucosa** (anotar resultados recientes).\n- **Lista de síntomas recientes** (sensación de cansancio, cambios visuales, etc.).\n- **Informes de complicaciones** (si hay heridas, infecciones o síntomas neurológicos).\n\n**No llevar:**\n- Suplementos o \"productos milagro\" (no curan la diabetes).\n- Medicamentos no autorizados (sin receta médica).\n\n*Si la cita incluye pruebas específicas (como ecografía o radiografía), revisa la agenda para confirmar.*"
+   }
+  },
+  {
+   "id": 37,
+   "question": "¿Es lo mismo que le pasó a mi familiar o mi caso puede ser diferente?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La diabetes tipo 2 es una enfermedad crónica con factores individuales que pueden hacer que cada caso sea diferente. No hay un patrón único, por lo que tu familiar y tú podéis tener síntomas, complicaciones o respuestas al tratamiento distintos según vuestros factores genéticos, estilo de vida, peso, sensibilidad a la insulina, etc.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No, tu caso puede ser diferente según los factores individuales como resistencia a la insulina, producción insuficiente, peso, genética, edad, estilo de vida, complicaciones previas o medicación.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No, tu caso puede ser diferente según los factores individuales como resistencia a la insulina, peso, genética, actividad física, medicación y otros factores de salud."
+   }
+  },
+  {
+   "id": 38,
+   "question": "¿Tengo que avisar en el trabajo de que me han diagnosticado esto?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 39,
+   "question": "¿Necesito comprar productos especiales de farmacia para diabéticos?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No, no necesitas comprar productos especiales de farmacia para diabéticos. La dieta y el ejercicio son la base del tratamiento. Solo necesitas glucómetro, tiras reactivas, lancetas y agujas si haces autoanálisis.",
+    "0.1|1": "No, no necesitas comprar productos especiales de farmacia para diabéticos. La guía recomienda llevar **azúcar, zumo o comprimidos de glucosa** por si hay hipoglucemia (sobre todo con insulina).",
+    "0.1|2": "No, no necesitas comprar productos especiales de farmacia para diabéticos. Solo debes llevar:\n- glucómetro, lancetas, tiras reactivas, jeringas, agujas y plumas de insulina (si usas insulina) en equipaje de mano.",
+    "0.1|3": "No, no necesitas comprar productos especiales de farmacia para diabéticos. Solo debes llevar:\n- glucómetro, tiras reactivas, lancetas y agujas (si usas autoanálisis).\n- azúcar, zumo o comprimidos de glucosa (para hipoglucemias).\n- glucagón en estuche con frío (si usas insulina).",
+    "0.1|5": "No, no necesitas comprar productos especiales de farmacia para diabéticos. La guía recomienda llevar **azúcar, zumo o comprimidos de glucosa** en caso de hipoglucemia.",
+    "0.1|8": "No, no necesitas comprar productos especiales de farmacia para diabéticos. La información recomienda llevar **azúcar, zumo o comprimidos de glucosa** en caso de hipoglucemia.",
+    "0.1|13": "No, no necesitas comprar productos especiales de farmacia para diabéticos. Solo debes llevar:\n- glucómetro, lancetas, tiras reactivas, jeringas y agujas (si usas insulina) en equipaje de mano.",
+    "0.1|21": "No, no necesitas comprar productos especiales de farmacia para diabéticos. La guía recomienda llevar **azúcar, zumo o comprimidos de glucosa** en caso de hipoglucemia.",
+    "0.1|34": "No, no necesitas comprar productos especiales de farmacia para diabéticos. La guía recomienda llevar **azúcar, zumo o comprimidos de glucosa** en caso de hipoglucemia."
+   }
+  },
+  {
+   "id": 40,
+   "question": "¿A partir de ahora tengo prohibido algún alimento del todo?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No, no tienes alimentos prohibidos del todo.",
+    "0.1|1": "No, no hay alimentos prohibidos del todo.",
+    "0.1|2": "No, no tienes alimentos prohibidos del todo.",
+    "0.1|3": "No, no tienes alimentos prohibidos del todo.",
+    "0.1|5": "No, no hay alimentos prohibidos del todo. La dieta para diabetes tipo 2 se basa en elegir calidad y cantidad, sin exclusiones absolutas.",
+    "0.1|8": "No tienes alimentos prohibidos del todo.",
+    "0.1|13": "No, no tienes alimentos prohibidos del todo.",
+    "0.1|21": "No, no hay alimentos prohibidos del todo.",
+    "0.1|34": "No tienes alimentos prohibidos del todo."
+   }
+  },
+  {
+   "id": 41,
+   "question": "Me acaban de diagnosticar diabetes y tengo miedo, ¿mi vida cambia para siempre a partir de ahora?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo que depende de tu estilo de vida y tratamiento.\n\nEl texto dice que la diabetes es crónica pero que el **control adecuado** (glucosa, peso, tensión, colesterol) **puede prevenir complicaciones** y mejorar calidad de vida. Con educación terapéutica, dieta, ejercicio y seguimiento, es posible vivir con diabetes sin limitaciones graves.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo con objetivos claros: controlar glucosa, peso, tensión y colesterol para prevenir complicaciones.\n\nEl tratamiento es **progresivo** (alimentación, ejercicio, posible medicación) y **individualizable** según tu respuesta. Con un buen autocuidado, puedes llevar una vida casi normal.",
+    "0.1|3": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo que depende de tu estilo de vida y tratamiento.\n\nEl texto dice que la diabetes es crónica pero **no progresiva sin control**, y que el tratamiento integral (glucosa, peso, tensión, etc.) puede prevenir complicaciones. La clave está en el autocuidado y el seguimiento.",
+    "0.1|5": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo que depende de tu estilo de vida y tratamiento.\n\nEl texto dice que **la DM2 es una enfermedad crónica**, pero que **puede controlarse con tratamiento integral** (glucosa, peso, tensión, colesterol, etc.) para prevenir complicaciones. No se menciona que sea irreversible ni que implique cambios radicales permanentes si se sigue el plan adecuado.",
+    "0.1|8": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo que depende de tu estilo de vida y tratamiento.\n\nEl texto dice que el objetivo es **controlar glucosa, peso, tensión y colesterol** para prevenir complicaciones, pero no menciona que la diabetes desaparezca. La progresión depende de cómo se gestione.",
+    "0.1|13": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo que depende de tu estilo de vida y tratamiento.\n\nEl texto dice que la diabetes es crónica pero progresiva, y que el tratamiento integral (glucosa, peso, tensión, colesterol, etc.) busca mantener control para prevenir complicaciones. No menciona que la diabetes implique una vida \"cambiada para siempre\" en términos de restricciones radicales, sino ajustes en hábitos (alimentación, ejercicio, medicación) según tu caso.\n\nSi el control es adecuado, puedes llevar una vida similar a la de cualquier persona, pero con más atención a estos aspectos. La clave está en el autocuidado y el seguimiento médico.",
+    "0.1|21": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo que depende de cómo se controle. Con tratamiento adecuado (alimentación, ejercicio, medicación si es necesario) y autocuidado, puedes llevar una vida casi normal.\n\n*(No añado que \"no hay que vivir con miedo\" ni que \"puedes seguir tus hobbies\"; solo reproduce lo que dice el texto: que el cambio depende de la gestión del tratamiento y que no es una condena).*",
+    "0.1|34": "La diabetes tipo 2 **no es una sentencia de por vida**, sino un manejo activo que depende de cómo se controle. Con tratamiento adecuado (alimentación, ejercicio, medicación si es necesario), puedes llevar una vida normal y evitar complicaciones. La clave es el autocuidado y el seguimiento médico."
+   }
+  },
+  {
+   "id": 42,
+   "question": "¿Me voy a quedar ciego con el tiempo por esto?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede llevar a pérdida de visión si no se controla.\n\nNo tengo información sobre eso.",
+    "0.1|1": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede derivar en pérdida de visión si no se controla.\n\nNo tengo información sobre eso.",
+    "0.1|2": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede llevar a pérdida de visión si no se controla.\n\nNo tengo información sobre eso.",
+    "0.1|3": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede derivar en pérdida de visión si no se controla.\n\nNo tengo información sobre eso.",
+    "0.1|5": "La diabetes tipo 2 puede dañar los ojos y provocar **retinopatía diabética**, que con el tiempo puede causar pérdida de visión o ceguera si no se controla.\n\nNo tengo información sobre eso.",
+    "0.1|8": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede llevar a pérdida de visión si no se controla.\n\nNo tengo información sobre eso.",
+    "0.1|13": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede llevar a pérdida de visión si no se controla.\n\nNo tengo información sobre eso.",
+    "0.1|21": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede derivar en pérdida de visión si no se controla.\n\nNo tengo información sobre qué grado exacto de riesgo implica tu caso concreto.",
+    "0.1|34": "La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que puede llevar a pérdida de visión si no se controla."
+   }
+  },
+  {
+   "id": 43,
+   "question": "¿Me van a tener que amputar el pie en algún momento?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 44,
+   "question": "Me da vergüenza pincharme insulina delante de otras personas, ¿qué hago?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 45,
+   "question": "¿Esto se cura si me cuido mucho desde el principio?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No, la diabetes tipo 2 **no se cura**, aunque el control adecuado puede retrasar su progresión y evitar complicaciones.",
+    "0.1|1": "No, la diabetes tipo 2 no se cura con el cuidado, solo se controla.",
+    "0.1|2": "No, la diabetes tipo 2 **no se cura**, aunque el buen control puede retrasar su progresión y evitar complicaciones.",
+    "0.1|3": "No, la diabetes tipo 2 **no se cura**, aunque el buen control puede retrasar su progresión y evitar complicaciones.",
+    "0.1|5": "No, la diabetes tipo 2 **no se cura**, aunque el buen control puede retrasar su progresión y complicaciones.",
+    "0.1|8": "No, la diabetes tipo 2 **no se cura**, aunque el buen control puede retrasar su progresión y complicaciones.",
+    "0.1|13": "No, la diabetes tipo 2 **no se cura** con el tratamiento. Es una enfermedad crónica que requiere control permanente.",
+    "0.1|21": "No, la diabetes tipo 2 **no se cura** con el cuidado, aunque sí puede controlarse y retrasar su progresión.",
+    "0.1|34": "No, la diabetes tipo 2 **no se cura**, aunque el buen control puede retrasar su progresión y evitar complicaciones."
+   }
+  },
+  {
+   "id": 46,
+   "question": "Mi padre murió de complicaciones de diabetes, ¿a mí también me va a pasar?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 **no se transmite directamente de padres a hijos**, pero sí hay factores de riesgo genéticos y de estilo de vida que aumentan la probabilidad de desarrollarla.\n\nSi tienes antecedentes familiares de diabetes tipo 2, **tu riesgo es mayor**, pero depende también de otros factores como tu peso, alimentación, actividad física y hábitos (tabaco, sedentarismo).\n\nNo hay garantía de que te pase, pero **el control de glucosa, tensión arterial y colesterol, junto con un estilo de vida saludable, reduce el riesgo de complicaciones**.",
+    "0.1|1": "La diabetes tipo 2 **puede** desarrollarse por factores genéticos, pero **no es inevitable**. Depende de otros factores como estilo de vida, control de glucosa, peso, tensión arterial, colesterol y hábitos (ejercicio, alimentación, no fumar).\n\nNo hay \"diabetes hereditaria\" que garantice complicaciones; depende de cómo se maneje.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "La diabetes tipo 2 **no se transmite directamente por herencia**, pero sí hay factores genéticos que aumentan el riesgo. Tu padre murió por complicaciones crónicas de la enfermedad mal controlada, pero **no hay evidencia de que la diabetes tipo 2 sea inevitable en tu caso**. Depende de otros factores como estilo de vida, control glucémico y prevención de complicaciones.",
+    "0.1|21": "La diabetes tipo 2 **no se transmite directamente** por herencia, pero sí hay factores genéticos que aumentan el riesgo. Su padre murió por complicaciones crónicas, pero **no hay garantía de que tú también las desarrolle** si tienes control de glucosa, tensión, colesterol y peso. La prevención depende de tu estilo de vida.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 47,
+   "question": "¿Es culpa mía haber desarrollado esto por cómo comía antes?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 48,
+   "question": "Me acaban de dar el diagnóstico y estoy agobiado con todo lo que tengo que controlar de golpe, ¿es normal?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|1": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|2": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|3": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|5": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|8": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|13": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|21": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.",
+    "0.1|34": "Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2."
+   }
+  },
+  {
+   "id": 49,
+   "question": "¿Esto significa que ya no voy a poder tener hijos?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 50,
+   "question": "¿Este diagnóstico me va a quitar años de vida?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "La diabetes tipo 2 **no quita años de vida si está bien controlada** (glucosa, tensión, colesterol en objetivos). El riesgo de complicaciones (corazón, riñón, ojos, pies) depende del **control actual y prevención**: revisiones periódicas, medicación correcta, dieta, ejercicio y evitar tabaco. Con hábitos adecuados, se puede vivir muchos años con buena calidad de vida.",
+    "0.1|1": "El diagnóstico de diabetes tipo 2 **no** reduce automáticamente años de vida, pero **mal control** sí aumenta el riesgo de complicaciones graves (corazón, riñones, ojos, etc.) que pueden acortar la esperanza de vida.\n\n**Factores clave para evitarlo:**\n- Control estricto de glucosa, tensión y colesterol.\n- Evitar tabaco, sedentarismo y sobrepeso.\n- Seguimiento médico regular.\n\nLa diabetes **controlada** permite vivir una vida larga y saludable.",
+    "0.1|2": "La diabetes tipo 2 mal controlada **aumenta el riesgo de complicaciones graves** (infartos, ictus, daño renal, neuropatía, etc.), pero **no garantiza que te quiten años de vida** si se controla adecuadamente.\n\nEl texto no especifica cifras exactas de esperanza de vida, pero sí que **el buen control (glucosa, tensión, colesterol) protege la salud y reduce complicaciones**.",
+    "0.1|3": "La diabetes tipo 2 **no quita años de vida** si está bien controlada. El riesgo de complicaciones (corazón, riñones, etc.) depende del manejo de glucosa, tensión, colesterol y otros factores.",
+    "0.1|5": "La diabetes tipo 2 **puede** reducir la esperanza de vida si no se controla adecuadamente, pero con un **tratamiento integral** (glucosa, peso, tensión, colesterol, ejercicio, medicación) y prevención de complicaciones, **puede mantenerse una esperanza de vida similar a la de una persona sin diabetes**.\n\nNo tengo información sobre eso.",
+    "0.1|8": "La diabetes tipo 2 **no quita años de vida** si está bien controlada con glucosa, tensión, colesterol y otros factores en objetivo. El riesgo de complicaciones (corazón, riñones, etc.) depende del control, no de la enfermedad en sí.",
+    "0.1|13": "La diabetes tipo 2 **no quita años de vida** si está bien controlada. El riesgo de complicaciones (corazón, riñones, etc.) depende del manejo de glucosa, tensión, colesterol y otros factores.",
+    "0.1|21": "La diabetes tipo 2 **puede** reducir la esperanza de vida si no se controla adecuadamente, pero con un tratamiento integral (glucosa, peso, tensión, colesterol, ejercicio, dieta) y prevención de complicaciones, **puede mantenerse una esperanza de vida similar a la de una persona sin diabetes**.\n\nNo tengo información sobre eso.",
+    "0.1|34": "La diabetes tipo 2 **no quita años de vida** si está bien controlada. El riesgo de complicaciones (corazón, riñones, etc.) depende del manejo de glucosa, tensión, colesterol y otros factores."
+   }
+  },
+  {
+   "id": 51,
+   "question": "Siento que ya no voy a poder disfrutar de comer nunca más, ¿es así?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No, no hay alimentos prohibidos. La diabetes se trata con ajustar cantidades y calidad, no con exclusiones.",
+    "0.1|1": "No, no es así. La diabetes tipo 2 no implica prohibir alimentos, sino ajustar cantidades y calidad según las necesidades individuales. La dieta recomendada es equilibrada y flexible, priorizando alimentos saludables como verduras, fruta entera, legumbres, cereales integrales y grasas saludables.",
+    "0.1|2": "No, la diabetes no implica prohibir alimentos, sino ajustar cantidades y calidad. La dieta es equilibrada y flexible: puedes comer fruta entera, legumbres, pan integral, etc., siempre priorizando calidad y evitando ultraprocesados.",
+    "0.1|3": "No, no hay alimentos prohibidos. La diabetes se trata con ajustar cantidades y calidad de los alimentos, no con eliminarlos.",
+    "0.1|5": "No, no hay alimentos prohibidos. La diabetes se trata con ajustar cantidades y calidad, no con exclusiones.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No, la diabetes no implica prohibir alimentos, sino ajustar cantidades y calidad. La alimentación debe ser equilibrada, similar a una dieta saludable general.",
+    "0.1|21": "No hay alimentos prohibidos; puedes seguir una alimentación equilibrada, priorizando calidad y cantidad.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 52,
+   "question": "¿Me puedo morir mientras duermo si se me baja mucho el azúcar por la noche?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, puede ocurrir hipoglucemia nocturna grave que lleve a un riesgo de muerte si no se trata.",
+    "0.1|1": "La hipoglucemia nocturna puede ser peligrosa y causar muerte si no se trata.",
+    "0.1|2": "Sí, puede ocurrir hipoglucemia nocturna grave que lleve a un riesgo de muerte si no se trata.",
+    "0.1|3": "Sí, puede ocurrir hipoglucemia nocturna grave que lleve a un riesgo de muerte si no se trata.",
+    "0.1|5": "Sí, puede ocurrir hipoglucemia nocturna grave que cause muerte si no se trata.",
+    "0.1|8": "Sí, puede ocurrir hipoglucemia nocturna grave que lleve a un riesgo de muerte si no se trata.",
+    "0.1|13": "Sí, puede ocurrir hipoglucemia nocturna grave que lleve a un riesgo de muerte si no se trata.",
+    "0.1|21": "Sí, puede ocurrir hipoglucemia nocturna que lleve a un riesgo de muerte si no se trata.",
+    "0.1|34": "Sí, puede ocurrir hipoglucemia nocturna grave que lleve a un riesgo de muerte si no se trata."
+   }
+  },
+  {
+   "id": 53,
+   "question": "Tengo miedo a las agujas, ¿de verdad voy a tener que pincharme?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La insulina se administra mediante inyección subcutánea con jeringa o pluma, por lo que necesitarás pincharte.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 54,
+   "question": "¿Mis hijos van a heredar esto seguro por mi culpa?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 55,
+   "question": "Me siento solo con este diagnóstico recién dado, ¿hay alguien con quien pueda hablar de esto?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  }
+ ]
+}
