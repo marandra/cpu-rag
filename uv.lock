@@ -94,7 +94,7 @@ dependencies = [
 requires-dist = [
     { name = "fastapi", specifier = ">=0.111.0" },
     { name = "httpx", specifier = ">=0.28.1" },
-    { name = "llama-cpp-python", specifier = ">=0.3.19" },
+    { name = "llama-cpp-python", specifier = "==0.3.19" },
     { name = "pydantic-settings", specifier = ">=2.2.0" },
     { name = "sse-starlette", specifier = ">=2.0.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30.0" },
