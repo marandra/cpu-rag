@@ -177,10 +177,16 @@ def paired_diff(base: dict[str, dict[int, str]],
                 variant: dict[str, dict[int, str]]) -> tuple[list, list, list[str]]:
     """Gains and regressions per (question, condition), over shared conditions.
 
-    Only conditions both runs actually ran are paired. The seed sweep prepends
-    the *frozen* seed, which comes out of the snapshot pickle and so differs
-    between two prompts — pairing on it would compare two different seeds and
-    call the difference a prompt effect.
+    Only conditions both runs actually ran are paired, which is what makes the
+    frozen seed safe to include. It comes out of the snapshot pickle, so one
+    might expect it to differ per variant — it does not: the stored seed is
+    `LLAMA_DEFAULT_SEED` chained by warmup order *within the process*, and every
+    A/B cell is a fresh process warming one procedure, so all of them land on
+    position 1 and share generation seed 1894574933 (measured, job 7289). It
+    therefore pairs like any other condition. If a future harness warms several
+    procedures per process, the stored seeds diverge by position and the
+    intersection here silently drops the unmatched ones rather than comparing
+    two different seeds as if they were one.
     """
     shared = sorted(set(base) & set(variant))
     gains, regressions = [], []
@@ -249,8 +255,9 @@ def emit(runs: dict[str, dict[str, dict[int, str]]], baseline: str) -> list[str]
             add(f"**{label}**: sin condiciones comunes con `{baseline}` — "
                 f"nada que emparejar.\n")
             continue
-        add(f"**{label}** — {len(shared)} condiciones comunes "
-            f"(el seed congelado se excluye: depende del pickle, no del prompt).\n")
+        add(f"**{label}** — {len(shared)} condiciones comunes de "
+            f"{len(set(runs[baseline]) | set(passes))}; las no compartidas se "
+            f"descartan en vez de emparejar seeds distintos.\n")
         add(f"- gana **{len(gains)}** (pregunta, condición): "
             f"{sorted({q for q, _ in gains})}")
         add(f"- rompe **{len(regressions)}**: {sorted({q for q, _ in regressions})}")
