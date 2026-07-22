@@ -1,0 +1,102 @@
+{
+ "label": "gemma4-26b-a4b",
+ "model": "gemma-4-26B-A4B-it-UD-Q4_K_M.gguf",
+ "procedure": "diabetes",
+ "generated": "2026-07-22 22:17 CEST",
+ "host": "eurehpccomputo01",
+ "arch": "gemma4",
+ "size_label": "26B-A4B",
+ "arch_meta": {
+  "gemma4.expert_feed_forward_length": "704",
+  "gemma4.block_count": "30",
+  "gemma4.expert_count": "128",
+  "gemma4.expert_used_count": "8",
+  "gemma4.attention.head_count": "16"
+ },
+ "chat_format": "chat_template.default",
+ "is_recurrent": false,
+ "is_hybrid": false,
+ "prefix_reuse": true,
+ "median_ttft_ms": 1060.201056767255,
+ "n_threads": 8,
+ "n_ctx": 8192,
+ "max_tokens": 320,
+ "prompt_variant": "v13",
+ "model_load_s": 7.068018287420273,
+ "warm_s": 78.46641737408936,
+ "prefix_tokens": 4135,
+ "prefill_tok_s": 52.69770353202632,
+ "save_state_s": 0.6810311432927847,
+ "pickle_bytes": 1468536857,
+ "median_decode_tok_s": 7.550009460980764,
+ "median_load_state_ms": 562.8479374572635,
+ "think_leaks": 0,
+ "runs": [
+  {
+   "id": 29,
+   "question": "¿Qué hago si me pongo malo, con fiebre, ahora que tengo esto?",
+   "answer": "Si estás enfermo (gripe, resfriado, etc.):\n\n- Nunca suspenda medicación de la diabetes (pastillas o insulina); dosis habitual salvo indicación médica.\n- Beber 2-3 litros de líquido al día repartidos cada 3 horas: agua, zumos naturales, infusiones, caldos, puré, etc.\n- Algo más de HC de lo habitual (patatas, frutas, arroz, leche, etc.). Reducir grasos unos días, pero no el aceite de oliva virgen habitual.\n- Aumente autoanálisis al menos 3 veces al día antes de comidas; anote resultados.\n- Si fiebre: paracetamol. Cuidado con sobres y jarabes que contienen azúcar.\n\nConsulte si: glucemia >300 mg/dl; vómitos sin tolerar nada varias horas; acetona en orina (una o más cruces); somnolencia o sequedad de boca intensas; fiebre >39 °C; cualquier duda.",
+   "load_state_ms": 810.8589984476566,
+   "ttft_ms": 1014.1242239624262,
+   "decode_s": 26.944546363316476,
+   "completion_tokens": 212,
+   "decode_tok_s": 7.83089821423993,
+   "has_think": false
+  },
+  {
+   "id": 26,
+   "question": "¿Cuánto ejercicio tengo que empezar a hacer?",
+   "answer": "Debe realizar aeróbico moderado (caminar, bici, nadar, bailar) al menos 150 minutos semanales repartidos. Caminar 30-45 min diarios es muy beneficioso. Si es sedentario, debe empezar progresivamente.",
+   "load_state_ms": 562.8033392131329,
+   "ttft_ms": 864.8674031719565,
+   "decode_s": 7.158500273711979,
+   "completion_tokens": 56,
+   "decode_tok_s": 7.683173555496732,
+   "has_think": false
+  },
+  {
+   "id": 4,
+   "question": "He leído que hay que evitar los picos de azúcar, ¿qué significa eso para mis comidas a partir de ahora?",
+   "answer": "Combinar hidratos de carbono con proteína, grasa saludable y fibra reduce los picos.",
+   "load_state_ms": 564.261200837791,
+   "ttft_ms": 1312.1287245303392,
+   "decode_s": 2.3138541355729103,
+   "completion_tokens": 18,
+   "decode_tok_s": 7.347049124075749,
+   "has_think": false
+  },
+  {
+   "id": 30,
+   "question": "¿Tengo que comprarme algún aparato para medirme el azúcar en casa?",
+   "answer": "Los glucómetros miden la glucosa capilar. Es especialmente importante con insulina o fármacos con riesgo de hipoglucemia.",
+   "load_state_ms": 557.2794275358319,
+   "ttft_ms": 1045.0215125456452,
+   "decode_s": 3.4555951533839107,
+   "completion_tokens": 27,
+   "decode_tok_s": 7.524029536428582,
+   "has_think": false
+  },
+  {
+   "id": 6,
+   "question": "¿Tengo que empezar a medirme el azúcar en casa desde ya, aunque no me hayan mandado insulina?",
+   "answer": "La frecuencia del autoanálisis es individualizada. Es especialmente importante con insulina o fármacos con riesgo de hipoglucemia.",
+   "load_state_ms": 562.8925357013941,
+   "ttft_ms": 1257.5799664482474,
+   "decode_s": 3.1679030656814575,
+   "completion_tokens": 25,
+   "decode_tok_s": 7.575989385532946,
+   "has_think": false
+  },
+  {
+   "id": 52,
+   "question": "¿Me puedo morir mientras duermo si se me baja mucho el azúcar por la noche?",
+   "answer": "No tengo información sobre eso.",
+   "load_state_ms": 557.546273805201,
+   "ttft_ms": 1075.380600988865,
+   "decode_s": 0.734292171895504,
+   "completion_tokens": 6,
+   "decode_tok_s": 6.809278637811139,
+   "has_think": false
+  }
+ ]
+}

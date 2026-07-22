@@ -1,0 +1,100 @@
+{
+ "label": "ministral",
+ "model": "Ministral-3-3B-Q4_K_M.gguf",
+ "procedure": "diabetes",
+ "generated": "2026-07-22 22:14 CEST",
+ "host": "eurehpccomputo01",
+ "arch": "mistral3",
+ "size_label": "3B",
+ "arch_meta": {
+  "mistral3.attention.head_count_kv": "8",
+  "mistral3.block_count": "26",
+  "mistral3.attention.head_count": "32"
+ },
+ "chat_format": "chat_template.default",
+ "is_recurrent": false,
+ "is_hybrid": false,
+ "prefix_reuse": true,
+ "median_ttft_ms": 1180.5527680553496,
+ "n_threads": 8,
+ "n_ctx": 8192,
+ "max_tokens": 320,
+ "prompt_variant": "v13",
+ "model_load_s": 0.9013814870268106,
+ "warm_s": 35.67456079646945,
+ "prefix_tokens": 4451,
+ "prefill_tok_s": 124.76677779984037,
+ "save_state_s": 0.360108925960958,
+ "pickle_bytes": 742536359,
+ "median_decode_tok_s": 11.577437211539003,
+ "median_load_state_ms": 292.86875622347,
+ "think_leaks": 0,
+ "runs": [
+  {
+   "id": 29,
+   "question": "¿Qué hago si me pongo malo, con fiebre, ahora que tengo esto?",
+   "answer": "Si tienes fiebre, sigue estas indicaciones:\n\n- **No suspendas tu medicación** (pastillas o insulina) salvo que un médico te indique lo contrario.\n- **Bebe 2-3 litros de líquidos al día** repartidos cada 3 horas: agua, zumos naturales, infusiones o caldos.\n- **Aumenta ligeramente los hidratos de carbono** de tu dieta habitual (ej.: patata, fruta, arroz, leche).\n- **Reduce grasas** unos días, pero mantén el aceite de oliva virgen habitual.\n- **Aumenta el autoanálisis de glucosa** al menos 3 veces al día antes de comer.\n- **Si la fiebre supera los 39 °C**, usa paracetamol.\n\n**Consulta de inmediato** si:\n- Glucemia >300 mg/dl,\n- Vómitos sin tolerar nada varias horas,\n- Acetona en orina (una o más cruces),\n- Somnolencia o sequedad extrema de boca,\n- Fiebre persistente o cualquier duda.",
+   "load_state_ms": 416.3363501429558,
+   "ttft_ms": 1177.207405678928,
+   "decode_s": 19.99770192336291,
+   "completion_tokens": 236,
+   "decode_tok_s": 11.751350275176081,
+   "has_think": false
+  },
+  {
+   "id": 26,
+   "question": "¿Cuánto ejercicio tengo que empezar a hacer?",
+   "answer": "La recomendación es hacer **al menos 150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos.",
+   "load_state_ms": 290.5150270089507,
+   "ttft_ms": 766.1373345181346,
+   "decode_s": 3.349220751784742,
+   "completion_tokens": 40,
+   "decode_tok_s": 11.644499688238696,
+   "has_think": false
+  },
+  {
+   "id": 4,
+   "question": "He leído que hay que evitar los picos de azúcar, ¿qué significa eso para mis comidas a partir de ahora?",
+   "answer": "- **Distribuir los hidratos de carbono (HC) en varias tomas del día** (desayuno, media mañana, comida, merienda, cena) para evitar picos de glucosa.\n- **Combinar cada HC con proteína, grasa saludable y fibra** (ejemplo: pan integral con aguacate y huevo, legumbres con verduras).\n- **Evitar alimentos de absorción rápida** (bollería, dulces, zumos industriales, refrescos, cereales azucarados) que provoquen picos bruscos.\n- **Priorizar alimentos de absorción lenta**: legumbres, integrales, frutas enteras, avena, pan integral.\n- **Controlar las raciones**: una ración ≈ una rebanada de pan, dos cucharadas de arroz/pasta cocida, una pieza pequeña de fruta, una patata pequeña o un vaso de leche.",
+   "load_state_ms": 292.0240443199873,
+   "ttft_ms": 1573.9957755431533,
+   "decode_s": 16.70117994491011,
+   "completion_tokens": 198,
+   "decode_tok_s": 11.795573764836789,
+   "has_think": false
+  },
+  {
+   "id": 30,
+   "question": "¿Tengo que comprarme algún aparato para medirme el azúcar en casa?",
+   "answer": "Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.",
+   "load_state_ms": 293.71346812695265,
+   "ttft_ms": 1122.9042140766978,
+   "decode_s": 1.6702599907293916,
+   "completion_tokens": 20,
+   "decode_tok_s": 11.375474540165945,
+   "has_think": false
+  },
+  {
+   "id": 6,
+   "question": "¿Tengo que empezar a medirme el azúcar en casa desde ya, aunque no me hayan mandado insulina?",
+   "answer": "No tengo información sobre eso.",
+   "load_state_ms": 290.58415722101927,
+   "ttft_ms": 1554.5483864843845,
+   "decode_s": 0.5075748478993773,
+   "completion_tokens": 6,
+   "decode_tok_s": 9.850763923178498,
+   "has_think": false
+  },
+  {
+   "id": 52,
+   "question": "¿Me puedo morir mientras duermo si se me baja mucho el azúcar por la noche?",
+   "answer": "Sí, puede ocurrir hipoglucemia nocturna que lleve a un riesgo de muerte si no se trata.",
+   "load_state_ms": 296.075870282948,
+   "ttft_ms": 1183.8981304317713,
+   "decode_s": 1.9981973245739937,
+   "completion_tokens": 24,
+   "decode_tok_s": 11.51037473483931,
+   "has_think": false
+  }
+ ]
+}
