@@ -1,0 +1,100 @@
+{
+ "label": "granite41-3b",
+ "model": "granite-4.1-3b-Q4_K_M.gguf",
+ "procedure": "cirugia-abdominal",
+ "generated": "2026-07-22 21:42 CEST",
+ "host": "eurehpccomputo01",
+ "arch": "granite",
+ "size_label": "3B",
+ "arch_meta": {
+  "granite.attention.head_count": "40",
+  "granite.attention.head_count_kv": "8",
+  "granite.block_count": "40"
+ },
+ "chat_format": "chat_template.default",
+ "is_recurrent": false,
+ "is_hybrid": false,
+ "prefix_reuse": true,
+ "median_ttft_ms": 636.049235239625,
+ "n_threads": 8,
+ "n_ctx": 8192,
+ "max_tokens": 320,
+ "prompt_variant": "v13",
+ "model_load_s": 0.7019079364836216,
+ "warm_s": 27.132159515284002,
+ "prefix_tokens": 3006,
+ "prefill_tok_s": 110.79103372905756,
+ "save_state_s": 0.1959628388285637,
+ "pickle_bytes": 451842618,
+ "median_decode_tok_s": 13.954037796350192,
+ "median_load_state_ms": 185.06713211536407,
+ "think_leaks": 0,
+ "runs": [
+  {
+   "id": 67,
+   "question": "Si me pongo muy nervioso antes de entrar a quirófano, ¿me pueden dar algo para calmarme?",
+   "answer": "Sí, si te pones muy nervioso antes de entrar al quirófano, te pueden dar medicación para llegar relajado/a. Se te dará una pastilla la noche antes de la cirugía (pastilla para dormir) y otra pastilla 1 ó 2 horas antes de la intervención.",
+   "load_state_ms": 281.52136225253344,
+   "ttft_ms": 780.0394734367728,
+   "decode_s": 4.441840449348092,
+   "completion_tokens": 69,
+   "decode_tok_s": 15.308969508344235,
+   "has_think": false
+  },
+  {
+   "id": 86,
+   "question": "¿Me van a dar algo para los nervios antes de entrar a quirófano?",
+   "answer": "No tengo información sobre eso.",
+   "load_state_ms": 183.86200163513422,
+   "ttft_ms": 665.3900677338243,
+   "decode_s": 0.3948970530182123,
+   "completion_tokens": 6,
+   "decode_tok_s": 12.661527762197315,
+   "has_think": false
+  },
+  {
+   "id": 87,
+   "question": "¿Voy a necesitar ayuda para caminar después de mi operación?",
+   "answer": "No tengo información sobre eso.",
+   "load_state_ms": 184.22209098935127,
+   "ttft_ms": 606.7084027454257,
+   "decode_s": 0.38795353937894106,
+   "completion_tokens": 6,
+   "decode_tok_s": 12.88814121403376,
+   "has_think": false
+  },
+  {
+   "id": 84,
+   "question": "Me han dicho que es una cirugía \"mínimamente invasiva\", ¿eso qué significa para mí?",
+   "answer": "Es una cirugía que evita abrir las cavidades del organismo mediante pequeñas incisiones, lo que puede reducir el dolor y la recuperación.",
+   "load_state_ms": 185.7396811246872,
+   "ttft_ms": 783.2347601652145,
+   "decode_s": 2.1739658303558826,
+   "completion_tokens": 34,
+   "decode_tok_s": 15.179631408741063,
+   "has_think": false
+  },
+  {
+   "id": 91,
+   "question": "Tengo miedo de mi operación, ¿es normal sentirme así?",
+   "answer": "Es normal sentir miedo ante una operación. Muchas personas experimentan ansiedad y temor ante procedimientos quirúrgicos.",
+   "load_state_ms": 184.39458310604095,
+   "ttft_ms": 605.5672951042652,
+   "decode_s": 1.7976110493764281,
+   "completion_tokens": 28,
+   "decode_tok_s": 15.019934378666624,
+   "has_think": false
+  },
+  {
+   "id": 103,
+   "question": "¿Es normal llorar antes de una operación como esta?",
+   "answer": "No tengo información sobre eso.",
+   "load_state_ms": 186.21750827878714,
+   "ttft_ms": 559.176760725677,
+   "decode_s": 0.3901675706729293,
+   "completion_tokens": 6,
+   "decode_tok_s": 12.815006617224508,
+   "has_think": false
+  }
+ ]
+}

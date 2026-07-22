@@ -1,0 +1,102 @@
+{
+ "label": "gemma4-26b-a4b",
+ "model": "gemma-4-26B-A4B-it-UD-Q4_K_M.gguf",
+ "procedure": "cirugia-abdominal",
+ "generated": "2026-07-22 21:44 CEST",
+ "host": "eurehpccomputo01",
+ "arch": "gemma4",
+ "size_label": "26B-A4B",
+ "arch_meta": {
+  "gemma4.expert_feed_forward_length": "704",
+  "gemma4.block_count": "30",
+  "gemma4.expert_count": "128",
+  "gemma4.expert_used_count": "8",
+  "gemma4.attention.head_count": "16"
+ },
+ "chat_format": "chat_template.default",
+ "is_recurrent": false,
+ "is_hybrid": false,
+ "prefix_reuse": true,
+ "median_ttft_ms": 884.88549599424,
+ "n_threads": 8,
+ "n_ctx": 8192,
+ "max_tokens": 320,
+ "prompt_variant": "v13",
+ "model_load_s": 7.353418295271695,
+ "warm_s": 45.287518152967095,
+ "prefix_tokens": 2556,
+ "prefill_tok_s": 56.439392226498924,
+ "save_state_s": 0.47027144953608513,
+ "pickle_bytes": 1112781841,
+ "median_decode_tok_s": 8.16422935318641,
+ "median_load_state_ms": 472.4460602737963,
+ "think_leaks": 0,
+ "runs": [
+  {
+   "id": 67,
+   "question": "Si me pongo muy nervioso antes de entrar a quirófano, ¿me pueden dar algo para calmarme?",
+   "answer": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+   "load_state_ms": 714.6234223619103,
+   "ttft_ms": 1062.3079240322113,
+   "decode_s": 6.295625007711351,
+   "completion_tokens": 50,
+   "decode_tok_s": 7.783182756276167,
+   "has_think": false
+  },
+  {
+   "id": 86,
+   "question": "¿Me van a dar algo para los nervios antes de entrar a quirófano?",
+   "answer": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+   "load_state_ms": 474.7732197865844,
+   "ttft_ms": 946.6931894421577,
+   "decode_s": 6.002532994374633,
+   "completion_tokens": 50,
+   "decode_tok_s": 8.163220434759978,
+   "has_think": false
+  },
+  {
+   "id": 87,
+   "question": "¿Voy a necesitar ayuda para caminar después de mi operación?",
+   "answer": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+   "load_state_ms": 470.11890076100826,
+   "ttft_ms": 823.0778025463223,
+   "decode_s": 3.7261870773509145,
+   "completion_tokens": 32,
+   "decode_tok_s": 8.319496406508677,
+   "has_think": false
+  },
+  {
+   "id": 84,
+   "question": "Me han dicho que es una cirugía \"mínimamente invasiva\", ¿eso qué significa para mí?",
+   "answer": "Significa que se evita abrir las cavidades del organismo y se opera a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento.",
+   "load_state_ms": 470.0483437627554,
+   "ttft_ms": 998.9766627550125,
+   "decode_s": 13.30078146699816,
+   "completion_tokens": 113,
+   "decode_tok_s": 8.420557865558044,
+   "has_think": false
+  },
+  {
+   "id": 91,
+   "question": "Tengo miedo de mi operación, ¿es normal sentirme así?",
+   "answer": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+   "load_state_ms": 466.1913150921464,
+   "ttft_ms": 819.0223388373852,
+   "decode_s": 2.6298112887889147,
+   "completion_tokens": 22,
+   "decode_tok_s": 7.985363850830132,
+   "has_think": false
+  },
+  {
+   "id": 103,
+   "question": "¿Es normal llorar antes de una operación como esta?",
+   "answer": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+   "load_state_ms": 474.78112205863,
+   "ttft_ms": 820.731496438384,
+   "decode_s": 2.571878407150507,
+   "completion_tokens": 22,
+   "decode_tok_s": 8.165238271612845,
+   "has_think": false
+  }
+ ]
+}

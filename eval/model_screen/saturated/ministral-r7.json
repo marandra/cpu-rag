@@ -1,0 +1,100 @@
+{
+ "label": "ministral",
+ "model": "Ministral-3-3B-Q4_K_M.gguf",
+ "procedure": "cirugia-abdominal",
+ "generated": "2026-07-22 21:41 CEST",
+ "host": "eurehpccomputo01",
+ "arch": "mistral3",
+ "size_label": "3B",
+ "arch_meta": {
+  "mistral3.attention.head_count_kv": "8",
+  "mistral3.block_count": "26",
+  "mistral3.attention.head_count": "32"
+ },
+ "chat_format": "chat_template.default",
+ "is_recurrent": false,
+ "is_hybrid": false,
+ "prefix_reuse": true,
+ "median_ttft_ms": 467.2635947354138,
+ "n_threads": 8,
+ "n_ctx": 8192,
+ "max_tokens": 320,
+ "prompt_variant": "v13",
+ "model_load_s": 0.8644178193062544,
+ "warm_s": 19.022835567593575,
+ "prefix_tokens": 2759,
+ "prefill_tok_s": 145.03621135747528,
+ "save_state_s": 0.23909508995711803,
+ "pickle_bytes": 562324823,
+ "median_decode_tok_s": 15.429303724377935,
+ "median_load_state_ms": 231.45624715834856,
+ "think_leaks": 0,
+ "runs": [
+  {
+   "id": 67,
+   "question": "Si me pongo muy nervioso antes de entrar a quirófano, ¿me pueden dar algo para calmarme?",
+   "answer": "Sí, el equipo te dará medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra 1 u 2 horas antes de la intervención.",
+   "load_state_ms": 361.0135745257139,
+   "ttft_ms": 622.333899140358,
+   "decode_s": 2.595132188871503,
+   "completion_tokens": 41,
+   "decode_tok_s": 15.4134730290537,
+   "has_think": false
+  },
+  {
+   "id": 86,
+   "question": "¿Me van a dar algo para los nervios antes de entrar a quirófano?",
+   "answer": "Sí, en casos de ansiedad o temor elevado, le darán medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+   "load_state_ms": 230.69074843078852,
+   "ttft_ms": 516.5668474510312,
+   "decode_s": 3.5555441370233893,
+   "completion_tokens": 56,
+   "decode_tok_s": 15.468799677465007,
+   "has_think": false
+  },
+  {
+   "id": 87,
+   "question": "¿Voy a necesitar ayuda para caminar después de mi operación?",
+   "answer": "Sí, es probable que necesites ayuda para caminar después de la cirugía. Debes levantarte y caminar lo antes posible, pero el dolor y la fatiga pueden requerir apoyo de familiares o cuidadores.",
+   "load_state_ms": 230.3855512291193,
+   "ttft_ms": 417.96034201979637,
+   "decode_s": 2.9635276179760695,
+   "completion_tokens": 47,
+   "decode_tok_s": 15.522041947905157,
+   "has_think": false
+  },
+  {
+   "id": 84,
+   "question": "Me han dicho que es una cirugía \"mínimamente invasiva\", ¿eso qué significa para mí?",
+   "answer": "En la cirugía laparoscópica se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+   "load_state_ms": 232.20043256878853,
+   "ttft_ms": 595.4260490834713,
+   "decode_s": 2.266085813753307,
+   "completion_tokens": 36,
+   "decode_tok_s": 15.44513441970217,
+   "has_think": false
+  },
+  {
+   "id": 91,
+   "question": "Tengo miedo de mi operación, ¿es normal sentirme así?",
+   "answer": "Sí, es normal sentir miedo antes de una cirugía mayor abdominal.",
+   "load_state_ms": 231.7316271364689,
+   "ttft_ms": 415.5748700723052,
+   "decode_s": 0.9489318747073412,
+   "completion_tokens": 15,
+   "decode_tok_s": 14.753430012368087,
+   "has_think": false
+  },
+  {
+   "id": 103,
+   "question": "¿Es normal llorar antes de una operación como esta?",
+   "answer": "No tengo información sobre eso.",
+   "load_state_ms": 231.18086718022823,
+   "ttft_ms": 387.4126588925719,
+   "decode_s": 0.38474926445633173,
+   "completion_tokens": 6,
+   "decode_tok_s": 12.995476435972472,
+   "has_think": false
+  }
+ ]
+}
