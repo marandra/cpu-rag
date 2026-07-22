@@ -139,10 +139,11 @@ _EJ_V14A = (
 # demostrarlo. Los tres pares de control se distinguen por un añadido así.
 _EJ_V14B = (
     "7. La pregunta añade algo que el texto no trata:\n"
-    "INFORMACIÓN: \"Puede aparecer un hematoma en la zona, que desaparece solo.\"\n"
-    "PREGUNTA: ¿Me va a salir un moratón y me quedará marca para siempre?\n"
-    "RESPUESTA: Puede aparecer un hematoma en la zona, que desaparece solo.\n"
-    "(El texto no trata «para siempre», pero eso no anula lo que sí resuelve: "
+    "INFORMACIÓN: \"Al retirar la escayola es normal notar el brazo rígido unos "
+    "días.\"\n"
+    "PREGUNTA: ¿Se me va a quedar el brazo rígido para siempre?\n"
+    "RESPUESTA: Al retirar la escayola es normal notar el brazo rígido unos días.\n"
+    "(El texto no trata «para siempre», y eso no anula lo que sí resuelve: "
     "responde la parte cubierta, sin rechazar y sin mencionar la otra.)"
 )
 
@@ -150,12 +151,12 @@ _EJ_V14B = (
 # convierten en instrucción al paciente algo que el documento dirige al equipo.
 _EJ_V14C = (
     "7. Quién hace la acción es parte del hecho:\n"
-    "INFORMACIÓN: \"Preparación: el equipo revisa las alergias y retira los "
-    "objetos metálicos.\"\n"
-    "PREGUNTA: ¿Tengo que hacer yo algo con mis pendientes?\n"
-    "RESPUESTA: En la preparación se retiran los objetos metálicos.\n"
-    "(El texto describe lo que hace el equipo: no lo conviertas en una orden al "
-    "paciente («debes quitártelos»). Si el texto sí se dirige al paciente, "
+    "INFORMACIÓN: \"En la revisión, el traumatólogo comprueba la alineación del "
+    "hueso.\"\n"
+    "PREGUNTA: ¿Tengo que comprobar yo cómo va soldando?\n"
+    "RESPUESTA: En la revisión, el traumatólogo comprueba la alineación del hueso.\n"
+    "(El texto dice quién hace la acción: no la conviertas en una orden al "
+    "paciente («debes comprobar»). Si el texto sí se dirige al paciente, "
     "mantenlo como está.)"
 )
 
@@ -163,14 +164,34 @@ _EJ_V14C = (
 # 105 cierra un «o» en una sola rama; ambos 9/9 estables en el barrido de seeds.
 _EJ_V14D = (
     "7. Conserva la condición y las dos ramas de un «o»:\n"
-    "INFORMACIÓN: \"Si nota picor, aplique la crema. La revisión la hace el "
-    "cirujano o la enfermera.\"\n"
-    "PREGUNTA: ¿Me tengo que poner la crema?\n"
-    "RESPUESTA: Si nota picor, aplique la crema.\n"
-    "PREGUNTA: ¿Quién me hará la revisión?\n"
-    "RESPUESTA: La revisión la hace el cirujano o la enfermera.\n"
+    "INFORMACIÓN: \"Si la escayola aprieta, avise en el centro. La cita de "
+    "revisión puede ser presencial o telefónica.\"\n"
+    "PREGUNTA: ¿Tengo que avisar de algo?\n"
+    "RESPUESTA: Si la escayola aprieta, avise en el centro.\n"
+    "PREGUNTA: ¿Cómo será la cita de revisión?\n"
+    "RESPUESTA: La cita de revisión puede ser presencial o telefónica.\n"
     "(No sueltes la condición que acota la regla ni elijas una de las dos "
     "opciones por tu cuenta.)"
+)
+
+# V14e — el único cambio es reescribir el Ej 2 de V13, que enseña la lección
+# correcta con material de hemorroides: modela rechazar «¿cuáles son las
+# alternativas a la cirugía?», y el fulldoc real SÍ las responde (§Alternativas:
+# pomadas, baños, dieta). 121, 104 y 109 son sobre-rechazos de esa familia y
+# hemorroides va 0/13. La lección se conserva entera; solo cambia el material.
+_V13_EJ2 = (
+    "2. Rechazar aunque el tema sea similar:\n"
+    "INFORMACIÓN: \"La hemorroidectomía se realiza cuando los síntomas no "
+    "mejoran con tratamientos menos invasivos.\"\n"
+    "PREGUNTA: ¿Cuáles son las alternativas a la cirugía?\n"
+    "RESPUESTA: No tengo información sobre eso."
+)
+_V14E_EJ2 = (
+    "2. Rechazar aunque el tema sea similar:\n"
+    "INFORMACIÓN: \"La escayola se retira a las seis semanas en la consulta de "
+    "traumatología.\"\n"
+    "PREGUNTA: ¿Tendré que hacer rehabilitación después?\n"
+    "RESPUESTA: No tengo información sobre eso."
 )
 
 PROMPT_VARIANTS: dict[str, str] = {
@@ -181,6 +202,7 @@ PROMPT_VARIANTS: dict[str, str] = {
     "v14b": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V14B),
     "v14c": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V14C),
     "v14d": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V14D),
+    "v14e": _replacing(SYSTEM_PROMPT_TEMPLATE, _V13_EJ2, _V14E_EJ2),
 }
 
 
