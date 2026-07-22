@@ -88,9 +88,24 @@ class Settings(BaseSettings):
         """
         return dict(PROFILES[self.profile])
 
-    # Per-procedure KV snapshots (Llama.save_state) are pickled here so we
-    # don't re-pay ~80s warmup per procedure on every container start.
-    snapshots_dir: Path = Path("./snapshots")
+    # Per-procedure KV snapshots (Llama.save_state) are pickled under here so
+    # we don't re-pay ~80s warmup per procedure on every container start.
+    # This is the *root*: the pickles themselves live in a per-profile subdir
+    # (see `snapshots_dir` below).
+    snapshots_root: Path = Path("./snapshots")
+
+    @property
+    def snapshots_dir(self) -> Path:
+        """This profile's snapshot directory: `<snapshots_root>/<profile>`.
+
+        The per-profile scoping used to live only in the launchers, which bound
+        `./snapshots/$PROFILE` onto the container's `/app/snapshots`. Anything
+        importing this module from the *host* therefore resolved to the bare
+        root — a directory no deployment serves — and silently built a parallel
+        set of pickles there. Deriving the subdir here makes host and container
+        agree, and the launchers now bind the root.
+        """
+        return self.snapshots_root / self.profile
 
     # At startup, copy pkls from snapshots_dir to this directory and read
     # from there. Decouples request-path I/O from the original (possibly

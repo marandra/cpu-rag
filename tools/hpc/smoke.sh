@@ -12,7 +12,8 @@ export RAG_API_KEY="${RAG_API_KEY:-smoke-key}"
 PORT="${PORT:-8001}"
 SIF="${SIF_IMAGE:-./rag-spr-native.sif}"
 PROFILE="${PROFILE:-aiciblock}"
-SNAPSHOTS_DIR="${SNAPSHOTS_DIR:-./snapshots/${PROFILE}}"
+# Root, not the profile subdir: config.py appends $PROFILE inside the container.
+SNAPSHOTS_DIR="${SNAPSHOTS_DIR:-./snapshots}"
 # Default to a procedure the profile actually owns (aiciblock: shortest prefix
 # → fastest smoke). Override with PROC= to smoke a specific one.
 # QUESTION must be on-topic for PROC: the prompt correctly refuses anything

@@ -51,10 +51,11 @@ cat <<EOF
       module load singularity/1.4.1     # apptainer on PATH
       apptainer build rag-spr-native.sif docker-archive://$(basename "$OUT_TAR")
     # then generate snapshots once per profile, inside the SIF (PROFILE picks
-    # both the procedures built and the subdir they land in):
+    # both the procedures built and the subdir they land in — bind the root,
+    # config.py appends \$P):
       P=glucowise
-      mkdir -p ./snapshots/\$P
-      apptainer exec --bind ./models:/app/models,./snapshots/\$P:/app/snapshots \\
+      mkdir -p ./snapshots
+      apptainer exec --bind ./models:/app/models,./snapshots:/app/snapshots \\
         --env RAG_API_KEY=\$RAG_API_KEY --env PROFILE=\$P \\
         rag-spr-native.sif python -m app.generate
     # finally enqueue the pool:

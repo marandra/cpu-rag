@@ -28,7 +28,9 @@ x-rag-common: &rag-common
   volumes:
     - ./models:/app/models:ro
     - ./corpus:/app/corpus:ro
-    - ./snapshots/${PROFILE:-aiciblock}:/app/snapshots
+    # Root, not the profile subdir: config.py resolves <root>/$PROFILE itself,
+    # so host and container agree on the layout.
+    - ./snapshots:/app/snapshots
     # Bind host /tmp so snapshot staging lands on the host's local scratch,
     # not the container's overlayfs. On HPC compute nodes host /tmp is local.
     - /tmp:/tmp
@@ -100,7 +102,7 @@ services:
     volumes:
       - ./models:/app/models:ro
       - ./corpus:/app/corpus:ro
-      - ./snapshots/${PROFILE:-aiciblock}:/app/snapshots
+      - ./snapshots:/app/snapshots
     env_file:
       - .env
       - ${RAG_ENV_FILE:-profiles/aiciblock.env}

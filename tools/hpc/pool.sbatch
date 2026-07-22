@@ -52,8 +52,9 @@ module load singularity/1.4.1
 module load spack/1.1.0
 spack load numactl target=x86_64_v3
 
-# Deployment profile. launch_pool.sh derives SNAPSHOTS_DIR (./snapshots/$PROFILE)
-# from it and passes it to every replica; the image's own default is aiciblock.
+# Deployment profile. launch_pool.sh binds the snapshots root (./snapshots) and
+# passes PROFILE to every replica, which resolves ./snapshots/$PROFILE itself;
+# the image's own default is aiciblock.
 export PROFILE="${PROFILE:-aiciblock}"
 
 # Pool topology — one replica per NUMA node on the Xeon Gold 6430 node.

@@ -16,8 +16,9 @@
 # inherits the host CWD, so from the repo root `uvicorn app.main:app` imports
 # the *host's* app/ instead of the image's, and every relative default in
 # config.py (./snapshots, ./models) resolves against the host repo — silently
-# ignoring the binds below. That went unnoticed until snapshots moved into
-# per-profile subdirs: before that the host path happened to hold the pkls.
+# ignoring the binds below. It fails quietly rather than loudly, because the
+# host repo has a ./snapshots/$PROFILE too: you get the host's app/ and the
+# host's pkls, and nothing tells you the binds were ignored.
 #
 # Topology defaults to the validated nT8 N8: 8 replicas x 8 threads, one replica
 # pinned per NUMA node (matches 8 NUMA x 8 cores on the Xeon Gold 6430 nodes;
@@ -35,7 +36,8 @@
 #   SIF_IMAGE            Path to the SPR-native RAG .sif      (default ./rag-spr-native.sif)
 #   NGINX_SIF            Path to the nginx .sif               (default ./nginx.sif; built if missing)
 #   MODELS_DIR           Host dir with the GGUF model         (default ./models)
-#   SNAPSHOTS_DIR        Host dir with prebuilt KV snapshots  (default ./snapshots/$PROFILE)
+#   SNAPSHOTS_DIR        Host *root* of the KV snapshots      (default ./snapshots;
+#                        the pkls live in $SNAPSHOTS_DIR/$PROFILE — config.py appends it)
 #   N_REPLICAS           Number of RAG replicas               (default 8)
 #   N_THREADS            llama threads per replica            (default 8)
 #   BASE_PORT            First replica port; replicas use BASE_PORT+i (default 8001)
@@ -65,13 +67,15 @@ cd "$(dirname "$0")/../.."   # repo root
 # --- config ----------------------------------------------------------------
 : "${RAG_API_KEY:?Set RAG_API_KEY (the service requires it)}"
 # The profile decides what the replicas serve; it must reach them as an env var
-# (the image bakes app/config.py, whose default is aiciblock) and it also picks
-# the snapshots subdir, since each profile gets its own — same layout as ./run.sh.
+# (the image bakes app/config.py, whose default is aiciblock). It also picks the
+# snapshots subdir, but that resolution now happens inside config.py — we bind
+# the root and the container appends the profile. Same layout as ./run.sh.
 PROFILE="${PROFILE:-aiciblock}"
 SIF_IMAGE="${SIF_IMAGE:-./rag-spr-native.sif}"
 NGINX_SIF="${NGINX_SIF:-./nginx.sif}"
 MODELS_DIR="${MODELS_DIR:-./models}"
-SNAPSHOTS_DIR="${SNAPSHOTS_DIR:-./snapshots/${PROFILE}}"
+SNAPSHOTS_DIR="${SNAPSHOTS_DIR:-./snapshots}"
+PROFILE_SNAPSHOTS="${SNAPSHOTS_DIR}/${PROFILE}"
 N_REPLICAS="${N_REPLICAS:-8}"
 N_THREADS="${N_THREADS:-8}"
 BASE_PORT="${BASE_PORT:-8001}"
@@ -89,9 +93,9 @@ command -v apptainer >/dev/null || { echo "ERROR: apptainer not in PATH. Run: mo
   echo "    apptainer build $SIF_IMAGE docker-archive://rag.tar" >&2
   exit 1; }
 [[ -d "$MODELS_DIR" ]]    || { echo "ERROR: models dir not found: $MODELS_DIR" >&2; exit 1; }
-[[ -d "$SNAPSHOTS_DIR" ]] || { echo "ERROR: snapshots dir not found: $SNAPSHOTS_DIR" >&2; exit 1; }
-if ! ls "$SNAPSHOTS_DIR"/*.pkl >/dev/null 2>&1; then
-  echo "ERROR: no *.pkl in $SNAPSHOTS_DIR — build snapshots first:" >&2
+[[ -d "$PROFILE_SNAPSHOTS" ]] || { echo "ERROR: snapshots dir not found: $PROFILE_SNAPSHOTS" >&2; exit 1; }
+if ! ls "$PROFILE_SNAPSHOTS"/*.pkl >/dev/null 2>&1; then
+  echo "ERROR: no *.pkl in $PROFILE_SNAPSHOTS — build snapshots first:" >&2
   echo "    apptainer exec --bind $MODELS_DIR:/app/models,$SNAPSHOTS_DIR:/app/snapshots \\" >&2
   echo "      --env RAG_API_KEY=\$RAG_API_KEY --env PROFILE=$PROFILE \\" >&2
   echo "      $SIF_IMAGE python -m app.generate" >&2
@@ -122,7 +126,7 @@ MODELS_DIR="$(readlink -f "$MODELS_DIR")"
 SNAPSHOTS_DIR="$(readlink -f "$SNAPSHOTS_DIR")"
 
 echo "==> Pool: profile ${PROFILE}, ${N_REPLICAS} replicas x ${N_THREADS} threads, LB on :${LB_PORT}"
-echo "    snapshots: ${SNAPSHOTS_DIR}"
+echo "    snapshots: ${SNAPSHOTS_DIR}/${PROFILE}  (root bound; config.py appends the profile)"
 mkdir -p "$STAGE_ROOT" "$NGINX_RUN"/{client_temp,proxy_temp,fastcgi_temp,uwsgi_temp,scgi_temp}
 
 # --- nginx image (build from docker:// if missing — unprivileged build works) -
