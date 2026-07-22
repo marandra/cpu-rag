@@ -1,0 +1,792 @@
+{
+ "procedure": "cirugia-abdominal",
+ "generated": "2026-07-22 13:57 CEST",
+ "profile": "aiciblock",
+ "model": "Ministral-3-3B-Q4_K_M",
+ "snapshot_seed": 872737089,
+ "subset": "all",
+ "seeds": [
+  1894574933,
+  1,
+  2,
+  3,
+  5,
+  8,
+  13,
+  21,
+  34
+ ],
+ "temperatures": [
+  0.1
+ ],
+ "questions": [
+  {
+   "id": 56,
+   "question": "He leído que hay operaciones por cámara y operaciones abiertas, ¿cambia mucho la recuperación entre una y otra?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La recuperación puede variar según el tipo de cirugía:\n\n- En cirugía laparoscópica (cámara) hay menos dolor y menor tiempo de recuperación que en cirugía convencional (abierta).\n- La cirugía laparoscópica suele requerir menos días de hospitalización y menos incisiones, lo que acelera la movilidad y la recuperación física.\n- En cirugía abierta, las incisiones son mayores, lo que puede prolongar el dolor y la recuperación.",
+    "0.1|1": "Sí, la recuperación varía entre cirugía laparoscópica y cirugía convencional (abierta):\n\n- **Laparoscópica**: dolor moderado y recuperación más rápida (1 o 2 días de molestias abdominales por el gas insuflado; menos dolor y menos tiempo de recuperación que la abierta).\n- **Convencional**: incisiones mayores, dolor más intenso y recuperación más prolongada.",
+    "0.1|2": "La recuperación en cirugía laparoscópica es más rápida que en cirugía convencional abierta, ya que evita abrir grandes cavidades del organismo. El dolor suele ser menor y la recuperación muscular y física es más rápida.",
+    "0.1|3": "La recuperación puede variar según el tipo de cirugía, pero en la cirugía laparoscópica (por cámara) hay menos dolor y menor tiempo de recuperación que en la cirugía convencional abierta.",
+    "0.1|5": "La recuperación puede variar según el tipo de cirugía, pero en la **cirugía laparoscópica** (por cámara) suele ser más rápida que en la **cirugía abierta** (mayor incisión).",
+    "0.1|8": "La recuperación puede variar según el tipo de cirugía, pero en la cirugía laparoscópica (por cámara) hay menos dolor y menor tiempo de recuperación que en la cirugía convencional (abierta).",
+    "0.1|13": "La recuperación en cirugía laparoscópica es más rápida que en cirugía convencional abierta debido a:\n- Menor dolor postoperatorio.\n- Menor tiempo de hospitalización.\n- Menor riesgo de infecciones por heridas grandes.\n- Menor riesgo de complicaciones por heridas abiertas.\n\nLa cirugía laparoscópica suele requerir menos días de recuperación que la convencional.",
+    "0.1|21": "La recuperación puede variar según el tipo de cirugía, pero en la cirugía laparoscópica (por cámara) las incisiones son menores que en la cirugía convencional (abierta), lo que suele generar menos dolor y una recuperación más rápida.",
+    "0.1|34": "La recuperación puede variar según el tipo de cirugía, pero en la **cirugía laparoscópica** (por cámara) la incisión es menor que en la **cirugía convencional abierta**, lo que suele implicar menos dolor y una recuperación más rápida."
+   }
+  },
+  {
+   "id": 57,
+   "question": "¿Es verdad que me van a meter gas en la tripa durante la operación y que eso da molestias después?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos mediante el laparoscopio. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|1": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|2": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos mediante el laparoscopio. Las molestias abdominales por el gas pueden aparecer durante **1 o 2 días tras el procedimiento** y desaparecen a medida que se absorbe.",
+    "0.1|3": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|5": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos mediante el laparoscopio. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|8": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos mediante el laparoscopio. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|13": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos mediante el laparoscopio. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|21": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos. Puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|34": "Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para permitir la visualización de los órganos mediante el laparoscopio. Puede causar molestias abdominales durante **1 o 2 días tras el procedimiento**."
+   }
+  },
+  {
+   "id": 58,
+   "question": "Antes de operarme me van a revisar cómo estoy de alimentación, ¿para qué sirve eso exactamente?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El cribado nutricional se realiza para detectar desnutrición antes de la cirugía y valorar cómo está tu alimentación.",
+    "0.1|1": "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía.",
+    "0.1|2": "El cribado nutricional se realiza para detectar desnutrición y valorar su estado de nutrición antes de la cirugía mayor abdominal.",
+    "0.1|3": "El cribado nutricional se realiza para detectar desnutrición y valorar su estado de nutrición antes de la cirugía mayor abdominal.",
+    "0.1|5": "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía.",
+    "0.1|8": "El cribado nutricional se realiza para detectar desnutrición y valorar su estado nutricional antes de la cirugía mayor abdominal.",
+    "0.1|13": "El cribado nutricional se realiza para detectar desnutrición y valorar si estás bien nutrido/a, ya que un paciente bien nutrido tiene menos complicaciones durante la cirugía mayor abdominal.",
+    "0.1|21": "El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía y evaluar su estado de nutrición.",
+    "0.1|34": "El cribado nutricional se realiza para detectar desnutrición y valorar su estado de nutrición antes de la cirugía mayor abdominal."
+   }
+  },
+  {
+   "id": 59,
+   "question": "¿Para qué me dan esa bebida especial antes de entrar a quirófano?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "0.1|1": "La bebida con hidratos de carbono antes de la operación evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|2": "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "0.1|3": "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "0.1|5": "La bebida con hidratos de carbono antes de la operación evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|8": "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "0.1|13": "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.",
+    "0.1|21": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|34": "La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio."
+   }
+  },
+  {
+   "id": 60,
+   "question": "Me han hablado de un tubito en la espalda para el dolor, ¿qué es eso exactamente?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Es un catéter epidural.",
+    "0.1|1": "La analgesia epidural es un procedimiento en el que se coloca un **catéter** en la columna vertebral para bloquear los nervios que envían señales de dolor al cerebro. Tras la cirugía, se conecta a una bomba de ACP (analgesia controlada por el paciente) con medicamentos que reducen el dolor. Puede causar vértigo o debilidad pasajera en las piernas.",
+    "0.1|2": "Es un catéter epidural.",
+    "0.1|3": "Es un catéter epidural.",
+    "0.1|5": "Es un catéter epidural.",
+    "0.1|8": "Es un catéter epidural.",
+    "0.1|13": "Es un catéter epidural.",
+    "0.1|21": "Es un catéter epidural.",
+    "0.1|34": "Es un catéter epidural."
+   }
+  },
+  {
+   "id": 61,
+   "question": "¿Es verdad que si como pronto después de operarme se me puede abrir la herida por dentro?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La herida no se abre por dentro si comes pronto tras la cirugía mayor abdominal.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 62,
+   "question": "¿Cuánto tardo en ir al baño con normalidad después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|1": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|2": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|3": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|5": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|8": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|13": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|21": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|34": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**."
+   }
+  },
+  {
+   "id": 63,
+   "question": "¿Qué riesgos tiene ese tubito que me ponen en la espalda para el dolor?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|1": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|2": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|3": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|5": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|8": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|13": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|21": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|34": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento."
+   }
+  },
+  {
+   "id": 64,
+   "question": "¿Por qué le dan tanta importancia a que me levante pronto después de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones bronquiales.",
+    "0.1|1": "El retraso en levantarse puede aumentar el riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|2": "La inmovilización prolongada aumenta el riesgo de coágulos en venas (trombosis) y pulmones (embolia), debilidad muscular y neumonía por retención de secreciones.",
+    "0.1|3": "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones bronquiales.",
+    "0.1|5": "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones bronquiales.",
+    "0.1|8": "La inmovilización prolongada aumenta el riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|13": "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones bronquiales.",
+    "0.1|21": "La inmovilización prolongada aumenta el riesgo de coágulos en venas de las piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|34": "La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones."
+   }
+  },
+  {
+   "id": 65,
+   "question": "Además de las pruebas normales, ¿me van a hacer algo más antes de operarme?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal: detecta desnutrición mediante peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y/o datos analíticos (como albúmina).",
+    "0.1|1": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (como albúmina).",
+    "0.1|2": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y/o datos analíticos (como albúmina).",
+    "0.1|3": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y/o datos analíticos (como albúmina).",
+    "0.1|5": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (como albúmina).",
+    "0.1|8": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y/o datos analíticos (como albúmina).",
+    "0.1|13": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos como albúmina.",
+    "0.1|21": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos como albúmina.",
+    "0.1|34": "El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y/o datos analíticos (como albúmina)."
+   }
+  },
+  {
+   "id": 66,
+   "question": "¿Desde cuántas horas antes de la operación tengo que dejar de beber líquidos?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "0.1|1": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la cirugía**.",
+    "0.1|2": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.",
+    "0.1|3": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la cirugía**.",
+    "0.1|5": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la cirugía**.",
+    "0.1|8": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la cirugía**.",
+    "0.1|13": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la cirugía**.",
+    "0.1|21": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la cirugía**.",
+    "0.1|34": "La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la cirugía**."
+   }
+  },
+  {
+   "id": 67,
+   "question": "Si me pongo muy nervioso antes de entrar a quirófano, ¿me pueden dar algo para calmarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, el equipo médico puede darte medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|1": "Sí, el equipo médico puede darte medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "0.1|2": "Sí, el equipo médico puede darte medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes de la cirugía.\n- Otra pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|3": "Sí, el equipo médico puede darte medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|5": "Sí, el equipo médico puede darte medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|8": "Sí, el equipo médico puede darte medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|13": "Sí, el equipo te dará medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|21": "Sí, el equipo te dará medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|34": "Sí, el equipo médico puede darte medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes.\n- Otra pastilla 1 ó 2 horas antes de la intervención."
+   }
+  },
+  {
+   "id": 68,
+   "question": "¿Cómo me van a controlar el dolor los primeros días después de operarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía gotero las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas, luego vía oral).\n- En algunas cirugías, se usará una **bomba de analgesia controlada por el paciente (ACP)** (ritmo fijo + botón para dosis adicionales).",
+    "0.1|1": "Después de la cirugía, en la **Unidad de Recuperación Postanestésica** se le prescribirá un tratamiento del dolor adaptado a sus necesidades y al tipo de cirugía.\n\n- **Primeras 24–48 horas:** vía intravenosa (gotero) con calmantes a ritmo fijo cada 6 u 8 horas y un calmante \"de rescate\" a demanda.\n- **Posteriores días:** vía oral (pastillas).\n- Para algunas cirugías, se colocará una **bomba de analgesia controlada por el paciente (ACP)**, que administrará calmantes a ritmo fijo y permite dosis adicionales con un botón programado.",
+    "0.1|2": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía gotero las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas, luego vía oral).\n- Si aplica, una **bomba de analgesia controlada por el paciente (ACP)** con dosis programadas y un botón para dosis adicionales.",
+    "0.1|3": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante **\"de rescate\" a demanda** (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se colocará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "0.1|5": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía gotero las primeras 24–48 horas).\n- Un calmante de **rescate a demanda** (vía intravenosa en las primeras 24–48 horas, luego vía oral).\n- En algunas cirugías, se usará una **bomba de analgesia controlada por el paciente (ACP)** (ritmo fijo + botón para dosis adicionales).",
+    "0.1|8": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía gotero las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas, luego vía oral).\n- En algunas cirugías, se usará una **bomba de analgesia controlada por el paciente (ACP)** (ritmo fijo + botón para dosis adicionales).",
+    "0.1|13": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía gotero las primeras 24–48 horas).\n- Un calmante \"de rescate\" a demanda (vía intravenosa en las primeras 24–48 horas, luego vía oral).\n- En algunas cirugías, se usará una **bomba de analgesia controlada por el paciente (ACP)** (ritmo fijo + botón para dosis adicionales).",
+    "0.1|21": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante de **rescate a demanda** (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se usará una **bomba de analgesia controlada por el paciente (ACP)** para dosis adicionales programadas.",
+    "0.1|34": "El dolor se controlará con:\n- Calmantes a ritmo fijo cada **6 u 8 horas** (vía intravenosa las primeras 24–48 horas).\n- Un calmante **\"de rescate\" a demanda** (vía intravenosa en las primeras 24–48 horas).\n- En algunos casos, se usará una **bomba de analgesia controlada por el paciente (ACP)** (ritmo fijo + botón para dosis adicionales).\n- El personal de enfermería ajustará el tratamiento según su nivel de dolor las **24 horas**."
+   }
+  },
+  {
+   "id": 69,
+   "question": "Como tengo diabetes, ¿cambia algo el ayuno antes de mi operación?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "0.1|1": "La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación; su médico de cabecera o enfermería le ayudará a ajustar el tratamiento.",
+    "0.1|2": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "0.1|3": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "0.1|5": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "0.1|8": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "0.1|13": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "0.1|21": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación.",
+    "0.1|34": "Si tienes diabetes, el cirujano te indicará cómo proceder con el ayuno preoperatorio. Debes llevar un control de glucosa en sangre lo más riguroso posible antes de la operación."
+   }
+  },
+  {
+   "id": 70,
+   "question": "Me han hablado de un aparatito con un botón para el dolor, ¿tiene riesgo de que me pase con la dosis?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La analgesia con bomba de control por el paciente (ACP) está programada para administrar calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; **no hay peligro de sobredosis**.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 71,
+   "question": "¿Por qué le dan tanta importancia a que llegue bien alimentado a la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|1": "La cirugía mayor abdominal requiere llegar bien nutrido para reducir las complicaciones.",
+    "0.1|2": "El cribado nutricional preoperatorio evalúa si el paciente está bien nutrido, ya que un paciente bien nutrido tiene menos complicaciones durante la cirugía mayor abdominal.",
+    "0.1|3": "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|5": "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones durante la cirugía mayor abdominal.",
+    "0.1|8": "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|13": "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|21": "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|34": "El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones."
+   }
+  },
+  {
+   "id": 72,
+   "question": "Me han dicho que puedo quedarme con molestia en el hombro después de operarme, ¿eso es normal?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La molestia en el hombro tras la cirugía laparoscópica puede deberse al gas insuflado en el abdomen durante el procedimiento.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 73,
+   "question": "¿Puedo comer con normalidad los días antes de la operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 74,
+   "question": "¿Me va a doler mucho después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|1": "Sí, después de la cirugía mayor abdominal **es normal sentir dolor moderado**, especialmente en las primeras 24 horas.",
+    "0.1|2": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|3": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|5": "El dolor postoperatorio es máximo en las primeras **24 horas** y luego disminuye progresivamente.",
+    "0.1|8": "El dolor postoperatorio es intenso en las primeras **24 horas** y luego disminuye progresivamente.",
+    "0.1|13": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|21": "El dolor postoperatorio es máximo en las primeras **24 horas** y luego disminuye progresivamente.",
+    "0.1|34": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente."
+   }
+  },
+  {
+   "id": 75,
+   "question": "¿Cuándo podré levantarme de la cama después de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Debe levantarse y dar cortos paseos por la habitación **al día siguiente** a la cirugía.",
+    "0.1|1": "El levantarse de la cama debe empezar al día siguiente de la cirugía.",
+    "0.1|2": "Debe comenzar a caminar al día siguiente de la cirugía.",
+    "0.1|3": "Debe levantarse y dar cortos paseos por la habitación **al día siguiente** a la cirugía.",
+    "0.1|5": "Debe levantarse y dar cortos paseos por la habitación **al día siguiente** a la cirugía.",
+    "0.1|8": "Debe levantarse y dar cortos paseos por la habitación **al día siguiente** a la cirugía.",
+    "0.1|13": "Debe comenzar a caminar lo antes posible: puede sentarse en un sillón con ayuda el mismo día de la cirugía y levantarse al día siguiente.",
+    "0.1|21": "Debe levantarse y dar cortos paseos por la habitación **al día siguiente** a la cirugía.",
+    "0.1|34": "Debe levantarse y dar cortos paseos por la habitación **al día siguiente** a la cirugía."
+   }
+  },
+  {
+   "id": 76,
+   "question": "¿Cuánto tiempo voy a estar ingresado?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 77,
+   "question": "¿Puedo ducharme antes de ir al hospital el día de la operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 78,
+   "question": "¿Cuándo podré volver a comer después de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada **hoy mismo**, dentro de las primeras 24 horas, siempre que no haya náuseas ni vómitos.",
+    "0.1|1": "Reanudar la alimentación tras la cirugía mayor abdominal suele ser posible dentro de las primeras **24 horas**, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|2": "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas, preferiblemente dentro de las primeras 24 horas.\n\nLa alimentación progresiva con alimentos fáciles de digerir puede iniciarse según no aparezcan náuseas ni vómitos.",
+    "0.1|3": "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas, preferiblemente dentro de las primeras 24 horas.\n\nPuedes reiniciar la alimentación progresivamente con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|5": "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas, preferiblemente dentro de las primeras 24 horas.\n\nPuedes reiniciar la alimentación progresivamente con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|8": "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas, preferiblemente dentro de las primeras 24 horas.\n\nPuedes reiniciar la alimentación progresivamente con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|13": "Tras la cirugía mayor abdominal, puedes reiniciar la alimentación progresivamente dentro de las primeras **24 horas**, comenzando con sorbos de agua en posición semisentada y luego alimentos fáciles de digerir.",
+    "0.1|21": "Tras la cirugía mayor abdominal, puedes reiniciar la alimentación **dentro de las primeras 24 horas**, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|34": "Tras la cirugía mayor abdominal, puedes empezar a beber sorbos de agua en posición semisentada desde las primeras horas, preferiblemente dentro de las primeras 24 horas.\n\nPuedes reiniciar la alimentación progresivamente con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos."
+   }
+  },
+  {
+   "id": 79,
+   "question": "¿Podré hacer vida normal después de que me den el alta?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 80,
+   "question": "¿Mi familia puede acompañarme o ayudarme durante mi recuperación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, tu familia puede acompañarte y ayudar durante la recuperación.",
+    "0.1|1": "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "0.1|2": "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "0.1|3": "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "0.1|5": "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "0.1|8": "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "0.1|13": "Sí, tu familia puede acompañarte y ayudar durante tu recuperación.",
+    "0.1|21": "Sí, tu familia puede acompañarte y ayudarte durante la recuperación.",
+    "0.1|34": "Sí, tu familia puede acompañarte y ayudar durante tu recuperación."
+   }
+  },
+  {
+   "id": 81,
+   "question": "¿Qué me van a explicar antes de mi operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "En la primera consulta de cirugía te explicarán el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. También te pedirán que firmes el consentimiento escrito para el tratamiento.",
+    "0.1|1": "En la primera consulta de cirugía le explicarán el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. También le pedirán que firme el consentimiento escrito para el tratamiento.",
+    "0.1|2": "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.\n\nEn la cita con anestesia, unos días antes, te informarán del plan anestésico, las modalidades y los riesgos según tu patología.",
+    "0.1|3": "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.\n\nEn la cita con anestesia, unos días antes, te informarán del plan anestésico, las modalidades y los riesgos según tu patología.",
+    "0.1|5": "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.\n\nEn la cita con anestesia, unos días antes, te informarán del plan anestésico, las modalidades y los riesgos según tu patología.",
+    "0.1|8": "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.\n\nEn la cita con anestesia, unos días antes, te informarán del plan anestésico, las modalidades y los riesgos según tu patología.",
+    "0.1|13": "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.\n\nEn la cita con anestesia, unos días antes, te informarán del plan anestésico, las modalidades y los riesgos según tu patología.",
+    "0.1|21": "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.\n\nEn la cita con anestesia, unos días antes, te informarán del plan anestésico, las modalidades y los riesgos según tu patología.",
+    "0.1|34": "En la primera consulta de cirugía te explicarán:\n- el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.\n- que tú decides sobre el tratamiento y firmarás el consentimiento escrito.\n\nEn la cita con anestesia, unos días antes, te informarán del plan anestésico, las modalidades y los riesgos según tu patología."
+   }
+  },
+  {
+   "id": 82,
+   "question": "¿Tengo que firmar algo antes de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, debe firmar el **consentimiento escrito** antes de la cirugía.",
+    "0.1|1": "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "0.1|2": "Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.",
+    "0.1|3": "Sí, debe firmar el **consentimiento escrito** antes de la cirugía.",
+    "0.1|5": "Sí, debe firmar el **consentimiento escrito** antes de la cirugía.",
+    "0.1|8": "Sí, debe firmar el **consentimiento escrito** antes de la cirugía.",
+    "0.1|13": "Sí, debe firmar el **consentimiento escrito** antes de la cirugía.",
+    "0.1|21": "Sí, debe firmar el **consentimiento escrito** antes de la cirugía.",
+    "0.1|34": "Sí, debe firmar el **consentimiento escrito** antes de la cirugía."
+   }
+  },
+  {
+   "id": 83,
+   "question": "¿Me van a dormir del todo para mi operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 84,
+   "question": "Me han dicho que es una cirugía \"mínimamente invasiva\", ¿eso qué significa para mí?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La cirugía mínimamente invasiva accede al cuerpo mediante pequeñas incisiones, evita abrir cavidades y usa un laparoscopio para operar. El gas insuflado en el abdomen puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|1": "La cirugía mínimamente invasiva accede a la cavidad abdominal mediante pequeñas incisiones, usando un laparoscopio y instrumentos introducidos por heridas alrededor del ombligo.",
+    "0.1|2": "En la cirugía laparoscópica se opera a través de pequeñas incisiones, se introduce un laparoscopio y instrumentos por heridas alrededor del ombligo; el gas insuflado en el abdomen puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|3": "En la cirugía laparoscópica se opera a través de pequeñas incisiones, se introduce un laparoscopio y instrumentos por heridas alrededor del ombligo.",
+    "0.1|5": "En la cirugía mínimamente invasiva se opera a través de pequeñas incisiones, introduciendo un laparoscopio y instrumentos por heridas alrededor del ombligo. El gas insuflado en el abdomen puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|8": "En la cirugía laparoscópica se opera a través de pequeñas incisiones, se introduce un laparoscopio y instrumentos por heridas alrededor del ombligo; se insufla gas en el abdomen y el cirujano opera mediante manipulación externa de los instrumentos.",
+    "0.1|13": "En la cirugía laparoscópica se opera a través de pequeñas incisiones, se introduce un laparoscopio y instrumentos por heridas alrededor del ombligo; se insufla gas en el abdomen y el cirujano opera mediante manipulación externa de los instrumentos.",
+    "0.1|21": "La cirugía mínimamente invasiva accede al cuerpo mediante pequeñas incisiones, evita abrir cavidades y usa un laparoscopio para operar. El gas insuflado en el abdomen puede causar molestias abdominales durante 1 o 2 días tras el procedimiento.",
+    "0.1|34": "En la cirugía laparoscópica se opera a través de pequeñas incisiones, se introduce un laparoscopio y instrumentos por heridas alrededor del ombligo. El gas insuflado puede causar molestias abdominales durante 1 o 2 días tras el procedimiento."
+   }
+  },
+  {
+   "id": 85,
+   "question": "¿Cuánto dura mi recuperación en casa después de operarme?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La recuperación en casa tras la cirugía mayor abdominal depende del tipo de intervención y puede variar entre varios días y semanas.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 86,
+   "question": "¿Me van a dar algo para los nervios antes de entrar a quirófano?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, en algunos casos le darán medicación para llegar relajado al quirófano:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|1": "Sí, en la premedicación le darán medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|2": "Sí, le darán medicación para llegar relajado/a al quirófano:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|3": "Sí, en caso de ansiedad o temor elevado, te darán medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes.\n- Otra pastilla 1 o 2 horas antes de la intervención.",
+    "0.1|5": "Sí, en la premedicación le darán medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|8": "Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|13": "Sí, en algunos casos le darán medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|21": "Sí, en casos de ansiedad o temor elevado, le darán medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|34": "Sí, en caso de ansiedad o temor elevado, te darán medicación para llegar relajado/a:\n- Una pastilla la noche antes de la cirugía (para dormir).\n- Otra pastilla 1 u 2 horas antes de la intervención."
+   }
+  },
+  {
+   "id": 87,
+   "question": "¿Voy a necesitar ayuda para caminar después de mi operación?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Sí, tras la cirugía mayor abdominal debes empezar a caminar lo antes posible para evitar complicaciones como coágulos venosos o debilidad muscular. El mismo día de la cirugía puedes sentarte con ayuda y al día siguiente debes levantarte y dar paseos cortos por la habitación.",
+    "0.1|1": "Sí, tras la cirugía mayor abdominal debes empezar a caminar lo antes posible para evitar complicaciones como coágulos venosos o debilidad muscular. El mismo día de la cirugía puedes sentarte con ayuda y al día siguiente debes levantarte y dar paseos cortos por la habitación.",
+    "0.1|2": "Sí, tras la cirugía mayor abdominal debes empezar a caminar lo antes posible para evitar complicaciones como coágulos venosos o debilidad muscular. El mismo día de la cirugía puedes sentarte con ayuda y al día siguiente debes levantarte y dar paseos cortos por la habitación.",
+    "0.1|3": "Sí, tras la cirugía mayor abdominal debes empezar a caminar lo antes posible para evitar complicaciones como coágulos venosos o debilidad muscular. El mismo día de la cirugía puedes sentarte con ayuda y al día siguiente debes levantarte y dar paseos cortos por la habitación.",
+    "0.1|5": "Sí, tras la cirugía mayor abdominal debes empezar a caminar desde el mismo día de la operación para evitar complicaciones como coágulos venosos o debilidad muscular. El personal te ayudará a sentarte en un sillón y, al día siguiente, podrás levantarte y dar paseos cortos por la habitación.",
+    "0.1|8": "Sí, tras la cirugía mayor abdominal **deberás caminar con ayuda** al día siguiente.",
+    "0.1|13": "Sí, tras la cirugía mayor abdominal debes empezar a caminar lo antes posible para evitar complicaciones como coágulos venosos o debilidad muscular. El mismo día de la cirugía puedes sentarte con ayuda y al día siguiente debes levantarte y dar paseos cortos por la habitación.",
+    "0.1|21": "Sí, tras la cirugía mayor abdominal **deberás caminar con ayuda** al día siguiente.",
+    "0.1|34": "Sí, tras la cirugía mayor abdominal debes empezar a caminar lo antes posible para evitar complicaciones como coágulos venosos o debilidad muscular. El mismo día de la cirugía puedes sentarte con ayuda y al día siguiente debes levantarte y dar paseos cortos por la habitación."
+   }
+  },
+  {
+   "id": 88,
+   "question": "¿Es peligroso que me levante el mismo día de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica.",
+    "0.1|1": "El mismo día de la cirugía puede sentarse en un sillón con ayuda y, al día siguiente, debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|2": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica.",
+    "0.1|3": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica.",
+    "0.1|5": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica.",
+    "0.1|8": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica.",
+    "0.1|13": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica.",
+    "0.1|21": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica.",
+    "0.1|34": "Sí, es peligroso levantarse el mismo día de la cirugía mayor abdominal sin supervisión médica."
+   }
+  },
+  {
+   "id": 89,
+   "question": "¿Qué pasa si me entra hambre justo antes de mi operación?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Si tienes hambre justo antes de la cirugía, **no puedes comer sólidos**, pero puedes tomar hasta **2 horas antes** bebidas enriquecidas con carbohidratos (hasta 400 ml), agua, infusiones, té, café, zumos colados sin pulpa, etc.\n\n*(Si es diabetes, sigue las indicaciones específicas de tu cirujano sobre glucosa en sangre).*",
+    "0.1|1": "La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta 2 horas antes de la operación.\n\nSi tienes hambre, puedes tomar entre **200 y 400 ml de una bebida con hidratos de carbono** unas horas antes de la cirugía para evitar efectos del ayuno (incomodidad, hambre y sed).",
+    "0.1|2": "Si te entra hambre justo antes de la cirugía, **no puedes comer sólidos**, pero puedes tomar hasta **2 horas antes** líquidos (incluyendo bebidas enriquecidas con carbohidratos entre 200 y 400 ml unas horas antes).\n\nSi tienes diabetes, sigue el protocolo específico que te indique tu médico.",
+    "0.1|3": "Si te entra hambre justo antes de la cirugía, **no puedes comer sólidos**, pero puedes tomar **entre 200 y 400 ml de una bebida con hidratos de carbono** (como las que te den en el hospital) **entre 2 y 4 horas antes** de la operación.",
+    "0.1|5": "Si tienes hambre justo antes de la cirugía, **no debes comer sólidos**, pero puedes tomar hasta **2 horas antes** líquidos (incluyendo bebidas enriquecidas con carbohidratos entre 200 y 400 ml).",
+    "0.1|8": "Si tienes hambre justo antes de la cirugía, **no puedes comer sólidos**, pero puedes tomar hasta **2 horas antes** líquidos (incluyendo bebidas enriquecidas con carbohidratos entre 200 y 400 ml unas horas antes).\n\nSi es menos de 2 horas, **debes suspender la ingesta de líquidos** para evitar complicaciones.",
+    "0.1|13": "Si te entra hambre justo antes de la cirugía, **no puedes comer sólidos**, pero puedes tomar hasta **4 horas antes** de la operación:\n- **Bebidas enriquecidas con carbohidratos** (entre 200 y 400 ml, según indicación médica).\n- **Líquidos claros** (agua, infusiones, té, café, zumos colados sin pulpa).\n\nSi es menos de 2 horas antes, **debes seguir el ayuno estricto** (solo líquidos permitidos).",
+    "0.1|21": "Si tienes hambre justo antes de la cirugía, **no puedes comer sólidos**, pero puedes tomar **entre 200 y 400 ml de una bebida con hidratos de carbono** (como las que te den en el hospital) **entre 2 y 4 horas antes** de la operación.",
+    "0.1|34": "Si tienes hambre justo antes de la cirugía, **no puedes comer sólidos**, pero puedes tomar hasta **2 horas antes** líquidos (incluyendo bebidas con carbohidratos entre 200 y 400 ml unas horas antes)."
+   }
+  },
+  {
+   "id": 90,
+   "question": "¿Cuándo iré al baño por primera vez después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|1": "La primera defecación suele producirse entre **2 y 3 días después de reiniciar la alimentación**.",
+    "0.1|2": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|3": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|5": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|8": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|13": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|21": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.",
+    "0.1|34": "La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**."
+   }
+  },
+  {
+   "id": 91,
+   "question": "Tengo miedo de mi operación, ¿es normal sentirme así?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Sí, es normal sentir miedo antes de una cirugía mayor abdominal.",
+    "0.1|1": "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "0.1|2": "Sí, es normal sentir miedo antes de una cirugía mayor abdominal.",
+    "0.1|3": "Sí, es normal sentir miedo antes de una cirugía mayor abdominal.",
+    "0.1|5": "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "0.1|8": "Sí, es normal sentir miedo antes de una cirugía mayor.",
+    "0.1|13": "Sí, es normal sentir miedo en la cirugía mayor abdominal.",
+    "0.1|21": "Sí, es normal sentir miedo en una cirugía mayor abdominal.",
+    "0.1|34": "Sí, es normal sentir miedo antes de una cirugía mayor."
+   }
+  },
+  {
+   "id": 92,
+   "question": "¿Me puedo morir en esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La cirugía mayor abdominal conlleva mayor riesgo de complicaciones, pero no hay información específica sobre mortalidad en este texto.",
+    "0.1|2": "Sí, la cirugía mayor abdominal conlleva **riesgos potenciales**, incluyendo complicaciones graves o mortales según la información proporcionada.",
+    "0.1|3": "Sí, la cirugía mayor abdominal conlleva **riesgos potenciales**, incluyendo complicaciones graves o mortales según la patología y el tipo de intervención.",
+    "0.1|5": "Sí, la cirugía mayor abdominal conlleva **riesgos potenciales**, incluyendo complicaciones graves o incluso riesgo de mortalidad.",
+    "0.1|8": "Sí, la cirugía mayor abdominal conlleva **riesgos potenciales**, incluyendo complicaciones graves o mortales según la patología y el tipo de intervención.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "Sí, la cirugía mayor abdominal conlleva **riesgos potenciales**, incluyendo complicaciones graves o incluso riesgo de mortalidad según su patología y estado de salud."
+   }
+  },
+  {
+   "id": 93,
+   "question": "¿Duele mucho esta operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|1": "Sí, el dolor postoperatorio es intenso en las primeras **24 horas** tras la cirugía mayor abdominal.",
+    "0.1|2": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|3": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|5": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|8": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|13": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|21": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.",
+    "0.1|34": "El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente."
+   }
+  },
+  {
+   "id": 94,
+   "question": "¿Y si me despierto en mitad de mi operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "Si se despierta en mitad de la operación, debe avisar **inmediatamente** al equipo médico.",
+    "0.1|3": "Si se despierta en mitad de la operación, debe avisar **inmediatamente** al equipo médico.",
+    "0.1|5": "Si se despierta en mitad de la operación, debe avisar **inmediatamente** al equipo médico.",
+    "0.1|8": "Si hay un cambio inesperado durante la cirugía, el equipo médico actuará según lo planificado en la consulta preoperatoria con anestesia. No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "Si hay un problema durante la cirugía, el equipo médico actuará según lo planificado y según las necesidades del paciente."
+   }
+  },
+  {
+   "id": 95,
+   "question": "¿Y si algo sale mal durante mi cirugía?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "Si algo sale mal durante la cirugía, el equipo médico evaluará las complicaciones según su tipo y gravedad. No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "Si algo sale mal durante tu cirugía, el equipo médico evaluará las consecuencias y actuará según lo necesario, siguiendo protocolos establecidos para manejar emergencias. No tengo información sobre eso.",
+    "0.1|3": "Si algo sale mal durante la cirugía, el equipo médico evaluará las consecuencias y actuará según lo necesario, siguiendo los protocolos establecidos para cada caso.",
+    "0.1|5": "Si algo sale mal durante la cirugía, el equipo médico evaluará las circunstancias y actuará según lo necesario, siguiendo protocolos de emergencia. No tengo información sobre eso.",
+    "0.1|8": "Si algo sale mal durante la cirugía, el equipo médico evaluará las complicaciones y actuará según lo necesario, siguiendo protocolos establecidos para cada caso.",
+    "0.1|13": "Si algo sale mal durante tu cirugía, el equipo médico evaluará la situación y actuará según lo necesario, siguiendo protocolos de emergencia. No tengo información sobre eso.",
+    "0.1|21": "Si algo sale mal durante la cirugía, el equipo médico actuará según los protocolos establecidos para manejar emergencias.",
+    "0.1|34": "Si algo sale mal durante la cirugía, el equipo médico evaluará las complicaciones y actuará según lo necesario, siguiendo protocolos establecidos para cada caso."
+   }
+  },
+  {
+   "id": 96,
+   "question": "Tengo mucha ansiedad, no puedo dormir pensando en mi operación, ¿qué hago?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La ansiedad puede manejarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|1": "La ansiedad puede tratarse con medicación para llegar al quirófano relajado:\n- Una pastilla la noche antes de la cirugía (pastilla para dormir).\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|2": "La ansiedad puede manejarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|3": "La ansiedad puede manejarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|5": "La ansiedad puede controlarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|8": "La ansiedad puede manejarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|13": "La ansiedad puede manejarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|21": "La ansiedad puede manejarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|34": "La ansiedad puede manejarse con:\n- Una pastilla para dormir la noche antes de la cirugía.\n- Una pastilla 1 ó 2 horas antes de la intervención."
+   }
+  },
+  {
+   "id": 97,
+   "question": "¿Me voy a despertar con una bolsa después de esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 98,
+   "question": "¿Qué pasa si me arrepiento justo antes de entrar a quirófano?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué efectos tiene ese arrepentimiento en el procedimiento**.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué efectos tiene ese arrepentimiento en el procedimiento**.",
+    "0.1|3": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué efectos tiene ese arrepentimiento en el procedimiento**.",
+    "0.1|5": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué efectos tiene ese arrepentimiento en el procedimiento**.",
+    "0.1|8": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué efectos tiene ese arrepentimiento en el procedimiento**.",
+    "0.1|13": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué pasa en ese caso específico**.",
+    "0.1|21": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué pasa en ese caso en la guía**.",
+    "0.1|34": "Si te arrepientes justo antes de entrar a quirófano, **no hay información sobre qué ocurre en ese momento**."
+   }
+  },
+  {
+   "id": 99,
+   "question": "Nunca me han operado antes y tengo pánico a la anestesia, ¿es peligrosa?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "La anestesia general es un procedimiento seguro en manos de profesionales cualificados, pero como toda intervención, tiene riesgos potenciales según su patología y estado de salud.\n\nNo tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "La anestesia general es un procedimiento seguro en manos de profesionales cualificados, pero como toda intervención, tiene riesgos potenciales según su patología y estado de salud. El equipo médico le informará detalladamente del plan anestésico y sus riesgos según su caso concreto.\n\nNo tengo información sobre eso.",
+    "0.1|3": "La anestesia general es un procedimiento seguro en manos de profesionales cualificados, pero como toda intervención, tiene riesgos potenciales según su patología y estado de salud.\n\nNo tengo información sobre eso.",
+    "0.1|5": "La anestesia general puede tener riesgos según su patología y estado de salud. El equipo de anestesia le informará del plan anestésico, las modalidades y los riesgos específicos según su caso.",
+    "0.1|8": "La anestesia general puede tener riesgos según su patología y estado de salud. El equipo de anestesia le informará del plan anestésico, las modalidades y los riesgos específicos según su caso.",
+    "0.1|13": "La anestesia general es un procedimiento seguro en manos de profesionales cualificados, pero como toda intervención, tiene riesgos potenciales según su patología y estado de salud.\n\nNo tengo información sobre eso.",
+    "0.1|21": "La anestesia general puede tener riesgos según su patología y estado de salud, pero en la cirugía mayor abdominal se adapta a sus necesidades. El equipo de anestesia le informará detalladamente del plan anestésico y sus riesgos específicos.\n\nNo tengo información sobre eso.",
+    "0.1|34": "La anestesia general es un procedimiento seguro en manos de profesionales cualificados, pero como toda intervención, tiene riesgos potenciales según su patología y estado de salud.\n\nNo tengo información sobre eso."
+   }
+  },
+  {
+   "id": 100,
+   "question": "¿Me van a quedar cicatrices grandes de esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 101,
+   "question": "¿Puedo hablar con el cirujano a solas si tengo dudas que me dan vergüenza preguntar delante de mi familia?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 102,
+   "question": "Estoy muy nervioso por dejar a mis hijos solos mientras estoy ingresado, ¿cuánto tiempo voy a estar fuera de casa?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La duración de tu estancia en el hospital depende del tipo de cirugía y su complejidad. No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "La duración de tu ingreso depende del tipo de cirugía y su complejidad. No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 103,
+   "question": "¿Es normal llorar antes de una operación como esta?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "Sí, es normal sentir ansiedad, depresión, temor o aprehensión antes de una cirugía mayor abdominal, lo que puede manifestarse como llanto.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  }
+ ]
+}
