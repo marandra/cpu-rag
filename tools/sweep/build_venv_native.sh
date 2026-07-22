@@ -88,7 +88,9 @@ export CMAKE_ARGS="\
 -DCMAKE_CXX_COMPILER=$CXX"
 export FORCE_CMAKE=1
 
-uv pip install --no-binary=llama-cpp-python --no-cache "llama-cpp-python==0.3.19" 2>&1 | tail -20
+LCP_VERSION="${LCP_VERSION:-0.3.34}"   # keep in sync with pyproject.toml
+uv pip install --no-binary=llama-cpp-python --no-cache \
+    "llama-cpp-python==${LCP_VERSION}" 2>&1 | tail -20
 
 echo "==> Verifying build"
 python - <<'PY'

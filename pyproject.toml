@@ -6,10 +6,15 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     # LLM
-    # Pinned: 0.3.19's ggml honors -DGGML_AVX512_VNNI / -DGGML_AMX_INT8 and emits
-    # vpdpbusd/tdpbssd; 0.3.23's ggml reworked CPU flag handling and drops them
-    # under GGML_NATIVE=OFF. This is the version the HPC sweep validated.
-    "llama-cpp-python==0.3.19",
+    # Pinned for build reproducibility, not because older is safer. The 0.3.19
+    # pin came from one observation on 0.3.23, whose ggml did not emit
+    # vpdpbusd/tdpbssd under GGML_NATIVE=OFF. Re-tested 2026-07-22 on the same
+    # node and toolchain, only the version differing: 0.3.34 (ggml 0.16.0) emits
+    # the same 1757 vpdpbusd / 94 tdpbssd / 96 tileloadd, decodes the same
+    # (16.69 vs 16.62 tok/s at nT=8) and prefills 33% faster. It also adds the
+    # gemma4 and granite-4.x architectures. Re-verify by objdump before moving
+    # again -- over EVERY .so in llama_cpp/lib, not just libggml-cpu.so.
+    "llama-cpp-python==0.3.34",
     # API service
     "fastapi>=0.111.0",
     "uvicorn[standard]>=0.30.0",
