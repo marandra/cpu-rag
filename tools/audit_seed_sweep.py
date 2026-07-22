@@ -98,6 +98,11 @@ def main() -> int:
                    help=f"How many of {SEEDS} to use.")
     p.add_argument("--temperatures", default="0.1",
                    help="Comma-separated. 0.1 is what we deploy.")
+    p.add_argument("--fulldoc", default=None,
+                   help="Override the procedure's distilled markdown. For the "
+                        "corpus A/B: the fulldoc is part of the snapshot cache "
+                        "key, so a variant warms its own pickle and cannot "
+                        "collide with the base one.")
     p.add_argument("--replays", default=REPLAY_DIR)
     p.add_argument("--out", default=None)
     p.add_argument("--snapshots-root", default=SCRATCH_SNAPSHOTS,
@@ -136,8 +141,13 @@ def main() -> int:
     print(f"profile={settings.profile} procedure={proc} "
           f"questions={len(ids)} seeds={seeds} temps={temps}")
 
-    fulldoc_path = settings.fulldoc_procedures[proc]
+    fulldoc_path = Path(args.fulldoc) if args.fulldoc else settings.fulldoc_procedures[proc]
+    if not fulldoc_path.is_file():
+        print(f"ERROR: no such fulldoc: {fulldoc_path}", file=sys.stderr)
+        return 1
     fulldoc_text = fulldoc_path.read_text(encoding="utf-8")
+    if args.fulldoc:
+        print(f"fulldoc override: {fulldoc_path} ({len(fulldoc_text)} car)")
     system_prompt = get_system_prompt(proc)
 
     load_kwargs: dict = {"path": str(settings.model_path), "n_ctx": settings.n_ctx}

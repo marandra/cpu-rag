@@ -52,6 +52,10 @@ VARIANTS="${VARIANTS:-v13 v14a v14b v14c v14d v14e}"
 N_THREADS="${N_THREADS:-8}"
 SEEDS="${SEEDS:-8}"                    # the tool prepends the frozen one -> 9
 SUBSET="${SUBSET:-all}"                # only lower it for a smoke run
+# Corpus A/B: with CORPUS_SUFFIX=.v2 a cell reads corpus/markdown/<proc>.v2.md
+# instead of the served one. The fulldoc is part of the snapshot key too, so a
+# corpus variant warms its own pickle exactly like a prompt variant does.
+CORPUS_SUFFIX="${CORPUS_SUFFIX:-}"
 TEMPERATURES="${TEMPERATURES:-0.1}"    # what we deploy; the sweep owns 0.8
 OUT_ROOT="${OUT_ROOT:-eval/audit_ab}"
 # Node-local scratch, one dir per job: each (variant x procedure) warms its own
@@ -73,10 +77,12 @@ FANOUT_LOG_DIR="${FANOUT_LOG_DIR:-cpu-rag-ab-${SLURM_JOB_ID}}" fanout_init
 
 cell() {  # variant profile procedure
     mkdir -p "${OUT_ROOT}/$1"
+    local doc=()
+    [[ -n "$CORPUS_SUFFIX" ]] && doc=(--fulldoc "corpus/markdown/$3${CORPUS_SUFFIX}.md")
     fanout_submit "$1-$3" \
         env PROFILE="$2" PROMPT_VARIANT="$1" \
             ./.venv-native/bin/python -u tools/audit_seed_sweep.py \
-                --procedure "$3" \
+                --procedure "$3" "${doc[@]}" \
                 --subset "$SUBSET" \
                 --seeds "$SEEDS" \
                 --temperatures "$TEMPERATURES" \

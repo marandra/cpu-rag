@@ -357,6 +357,62 @@ def emit(runs: dict[str, dict[str, dict[int, str]]], baseline: str) -> list[str]
     return L
 
 
+def scorecard(replays: Path) -> int:
+    """XX: what share of the 134 the delivered system answers acceptably.
+
+    Two standards, because they answer different questions and the gap between
+    them is the honest part:
+
+      A. **correctness** — right given the corpus (verdict OK) plus refusing
+         what the corpus cannot support (FN, actually refused). This is the
+         headline, and the one that answers what the auditors asked.
+      B. **presentable** — the same, minus answers that are correct but
+         telegraphic. Whether a one-line answer is acceptable to a patient is a
+         judgement; this reports both rather than choosing silently.
+
+    Their audit scored 9% acceptable against ADA/ERAS/ASA/ASCRS. The whole gap
+    is the anchor, and it is defensible question by question because every
+    verdict in audit_triage.TRIAGE cites the corpus line that decides it.
+
+    Limit, and it must be stated wherever this number is: the decision layer is
+    measured over 9 seeds, but this one is a **single draw**. "Correct given the
+    corpus" is a judgement on a specific text, not a computable predicate, so it
+    cannot be re-derived for a different seed without re-reading. With ~30% of
+    argued questions flipping on the seed, XX has a band this does not show.
+    """
+    passes = load_run(replays)
+    (cond,) = passes
+    answers = passes[cond]
+
+    rows = []
+    for proc, lo, hi in (("diabetes", 1, 55), ("cirugia-abdominal", 56, 103),
+                         ("hemorroides", 104, 134)):
+        ids = [i for i in TRIAGE if lo <= i <= hi]
+        ok = [i for i in ids if TRIAGE[i][0] == "OK"]
+        ref = [i for i in ids if TRIAGE[i][0] == "FN" and refused(answers[i])]
+        tel = [i for i in ok if telegraphic(answers[i])]
+        rows.append((proc, len(ids), len(ok), len(ref), len(tel)))
+
+    tot = [sum(r[i] for r in rows) for i in range(1, 5)]
+    print(f"XX sobre las {tot[0]} preguntas de la auditoría, "
+          f"veredictos de audit_triage.TRIAGE\n")
+    print(f"{'':>18} {'n':>4} {'correctas':>10} {'rechazos ok':>12} "
+          f"{'telegráficas':>13} {'A corrección':>13} {'B presentable':>14}")
+    for proc, n, ok, ref, tel in rows:
+        print(f"{proc:>18} {n:>4} {ok:>10} {ref:>12} {tel:>13} "
+              f"{(ok + ref) / n:>12.0%} {(ok - tel + ref) / n:>13.0%}")
+    n, ok, ref, tel = tot
+    print(f"{'TOTAL':>18} {n:>4} {ok:>10} {ref:>12} {tel:>13} "
+          f"{(ok + ref) / n:>12.0%} {(ok - tel + ref) / n:>13.0%}")
+    print(f"\nA) {ok + ref}/{n} = {(ok + ref) / n:.0%} — correcta según el corpus "
+          f"o correctamente rechazada.")
+    print(f"B) {ok - tel + ref}/{n} = {(ok - tel + ref) / n:.0%} — además no "
+          f"telegráfica (<{TELEGRAPHIC_CHARS} car).")
+    print("\nUna sola tirada: la calidad no es un predicado computable y no se "
+          "puede promediar sobre seeds sin releer.")
+    return 0
+
+
 def self_check(replays: Path) -> int:
     """Score the served replay and assert it reproduces what we already know.
 
@@ -410,6 +466,9 @@ def self_check(replays: Path) -> int:
 
 def main() -> int:
     p = argparse.ArgumentParser()
+    p.add_argument("--scorecard", action="store_true",
+                   help="XX: share of the 134 answered acceptably, by the two "
+                        "standards. Reads the served replay.")
     p.add_argument("--self-check", action="store_true",
                    help="Score the served replay and assert the numbers this "
                         "repo already argues about. Run it after touching a "
@@ -421,10 +480,13 @@ def main() -> int:
     p.add_argument("--out", default=None, help="Write markdown here too.")
     args = p.parse_args()
 
+    if args.scorecard:
+        return scorecard(Path(REPLAY_DIR))
     if args.self_check:
         return self_check(Path(REPLAY_DIR))
     if not args.run:
-        raise SystemExit("ERROR: need at least one --run LABEL=DIR (or --self-check)")
+        raise SystemExit("ERROR: need at least one --run LABEL=DIR "
+                         "(or --self-check / --scorecard)")
 
     runs: dict[str, dict[str, dict[int, str]]] = {}
     for spec in args.run:
