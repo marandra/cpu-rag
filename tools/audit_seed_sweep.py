@@ -59,6 +59,10 @@ from audit_triage import REPLAY_DIR, TRIAGE, refused
 
 SWEEP_DIR = "eval/audit_seed_sweep"
 
+# Never the repo's ./snapshots: a pool re-reads its pkl on every request, and
+# this tool warms (and writes) on a cache MISS.
+SCRATCH_SNAPSHOTS = "/tmp/cpu-rag-offline-snapshots"
+
 # Fixed so a re-run is comparable; arbitrary otherwise.
 SEEDS = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 
@@ -96,6 +100,10 @@ def main() -> int:
                    help="Comma-separated. 0.1 is what we deploy.")
     p.add_argument("--replays", default=REPLAY_DIR)
     p.add_argument("--out", default=None)
+    p.add_argument("--snapshots-root", default=SCRATCH_SNAPSHOTS,
+                   help="Scratch root for snapshots this run may build. Must "
+                        "NOT be the repo's ./snapshots — a pool serves from "
+                        "there and re-reads the pkl on every request.")
     args = p.parse_args()
 
     temps = [float(t) for t in args.temperatures.split(",")]
@@ -105,6 +113,17 @@ def main() -> int:
     from app.prompt import get_system_prompt
     from app.snapshot_builder import build_or_load_snapshot
     from src.llm import load_model
+
+    # `settings.snapshots_dir` resolves to <root>/<profile>, and the default
+    # root is the one the pools serve. Redirect to scratch before anything can
+    # build: this tool warms on a MISS and would overwrite a live pkl.
+    root = Path(args.snapshots_root).resolve()
+    if root == Path(settings.snapshots_root).resolve():
+        print(f"ERROR: --snapshots-root is the serving root ({root}). Point it "
+              f"at scratch, e.g. --snapshots-root {SCRATCH_SNAPSHOTS}",
+              file=sys.stderr)
+        return 1
+    settings.snapshots_root = root
 
     proc = args.procedure
     if proc not in settings.fulldoc_procedures:
