@@ -69,6 +69,14 @@ class Settings(BaseSettings):
     # by multi-instance deployments that pin each procedure to its own cpuset.
     procedure_filter: str | None = None
 
+    # Which system prompt to serve, keyed into app.prompt.PROMPT_VARIANTS.
+    # "v13" is what we deploy; the rest exist so the prompt A/B can put one
+    # variant per worker process without editing code. Validated in app.prompt
+    # and not here, because config must not import prompt (prompt imports this).
+    # A variant changes the snapshot cache key, so each one warms its own
+    # pickle and they never collide.
+    prompt_variant: str = "v13"
+
     @field_validator("profile")
     @classmethod
     def _known_profile(cls, v: str) -> str:
