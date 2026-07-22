@@ -194,6 +194,46 @@ _V14E_EJ2 = (
     "RESPUESTA: No tengo información sobre eso."
 )
 
+# V15 — consolidación. Del A/B (job 7290) sobrevivió un solo cambio a la
+# lectura del texto: el ejemplo de V14d, que llevó el 105 de 9/9 a 0/9
+# («con anestesia regional o general») y el 87 a 2/9, sin coste de acierto y con
+# la mejor estabilidad del lote. Los otros cuatro brazos no entran: V14a paga un
+# rechazo correcto por cada sobre-rechazo que gana, V14b no supera el azar, V14c
+# no podía ganar (ver abajo) y V14e cambia rechazo por telegrafía.
+#
+# El ejemplo va revisado, no copiado, y por un motivo medido: V14d NO arregló el
+# 67, que era su otro objetivo. La causa está en el corpus, no en la regla —
+# §Premedicación pone la condición **encabezando una lista**:
+#
+#     Cuando el grado de ansiedad y temor sea elevado, le darán medicación...:
+#     - Una pastilla la noche antes de la cirugía.
+#     - Una pastilla 1 ó 2 horas antes de la intervención.
+#
+# El modelo reproduce los bullets y reescribe el encabezado sin la condición. El
+# ejemplo de V14d modelaba una condición en una frase corta y sin lista, así que
+# no había nada que transferir. Éste modela la forma real.
+#
+# Lo que V15 deliberadamente NO intenta: el 108. El fulldoc dice «Ajustar
+# medicación (anticoagulantes, etc.)», un infinitivo sin sujeto dentro de una
+# lista de preparación. No hay sujeto que preservar, y el modelo pone el del
+# interlocutor porque la pregunta va en segunda persona. Es defecto de corpus,
+# de la misma familia que el ID 29, y toca escalarlo al cliente clínico.
+_EJ_V15 = (
+    "7. Conserva las dos ramas de un «o» y la condición que encabeza una lista:\n"
+    "INFORMACIÓN: \"La cita de revisión puede ser presencial o telefónica. "
+    "Cuando la rigidez limite el movimiento, le indicarán rehabilitación:\n"
+    "- Una sesión de ejercicios guiados.\n"
+    "- Ejercicios diarios en casa.\"\n"
+    "PREGUNTA: ¿Cómo será la cita de revisión?\n"
+    "RESPUESTA: La cita de revisión puede ser presencial o telefónica.\n"
+    "PREGUNTA: ¿Me van a mandar rehabilitación?\n"
+    "RESPUESTA: Cuando la rigidez limite el movimiento, le indicarán "
+    "rehabilitación: una sesión de ejercicios guiados y ejercicios diarios en "
+    "casa.\n"
+    "(No elijas una de las dos opciones por tu cuenta, y no reproduzcas la lista "
+    "soltando la condición que la encabeza.)"
+)
+
 PROMPT_VARIANTS: dict[str, str] = {
     "v13": SYSTEM_PROMPT_TEMPLATE,
     "v14a": _plus_example(
@@ -203,6 +243,7 @@ PROMPT_VARIANTS: dict[str, str] = {
     "v14c": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V14C),
     "v14d": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V14D),
     "v14e": _replacing(SYSTEM_PROMPT_TEMPLATE, _V13_EJ2, _V14E_EJ2),
+    "v15": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V15),
 }
 
 
