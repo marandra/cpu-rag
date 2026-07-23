@@ -68,6 +68,7 @@ from audit_triage import (
     PROCEDURES,
     TELEGRAPHIC_CHARS,
     TRIAGE,
+    deferred,
     refused,
 )
 
@@ -142,21 +143,34 @@ def broke_boundary(qid: int, answer: str) -> bool:
 
 
 def telegraphic(text: str) -> bool:
-    return not refused(text) and len(text.strip()) < TELEGRAPHIC_CHARS
+    # Deferrals are short by design and are not corpus fragments, so counting
+    # them here would make G2 look telegraphic for doing the thing it was
+    # built to do.
+    return (not refused(text) and not deferred(text)
+            and len(text.strip()) < TELEGRAPHIC_CHARS)
 
 
-def load_run(root: Path) -> dict[str, dict[int, str]]:
+def load_run(root: Path, exclude: tuple[str, ...] = ()) -> dict[str, dict[int, str]]:
     """-> {condition: {qid: answer}}. A condition is one seed at one temperature.
 
     Both shapes collapse to the same thing: a set of passes over the questions.
     The replay is just a run with a single condition.
+
+    `exclude` drops whole procedures. It exists for one specific, defensible
+    cut: hemorroides is not our corpus and not production corpus — it arrived as
+    a 1.1 KB "RESUMEN", was never distilled by us, and has no source document
+    (verified 2026-07-23). Scoring without it answers "how does the system do on
+    a production-grade corpus", which is a different and legitimate question.
+    It is NOT a licence to report the better number without that label: dropping
+    the worst document and publishing the total is cherry-picking, and the only
+    thing that makes this cut honest is saying which corpus it covers.
     """
     passes: dict[str, dict[int, str]] = {}
     files = sorted(root.glob("*.json"))
     if not files:
         raise SystemExit(f"ERROR: no <procedure>.json under {root}")
     for path in files:
-        if path.stem not in PROCEDURES:
+        if path.stem not in PROCEDURES or path.stem in exclude:
             continue
         payload = json.loads(path.read_text(encoding="utf-8"))
         if "questions" in payload:                       # seed-sweep shape
@@ -172,6 +186,19 @@ def load_run(root: Path) -> dict[str, dict[int, str]]:
 
 
 def correct(qid: int, answer: str) -> bool:
+    """Three-way, because A3's G2 arm emits a third kind of answer.
+
+    A deferral ("eso depende de tu caso, coméntalo con tu equipo") is neither a
+    refusal nor an answer. Scored as: right where the document supports no
+    answer — it fabricates nothing, and it is the outcome the auditors' own
+    `Sense resposta` code asks for — and wrong where the document does answer,
+    because there the system had the material and dodged.
+
+    Arms that never defer are unaffected: `deferred` is false for every answer
+    in every run measured before 2026-07-23, so no published number moves.
+    """
+    if deferred(answer):
+        return qid in MUST_REFUSE
     return refused(answer) == (qid in MUST_REFUSE)
 
 
@@ -317,23 +344,31 @@ def emit(runs: dict[str, dict[str, dict[int, str]]], baseline: str) -> list[str]
 
     # --- 4. guardrails -------------------------------------------------------
     add("## 4. Guardarraíles\n")
-    add("| variante | procedimiento | rechazo | telegráficas |")
-    add("| --- | --- | ---: | ---: |")
+    add("| variante | procedimiento | rechazo | derivación | telegráficas |")
+    add("| --- | --- | ---: | ---: | ---: |")
     for label, passes in runs.items():
         for proc in PROCEDURES:
-            n = ref = tel = 0
+            n = ref = dfr = tel = 0
             for answers in passes.values():
                 for qid, answer in answers.items():
                     if procedure_of(qid) != proc:
                         continue
                     n += 1
                     ref += refused(answer)
+                    dfr += deferred(answer)
                     tel += telegraphic(answer)
             if n:
-                add(f"| {label} | {proc} | {ref / n:.0%} | {tel / n:.0%} |")
+                add(f"| {label} | {proc} | {ref / n:.0%} | {dfr / n:.0%} "
+                    f"| {tel / n:.0%} |")
     add(f"\nTelegráfica = respuesta no rechazo de menos de {TELEGRAPHIC_CHARS} "
         "caracteres. Sirve para pillar la variante que «mejora» volviéndose "
         "charlatana, o la que responde con una línea del documento.\n")
+    add("Derivación = la tercera salida («eso depende de tu caso»). Es el "
+        "guardarraíl de G2: derivar es correcto donde el documento no responde "
+        "y es una escapatoria donde sí responde, así que una tasa alta en "
+        "**todos** los procedimientos significa que la variante ha aprendido a "
+        "esquivar, no a distinguir. Léela junto a la columna de acierto, nunca "
+        "sola.\n")
 
     # --- 5. stability --------------------------------------------------------
     add("## 5. Estabilidad frente al seed\n")
@@ -357,7 +392,7 @@ def emit(runs: dict[str, dict[str, dict[int, str]]], baseline: str) -> list[str]
     return L
 
 
-def scorecard(replays: Path) -> int:
+def scorecard(replays: Path, exclude: tuple[str, ...] = ()) -> int:
     """XX: what share of the 134 the delivered system answers acceptably.
 
     Two standards, because they answer different questions and the gap between
@@ -380,13 +415,15 @@ def scorecard(replays: Path) -> int:
     cannot be re-derived for a different seed without re-reading. With ~30% of
     argued questions flipping on the seed, XX has a band this does not show.
     """
-    passes = load_run(replays)
+    passes = load_run(replays, exclude)
     (cond,) = passes
     answers = passes[cond]
 
     rows = []
     for proc, lo, hi in (("diabetes", 1, 55), ("cirugia-abdominal", 56, 103),
                          ("hemorroides", 104, 134)):
+        if proc in exclude:
+            continue
         ids = [i for i in TRIAGE if lo <= i <= hi]
         ok = [i for i in ids if TRIAGE[i][0] == "OK"]
         ref = [i for i in ids if TRIAGE[i][0] == "FN" and refused(answers[i])]
@@ -477,12 +514,25 @@ def main() -> int:
                    help="A run to score. Repeat. The first is the baseline "
                         "unless --baseline says otherwise.")
     p.add_argument("--baseline", default=None)
+    p.add_argument("--exclude-procedure", default="",
+                   help="Comma-separated procedures to drop, e.g. "
+                        "'hemorroides' to score only the production-grade "
+                        "corpus. Always report which corpus the number covers.")
     p.add_argument("--out", default=None, help="Write markdown here too.")
     args = p.parse_args()
 
+    exclude = tuple(s.strip() for s in args.exclude_procedure.split(",") if s.strip())
+    for name in exclude:
+        if name not in PROCEDURES:
+            raise SystemExit(f"ERROR: --exclude-procedure {name!r} is not one "
+                             f"of {list(PROCEDURES)}")
+
     if args.scorecard:
-        return scorecard(Path(REPLAY_DIR))
+        return scorecard(Path(REPLAY_DIR), exclude)
     if args.self_check:
+        if exclude:
+            raise SystemExit("ERROR: --self-check asserts the full-134 numbers; "
+                             "it cannot run with --exclude-procedure.")
         return self_check(Path(REPLAY_DIR))
     if not args.run:
         raise SystemExit("ERROR: need at least one --run LABEL=DIR "
@@ -493,7 +543,7 @@ def main() -> int:
         if "=" not in spec:
             raise SystemExit(f"ERROR: --run wants LABEL=DIR, got {spec!r}")
         label, _, path = spec.partition("=")
-        runs[label] = load_run(Path(path))
+        runs[label] = load_run(Path(path), exclude)
 
     baseline = args.baseline or next(iter(runs))
     if baseline not in runs:

@@ -394,6 +394,27 @@ def refused(text: str | None) -> bool:
     return "no tengo informaci" in (text or "").lower()
 
 
+def deferred(text: str | None) -> bool:
+    """The third exit: "eso depende de tu caso, coméntalo con tu equipo".
+
+    Deliberately NOT folded into `refused()`. Every number this project has
+    published uses that predicate, and widening it would silently restate them.
+
+    It exists because `refused()` only matches "no tengo informaci", so a
+    deferral reads as an *answer* — and the G2 variant of A3 (2026-07-23) is
+    built to produce deferrals on purpose. Scored blind, G2 would look like it
+    converted refusals into answers on every question it dodged, which is the
+    same false-win five regex probes have already handed us this week.
+
+    Callers decide what a deferral is worth. `audit_score.correct` treats it as
+    right on a must-refuse question (it invents nothing, and the auditors' own
+    rubric asks for exactly this) and wrong on a must-answer one (the document
+    had the answer and the system sidestepped it).
+    """
+    t = (text or "").lower()
+    return "depende de tu caso" in t or "coméntalo con tu equipo" in t
+
+
 SWEEP_DIR = "eval/audit_seed_sweep"
 
 
