@@ -12,9 +12,12 @@
 >   Veredicto por pregunta en `eval/audit_quality/gemma4_verdicts.json`.
 > - **A4 HECHA** (jobs 7341/7342). Diabetes v4 mejora, **cirugía v4 empeora y no
 >   entra**. Reescrituras hechas por **sesiones ciegas**, no por mí.
-> - **A3 CONSTRUIDA, SIN LANZAR.** Las 4 variantes `g1`-`g4` están en
->   `app/prompt.py`, `prompt_ab.sbatch` ya acepta `VENV`/`MODEL`, y el scorer ya
->   distingue la derivación. El comando está en §A3. **Es lo siguiente.**
+> - **A3 LANZADA 2026-07-23 (tarde) — job 7363**, `computo04`, `.venv-latest` +
+>   gemma, `OUT_ROOT=eval/audit_ab_g`. 8 celdas g1-g4 × {diabetes,cirugía} a la
+>   vez; hemorroides entra en la segunda oleada. ~2 h. Control gratis =
+>   `eval/model_ab/gemma4`. **Al volver: puntuar** con el comando de §A3 y **leer
+>   a mano solo las que se mueven** (van 5 falsos positivos de probe esta semana).
+>   Los 4 ficheros G-serie ya están copiados al cluster.
 > - **Borrador del email vivo** → `docs/respuesta_auditoria_borrador.md`. Le falta
 >   lo que solo puede aportar el usuario: las «ideas sueltas» de otra conversación.
 >
@@ -323,9 +326,32 @@ gana, porque no es `action="append"`. Pedir dos exclusiones da un resultado
 silenciosamente equivocado. Los números por procedimiento de arriba están
 calculados aparte, no con ese flag.
 
-**Pendiente de A4**: leer a mano las que se mueven (v4 gana 31, 39, 47, 100 y
-rompe 5, 10, 85, 101, 103) y decidir si el corpus v4 de diabetes entra en el
-entregable. Cirugía v4 **no entra**: está medido peor que el original.
+**Pendiente de A4 — LECTURA HECHA 2026-07-23 (tarde).** Diabetes v4 leído a mano,
+mayoría de 9 seeds. Las 5 diabetes que voltean decisión (31/39/47 ganan, 5/10
+rompen — 85/100/101/103 eran de cirugía, ya descartada):
+
+- **Ganan 31, 39, 47** — las tres venían de contenido **enterrado en «Mitos» /
+  «Creencias frecuentes»** que R4 repartió a secciones temáticas: «¿culpa mía?»
+  → «no debe culparse…», «¿productos especiales?» → «ningún producto milagro
+  cura». Es el mecanismo que predijo el pase cualitativo.
+- **Rompen 5, 10, y este es el hallazgo**: el contenido **sigue en v4** (líneas
+  189 y 200: «tratamiento progresivo… se individualiza», «temporal o
+  permanente»), pero R1 lo troceó de viñeta compacta a prosa y el modelo ya **no
+  encuentra la frase** que afirma lo preguntado. Es el daño de R1 de cirugía
+  apareciendo en diabetes, pero solo 2 veces frente a 3 mejoras.
+
+**Veredicto:** diabetes v4 queda **85,5 % vs 83,4 %** y telegráficas **7 % vs
+11 %** — marginalmente mejor, ganancias por R4, pérdidas por R1. **Tercera
+confirmación independiente del §0**: R4 (des-silar mitos/FAQ) ayuda incluso en un
+doc no-telegráfico; R1 (fragmentar) daña. **Decisión de si entra al entregable:
+del usuario**, y hay que pesar el coste de prefijo 1,7× (13→22 KB) que
+[[kv-fulldoc-bench]] dice que baja tok/s — no medido para este corpus todavía.
+Cirugía v4 **no entra**: medido peor.
+
+**Bug `--exclude-procedure` ARREGLADO 2026-07-23** (commit `1e15b2e`): pasa a
+`action="append"` y acumula flags repetidos y listas por coma, deduplicando. El
+`--self-check` sigue prohibiéndolo. Verificado: `hemorroides,diabetes` deja las
+48 de cirugía (75 % / 71 %).
 
 ### Re-derivación de `MUST_REFUSE` — HECHA, y sale **sin cambios**
 
