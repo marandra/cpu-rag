@@ -514,14 +514,24 @@ def main() -> int:
                    help="A run to score. Repeat. The first is the baseline "
                         "unless --baseline says otherwise.")
     p.add_argument("--baseline", default=None)
-    p.add_argument("--exclude-procedure", default="",
-                   help="Comma-separated procedures to drop, e.g. "
-                        "'hemorroides' to score only the production-grade "
-                        "corpus. Always report which corpus the number covers.")
+    # `action="append"` and not a plain option: repeating the flag used to let
+    # the last one win silently, so asking to drop two procedures dropped one
+    # and reported a number for a corpus nobody had asked for. Both spellings
+    # now accumulate — repeated flags and comma-separated lists.
+    p.add_argument("--exclude-procedure", action="append", default=[],
+                   help="Procedure to drop, e.g. 'hemorroides' to score only "
+                        "the production-grade corpus. Repeatable, and accepts "
+                        "a comma-separated list. Always report which corpus "
+                        "the number covers.")
     p.add_argument("--out", default=None, help="Write markdown here too.")
     args = p.parse_args()
 
-    exclude = tuple(s.strip() for s in args.exclude_procedure.split(",") if s.strip())
+    exclude = tuple(dict.fromkeys(
+        s.strip()
+        for chunk in args.exclude_procedure
+        for s in chunk.split(",")
+        if s.strip()
+    ))
     for name in exclude:
         if name not in PROCEDURES:
             raise SystemExit(f"ERROR: --exclude-procedure {name!r} is not one "
