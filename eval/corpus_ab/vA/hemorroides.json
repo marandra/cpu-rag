@@ -1,0 +1,520 @@
+{
+ "procedure": "hemorroides",
+ "generated": "2026-07-23 10:32 CEST",
+ "profile": "aiciblock",
+ "model": "gemma-4-26B-A4B-it-UD-Q4_K_M",
+ "snapshot_seed": 872737089,
+ "subset": "all",
+ "seeds": [
+  1894574933,
+  1,
+  2,
+  3,
+  5,
+  8,
+  13,
+  21,
+  34
+ ],
+ "temperatures": [
+  0.1
+ ],
+ "questions": [
+  {
+   "id": 104,
+   "question": "¿En qué se diferencia la operación que me van a hacer de esas bandas elásticas de las que había oído hablar?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 105,
+   "question": "¿Me van a dormir del todo o solo la zona para operarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|1": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|2": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|3": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|5": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|8": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|13": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|21": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides.",
+    "0.1|34": "Usted recibe anestesia regional o anestesia general durante la operación de hemorroides."
+   }
+  },
+  {
+   "id": 106,
+   "question": "¿Cuánto dura mi operación en sí?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|1": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|2": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|3": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|5": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|8": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|13": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|21": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|34": "La operación de hemorroides dura entre 30 y 60 minutos."
+   }
+  },
+  {
+   "id": 107,
+   "question": "¿Qué complicaciones raras pero serias podría tener mi operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|1": "Muy raramente, después de la operación de hemorroides, puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|2": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|3": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|5": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|8": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|13": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|21": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante.",
+    "0.1|34": "Muy raramente puede presentar un estrechamiento anal, una incontinencia o un sangrado abundante."
+   }
+  },
+  {
+   "id": 108,
+   "question": "Tomo anticoagulantes, ¿tengo que dejar de tomarlos antes de que me operen?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|1": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|2": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|3": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|5": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|8": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|13": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|21": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes.",
+    "0.1|34": "El equipo médico le ajusta la medicación que usted toma habitualmente antes de la operación de hemorroides, y ese ajuste incluye los anticoagulantes."
+   }
+  },
+  {
+   "id": 109,
+   "question": "¿En qué se diferencia mi operación de tratarlo con láser?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos.",
+    "0.1|1": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa a usted las hemorroides internas o las hemorroides externas, mientras que una alternativa es la coagulación con láser o con infrarrojos.",
+    "0.1|2": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos.",
+    "0.1|3": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos.",
+    "0.1|5": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos.",
+    "0.1|8": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos.",
+    "0.1|13": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos.",
+    "0.1|21": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos.",
+    "0.1|34": "La hemorroidectomía es la cirugía con la que el equipo quirúrgico le extirpa las hemorroides internas o las hemorroides externas, mientras que como alternativa a la intervención puede tratar sus hemorroides con una coagulación con láser o con infrarrojos."
+   }
+  },
+  {
+   "id": 110,
+   "question": "¿Es normal que me vuelvan a salir las hemorroides después de haberme operado?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|1": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|2": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|3": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|5": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|8": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|13": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|21": "La operación de hemorroides le reduce las recaídas de las hemorroides.",
+    "0.1|34": "La operación de hemorroides le reduce las recaídas de las hemorroides."
+   }
+  },
+  {
+   "id": 111,
+   "question": "¿Por qué me van a mandar comer mucha fibra después de operarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 112,
+   "question": "¿Hay riesgo de quedarme incontinente por esta operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|1": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|2": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|3": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|5": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|8": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|13": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|21": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|34": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia."
+   }
+  },
+  {
+   "id": 113,
+   "question": "¿Cuánto tiempo de baja me van a dar después de esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 114,
+   "question": "¿Puedo comer con normalidad el día antes de mi operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|1": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|2": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|3": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|5": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|8": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|13": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|21": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|34": "Usted debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides."
+   }
+  },
+  {
+   "id": 115,
+   "question": "¿Duele mucho ir al baño después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|1": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|2": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|3": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|5": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|8": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|13": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|21": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar.",
+    "0.1|34": "Después de la operación de hemorroides, puede presentar con frecuencia dolor al defecar."
+   }
+  },
+  {
+   "id": 116,
+   "question": "¿Cuánto tiempo tardaré en recuperarme de esta operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|1": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|2": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|3": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|5": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|8": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|13": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|21": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas.",
+    "0.1|34": "Usted se recupera de la operación de hemorroides en un plazo de 2 a 4 semanas."
+   }
+  },
+  {
+   "id": 117,
+   "question": "Me han mencionado unos \"baños de asiento\", ¿qué son exactamente?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 118,
+   "question": "¿Qué debo comer después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Durante la recuperación de la operación de hemorroides debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|1": "Durante la recuperación de la operación de hemorroides, debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|2": "Durante la recuperación de la operación de hemorroides, debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|3": "Durante la recuperación de la operación de hemorroides debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|5": "Durante la recuperación de la operación de hemorroides debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|8": "Durante la recuperación de la operación de hemorroides debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|13": "Durante la recuperación de la operación de hemorroides debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|21": "Durante la recuperación de la operación de hemorroides debe seguir una dieta rica en fibra y en líquidos.",
+    "0.1|34": "Durante la recuperación de la operación de hemorroides debe seguir una dieta rica en fibra y en líquidos."
+   }
+  },
+  {
+   "id": 119,
+   "question": "¿Es una operación larga?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|1": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|2": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|3": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|5": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|8": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|13": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|21": "La operación de hemorroides dura entre 30 y 60 minutos.",
+    "0.1|34": "La operación de hemorroides dura entre 30 y 60 minutos."
+   }
+  },
+  {
+   "id": 120,
+   "question": "¿Me tienen que ingresar o vuelvo a casa el mismo día?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 121,
+   "question": "¿Puedo evitar pasar por quirófano con alguna crema o tratamiento?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratarlas con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|1": "Puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratar sus hemorroides con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|2": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratar sus hemorroides con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|3": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratarlas con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|5": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratarlas con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|8": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratarlas con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|13": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratarlas con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|21": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratarlas con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.",
+    "0.1|34": "Usted puede tratar sus hemorroides, en lugar de operarse, con tratamientos médicos: pomadas, baños y dieta. También puede tratarlas con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos."
+   }
+  },
+  {
+   "id": 122,
+   "question": "¿Qué pasa si al final no me opero?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Si no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|1": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|2": "Si no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|3": "Si no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|5": "Si no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|8": "Si no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|13": "Si no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|21": "Si no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|34": "Si no se opera de las hemorroides, sus síntomas pueden empeorar."
+   }
+  },
+  {
+   "id": 123,
+   "question": "¿Puedo arrepentirme y no operarme al final?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|1": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|2": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|3": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|5": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|8": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|13": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|21": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.",
+    "0.1|34": "Usted puede retirar su consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía."
+   }
+  },
+  {
+   "id": 124,
+   "question": "¿Cuánto tiempo tengo que estar en ayunas antes de mi operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|1": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|2": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|3": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|5": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|8": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|13": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|21": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.",
+    "0.1|34": "Debe permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides."
+   }
+  },
+  {
+   "id": 125,
+   "question": "¿Voy a sangrar después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante.",
+    "0.1|1": "Después de la operación de hemorroides, puede presentar con frecuencia sangrado leve y, muy raramente, un sangrado abundante.",
+    "0.1|2": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante.",
+    "0.1|3": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante.",
+    "0.1|5": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante.",
+    "0.1|8": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante.",
+    "0.1|13": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante.",
+    "0.1|21": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante.",
+    "0.1|34": "Puede presentar con frecuencia dolor al defecar y sangrado leve, o muy raramente un sangrado abundante."
+   }
+  },
+  {
+   "id": 126,
+   "question": "Me da mucha vergüenza este tema, ¿es normal sentirme así antes de mi operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 127,
+   "question": "¿Duele mucho esta operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|1": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|2": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|3": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|5": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|8": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|13": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|21": "Usted tiene un dolor moderado después de la operación de hemorroides.",
+    "0.1|34": "Usted tiene un dolor moderado después de la operación de hemorroides."
+   }
+  },
+  {
+   "id": 128,
+   "question": "¿Me puedo quedar incontinente para siempre después de esto?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|1": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|2": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|3": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|5": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|8": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|13": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|21": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia.",
+    "0.1|34": "Usted puede presentar muy raramente, después de la operación de hemorroides, una incontinencia."
+   }
+  },
+  {
+   "id": 129,
+   "question": "¿Me puedo morir por esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 130,
+   "question": "Tengo miedo a que me hagan daño en una zona tan íntima, ¿es un miedo normal?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 131,
+   "question": "¿Es una operación de la que debería avergonzarme?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 132,
+   "question": "¿Van a ver mi zona íntima muchas personas en el quirófano?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 133,
+   "question": "¿Me va a quedar alguna secuela para siempre de esta operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 134,
+   "question": "Llevo tiempo posponiendo operarme por vergüenza, ¿debería preocuparme más por hacerlo ya?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|1": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|2": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|3": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|5": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|8": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|13": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|21": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar.",
+    "0.1|34": "Si usted no se opera de las hemorroides, sus síntomas pueden empeorar."
+   }
+  }
+ ]
+}
