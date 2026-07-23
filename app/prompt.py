@@ -234,6 +234,124 @@ _EJ_V15 = (
     "soltando la condición que la encabeza.)"
 )
 
+# --- serie G: el A/B sobre gemma-4 (A3, 2026-07-23) -------------------------
+#
+# Por qué una serie nueva y no más v14: aquella se corrió sobre Ministral y
+# atacaba defectos que **gemma ya no comete** — 0 invenciones y 0 fusiones en las
+# 134, con 1 % de volteo por seed frente al 22 %. La pregunta cambia: no es «¿qué
+# prompt reduce el sobre-rechazo?» sino **qué parte de V13 sigue haciendo falta y
+# qué le falta para la capa de calidad**, que es la que A2 midió (84 % / 78 %).
+#
+# Se mantienen las dos reglas de método de la serie v14: un cambio por variante,
+# y el ejemplo por delante de la prohibición declarativa.
+
+# G1 — ¿es peso muerto el andamiaje anti-invención? V13 dedica tres viñetas de
+# PROHIBIDO y un ejemplo entero a un fallo que gemma no comete. Si quitarlo no
+# cuesta nada, sobran ~200 t de prefijo **en cada petición**. Se quita el bloque
+# entero —regla y su demostración— porque dejar el ejemplo enseñaría igualmente
+# la conducta y el test no mediría nada.
+_V13_ANTI_INVENCION = (
+    "- Inventar datos, medicamentos, dosis, plazos, precios, equivalencias o "
+    "procedimientos que no estén en la información.\n"
+    "- Completar información parcial con tu conocimiento general.\n"
+    "- Expandir listas, categorías o enumeraciones más allá de lo escrito. "
+    "Si el texto usa una categoría amplia (\"fruta\", \"verduras\", "
+    "\"anticoagulantes, etc.\"), no añadas nombres concretos por tu cuenta.\n"
+)
+_V13_EJ4 = (
+    "4. Categoría sin enumeración — genérico responde, concreto rechaza:\n"
+    "INFORMACIÓN: \"A diario: verduras y hortalizas, fruta entera (mejor que "
+    "en zumo), legumbres, cereales integrales.\"\n"
+    "PREGUNTA: ¿Qué fruta puedo comer?\n"
+    "RESPUESTA: Puedes tomar fruta entera a diario, mejor que en zumo.\n"
+    "PREGUNTA: ¿Qué frutas concretas puedo comer?\n"
+    "RESPUESTA: No tengo información sobre eso.\n"
+    "(Si la pregunta pide algo concreto/específico que la categoría no "
+    "enumera, rechazo. Si es genérica, reproduce la categoría sin añadir "
+    "nombres concretos por tu cuenta.)\n\n"
+)
+
+# G2 — la tercera salida. Es la aportación más directamente accionable de los
+# auditores: su código `Sense resposta` penaliza abstenerse de algo que «es
+# podria contestar **o derivar**», y en eso tienen razón. Dianas leídas en A2:
+# 99 (¿es peligrosa la anestesia?), 100 (¿cicatrices grandes?) y 76 (¿cuánto
+# estaré ingresado?), las tres contadas hoy como fallo de decisión.
+#
+# Aquí la regla se mueve **además** del ejemplo, por el mismo motivo que en
+# V14a: la REGLA solo ofrece dos salidas, así que un ejemplo que enseñe una
+# tercera pelearía contra ella.
+_V13_DOS_SALIDAS = (
+    "Si no, responde EXACTAMENTE y sin añadidos: \"No tengo información sobre "
+    "eso.\""
+)
+_G2_TRES_SALIDAS = (
+    "Si no, y la INFORMACIÓN tampoco trata el tema, responde EXACTAMENTE y sin "
+    "añadidos: \"No tengo información sobre eso.\" Si la INFORMACIÓN trata el "
+    "tema pero no resuelve tu caso concreto, responde EXACTAMENTE y sin "
+    "añadidos: \"Eso depende de tu caso; coméntalo con tu equipo médico.\""
+)
+_EJ_G2 = (
+    "7. Tercera salida: el tema sí está, tu caso no:\n"
+    "INFORMACIÓN: \"La escayola se retira a las seis semanas en la consulta de "
+    "traumatología.\"\n"
+    "PREGUNTA: A mí me la pusieron hace cuatro, ¿ya me la pueden quitar?\n"
+    "RESPUESTA: Eso depende de tu caso; coméntalo con tu equipo médico.\n"
+    "PREGUNTA: ¿Cuánto cuesta la operación?\n"
+    "RESPUESTA: No tengo información sobre eso.\n"
+    "(La primera es del mismo tema que el texto pero pide una decisión sobre tu "
+    "caso concreto: deriva. La segunda el texto no la trata en absoluto: "
+    "rechazo. No uses la derivación cuando el texto sí responde.)"
+)
+
+# G3 — la forma de la respuesta, que es la capa que A2 destapó. El sistema
+# devuelve el apunte del corpus tal cual: «Ayuno 6–8 h.» a «¿puedo comer el día
+# antes?». Este brazo prueba si eso lo arregla el prompt o solo el corpus, y por
+# eso **se corre contra el corpus servido**, no contra el v4: si se cambian las
+# dos cosas a la vez no se puede atribuir nada.
+_EJ_G3 = (
+    "7. Del apunte telegráfico, una frase completa:\n"
+    "INFORMACIÓN: \"Escayola: 6 semanas. Revisión: consulta de traumatología.\"\n"
+    "PREGUNTA: ¿Cuánto tiempo llevaré la escayola?\n"
+    "RESPUESTA: Llevarás la escayola 6 semanas.\n"
+    "(El texto está en apuntes sin verbo; tu respuesta no. Devuelve una frase "
+    "completa que reenuncie lo que se pregunta, nunca el apunte suelto "
+    "(«6 semanas.»). Completar la frase no es añadir: no metas ningún dato que "
+    "el apunte no traiga.)"
+)
+
+# G4 — respuesta parcial explícita. Dianas de A2: 110, 128 y 133 preguntan por
+# **permanencia** («¿para siempre?») y el sistema contesta **frecuencia** («muy
+# rara»), que no es la pregunta. Choca de frente con la viñeta de PROHIBIDO que
+# veta comentar lo que el texto no dice, así que esa viñeta es el cambio.
+#
+# Riesgo conocido y por eso se mide: esa prohibición existe porque el modelo
+# filtraba meta-comentario al paciente (defectos 24 y 26). La viñeta nueva veta
+# la fórmula meta y permite solo acotar el hueco.
+_V13_NO_COMENTAR = (
+    "- Comentar lo que el texto NO dice (\"no se menciona...\", \"no "
+    "especifica...\"). Si parte de la pregunta no tiene respuesta, responde "
+    "solo lo que sí está. Si NADA tiene respuesta, usa la frase exacta de "
+    "rechazo.\n"
+)
+_G4_ACOTAR = (
+    "- Comentar la fuente o el documento (\"no se menciona...\", \"el texto no "
+    "especifica...\"). Si parte de la pregunta no tiene respuesta, responde lo "
+    "que sí está y acota en media frase qué parte no puedes responder, sin "
+    "nombrar el documento. Si NADA tiene respuesta, usa la frase exacta de "
+    "rechazo.\n"
+)
+_EJ_G4 = (
+    "7. Responde lo cubierto y acota lo que no:\n"
+    "INFORMACIÓN: \"Al retirar la escayola es normal notar el brazo rígido unos "
+    "días.\"\n"
+    "PREGUNTA: ¿Se me va a quedar el brazo rígido para siempre?\n"
+    "RESPUESTA: Al retirar la escayola es normal notar el brazo rígido unos "
+    "días; sobre si esa rigidez es permanente no tengo información.\n"
+    "(Da primero lo que sí está. El hueco se acota en media frase, sin nombrar "
+    "el documento y sin fórmulas como «no se especifica».)"
+)
+
+
 PROMPT_VARIANTS: dict[str, str] = {
     "v13": SYSTEM_PROMPT_TEMPLATE,
     "v14a": _plus_example(
@@ -244,6 +362,17 @@ PROMPT_VARIANTS: dict[str, str] = {
     "v14d": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V14D),
     "v14e": _replacing(SYSTEM_PROMPT_TEMPLATE, _V13_EJ2, _V14E_EJ2),
     "v15": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_V15),
+    # serie G — A3, sobre gemma-4
+    "g1": _replacing(
+        _replacing(SYSTEM_PROMPT_TEMPLATE, _V13_ANTI_INVENCION, ""),
+        _V13_EJ4, ""),
+    "g2": _plus_example(
+        _replacing(SYSTEM_PROMPT_TEMPLATE, _V13_DOS_SALIDAS, _G2_TRES_SALIDAS),
+        _EJ_G2),
+    "g3": _plus_example(SYSTEM_PROMPT_TEMPLATE, _EJ_G3),
+    "g4": _plus_example(
+        _replacing(SYSTEM_PROMPT_TEMPLATE, _V13_NO_COMENTAR, _G4_ACOTAR),
+        _EJ_G4),
 }
 
 

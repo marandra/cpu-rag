@@ -49,6 +49,12 @@ module load spack/1.1.0
 spack load numactl target=x86_64_v3
 
 VARIANTS="${VARIANTS:-v13 v14a v14b v14c v14d v14e}"
+# Parametrized 2026-07-23 for A3: this was pinned to .venv-native, which is
+# llama-cpp 0.3.19 and has no `gemma4` architecture, so it could not run the
+# model we actually ship. The v14 series was measured on Ministral; the G series
+# needs gemma. Defaults keep the old behaviour byte-for-byte.
+VENV="${VENV:-.venv-native}"
+MODEL="${MODEL:-}"                     # empty -> the profile's configured model
 N_THREADS="${N_THREADS:-8}"
 SEEDS="${SEEDS:-8}"                    # the tool prepends the frozen one -> 9
 SUBSET="${SUBSET:-all}"                # only lower it for a smoke run
@@ -79,9 +85,11 @@ cell() {  # variant profile procedure
     mkdir -p "${OUT_ROOT}/$1"
     local doc=()
     [[ -n "$CORPUS_SUFFIX" ]] && doc=(--fulldoc "corpus/markdown/$3${CORPUS_SUFFIX}.md")
+    local mdl=()
+    [[ -n "$MODEL" ]] && mdl=(MODEL_PATH="models/${MODEL}")
     fanout_submit "$1-$3" \
-        env PROFILE="$2" PROMPT_VARIANT="$1" \
-            ./.venv-native/bin/python -u tools/audit_seed_sweep.py \
+        env PROFILE="$2" PROMPT_VARIANT="$1" "${mdl[@]}" N_THREADS="$N_THREADS" \
+            "./${VENV}/bin/python" -u tools/audit_seed_sweep.py \
                 --procedure "$3" "${doc[@]}" \
                 --subset "$SUBSET" \
                 --seeds "$SEEDS" \
