@@ -235,9 +235,31 @@ Leídas a mano las que se mueven (probe nunca vale solo):
 aportaciones de método — telegrafía = corpus (g3), la tercera salida debe ser
 estrecha (g2) — refuerzan los puntos 5 y 2 del borrador.
 
-**Warm/tok/s de diabetes v4 — jobs 7388 (served) / 7389 (v4), lanzados
-2026-07-24** para cerrar la decisión de si el corpus v4 entra pese al prefijo
-1,7×. `bench_model.py` y `model_scaling.sbatch` ahora aceptan `--fulldoc`/`FULLDOC`.
+### Warm/tok/s de diabetes v4 — jobs 7388/7389, HECHO 2026-07-24. **El prefijo NO bloquea**
+
+`bench_model.py` y `model_scaling.sbatch` ahora aceptan `--fulldoc`/`FULLDOC`.
+Salidas en `eval/corpus_warm/`. gemma + V13 fijos, mediana de 2 pasadas.
+
+| | prefijo (tok) | decode nT=8 | decode nT=64 | warm nT=64 | load_state | ttft nT=8 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| **served** (13,0 KB) | 4135 | **8,29** | 15,35 | 13,2 s | 711 ms | 1310 ms |
+| **v4** (22,4 KB) | 5991 | **7,90** | 15,82 | 19,9 s | 828 ms | 1650 ms |
+| Δ | +45 % | **−4,7 %** | ~ruido | +6,7 s | +117 ms | +340 ms |
+
+**El char creció 1,7× pero el token solo 1,45×** (4135 → 5991, y sigue holgado
+bajo `n_ctx`=8192). **El coste de decode en el punto de despliegue (nT=8) es
+−4,7 %** —8,29 → 7,90 tok/s—, **muy por encima del suelo de 6** y del rango que
+[[feedback-acceptable-tokps]] da por bueno. A nT=64 no hay coste (v4 sale incluso
+algo más rápido, ruido). El `init` a todos los cores cuesta **+6,7 s por
+procedimiento**, una vez. `load_state` +117 ms y ttft +340 ms, por petición pero
+menores.
+
+**Conclusión: el prefijo 1,7× NO es un bloqueante.** El objetivo de destilación
+de 2-4K tokens de [[distillation-method]] era conservador para este tamaño — 6K
+tokens cuestan ~5 % de throughput, no la caída que [[kv-fulldoc-bench]] hacía
+temer. **La decisión de si diabetes v4 entra al entregable queda solo por la
+calidad** (85,5 % vs 83,4 %, telegráficas 7 % vs 11 %; +3 mejoras por R4, −2
+regresiones por R1), no por velocidad. **Es decisión del usuario.**
 
 ### A4 — GUIDELINES APLICADAS A DIABETES Y CIRUGÍA, 2026-07-23
 

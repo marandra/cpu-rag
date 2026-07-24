@@ -1,0 +1,58 @@
+{
+ "label": "diab-v4_nT64",
+ "model": "gemma-4-26B-A4B-it-UD-Q4_K_M.gguf",
+ "procedure": "diabetes",
+ "generated": "2026-07-24 08:29 CEST",
+ "host": "eurehpccomputo03",
+ "arch": "gemma4",
+ "size_label": "26B-A4B",
+ "arch_meta": {
+  "gemma4.expert_feed_forward_length": "704",
+  "gemma4.block_count": "30",
+  "gemma4.expert_count": "128",
+  "gemma4.expert_used_count": "8",
+  "gemma4.attention.head_count": "16"
+ },
+ "chat_format": "chat_template.default",
+ "is_recurrent": false,
+ "is_hybrid": false,
+ "prefix_reuse": true,
+ "median_ttft_ms": 401.0434467345476,
+ "n_threads": 64,
+ "n_ctx": 8192,
+ "max_tokens": 320,
+ "prompt_variant": "v13",
+ "model_load_s": 7.138775899074972,
+ "warm_s": 19.924711680039763,
+ "prefix_tokens": 5991,
+ "prefill_tok_s": 300.68189172351646,
+ "save_state_s": 0.9824230642989278,
+ "pickle_bytes": 1886701081,
+ "median_decode_tok_s": 15.820657617391,
+ "median_load_state_ms": 843.0594196543097,
+ "think_leaks": 0,
+ "runs": [
+  {
+   "id": 1,
+   "question": "Me han dicho que tengo diabetes tipo 2, ¿tengo que empezar a pincharme insulina desde el primer día?",
+   "answer": "No necesariamente. La diabetes tipo 2 es la más frecuente, aparece en la edad adulta y se debe a factores genéticos y al estilo de vida. Usted puede tratarse solo con alimentación y ejercicio, o con pastillas, o con insulina, o con pastillas e insulina a la vez. Al principio, usted se trata con alimentación, con ejercicio y con pérdida de peso.",
+   "load_state_ms": 975.4766430705786,
+   "ttft_ms": 410.7575584203005,
+   "decode_s": 4.803709731437266,
+   "completion_tokens": 77,
+   "decode_tok_s": 15.821105822158174,
+   "has_think": false
+  },
+  {
+   "id": 1,
+   "question": "Me han dicho que tengo diabetes tipo 2, ¿tengo que empezar a pincharme insulina desde el primer día?",
+   "answer": "No necesariamente. La diabetes tipo 2 es la más frecuente, aparece en la edad adulta y se debe a factores genéticos y al estilo de vida. Usted puede tratarse solo con alimentación y ejercicio, o con pastillas, o con insulina, o con pastillas e insulina a la vez. Al principio, usted se trata con alimentación, con ejercicio y con pérdida de peso.",
+   "load_state_ms": 710.6421962380409,
+   "ttft_ms": 391.32933504879475,
+   "decode_s": 4.803981920704246,
+   "completion_tokens": 77,
+   "decode_tok_s": 15.820209412623827,
+   "has_think": false
+  }
+ ]
+}

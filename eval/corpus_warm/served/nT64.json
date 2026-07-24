@@ -1,0 +1,58 @@
+{
+ "label": "diab-served_nT64",
+ "model": "gemma-4-26B-A4B-it-UD-Q4_K_M.gguf",
+ "procedure": "diabetes",
+ "generated": "2026-07-24 08:28 CEST",
+ "host": "eurehpccomputo01",
+ "arch": "gemma4",
+ "size_label": "26B-A4B",
+ "arch_meta": {
+  "gemma4.expert_feed_forward_length": "704",
+  "gemma4.block_count": "30",
+  "gemma4.expert_count": "128",
+  "gemma4.expert_used_count": "8",
+  "gemma4.attention.head_count": "16"
+ },
+ "chat_format": "chat_template.default",
+ "is_recurrent": false,
+ "is_hybrid": false,
+ "prefix_reuse": true,
+ "median_ttft_ms": 353.74320205301046,
+ "n_threads": 64,
+ "n_ctx": 8192,
+ "max_tokens": 320,
+ "prompt_variant": "v13",
+ "model_load_s": 6.622036082670093,
+ "warm_s": 13.234480353072286,
+ "prefix_tokens": 4135,
+ "prefill_tok_s": 312.44143250702626,
+ "save_state_s": 0.6956446142867208,
+ "pickle_bytes": 1468536857,
+ "median_decode_tok_s": 15.346036032183218,
+ "median_load_state_ms": 700.7236308418214,
+ "think_leaks": 0,
+ "runs": [
+  {
+   "id": 1,
+   "question": "Me han dicho que tengo diabetes tipo 2, ¿tengo que empezar a pincharme insulina desde el primer día?",
+   "answer": "No es necesario empezar con insulina desde el primer día; el tratamiento es progresivo e inicialmente incluye alimentación, ejercicio y pérdida de peso. La insulina puede ser necesaria de forma temporal o permanente cuando otros tratamientos no controlan la enfermedad.",
+   "load_state_ms": 832.763060927391,
+   "ttft_ms": 353.76586578786373,
+   "decode_s": 2.9210197497159243,
+   "completion_tokens": 46,
+   "decode_tok_s": 15.405578823757132,
+   "has_think": false
+  },
+  {
+   "id": 1,
+   "question": "Me han dicho que tengo diabetes tipo 2, ¿tengo que empezar a pincharme insulina desde el primer día?",
+   "answer": "No es necesario empezar con insulina desde el primer día; el tratamiento es progresivo e inicialmente incluye alimentación, ejercicio y pérdida de peso. La insulina puede ser necesaria de forma temporal o permanente cuando otros tratamientos no controlan la enfermedad.",
+   "load_state_ms": 568.6842007562518,
+   "ttft_ms": 353.7205383181572,
+   "decode_s": 2.9437752198427916,
+   "completion_tokens": 46,
+   "decode_tok_s": 15.286493240609303,
+   "has_think": false
+  }
+ ]
+}
