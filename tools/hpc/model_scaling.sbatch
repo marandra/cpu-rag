@@ -55,6 +55,9 @@ MODEL="${MODEL:-gemma-4-26B-A4B-it-UD-Q4_K_M.gguf}"
 LABEL="${LABEL:-$(basename "$MODEL" .gguf)}"
 PROCEDURE="${PROCEDURE:-cirugia-abdominal}"
 PROFILE_FOR="${PROFILE_FOR:-aiciblock}"
+# Optional: bench a corpus variant instead of the served fulldoc, to size the
+# warm and tok/s cost of a rewrite. Empty -> the profile's configured doc.
+FULLDOC="${FULLDOC:-}"
 IDS="${IDS:-67,86}"
 REPEAT="${REPEAT:-1}"
 OUT_ROOT="${OUT_ROOT:-eval/model_scaling/${PHASE}}"
@@ -89,6 +92,8 @@ nodes_for() {  # first_node n_threads -> "a-b" or "a"
 
 run_cell() {  # out_name nodes n_threads
     local name="$1" nodes="$2" nt="$3"
+    local doc=()
+    [[ -n "$FULLDOC" ]] && doc=(--fulldoc "$FULLDOC")
     env PROFILE="$PROFILE_FOR" MODEL_PATH="models/${MODEL}" \
         N_THREADS="$nt" OMP_NUM_THREADS="$nt" GGML_N_THREADS="$nt" \
         OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
@@ -97,6 +102,7 @@ run_cell() {  # out_name nodes n_threads
             --procedure "$PROCEDURE" \
             --ids "$IDS" \
             --repeat "$REPEAT" \
+            "${doc[@]}" \
             --label "${LABEL}_${name}" \
             --out "${OUT_ROOT}/${name}.json" \
         >"${LOG_ROOT}/${name}.log" 2>&1

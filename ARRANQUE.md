@@ -189,6 +189,56 @@ agregada, no como veredicto**; probes dirigidos a los IDs diana; y **lectura a
 mano solo de las que se mueven**. Ningún número del apartado de probes vale sin
 leer la respuesta — van cinco falsos positivos esta semana.
 
+### RESULTADO A3 — job 7363, HECHO 2026-07-24. **Ninguna variante bate a V13**
+
+Salidas en `eval/audit_ab_g/`. Control = `eval/model_ab/gemma4` (g0).
+
+| brazo | decisión | neto vs g0 | volteo | telegr. (hem) | veredicto |
+| --- | ---: | ---: | ---: | ---: | --- |
+| **g0** (V13) | **91,0 %** | — | 1 % | 56 % | control, se queda |
+| **g1** (−andamiaje anti-invención, **−255 t**) | **91,0 %** | +1 | **0 %** | 58 % | **decisión idéntica a −255 t/petición** |
+| g2 (tercera salida) | 88,6 % | −28 | 1 % | 42 % | esquiva: 18 % derivación en diabetes |
+| g3 (frase completa) | 90,6 % | −4 | 2 % | 52 % | apenas mueve la telegrafía |
+| g4 (respuesta parcial) | 71,6 % | −233 | 3 % | 26 % | colapsa a sobre-rechazo (60-68 %) |
+
+Leídas a mano las que se mueven (probe nunca vale solo):
+
+1. **Ningún prompt bate a g0 en decisión. V13 se queda.**
+2. **g1 es un recorte de prefijo gratis para la capa de decisión.** Misma
+   decisión (91,0 %), **más** estable (0 % de volteo) y **−255 t en cada
+   petición**. El andamiaje anti-invención + anti-fusión de V13 es **peso muerto
+   para la decisión** con gemma, que no inventa. Salvedad honesta: es un cambio
+   **lateral**, no una mejora — mete 2 sobre-rechazos nuevos (10, 12) y quita 2
+   (31, 76); y la **capa de calidad de g1 no está releída a mano** (A2 midió
+   V13). Candidato a prompt más ligero, pero **exige una relectura de calidad
+   antes de entregarlo**. Es latencia, no calidad.
+3. **El 108 no lo arregla ningún prompt.** El 0/9 de g1 en el probe fue un
+   **sexto falso positivo**: g1 dice «**Se debe** ajustar la medicación»
+   (impersonal), y la regex solo casa «debes/deberás ajustar». El defecto sigue.
+   Confirma lo ya sabido: el 108 cae **solo con reescritura de corpus**
+   (job 7329), no con prompt.
+4. **g3 contesta la pregunta de método, gane o pierda** (su valor declarado): una
+   regla de forma **apenas** mueve la telegrafía (hemorroides 56 → 52 %), así que
+   **la telegrafía es artefacto del corpus, no del prompt** — el **punto 5 del
+   email queda reforzado por una segunda vía**. Y de paso g3 **rompe el 108 del
+   todo** (9/9): una regla de forma puede empeorar la frontera.
+5. **g2 esquiva.** 18 % de derivación en diabetes, 13 % en hemorroides — la
+   advertencia exacta del guardarraíl («tasa alta en todos = ha aprendido a
+   esquivar»). La tercera salida como **permiso general** convierte preguntas
+   respondibles en derivaciones. No entra tal cual, pero la **maquinaria**
+   (`deferred()`) ya es correcta y serviría con un disparador **mucho más
+   estrecho** (solo IDs tipo 99/100, no genérico).
+6. **g4 colapsa.** «da lo parcial y di qué falta» dispara el rechazo a 60-68 % y
+   además **inventa** (probes 26 y 87 a 7/9). Muerto.
+
+**Para el email:** V13 confirmado como el prompt a mantener con gemma. Las dos
+aportaciones de método — telegrafía = corpus (g3), la tercera salida debe ser
+estrecha (g2) — refuerzan los puntos 5 y 2 del borrador.
+
+**Warm/tok/s de diabetes v4 — jobs 7388 (served) / 7389 (v4), lanzados
+2026-07-24** para cerrar la decisión de si el corpus v4 entra pese al prefijo
+1,7×. `bench_model.py` y `model_scaling.sbatch` ahora aceptan `--fulldoc`/`FULLDOC`.
+
 ### A4 — GUIDELINES APLICADAS A DIABETES Y CIRUGÍA, 2026-07-23
 
 **Método, corregido por el usuario:** las reescrituras **no las hago yo**. Dos

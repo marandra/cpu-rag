@@ -1,0 +1,792 @@
+{
+ "procedure": "cirugia-abdominal",
+ "generated": "2026-07-23 19:58 CEST",
+ "profile": "aiciblock",
+ "model": "gemma-4-26B-A4B-it-UD-Q4_K_M",
+ "snapshot_seed": 872737089,
+ "subset": "all",
+ "seeds": [
+  1894574933,
+  1,
+  2,
+  3,
+  5,
+  8,
+  13,
+  21,
+  34
+ ],
+ "temperatures": [
+  0.1
+ ],
+ "questions": [
+  {
+   "id": 56,
+   "question": "He leído que hay operaciones por cámara y operaciones abiertas, ¿cambia mucho la recuperación entre una y otra?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|1": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|2": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|3": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|5": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|8": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|13": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|21": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.",
+    "0.1|34": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación."
+   }
+  },
+  {
+   "id": 57,
+   "question": "¿Es verdad que me van a meter gas en la tripa durante la operación y que eso da molestias después?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|1": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|2": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|3": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|5": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|8": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|13": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|21": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.",
+    "0.1|34": "En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe."
+   }
+  },
+  {
+   "id": 58,
+   "question": "Antes de operarme me van a revisar cómo estoy de alimentación, ¿para qué sirve eso exactamente?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|1": "El cribado nutricional detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|2": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|3": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|5": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|8": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|13": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|21": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|34": "El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones."
+   }
+  },
+  {
+   "id": 59,
+   "question": "¿Para qué me dan esa bebida especial antes de entrar a quirófano?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|1": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|2": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|3": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|5": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|8": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|13": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|21": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|34": "La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed."
+   }
+  },
+  {
+   "id": 60,
+   "question": "Me han hablado de un tubito en la espalda para el dolor, ¿qué es eso exactamente?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, colocado por el anestesiólogo en el quirófano, que tras la cirugía se conecta a una bomba de ACP con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|1": "La analgesia epidural consiste en un catéter epidural (tubo fino y flexible en la columna vertebral) que el anestesiólogo coloca en quirófano y que, tras la cirugía, se conecta a una bomba de ACP con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|2": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de analgesia controlada por el paciente (ACP) con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|3": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de analgesia controlada por el paciente (ACP) con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|5": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de analgesia controlada por el paciente (ACP) con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|8": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de analgesia controlada por el paciente (ACP) con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|13": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de analgesia controlada por el paciente (ACP) con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|21": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de analgesia controlada por el paciente (ACP) con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.",
+    "0.1|34": "La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de analgesia controlada por el paciente (ACP) con medicamentos que bloquean los nervios que envían señales de dolor al cerebro."
+   }
+  },
+  {
+   "id": 61,
+   "question": "¿Es verdad que si como pronto después de operarme se me puede abrir la herida por dentro?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|1": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|2": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|3": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|5": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|8": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|13": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|21": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.",
+    "0.1|34": "Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo."
+   }
+  },
+  {
+   "id": 62,
+   "question": "¿Cuánto tardo en ir al baño con normalidad después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|1": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|2": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|3": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|5": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|8": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|13": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|21": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|34": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación."
+   }
+  },
+  {
+   "id": 63,
+   "question": "¿Qué riesgos tiene ese tubito que me ponen en la espalda para el dolor?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|1": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|2": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|3": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|5": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|8": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|13": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|21": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.",
+    "0.1|34": "La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento."
+   }
+  },
+  {
+   "id": 64,
+   "question": "¿Por qué le dan tanta importancia a que me levante pronto después de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|1": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|2": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|3": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|5": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|8": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|13": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|21": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).",
+    "0.1|34": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales)."
+   }
+  },
+  {
+   "id": 65,
+   "question": "Además de las pruebas normales, ¿me van a hacer algo más antes de operarme?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|1": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|2": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|3": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|5": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|8": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|13": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|21": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.",
+    "0.1|34": "Se le pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud."
+   }
+  },
+  {
+   "id": 66,
+   "question": "¿Desde cuántas horas antes de la operación tengo que dejar de beber líquidos?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|1": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|2": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|3": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|5": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|8": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|13": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|21": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.",
+    "0.1|34": "La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación."
+   }
+  },
+  {
+   "id": 67,
+   "question": "Si me pongo muy nervioso antes de entrar a quirófano, ¿me pueden dar algo para calmarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|1": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|2": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|3": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|5": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|8": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|13": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|21": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|34": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención."
+   }
+  },
+  {
+   "id": 68,
+   "question": "¿Cómo me van a controlar el dolor los primeros días después de operarme?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|1": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP), que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|2": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|3": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|5": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP), que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|8": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|13": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|21": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.",
+    "0.1|34": "El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP."
+   }
+  },
+  {
+   "id": 69,
+   "question": "Como tengo diabetes, ¿cambia algo el ayuno antes de mi operación?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|1": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|2": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|3": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|5": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|8": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|13": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|21": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán.",
+    "0.1|34": "Si tiene diabetes, el cirujano le indicará cómo proceder. Antes de la operación debe llevar un control de glucosa en sangre lo más riguroso posible; su médico de cabecera o enfermería le ayudarán."
+   }
+  },
+  {
+   "id": 70,
+   "question": "Me han hablado de un aparatito con un botón para el dolor, ¿tiene riesgo de que me pase con la dosis?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|1": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|2": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|3": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|5": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|8": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|13": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|21": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.",
+    "0.1|34": "Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis."
+   }
+  },
+  {
+   "id": 71,
+   "question": "¿Por qué le dan tanta importancia a que llegue bien alimentado a la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Se le da importancia a que el paciente esté bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|1": "Se le da importancia a que el paciente esté bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|2": "Se le da importancia a que el paciente llegue bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|3": "Se le da importancia a que el paciente esté bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|5": "Se le da importancia a que el paciente esté bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|8": "Se le da importancia a que el paciente esté bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|13": "Se le da importancia a que el paciente llegue bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|21": "Se le da importancia a que el paciente esté bien nutrido porque un paciente bien nutrido tiene menos complicaciones.",
+    "0.1|34": "Se le da importancia a que el paciente esté bien nutrido porque un paciente bien nutrido tiene menos complicaciones."
+   }
+  },
+  {
+   "id": 72,
+   "question": "Me han dicho que puedo quedarme con molestia en el hombro después de operarme, ¿eso es normal?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 73,
+   "question": "¿Puedo comer con normalidad los días antes de la operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 74,
+   "question": "¿Me va a doler mucho después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|1": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|2": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|3": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|5": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|8": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|13": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|21": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|34": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente."
+   }
+  },
+  {
+   "id": 75,
+   "question": "¿Cuándo podré levantarme de la cama después de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|1": "Debe comenzar a caminar lo antes posible: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|2": "Debe comenzar a caminar lo antes posible: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|3": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|5": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|8": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|13": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|21": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|34": "Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones: el mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación."
+   }
+  },
+  {
+   "id": 76,
+   "question": "¿Cuánto tiempo voy a estar ingresado?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "La recuperación puede llevar varios días o semanas.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 77,
+   "question": "¿Puedo ducharme antes de ir al hospital el día de la operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 78,
+   "question": "¿Cuándo podré volver a comer después de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|1": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|2": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|3": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|5": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|8": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|13": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|21": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.",
+    "0.1|34": "Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva, primero con sorbos de agua en posición semisentada y luego con alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos."
+   }
+  },
+  {
+   "id": 79,
+   "question": "¿Podré hacer vida normal después de que me den el alta?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 80,
+   "question": "¿Mi familia puede acompañarme o ayudarme durante mi recuperación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|1": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|2": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|3": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|5": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|8": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|13": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|21": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación.",
+    "0.1|34": "Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado, ya que a menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial, como el reinicio de la alimentación y la movilización tras la operación."
+   }
+  },
+  {
+   "id": 81,
+   "question": "¿Qué me van a explicar antes de mi operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|1": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|2": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|3": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|5": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|8": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|13": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|21": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación.",
+    "0.1|34": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, le informan del plan anestésico, las modalidades y los riesgos según su patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puede hacer para acelerar su recuperación."
+   }
+  },
+  {
+   "id": 82,
+   "question": "¿Tengo que firmar algo antes de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "En la primera consulta de cirugía, usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|1": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento; usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|2": "En la primera consulta de cirugía le explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento; usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|3": "En la primera consulta de cirugía, usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|5": "En la primera consulta de cirugía, usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|8": "En la primera consulta de cirugía, usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|13": "En la primera consulta de cirugía, usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|21": "En la primera consulta de cirugía, usted decide sobre el tratamiento y firma el consentimiento escrito.",
+    "0.1|34": "En la primera consulta de cirugía, usted decide sobre el tratamiento y firma el consentimiento escrito."
+   }
+  },
+  {
+   "id": 83,
+   "question": "¿Me van a dormir del todo para mi operación?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "La cirugía mayor suele requerir anestesia general. En caso de que el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a, consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|1": "La cirugía mayor suele requerir anestesia general. En caso de que el grado de ansiedad y temor sea elevado, se le puede dar una pastilla la noche antes de la cirugía y otra pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|2": "La cirugía mayor suele requerir anestesia general. En caso de que el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a, consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|3": "La cirugía mayor suele requerir anestesia general. En caso de que el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a, consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|5": "La cirugía mayor suele requerir anestesia general. En caso de que el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a, consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|8": "La cirugía mayor suele requerir anestesia general. En cuanto a la premedicación, si el grado de ansiedad y temor es elevado, le darán medicación para llegar al quirófano relajado/a consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|13": "La cirugía mayor suele requerir anestesia general. En caso de que el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a, consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|21": "La cirugía mayor suele requerir anestesia general. En cuanto a la premedicación, si el grado de ansiedad y temor es elevado, le darán medicación para llegar al quirófano relajado/a consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|34": "La cirugía mayor suele requerir anestesia general. En cuanto a la premedicación, si el grado de ansiedad y temor es elevado, le darán medicación para llegar al quirófano relajado/a consistente en una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención."
+   }
+  },
+  {
+   "id": 84,
+   "question": "Me han dicho que es una cirugía \"mínimamente invasiva\", ¿eso qué significa para mí?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo, operando a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|1": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo y se opera a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|2": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo y se opera a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|3": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo, operando a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|5": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo, operando a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|8": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo, operando a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|13": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo, operando a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|21": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo, operando a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|34": "La cirugía mínimamente invasiva evita abrir las cavidades del organismo, operando a través de pequeñas incisiones. En la cirugía laparoscópica, se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento, lo cual desaparece a medida que se absorbe. A veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano."
+   }
+  },
+  {
+   "id": 85,
+   "question": "¿Cuánto dura mi recuperación en casa después de operarme?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 86,
+   "question": "¿Me van a dar algo para los nervios antes de entrar a quirófano?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|1": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|2": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|3": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|5": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|8": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|13": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|21": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|34": "Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención."
+   }
+  },
+  {
+   "id": 87,
+   "question": "¿Voy a necesitar ayuda para caminar después de mi operación?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|1": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|2": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|3": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|5": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|8": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|13": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|21": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|34": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación."
+   }
+  },
+  {
+   "id": 88,
+   "question": "¿Es peligroso que me levante el mismo día de la operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|1": "El mismo día de la cirugía puede sentarse en un sillón con ayuda, y al día siguiente debe levantarse y dar cortos paseos por la habitación.",
+    "0.1|2": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|3": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|5": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|8": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|13": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|21": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.",
+    "0.1|34": "El mismo día de la cirugía puede sentarse en un sillón con ayuda. Debe comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía."
+   }
+  },
+  {
+   "id": 89,
+   "question": "¿Qué pasa si me entra hambre justo antes de mi operación?",
+   "verdict": "DEF",
+   "answers": {
+    "0.1|1894574933": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|1": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|2": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|3": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|5": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|8": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|13": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|21": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.",
+    "0.1|34": "Unas horas antes de la cirugía le darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed."
+   }
+  },
+  {
+   "id": 90,
+   "question": "¿Cuándo iré al baño por primera vez después de que me operen?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|1": "La primera defecación suele producirse 2 o 3 días después de reiniciar la alimentación.",
+    "0.1|2": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|3": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|5": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|8": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|13": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|21": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.",
+    "0.1|34": "La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación."
+   }
+  },
+  {
+   "id": 91,
+   "question": "Tengo miedo de mi operación, ¿es normal sentirme así?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|1": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|2": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|3": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|5": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|8": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|13": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|21": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|34": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.)."
+   }
+  },
+  {
+   "id": 92,
+   "question": "¿Me puedo morir en esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 93,
+   "question": "¿Duele mucho esta operación?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|1": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|2": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|3": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|5": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|8": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|13": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|21": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.",
+    "0.1|34": "La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente."
+   }
+  },
+  {
+   "id": 94,
+   "question": "¿Y si me despierto en mitad de mi operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 95,
+   "question": "¿Y si algo sale mal durante mi cirugía?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 96,
+   "question": "Tengo mucha ansiedad, no puedo dormir pensando en mi operación, ¿qué hago?",
+   "verdict": "OK",
+   "answers": {
+    "0.1|1894574933": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|1": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|2": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|3": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|5": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|8": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|13": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|21": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.",
+    "0.1|34": "Comunique al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, le darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención."
+   }
+  },
+  {
+   "id": 97,
+   "question": "¿Me voy a despertar con una bolsa después de esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 98,
+   "question": "¿Qué pasa si me arrepiento justo antes de entrar a quirófano?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 99,
+   "question": "Nunca me han operado antes y tengo pánico a la anestesia, ¿es peligrosa?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "En la cita con anestesia, unos días antes de la cirugía, le informan del plan anestésico, las modalidades y los riesgos según su patología.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 100,
+   "question": "¿Me van a quedar cicatrices grandes de esta operación?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación, mientras que la cirugía mínimamente invasiva se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|1": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación, mientras que la cirugía mínimamente invasiva opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|2": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación, mientras que la cirugía mínimamente invasiva se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|3": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación, mientras que la cirugía mínimamente invasiva se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|5": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación, mientras que la cirugía mínimamente invasiva opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|8": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación. La cirugía mínimamente invasiva evita abrir las cavidades del organismo y se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|13": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación, mientras que la cirugía mínimamente invasiva se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|21": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación, mientras que la cirugía mínimamente invasiva opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.",
+    "0.1|34": "La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación. La cirugía mínimamente invasiva evita abrir las cavidades del organismo y se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introducen instrumentos por pequeñas heridas alrededor del ombligo, aunque a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano."
+   }
+  },
+  {
+   "id": 101,
+   "question": "¿Puedo hablar con el cirujano a solas si tengo dudas que me dan vergüenza preguntar delante de mi familia?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 102,
+   "question": "Estoy muy nervioso por dejar a mis hijos solos mientras estoy ingresado, ¿cuánto tiempo voy a estar fuera de casa?",
+   "verdict": "FN",
+   "answers": {
+    "0.1|1894574933": "No tengo información sobre eso.",
+    "0.1|1": "No tengo información sobre eso.",
+    "0.1|2": "No tengo información sobre eso.",
+    "0.1|3": "No tengo información sobre eso.",
+    "0.1|5": "No tengo información sobre eso.",
+    "0.1|8": "No tengo información sobre eso.",
+    "0.1|13": "No tengo información sobre eso.",
+    "0.1|21": "No tengo información sobre eso.",
+    "0.1|34": "No tengo información sobre eso."
+   }
+  },
+  {
+   "id": 103,
+   "question": "¿Es normal llorar antes de una operación como esta?",
+   "verdict": "SR",
+   "answers": {
+    "0.1|1894574933": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|1": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|2": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|3": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|5": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|8": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|13": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|21": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).",
+    "0.1|34": "Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.)."
+   }
+  }
+ ]
+}

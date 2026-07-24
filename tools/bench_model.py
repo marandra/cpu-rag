@@ -74,6 +74,12 @@ def main() -> int:
                         "so a re-run is comparable. Screening is not an A/B: "
                         "one seed is fine because we are measuring speed, and "
                         "the text is read, not scored.")
+    p.add_argument("--fulldoc", default=None,
+                   help="Override the profile's configured fulldoc, e.g. "
+                        "corpus/markdown/diabetes.v4.md, to measure warm and "
+                        "tok/s for a corpus variant. The prefix is (system + "
+                        "fulldoc), so a bigger doc is a longer prefill and a "
+                        "slower decode — exactly what this flag exists to size.")
     p.add_argument("--label", default=None, help="Tag for the output row.")
     p.add_argument("--out", default=None)
     args = p.parse_args()
@@ -96,7 +102,11 @@ def main() -> int:
         return 1
     label = args.label or model_path.stem
 
-    fulldoc_path = settings.fulldoc_procedures[proc]
+    fulldoc_path = Path(args.fulldoc) if args.fulldoc \
+        else settings.fulldoc_procedures[proc]
+    if not fulldoc_path.is_file():
+        print(f"ERROR: no such fulldoc: {fulldoc_path}", file=sys.stderr)
+        return 1
     fulldoc_text = fulldoc_path.read_text(encoding="utf-8")
     system_prompt = get_system_prompt(proc)
 
