@@ -1,43 +1,27 @@
 # CPU-RAG fulldoc — deliverable v2
 
-Self-contained, CPU-only deployment of the medical FAQ RAG service. Runs on any
-modern x86_64 Linux host with Docker (EC2, on-prem, VM).
-
-> **What changed since v1.1**
-> - **Model:** gemma-4-26B-A4B (a 26B Mixture-of-Experts, ~4B active) replaces
->   the 3B Ministral. Markedly better answer/refusal decisions and far fewer
->   telegraphic answers, at CPU speeds that stay above the usable floor.
-> - **Corpus:** diabetes now serves the richer **v4** document; hemorroides
->   serves the **vA** rewrite (fixes the anticoagulant-instruction defect, much
->   less telegraphic); cirugía-abdominal unchanged.
-> - **Packaging:** the 17 GB model is **no longer shipped inside the bundle** —
->   the bootstrap downloads it on first run. The image itself stays ~320 MB.
-> - **Profiles:** one image, configured per project (see below).
-
-This is the **portable** image flavor (AVX2 + FMA) — it runs on any x86_64 CPU.
-A native flavor (AVX-512 VNNI + AMX-INT8) that gives ~+15–30 % decode on Intel
-Sapphire/Emerald Rapids (e.g. EC2 m7i/c7i) is available on request.
+Self-contained, CPU-only deployment of the medical FAQ RAG service. Runs on any modern
+x86_64 Linux host with Docker (EC2, on-prem, VM).
 
 ## Two projects, one image
 
 The service is configured per **profile**:
 
 | profile     | serves                          | default port |
-|-------------|---------------------------------|:------------:|
-| `glucowise` | diabetes                        | 8001         |
-| `aiciblock` | hemorroides + cirugía-abdominal | 8002         |
+| ----------- | ------------------------------- | :----------: |
+| `glucowise` | diabetes                        |     8001     |
+| `aiciblock` | hemorroides + cirugía-abdominal |     8002     |
 
-In production, run **one profile per server**. For evaluation you can run
-**both on one host** — they get separate ports, containers and snapshots and
-**share the single downloaded model**.
+In production, run **one profile per server**. For evaluation you can run **both on one
+host** — they get separate ports, containers and snapshots and **share the single
+downloaded model**.
 
-Each profile is served by **N replicas behind an nginx load balancer**
-(`N_REPLICAS`, default **1**). Concurrency == replicas: each replica serializes
-one generation at a time, so more replicas = more concurrent users. The topology
-is the same at N=1 and N=8 — only the number changes, so the trial and
-production run the identical stack. **Each replica loads its own ~16 GB copy of
-the model**, so budget ~16–20 GB RAM per replica and keep
-`N_THREADS * N_REPLICAS ≤ physical cores`.
+Each profile is served by **N replicas behind an nginx load balancer** (`N_REPLICAS`,
+default **1**). Concurrency == replicas: each replica serializes one generation at a
+time, so more replicas = more concurrent users. The topology is the same at N=1 and N=8
+— only the number changes, so the trial and production run the identical stack. **Each
+replica loads its own ~16 GB copy of the model**, so budget ~16–20 GB RAM per replica
+and keep `N_THREADS * N_REPLICAS ≤ physical cores`.
 
 ## Contents
 
@@ -57,16 +41,15 @@ rag-deliverable-v2/
   README.md
 ```
 
-The model and snapshots are **not** shipped. The model (~16.9 GB) is downloaded
-from a public Hugging Face repo on first run (no account/token needed). The
-snapshots are KV-cache states tied to this image's exact llama-cpp version, so
-they are generated once on the target host.
+The model and snapshots are **not** shipped. The model (~16.9 GB) is downloaded from a
+public Hugging Face repo on first run (no account/token needed). The snapshots are
+KV-cache states tied to this image's exact llama-cpp version, so they are generated once
+on the target host.
 
 ## Prerequisites
 
 - Docker Engine with the Compose plugin (`docker compose version`)
-- **RAM:** ~20 GB per running profile (the model is ~16.9 GB resident). Running
-  **both** profiles on one host needs ~40 GB.
+- **RAM:** ~20 GB per running profile.
 - **Disk:** ~25 GB (17 GB model + ~1–2 GB snapshots + image)
 - Outbound HTTPS to `huggingface.co` on first run (for the model download)
 - More CPU cores = faster generation and higher decode throughput
@@ -137,12 +120,13 @@ curl -N -X POST http://localhost:8001/query \
 Response is a Server-Sent Events stream:
 
 - `event: chunk` — `{"text": "..."}` incremental tokens
-- `event: done` — `{"request_id":..., "usage": {"completion_tokens":..., "decode_tok_s":..., ...}}`
+- `event: done` —
+  `{"request_id":..., "usage": {"completion_tokens":..., "decode_tok_s":..., ...}}`
 - `event: error` — `{"code":..., "detail":...}`
 
-Request body: `procedure` (must belong to the running profile) and `question`
-(1–1000 chars). Each query is stateless — no conversation memory. Questions
-outside the loaded document are refused by design.
+Request body: `procedure` (must belong to the running profile) and `question` (1–1000
+chars). Each query is stateless — no conversation memory. Questions outside the loaded
+document are refused by design.
 
 ## Operations
 
@@ -155,23 +139,20 @@ docker compose --env-file $ENVF -p rag-$P down            # stop
 
 ## Configuration (.env)
 
-| Variable          | Default                        | Notes                                                            |
-|-------------------|--------------------------------|------------------------------------------------------------------|
-| `RAG_API_KEY`     | — (required)                   | Secret for the `X-API-Key` header.                               |
-| `N_REPLICAS`      | `1`                            | Serving replicas per profile behind the LB. Concurrency == replicas; each holds its own ~16 GB model copy. |
-| `N_THREADS`       | all cores (set by the script)  | Serving/decode threads per replica. Keep `N_THREADS * N_REPLICAS ≤` physical cores. |
-| `RAG_GEN_THREADS` | `nproc` (set by the script)    | Threads for the one-shot snapshot generation.                    |
-| `ALLOWED_ORIGINS` | `["http://localhost:3000"]`    | CORS origins, JSON list.                                          |
+| Variable          | Default                       | Notes                                                                                                      |
+| ----------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `RAG_API_KEY`     | — (required)                  | Secret for the `X-API-Key` header.                                                                         |
+| `N_REPLICAS`      | `1`                           | Serving replicas per profile behind the LB. Concurrency == replicas; each holds its own ~16 GB model copy. |
+| `N_THREADS`       | all cores (set by the script) | Serving/decode threads per replica. Keep `N_THREADS * N_REPLICAS ≤` physical cores.                        |
+| `RAG_GEN_THREADS` | `nproc` (set by the script)   | Threads for the one-shot snapshot generation.                                                              |
+| `ALLOWED_ORIGINS` | `["http://localhost:3000"]`   | CORS origins, JSON list.                                                                                   |
 
 Port and profile come from `profiles/<profile>.env`, not `.env`.
 
 ## Notes
 
-- **Swapping the served document:** edit the file under `corpus/markdown/`, then
-  re-run the generate step — snapshots are content-fingerprinted and rebuild
-  automatically.
-- **Native (faster) image:** on Sapphire/Emerald Rapids, a VNNI+AMX build gives
-  ~+15–30 % decode. Available on request; drop-in replacement for the image tar.
+- **Swapping the served document:** edit the file under `corpus/markdown/`, then re-run
+  the generate step — snapshots are content-fingerprinted and rebuild automatically.
 - **Model source:** `unsloth/gemma-4-26B-A4B-it-GGUF` on Hugging Face (public).
-  `fetch_model.sh` can point at an internal mirror via `MODEL_URL` (the sha256
-  is still enforced).
+  `fetch_model.sh` can point at an internal mirror via `MODEL_URL` (the sha256 is still
+  enforced).
