@@ -82,29 +82,37 @@ que preferimos deciros nosotros: reparan material esquemático, no mejoran cualq
 texto — aplicadas al documento de cirugía, que ya estaba en prosa, lo empeoraron.
 
 **4. El sistema que auditasteis ya no es el que vale.** Auditasteis la v1.1. Desde
-entonces han cambiado el modelo y dos de los tres documentos. Hemos pasado vuestras
-134 preguntas por la versión nueva y las hemos releído una a una, con dos criterios
-separados: **corrección** (¿hace lo que debe, dado el documento?) y **presentable**
-(¿se la enseñarías a un paciente tal cual?).
+entonces han cambiado el modelo y dos de los tres documentos. Hemos evaluado las 134
+una a una con un solo criterio: **¿es correcta, dado el documento?** —es decir,
+responde lo que se pregunta apoyada en el texto, sin inventar y sin fundir ni
+des-acotar una regla; o se abstiene donde el documento no da material—.
 
-| sobre las 134                       |    corrección |   presentable |
-| ----------------------------------- | ------------: | ------------: |
-| **versión actual** (aún no enviada) | **85 – 90 %** | **80 – 84 %** |
-| versión que auditasteis (v1.1)      |        63 %   |        50 %   |
-| vuestra evaluación                  |          —    |         9 %   |
+| sobre las 134                       |      correctas |
+| ----------------------------------- | -------------: |
+| **versión actual** (aún no enviada) |  **120 = 90 %** |
+| versión que auditasteis (v1.1)      |     83 = 62 %  |
+| vuestra evaluación                  |          9 %   |
 
 El acierto en responder-vs-abstenerse pasa del 79 % al 91 %. Dos honestidades: la
 mejora **no es solo del modelo** —dos de los tres documentos están reescritos con las
 guías del punto 3, que es justamente la prueba de que funcionan—, y es **una sola
 ejecución**, como lo era la vuestra.
 
+Lo que sigue sin estar bien son las respuestas demasiado escuetas, y ahí os damos la
+razón: quedan sobre todo en hemorroides, por lo del punto 2.
+
 Vuestro punto sobre las preguntas emocionales lo confirmamos y lo cuantificamos: en
 la v1.1 se abstenían el **81 %** de las veces, teniendo el material en el corpus. En
 la versión actual esa lista pasa a ser **la más fuerte de las tres, con un 92 %**.
 
-**Adjunto** `auditoria_134_comentadas.md`: las 134 con vuestra crítica, la respuesta
-de la v1.1, la de la versión actual y nuestro veredicto con el motivo. Es discutible
-pregunta a pregunta, que es como creemos que hay que discutirlo.
+**Van dos adjuntos**, con los mismos números de pregunta para poder cruzarlos:
+
+- `auditoria_134_evaluacion.md` — vuestra lista tal cual, con nuestra evaluación de
+  cada respuesta añadida al lado.
+- `auditoria_134_sistema_actual.md` — las 134 respondidas por el sistema actual, con
+  nuestra evaluación. Va para que podáis verlo sin tener que ejecutarlo vosotros.
+
+Es discutible pregunta a pregunta, que es como creemos que hay que discutirlo.
 
 **Lo que os ofrecemos ahora:**
 

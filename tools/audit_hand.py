@@ -83,7 +83,7 @@ HAND: dict[int, tuple[bool, bool, str]] = {
     8: (True, False, "se abstiene; «el médico te enseña a pincharte» no está en el documento — la v1.1 lo inventaba"),
     16: (True, False, "§Mitos: la DM2 inicial no da síntomas, se descubre por análisis"),
     25: (True, False, "§Mitos + §Alimentación: dieta equilibrada general, ningún alimento prohibido"),
-    39: (True, False, "§Grupos de alimentos: ningún producto milagro cura la diabetes. Telegráfica (61 car)"),
+    39: (True, False, "§Grupos de alimentos: ningún producto milagro cura la diabetes; respuesta muy escueta"),
     40: (True, False, "§Alimentación literal: ajustar cantidad en vez de eliminar"),
     41: (True, False, "§Aspectos psicológicos: normaliza el miedo y añade «vivir con, no para»"),
     47: (True, False, "§Aspectos psicológicos «no culparse», que es exactamente lo que se pregunta"),
@@ -94,13 +94,13 @@ HAND: dict[int, tuple[bool, bool, str]] = {
     70: (True, False, "§Control del dolor (ACP) literal: todo programado, sin peligro de sobredosis"),
     83: (True, False, "§Qué es la cirugía mayor: «suele requerir anestesia general», con la premedicación detrás"),
     103: (True, False, "§Premedicación: normaliza la reacción emocional ante la intervención"),
-    110: (True, True, "§Beneficios «reduce recaídas»: contesta de refilón la recurrencia. Telegráfica (70 car)"),
+    110: (True, True, "§Beneficios «reduce recaídas»: contesta de refilón la recurrencia; respuesta muy escueta"),
     111: (True, False, "se abstiene; el documento dice «fibra y líquidos» pero NUNCA el porqué, que la v1.1 inventaba"),
     114: (True, False, "§Preparación «ayuno 6–8 h» responde directo el día antes"),
     117: (True, False, "se abstiene; el documento nombra los baños de asiento pero no los define — la v1.1 los definía por su cuenta"),
     121: (True, False, "§Alternativas completa: pomadas, baños, dieta, bandas, láser"),
     123: (True, False, "§Aspectos prácticos literal: puede retirar el consentimiento"),
-    127: (True, False, "§Preparación «dolor moderado». Telegráfica (69 car)"),
+    127: (True, False, "§Preparación «dolor moderado»; respuesta muy escueta"),
     128: (True, False, "§Riesgos «muy raras: incontinencia», y conserva la rareza"),
 
     # ---- las 18 DEF sin cambio de decisión -------------------------------
@@ -113,7 +113,7 @@ HAND: dict[int, tuple[bool, bool, str]] = {
     24: (True, False, "sin la fuga de meta-comentario ni «patatas integrales»; tubérculos en cantidad controlada, evitar fritos"),
     26: (True, True, "progresividad y constancia, sin la prescripción aritméticamente imposible; pero no dice cuánto"),
     29: (True, False, "arreglada: paracetamol y el >39 °C vuelven a ser cosas distintas, y recupera «cuidado con sobres y jarabes con azúcar»"),
-    30: (False, False, "«los glucómetros miden la glucosa capilar» no contesta si hay que comprarlo. Telegráfica (44 car)"),
+    30: (False, False, "«los glucómetros miden la glucosa capilar» no contesta si hay que comprarlo"),
     60: (True, False, "define el catéter epidural entero; la v1.1 se quedaba en nombrarlo"),
     63: (False, False, "respuesta idéntica a la de la v1.1: sigue omitiendo que todo analgésico puede dar efectos no deseados"),
     67: (True, False, "recupera la condición «cuando el grado de ansiedad y temor sea elevado»"),
@@ -127,7 +127,7 @@ HAND: dict[int, tuple[bool, bool, str]] = {
 
     # ---- las 49 OK sin cambio de decisión --------------------------------
     # El lado del riesgo: aquí gemma solo puede perder. Pierde dos.
-    31: (False, False, "responde «puede ir de vacaciones» a «¿podré hacer vida normal?»: sección equivocada. Telegráfica (50 car)"),
+    31: (False, False, "responde «puede ir de vacaciones» a «¿podré hacer vida normal?»: sección equivocada"),
     42: (False, False, "«la insulina reduce las complicaciones, incluida la ceguera» a «¿me quedaré ciego?»: fuera de diana y engañosa"),
     56: (True, True, "solo describe la abierta; el contraste con la laparoscópica queda implícito"),
     65: (True, False, "mejora sobre la v1.1: dice que unas pruebas se hacen a todos y otras son específicas, que es justo lo que pedíais"),
