@@ -1,0 +1,50 @@
+###############################################################################
+# Overlay de EXPERIMENTO sobre docker-compose.yml. No es la topología servida.
+#
+# Cambia exactamente dos cosas respecto del despliegue de la v2:
+#
+#   1. SNAP_DIR — los snapshots salen a un directorio de scratch, NO a
+#      ./snapshots. Un experimento que escriba ahí sobrescribe el pickle que
+#      sirve el pool de la v2, y con él la única forma de reproducir sus
+#      números. Es un accidente ya ocurrido antes; por eso es un parámetro.
+#   2. PROMPT_VARIANT — selecciona la entrada de app.prompt.PROMPT_VARIANTS.
+#      La imagen las lleva todas, así que un brazo es una variable de entorno,
+#      no una imagen nueva.
+#
+# El snapshot cachea sobre el system prompt: cambiar de variante genera otra
+# clave y reconstruye. Y un rebuild mueve por sí solo ~la mitad de las
+# respuestas, así que TODOS los brazos —v13 incluido— tienen que reconstruir
+# contra un SNAP_DIR vacío. Un v13 servido desde el pickle viejo no es control.
+#
+# Uso:
+#   docker compose -f docker-compose.yml -f docker-compose.exp.yml \
+#     --env-file profiles/<perfil>.env -p rag-exp-<perfil> ...
+###############################################################################
+
+x-exp-common: &exp-common
+  volumes:
+    - ./models:/app/models:ro
+    # CORPUS_DIR permite servir un corpus alterno sin tocar app/config.py: la
+    # clave del snapshot hashea el TEXTO del fulldoc, no su ruta, así que basta
+    # con montar otro directorio con los mismos nombres de fichero.
+    - ${CORPUS_DIR:-./corpus}:/app/corpus:ro
+    - ${SNAP_DIR:?SNAP_DIR sin definir — apuntaría a los snapshots de la v2}:/app/snapshots
+
+services:
+  rag:
+    <<: *exp-common
+    environment:
+      N_THREADS: ${N_THREADS:-8}
+      OMP_NUM_THREADS: ${N_THREADS:-8}
+      GGML_N_THREADS: ${N_THREADS:-8}
+      SNAPSHOT_STAGE_DIR: ""
+      PROMPT_VARIANT: ${PROMPT_VARIANT:?PROMPT_VARIANT sin definir}
+
+  rag-generate:
+    <<: *exp-common
+    environment:
+      N_THREADS: ${RAG_GEN_THREADS:-8}
+      OMP_NUM_THREADS: ${RAG_GEN_THREADS:-8}
+      GGML_N_THREADS: ${RAG_GEN_THREADS:-8}
+      SNAPSHOT_STAGE_DIR: ""
+      PROMPT_VARIANT: ${PROMPT_VARIANT:?PROMPT_VARIANT sin definir}
