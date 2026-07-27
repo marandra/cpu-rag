@@ -85,12 +85,19 @@ class Settings(BaseSettings):
     procedure_filter: str | None = None
 
     # Which system prompt to serve, keyed into app.prompt.PROMPT_VARIANTS.
-    # "v13" is what we deploy; the rest exist so the prompt A/B can put one
-    # variant per worker process without editing code. Validated in app.prompt
-    # and not here, because config must not import prompt (prompt imports this).
-    # A variant changes the snapshot cache key, so each one warms its own
-    # pickle and they never collide.
-    prompt_variant: str = "v13"
+    # Validated in app.prompt and not here, because config must not import
+    # prompt (prompt imports this). Una variante cambia la clave del snapshot,
+    # así que cada una calienta su propio pickle y nunca colisionan.
+    #
+    # v2.1 sirve "d1c": V13 con el literal de abstención reescrito. Medido en
+    # EC2 sobre las 134 (2026-07-27): 123/134 de decisión frente a 122 de la
+    # v2, 18 % menos tokens, y las 44 abstenciones dejan de ser
+    # "No tengo información sobre eso." — que es lo que se prometió en la
+    # respuesta a la auditoría. `eval/d1c/`.
+    #
+    # "v13" sigue aquí y NO se toca: es lo que sirve la v2 entregada, y su
+    # snapshot solo se reproduce con el prompt byte a byte.
+    prompt_variant: str = "d1c"
 
     @field_validator("profile")
     @classmethod

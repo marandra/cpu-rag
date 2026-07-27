@@ -117,6 +117,13 @@ def _plus_example(base: str, example: str) -> str:
     return f"{base}\n\n{example}"
 
 
+def _replacing_all(base: str, old: str, new: str) -> str:
+    """Como `_replacing`, para un literal que V13 repite en regla y ejemplos."""
+    if old not in base:
+        raise ValueError(f"V13 no contiene el fragmento a sustituir: {old!r}")
+    return base.replace(old, new)
+
+
 # V14a — el test de la REGLA. "Escrita literalmente" es una prueba de
 # coincidencia de cadena; la que hace falta es si el texto resuelve la pregunta.
 _V13_LITERAL_TEST = "si la respuesta concreta está escrita literalmente en la INFORMACIÓN"
@@ -352,6 +359,118 @@ _EJ_G4 = (
 )
 
 
+# D1 — el texto de la abstención. Hoy 45 preguntas reciben "No tengo información
+# sobre eso."; 37 se abstienen con razón y 21 de esas son emocionales («me da
+# vergüenza pincharme delante de otros», «tengo miedo a las agujas»). El sistema
+# acierta al no tener nada que decir y lo dice de la peor forma posible.
+#
+# Por qué esto y no la derivación de G2: G2 se midió (9 semillas) y solo convirtió
+# 4 de las 21 emocionales, a cambio de derivar 7 preguntas que el documento sí
+# responde. Reescribir el literal alcanza a las 37 y **no puede desplazar una
+# respuesta correcta**, porque solo cambia lo que ya era una abstención: la REGLA
+# sigue ofreciendo dos salidas y el test para elegirlas no se toca.
+#
+# El literal se sustituye en la regla y en los tres ejemplos a la vez; dejar los
+# ejemplos con la frase vieja enseñaría la frase vieja.
+#
+# Registro: usted, y con él los tres ejemplos de respuesta de V13, que tuteaban.
+# Medido 2026-07-27 sobre `eval/ec2`: de 89 respuestas no-rechazo, **0** salen en
+# tú y 56 en usted — el corpus (363 marcas de usted, 0 de tú) manda y el tuteo del
+# prompt no se cuela. Así que unificar aquí no cambia nada por sí solo; se hace
+# porque D1 ya paga el rebuild del snapshot y salir con dos tratos en el mismo
+# prompt es incoherente. El día que el corpus pase a tú, esto se gira con él.
+_V13_RECHAZO = "No tengo información sobre eso."
+_D1_RECHAZO = (
+    "Esto es algo que conviene comentar con su equipo sanitario, que podrá "
+    "orientarle teniendo en cuenta su caso. En la información de la que dispongo "
+    "no se trata este tema."
+)
+
+# Los tres RESPUESTA del template que tuteaban. Solo se giran las que habla el
+# paciente: las instrucciones al modelo («no añadas… por tu cuenta») siguen en tú.
+_D1_TUTEO = [
+    ("RESPUESTA: Puedes tomar fruta entera a diario, mejor que en zumo.",
+     "RESPUESTA: Puede tomar fruta entera a diario, mejor que en zumo."),
+    ("RESPUESTA: Si decides no operarte, los síntomas pueden empeorar.",
+     "RESPUESTA: Si decide no operarse, los síntomas pueden empeorar."),
+    ("RESPUESTA: Después de la cirugía es normal sentir dolor moderado; debes "
+     "hacer baños de asiento y seguir una dieta rica en fibra y líquidos.",
+     "RESPUESTA: Después de la cirugía es normal sentir dolor moderado; debe "
+     "hacer baños de asiento y seguir una dieta rica en fibra y líquidos."),
+]
+
+
+def _d1() -> str:
+    p = _replacing_all(SYSTEM_PROMPT_TEMPLATE, _V13_RECHAZO, _D1_RECHAZO)
+    for old, new in _D1_TUTEO:
+        p = _replacing(p, old, new)
+    return p
+
+
+# D1b — solo el literal de abstención; los ejemplos se quedan como en V13.
+#
+# D1 agrupó dos cambios y no se pudo atribuir nada. Medido en diabetes (55 preg.):
+# 18 abstenciones adoptan el texto nuevo, 0 respuestas se vuelven abstención, 3
+# abstenciones pasan a responder —las tres marcadas Deficient por los auditores,
+# la 45 una ganancia limpia— pero **19 respuestas cambian** y 4 pierden el «Sí/No»
+# inicial (1, 17, 18, 47) sin que ninguna lo gane. Las marcas de «usted» se
+# duplican (25→50): la huella del giro de registro. Ese brazo se descarta —coste
+# medible, beneficio nulo (0 de 89 respuestas tuteaban ya)— y aquí queda el
+# cambio solo, que es lo que se puede evaluar.
+#
+# Corrige de paso la premisa de ARRANQUE_v4 («no puede desplazar una respuesta
+# correcta»): es falsa. El literal vive en el system prompt, así que tocarlo
+# cambia el prefijo KV entero y perturba todas las respuestas, no solo las
+# abstenciones. Por eso este brazo también se lee entero, no solo en las 45.
+#
+# El texto va en usted a propósito: el modelo lo emite tal cual junto a respuestas
+# que el corpus fuerza en usted. Manda el registro de la SALIDA, no el de los
+# ejemplos (que siguen tuteando, como en V13).
+def _d1b() -> str:
+    return _replacing_all(SYSTEM_PROMPT_TEMPLATE, _V13_RECHAZO, _D1_RECHAZO)
+
+
+# D1c — mismo cambio que D1b, mejor redactado. Dos cosas, ambas salidas de leer
+# las 44 abstenciones de D1b:
+#
+#   1. Orden invertido. D1b termina en la parte fría («…no se trata este tema»);
+#      cerrar en la derivación deja al paciente con la acción útil, no con el
+#      límite del sistema.
+#   2. Más corto: 99 caracteres frente a 168. No es cosmética — el literal se
+#      emite en 44 de las 134, así que a ~6 tok/s son ~3 s menos en un tercio de
+#      las preguntas. La longitud del prefijo casi no cuenta (el snapshot la
+#      cachea una vez); la de la salida se paga en cada petición.
+#
+# Se mantiene «según su caso»: en las 24 preguntas emocionales es lo que hace que
+# la frase reconozca a la persona. Se evita reabrir con «No tengo información
+# sobre…», que era justo el arranque que motivó D1 (ahorraría 11 caracteres).
+_D1C_RECHAZO = (
+    "Esto no lo recoge la información que tengo, pero su equipo sanitario podrá "
+    "orientarle según su caso."
+)
+
+
+def _d1c() -> str:
+    return _replacing_all(SYSTEM_PROMPT_TEMPLATE, _V13_RECHAZO, _D1C_RECHAZO)
+
+
+# D1c-tu — D1c con el literal tuteado, para servir el corpus convertido a tú
+# (`*-tu.md`). El registro lo fija el corpus, no el prompt: medido sobre la v2,
+# 0 de 89 respuestas tuteaban con un corpus en usted. Así que el literal tiene
+# que girar CON el corpus o el paciente recibe las dos formas mezcladas.
+#
+# Los ejemplos del template ya tutean (V13 siempre lo hizo), así que aquí, por
+# primera vez, prompt y corpus coinciden en trato.
+_D1C_TU_RECHAZO = (
+    "Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá "
+    "orientarte según tu caso."
+)
+
+
+def _d1c_tu() -> str:
+    return _replacing_all(SYSTEM_PROMPT_TEMPLATE, _V13_RECHAZO, _D1C_TU_RECHAZO)
+
+
 PROMPT_VARIANTS: dict[str, str] = {
     "v13": SYSTEM_PROMPT_TEMPLATE,
     "v14a": _plus_example(
@@ -373,6 +492,15 @@ PROMPT_VARIANTS: dict[str, str] = {
     "g4": _plus_example(
         _replacing(SYSTEM_PROMPT_TEMPLATE, _V13_NO_COMENTAR, _G4_ACOTAR),
         _EJ_G4),
+    # D1 — texto de la abstención + registro en los ejemplos. Medido y DESCARTADO
+    # por el segundo cambio; se conserva porque `eval/d1/` es su medición.
+    "d1": _d1(),
+    # D1b — solo el texto de la abstención. Bate a la v2 (125/134 vs 122).
+    "d1b": _d1b(),
+    # D1c — D1b con la frase invertida y a la mitad de largo. Es la SERVIDA (v2.1).
+    "d1c": _d1c(),
+    # D1c-tu — la misma, tuteada, para el corpus convertido a tú.
+    "d1c-tu": _d1c_tu(),
 }
 
 
