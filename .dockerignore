@@ -1,0 +1,30 @@
+# Build-context hygiene. The Dockerfile only needs pyproject.toml, src/,
+# corpus/ and app/ — everything else here just bloats the context sent to the
+# daemon (models/ alone is multi-GB) or must never land in a served image.
+
+.git
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv*/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Large / irrelevant trees the image never copies
+models/
+snapshots/
+dist/
+eval/
+reports/
+docs/
+tools/
+tests/
+*.xlsx
+*.tar
+*.tar.gz
+
+# Never bake the contaminated control corpora into any served image.
+corpus/markdown/*-mio.md

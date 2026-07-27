@@ -18,12 +18,23 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 # glucowise (diabetes) and aiciblock (the rest). Keeping both here instead of
 # forking means one code path to maintain; when the projects split for good,
 # forking is just deleting the other entry.
+# v2 serving decisions (Fase B, 2026-07-24). Reversion is a one-line change
+# here — the originals are kept intact under the same directory, never
+# overwritten, so pointing a Path back is the whole rollback.
 PROFILES: dict[str, dict[str, Path]] = {
     "glucowise": {
-        "diabetes": Path("./corpus/markdown/diabetes.md"),
+        # v2: v4 distillation (better decision 85.5% vs 83.4%, telegraphy
+        # 7% vs 11%; -5% decode at nT=8, not a blocker). Revert -> diabetes.md
+        # (the v1 original, kept untouched).
+        "diabetes": Path("./corpus/markdown/diabetes.v4.md"),
     },
     "aiciblock": {
-        "hemorroides": Path("./corpus/markdown/hemorroides.md"),
+        # v2: vA rewrite (form-only, same facts, no invention; fixes the 108
+        # anticoagulant break, telegraphy 56%->23%). MUST_REFUSE re-derived
+        # unchanged. Revert -> hemorroides.md (the v1 original, kept untouched).
+        "hemorroides": Path("./corpus/markdown/hemorroides.vA.md"),
+        # v2: served original kept — v4 measured worse (88.7% vs 93.8%,
+        # telegraphy x5), does not enter v2.
         "cirugia-abdominal": Path("./corpus/markdown/cirugia-abdominal.md"),
     },
 }
@@ -39,8 +50,12 @@ class Settings(BaseSettings):
     # Required (no default) — env var: RAG_API_KEY
     rag_api_key: str
 
-    # Paths (defaults work in container)
-    model_path: Path = Path("./models/Ministral-3-3B-Q4_K_M.gguf")
+    # Paths (defaults work in container). v2 serves gemma-4-26B (MoE 26B/~4B
+    # active); the launcher does not pass MODEL_PATH, so this default is what
+    # the pool serves. The 17 GB GGUF is not baked into the image — the `init`
+    # stage downloads it (see B2/B3). Override via MODEL_PATH for local dev
+    # (e.g. the Ministral GGUF that fits a laptop).
+    model_path: Path = Path("./models/gemma-4-26B-A4B-it-UD-Q4_K_M.gguf")
 
     # Server
     host: str = "0.0.0.0"

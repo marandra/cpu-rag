@@ -1,0 +1,13 @@
+# OpenTofu / Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Secret-bearing local overrides (terraform.tfvars IS tracked — no secrets in it)
+*.auto.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json

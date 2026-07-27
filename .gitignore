@@ -27,3 +27,7 @@ reports/
 
 # Service secrets
 .env
+
+# Terraform/OpenTofu state — machine-specific, can carry resource detail
+infra/**/.terraform/
+infra/**/terraform.tfstate*
