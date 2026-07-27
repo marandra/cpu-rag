@@ -68,8 +68,9 @@ from audit_triage import (
     PROCEDURES,
     TELEGRAPHIC_CHARS,
     TRIAGE,
+    abstained,
     deferred,
-    refused,
+    refused,  # noqa: F401  (histórico; puntuar con abstained)
 )
 
 # DEF answers built on material the fulldoc does not carry: there was no answer
@@ -159,7 +160,7 @@ def telegraphic(text: str) -> bool:
     # Deferrals are short by design and are not corpus fragments, so counting
     # them here would make G2 look telegraphic for doing the thing it was
     # built to do.
-    return (not refused(text) and not deferred(text)
+    return (not abstained(text) and not deferred(text)
             and len(text.strip()) < TELEGRAPHIC_CHARS)
 
 
@@ -212,7 +213,7 @@ def correct(qid: int, answer: str) -> bool:
     """
     if deferred(answer):
         return qid in MUST_REFUSE
-    return refused(answer) == (qid in MUST_REFUSE)
+    return abstained(answer) == (qid in MUST_REFUSE)
 
 
 def procedure_of(qid: int) -> str:
@@ -263,7 +264,7 @@ def stability(passes: dict[str, dict[int, str]]) -> dict[int, tuple[int, int]]:
     per_q: dict[int, list[bool]] = {}
     for answers in passes.values():
         for qid, answer in answers.items():
-            per_q.setdefault(qid, []).append(refused(answer))
+            per_q.setdefault(qid, []).append(abstained(answer))
     out = {}
     for qid, decisions in per_q.items():
         majority = max(decisions.count(True), decisions.count(False))
@@ -367,7 +368,7 @@ def emit(runs: dict[str, dict[str, dict[int, str]]], baseline: str) -> list[str]
                     if procedure_of(qid) != proc:
                         continue
                     n += 1
-                    ref += refused(answer)
+                    ref += abstained(answer)
                     dfr += deferred(answer)
                     tel += telegraphic(answer)
             if n:
@@ -439,7 +440,7 @@ def scorecard(replays: Path, exclude: tuple[str, ...] = ()) -> int:
             continue
         ids = [i for i in TRIAGE if lo <= i <= hi]
         ok = [i for i in ids if TRIAGE[i][0] == "OK"]
-        ref = [i for i in ids if TRIAGE[i][0] == "FN" and refused(answers[i])]
+        ref = [i for i in ids if TRIAGE[i][0] == "FN" and abstained(answers[i])]
         tel = [i for i in ok if telegraphic(answers[i])]
         rows.append((proc, len(ids), len(ok), len(ref), len(tel)))
 
