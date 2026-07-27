@@ -82,26 +82,26 @@ def old_verdict(qid: int, answer: str) -> tuple[bool, str]:
     return correcta, clean(OVERRIDE.get(qid, evidence))
 
 
-def head(title: str, intro: list[str], ok: int, n: int, extra: list[str]) -> list[str]:
-    return [f"# {title}", ""] + intro + [
-        "",
+def head(title: str, ok: int, n: int) -> list[str]:
+    """Solo criterio y resultado. Las aclaraciones viven en el correo."""
+    return [
+        f"# {title}", "",
         "**Criterio.** Correcta = responde lo que se pregunta apoyada en el documento del "
         "procedimiento, sin inventar y sin fundir ni des-acotar una regla; o se abstiene "
         "donde el documento no da material. Abstenerse bien cuenta como correcta: es la "
         "conducta diseñada.",
         "",
         f"**Resultado: {ok} de {n} correctas ({ok / n:.0%}).**",
-        "",
-    ] + extra + ["---", ""]
+        "", "---", "",
+    ]
 
 
-def emit(path: Path, title: str, intro: list[str], extra: list[str],
-         answers: dict[int, str], answer_label: str,
+def emit(path: Path, title: str, answers: dict[int, str], answer_label: str,
          verdict, meta: dict[int, dict], with_score: bool) -> None:
     ids = sorted(TRIAGE)
     ok = sum(1 for q in ids if verdict(q, answers[q])[0])
 
-    L = head(title, intro, ok, len(ids), extra)
+    L = head(title, ok, len(ids))
     for proc, label, lo, hi in BLOCKS:
         block = [q for q in ids if lo <= q <= hi]
         good = sum(1 for q in block if verdict(q, answers[q])[0])
@@ -120,10 +120,6 @@ def emit(path: Path, title: str, intro: list[str], extra: list[str],
                 L += [f"**Vuestra puntuación.** {row.get('score', '?')}/10, "
                       f"{row.get('verdict', '?')}.", ""]
             L += [f"**Nuestra evaluación.** {marca}. {why}.", ""]
-            if with_score and qid in NONDET:
-                L += ["*La respuesta que registrasteis y la de nuestra reproducción no "
-                      "coinciden en esta pregunta: la versión auditada no era "
-                      "determinista.*", ""]
 
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
     print(f"escrito {path} — {ok}/{len(ids)} = {ok / len(ids):.0%}")
@@ -148,13 +144,6 @@ def main() -> int:
     emit(
         out / "auditoria_134_evaluacion.md",
         "Las 134 preguntas, con nuestra evaluación",
-        ["Vuestra lista tal cual, con nuestra evaluación de cada respuesta añadida al "
-         "lado. No hemos descartado ninguna pregunta ni cambiado ninguna respuesta.",
-         "",
-         "No repetimos vuestras críticas, que ya tenéis; sí vuestra puntuación, para "
-         "poder comparar."],
-        ["Nuestra evaluación se hizo sobre esta misma versión, la v1.1. Las respuestas de "
-         "la v2 van en el otro documento, con los mismos números de pregunta.", ""],
         {q: (meta[q].get("their_answer") or "") for q in TRIAGE},
         "Respuesta de la v1.1",
         old_verdict, meta, with_score=True,
@@ -163,15 +152,6 @@ def main() -> int:
     emit(
         out / "auditoria_134_v2.md",
         "Las 134 preguntas respondidas por la v2",
-        ["Las mismas 134 preguntas, respondidas por la v2 —modelo y corpus nuevos—, con "
-         "nuestra evaluación. Lo adjuntamos para que podáis verlo sin tener que "
-         "ejecutarlo vosotros; si preferís generarlo, la v2 está desplegada y os damos "
-         "acceso.",
-         "",
-         "Los números de pregunta son los mismos que en el otro documento."],
-        ["Es una sola ejecución, como lo era la vuestra. Y la mejora no es sólo del "
-         "modelo: dos de los tres documentos están reescritos con las guías de "
-         "redacción que salieron de esta auditoría.", ""],
         new, "Respuesta de la v2", hand_verdict, meta, with_score=False,
     )
     return 0

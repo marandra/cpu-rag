@@ -1,14 +1,8 @@
 # Las 134 preguntas, con nuestra evaluación
 
-Vuestra lista tal cual, con nuestra evaluación de cada respuesta añadida al lado. No hemos descartado ninguna pregunta ni cambiado ninguna respuesta.
-
-No repetimos vuestras críticas, que ya tenéis; sí vuestra puntuación, para poder comparar.
-
 **Criterio.** Correcta = responde lo que se pregunta apoyada en el documento del procedimiento, sin inventar y sin fundir ni des-acotar una regla; o se abstiene donde el documento no da material. Abstenerse bien cuenta como correcta: es la conducta diseñada.
 
 **Resultado: 83 de 134 correctas (62%).**
-
-Nuestra evaluación se hizo sobre esta misma versión, la v1.1. Las respuestas de la v2 van en el otro documento, con los mismos números de pregunta.
 
 ---
 
@@ -147,8 +141,6 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Nuestra evaluación.** Incorrecta. El diario de comidas no aparece en el documento.
 
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
-
 ### 14
 
 **Pregunta.** ¿El alcohol me va a sentar peor ahora que tengo que controlar el azúcar?
@@ -243,8 +235,6 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Nuestra evaluación.** Incorrecta. Cruza dos categorías de §Grupos de alimentos: el documento dice «moderar: edulcorantes» y la respuesta manda evitarlos, contradiciéndose dentro de la misma frase.
 
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
-
 ### 23
 
 **Pregunta.** ¿Me van a mandar pastillas o pinchazos para empezar?
@@ -254,8 +244,6 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 **Vuestra puntuación.** 2/10, Molt deficient.
 
 **Nuestra evaluación.** Correcta. Responde con la individualización del §Tratamiento farmacológico.
-
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
 
 ### 24
 
@@ -470,8 +458,6 @@ No siempre se notan cambios al principio.
 
 **Nuestra evaluación.** Incorrecta. §Grupos de alimentos «Suplementos/productos milagro: no curan la diabetes».
 
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
-
 ### 40
 
 **Pregunta.** ¿A partir de ahora tengo prohibido algún alimento del todo?
@@ -481,8 +467,6 @@ No siempre se notan cambios al principio.
 **Vuestra puntuación.** 6/10, Insuficient.
 
 **Nuestra evaluación.** Incorrecta. Doblemente cubierto: §Alimentación «ningún alimento prohibido» y §Mitos «No hay alimentos prohibidos».
-
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
 
 ### 41
 
@@ -505,8 +489,6 @@ No tengo información sobre eso.
 **Vuestra puntuación.** 1/10, Molt deficient.
 
 **Nuestra evaluación.** Correcta. Añade «No tengo información sobre eso» después de haber respondido.
-
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
 
 ### 43
 
@@ -1218,8 +1200,6 @@ No tengo información sobre eso.
 
 **Nuestra evaluación.** Incorrecta. El documento solo dice «dieta rica en fibra y líquidos»; el porqué («recuperación del tracto intestinal», «estreñimiento») es inventado.
 
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
-
 ### 112
 
 **Pregunta.** ¿Hay riesgo de quedarme incontinente por esta operación?
@@ -1260,8 +1240,6 @@ No tengo información sobre eso.
 
 **Nuestra evaluación.** Correcta. Responde desde §Riesgos, «dolor al defecar».
 
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
-
 ### 116
 
 **Pregunta.** ¿Cuánto tiempo tardaré en recuperarme de esta operación?
@@ -1281,8 +1259,6 @@ No tengo información sobre eso.
 **Vuestra puntuación.** 2/10, Molt deficient.
 
 **Nuestra evaluación.** Incorrecta. El documento nombra los «baños de asiento» pero NUNCA los define; la definición (agua tibia, área anal, alivia dolor e inflamación) es conocimiento paramétrico.
-
-*La respuesta que registrasteis y la de nuestra reproducción no coinciden en esta pregunta: la versión auditada no era determinista.*
 
 ### 118
 

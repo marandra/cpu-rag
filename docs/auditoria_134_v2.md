@@ -1,14 +1,8 @@
 # Las 134 preguntas respondidas por la v2
 
-Las mismas 134 preguntas, respondidas por la v2 —modelo y corpus nuevos—, con nuestra evaluación. Lo adjuntamos para que podáis verlo sin tener que ejecutarlo vosotros; si preferís generarlo, la v2 está desplegada y os damos acceso.
-
-Los números de pregunta son los mismos que en el otro documento.
-
 **Criterio.** Correcta = responde lo que se pregunta apoyada en el documento del procedimiento, sin inventar y sin fundir ni des-acotar una regla; o se abstiene donde el documento no da material. Abstenerse bien cuenta como correcta: es la conducta diseñada.
 
 **Resultado: 120 de 134 correctas (90%).**
-
-Es una sola ejecución, como lo era la vuestra. Y la mejora no es sólo del modelo: dos de los tres documentos están reescritos con las guías de redacción que salieron de esta auditoría.
 
 ---
 
