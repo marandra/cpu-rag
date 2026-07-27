@@ -62,7 +62,7 @@ EC2_DIR = "eval/ec2"
 # Las 37 que se transfieren sin leer: misma decisión que Ministral sobre una
 # pregunta que el fulldoc no cubre (FN, ambos rechazan → correcta) o que sí
 # cubre y ambos rechazan igualmente (SR → incorrecta).
-TRANSFERRED = "ambos rechazan; decisión y veredicto idénticos a Ministral"
+TRANSFERRED = "ambas versiones se abstienen; el documento no da material y el veredicto es el mismo"
 
 # qid -> (correcta, marginal, motivo). Sin entrada = transferida.
 HAND: dict[int, tuple[bool, bool, str]] = {
@@ -70,17 +70,17 @@ HAND: dict[int, tuple[bool, bool, str]] = {
     # Tres de las siete no son roturas de contenido: en 100 y 109 la verdad de
     # terreno ya decía «FN parcial» y el fulldoc sí da material; en 36 el
     # rechazo es lo correcto y quien fallaba era Ministral.
-    3: (False, False, "rechaza; §Criterios da «≥126 en dos ocasiones», que es la repetición que se pregunta"),
-    5: (False, False, "rechaza; §Tratamiento farmacológico («progresivo, individualizado») sostiene la respuesta"),
-    21: (False, False, "rechaza los primeros pasos, que el fulldoc sí enumera; la pérdida real de las cuatro"),
-    36: (True, False, "rechaza bien: el fulldoc NO tiene «qué llevar a la cita». Ministral servía la lista de vacaciones (2/10)"),
+    3: (False, False, "se abstiene; §Criterios diagnósticos dice «≥126 en dos ocasiones», que es justo la repetición por la que se pregunta"),
+    5: (False, False, "se abstiene; §Tratamiento farmacológico («progresivo, individualizado») sostenía la respuesta"),
+    21: (False, False, "se abstiene ante los primeros pasos, que el documento sí enumera. Es una pérdida real frente a la v1.1"),
+    36: (True, False, "se abstiene bien: el documento NO dice qué llevar a la cita. La v1.1 servía la lista de equipaje de vacaciones (vuestro 2/10)"),
     76: (False, False, "responde «recuperación días o semanas» a la duración del INGRESO: fuera de diana"),
-    100: (True, False, "§Cirugía mínimamente invasiva: incisiones pequeñas vs mayores. Es justo lo que pedía el auditor"),
-    109: (True, False, "§Alternativas: contrasta hemorroidectomía con coagulación láser, apoyado en el doc"),
+    100: (True, False, "§Cirugía mínimamente invasiva: incisiones pequeñas frente a mayores. Es justo lo que pedíais en vuestra crítica"),
+    109: (True, False, "§Alternativas: contrasta la hemorroidectomía con la coagulación por láser, apoyándose en el documento"),
 
     # ---- las 23 ganancias de decisión ------------------------------------
     6: (True, False, "§Autoanálisis literal, con la individualización de la frecuencia"),
-    8: (True, False, "rechaza; «el médico te enseña a pincharte» no está en el fulldoc — Ministral lo inventaba"),
+    8: (True, False, "se abstiene; «el médico te enseña a pincharte» no está en el documento — la v1.1 lo inventaba"),
     16: (True, False, "§Mitos: la DM2 inicial no da síntomas, se descubre por análisis"),
     25: (True, False, "§Mitos + §Alimentación: dieta equilibrada general, ningún alimento prohibido"),
     39: (True, False, "§Grupos de alimentos: ningún producto milagro cura la diabetes. Telegráfica (61 car)"),
@@ -88,16 +88,16 @@ HAND: dict[int, tuple[bool, bool, str]] = {
     41: (True, False, "§Aspectos psicológicos: normaliza el miedo y añade «vivir con, no para»"),
     47: (True, False, "§Aspectos psicológicos «no culparse», que es exactamente lo que se pregunta"),
     51: (True, False, "§Alimentación: responde el miedo a no volver a disfrutar con «ningún alimento prohibido»"),
-    52: (True, False, "rechaza; §Hipoglucemia NO afirma mortalidad. Ministral decía «sí, riesgo de muerte» (G1)"),
+    52: (True, False, "se abstiene; §Hipoglucemia NO afirma mortalidad. La v1.1 respondía «sí, riesgo de muerte» a un miedo a morir"),
     55: (True, False, "§Aspectos psicológicos: apoyo en entorno y asociaciones"),
     61: (True, False, "§Reanudar la alimentación literal: comer pronto no abre la sutura"),
     70: (True, False, "§Control del dolor (ACP) literal: todo programado, sin peligro de sobredosis"),
     83: (True, False, "§Qué es la cirugía mayor: «suele requerir anestesia general», con la premedicación detrás"),
     103: (True, False, "§Premedicación: normaliza la reacción emocional ante la intervención"),
     110: (True, True, "§Beneficios «reduce recaídas»: contesta de refilón la recurrencia. Telegráfica (70 car)"),
-    111: (True, False, "rechaza; el fulldoc da «fibra y líquidos» pero NUNCA el porqué, que Ministral inventaba"),
+    111: (True, False, "se abstiene; el documento dice «fibra y líquidos» pero NUNCA el porqué, que la v1.1 inventaba"),
     114: (True, False, "§Preparación «ayuno 6–8 h» responde directo el día antes"),
-    117: (True, False, "rechaza; el fulldoc nombra los baños de asiento pero no los define — Ministral tiraba de paramétrico"),
+    117: (True, False, "se abstiene; el documento nombra los baños de asiento pero no los define — la v1.1 los definía por su cuenta"),
     121: (True, False, "§Alternativas completa: pomadas, baños, dieta, bandas, láser"),
     123: (True, False, "§Aspectos prácticos literal: puede retirar el consentimiento"),
     127: (True, False, "§Preparación «dolor moderado». Telegráfica (69 car)"),
@@ -108,21 +108,21 @@ HAND: dict[int, tuple[bool, bool, str]] = {
     # las 18 por construcción (verdicto DEF) y gemma arregla 15.
     2: (True, True, "«al principio, alimentación, ejercicio y pérdida de peso»: sin el «en muchos casos» inventado, pero contesta de lado"),
     4: (True, False, "combina HC con proteína/fibra/grasa: caen los dos defectos (menú inventado y la dosis de insulina re-sujetada)"),
-    7: (False, False, "vuelca la batería de revisiones en vez de decir para qué sirve la HbA1c; mejor sección que Ministral, misma falla"),
+    7: (False, False, "vuelca la batería de revisiones en vez de decir para qué sirve la HbA1c; mejor sección que la v1.1, misma falla"),
     22: (True, False, "«limitar» dulces y HC rápidos; se va la contradicción moderar/evitar edulcorantes"),
     24: (True, False, "sin la fuga de meta-comentario ni «patatas integrales»; tubérculos en cantidad controlada, evitar fritos"),
     26: (True, True, "progresividad y constancia, sin la prescripción aritméticamente imposible; pero no dice cuánto"),
-    29: (True, False, "G1 arreglada: paracetamol y el >39 °C vuelven a ser cosas distintas, y recupera «cuidado con sobres y jarabes con azúcar»"),
+    29: (True, False, "arreglada: paracetamol y el >39 °C vuelven a ser cosas distintas, y recupera «cuidado con sobres y jarabes con azúcar»"),
     30: (False, False, "«los glucómetros miden la glucosa capilar» no contesta si hay que comprarlo. Telegráfica (44 car)"),
-    60: (True, False, "define el catéter epidural entero; Ministral se quedaba en nombrarlo"),
-    63: (False, False, "respuesta idéntica a la de Ministral: sigue omitiendo que todo analgésico puede dar efectos no deseados"),
+    60: (True, False, "define el catéter epidural entero; la v1.1 se quedaba en nombrarlo"),
+    63: (False, False, "respuesta idéntica a la de la v1.1: sigue omitiendo que todo analgésico puede dar efectos no deseados"),
     67: (True, False, "recupera la condición «cuando el grado de ansiedad y temor sea elevado»"),
     68: (True, False, "recupera «y luego vía oral (pastillas)»: se acaba el gotero indefinido"),
     69: (True, False, "recupera «el cirujano le indicará cómo proceder», que era la respuesta que faltaba"),
-    84: (True, False, "da el género (no abrir cavidades) y LUEGO la laparoscopia como caso; la sonda vieja no lo veía"),
+    84: (True, False, "da primero el género (no abrir las cavidades) y LUEGO la laparoscopia como caso concreto, que es lo que se preguntaba"),
     87: (True, False, "devuelve el «con ayuda» a sentarse, no a caminar"),
     89: (True, True, "coherente y apoyada (la bebida de HC evita el hambre); no dice «no improvise ingesta»"),
-    105: (True, False, "«anestesia regional o anestesia general»: conserva la disyunción; la sonda vieja no lo veía"),
+    105: (True, False, "«anestesia regional o anestesia general»: conserva la disyunción del documento en vez de cerrarla en una sola"),
     108: (True, False, "«el equipo médico le ajusta la medicación»: el sujeto clínico vuelve a su sitio"),
 
     # ---- las 49 OK sin cambio de decisión --------------------------------
@@ -130,11 +130,11 @@ HAND: dict[int, tuple[bool, bool, str]] = {
     31: (False, False, "responde «puede ir de vacaciones» a «¿podré hacer vida normal?»: sección equivocada. Telegráfica (50 car)"),
     42: (False, False, "«la insulina reduce las complicaciones, incluida la ceguera» a «¿me quedaré ciego?»: fuera de diana y engañosa"),
     56: (True, True, "solo describe la abierta; el contraste con la laparoscópica queda implícito"),
-    65: (True, False, "mejora a Ministral: dice que unas pruebas son de todos y otras específicas, que es lo que pedía el auditor"),
-    17: (True, False, "mejora a Ministral: deja caer los objetivos fijos <130/80 y LDL<100 que el auditor puntuó 2/10"),
+    65: (True, False, "mejora sobre la v1.1: dice que unas pruebas se hacen a todos y otras son específicas, que es justo lo que pedíais"),
+    17: (True, False, "mejora sobre la v1.1: deja caer los objetivos fijos <130/80 y LDL<100 que puntuasteis 2/10"),
     91: (True, True, "§Premedicación literal; normaliza la reacción emocional sin decir «sí» explícito"),
     # Las 42 OK restantes: gemma reformula o amplía sin romper nada.
-    **{q: (True, False, "mantiene el acierto de Ministral (reformulada o ampliada, misma base documental)")
+    **{q: (True, False, "mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental")
        for q in (1, 9, 11, 12, 14, 15, 18, 23, 28, 32, 33, 34, 35, 48, 57, 58, 59,
                  62, 64, 66, 71, 74, 75, 78, 80, 81, 82, 86, 88, 90, 93, 96, 106,
                  107, 112, 115, 116, 118, 119, 122, 124, 125, 134)},
