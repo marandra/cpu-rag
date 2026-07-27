@@ -42,10 +42,16 @@ python3 tools/audit_score.py --run "servido-ministral=eval/audit_replay" \
 
 | criterio | Ministral (orig.) | **gemma v2** | cliente |
 | --- | ---: | ---: | ---: |
-| **Decisión** responder/rechazar (reproducible) | 79.1% (106/134) | **91.0% (122/134)** | — |
-| **Corrección** (bien s/corpus + rechazos ok) — *mano* | ~63% | **~84% (~112)** | **9%** |
-| **Presentable** (menos telegráficas) — *mano* | ~50% | **~78% (~105)** | — |
-| Corrección — *proxy automático `scorecard()`, conservador* | 63% (84/134) | 60% (81/134) | — |
+| **Decisión** responder/rechazar — *automático, sobre el run EC2* | 79.1% (106/134) | **91.0% (122/134)** | — |
+| Corrección — *automático `scorecard()`, sobre el run EC2, CONSERVADOR* | 63% (84/134) | 60% (81/134) | **9%** |
+| Presentable — *automático, sobre el run EC2, conservador* | 50% (67/134) | 55% (74/134) | — |
+| Corrección / presentable — *lectura a MANO de un run gemma ANTERIOR (A2), NO del EC2* | — | **~84% / ~78%** | — |
+
+⚠️ **El ~84%/78% NO está medido sobre el run EC2.** Es lectura a mano de un run
+A2 previo, trasladado como estimación (gemma tiene 1% de volteo por seed y la
+decisión reprodujo clavada el 91%). Lo único certificado sobre las respuestas del
+EC2 (`eval/ec2/`) es el **91% de decisión** y el **60/55 automático conservador**.
+Certificar el ~84/78 sobre este run es exactamente la tarea **C1**.
 
 Diff emparejado: **gana 23, rompe 7, neto +16**; ratio 6.3× (discrimina mejor, no
 mueve umbral). Fronteras: **5 de 7 defectos arreglados** (108 anticoagulante ✅,
