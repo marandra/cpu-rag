@@ -4,16 +4,16 @@
 
   1. `docs/auditoria_134_evaluacion.md` — SU lista (sus preguntas, la respuesta
      que auditaron, su puntuación) con nuestra evaluación añadida en paralelo.
-  2. `docs/auditoria_134_sistema_actual.md` — las mismas 134 respondidas por el
-     sistema actual (modelo + corpus nuevos), con nuestra evaluación.
+  2. `docs/auditoria_134_v2.md` — las mismas 134 respondidas por la v2 (modelo
+     + corpus nuevos), con nuestra evaluación.
 
 Un solo criterio en los dos: **correcta / incorrecta**. Correcta = responde lo
 que se pregunta apoyada en el documento, sin inventar y sin fundir ni des-acotar
 una regla; o se abstiene donde el documento no da material.
 
-Sin lógica de puntuación propia. Los veredictos ya existen: los de la versión
-auditada en `audit_triage.TRIAGE` (leídos a mano en su día), los del sistema
-actual en `audit_hand.HAND`. Esto los junta con las preguntas y los formatea,
+Sin lógica de puntuación propia. Los veredictos ya existen: los de la v1.1 en
+`audit_triage.TRIAGE` (leídos a mano en su día), los de la v2 en
+`audit_hand.HAND`. Esto los junta con las preguntas y los formatea,
 saneando la jerga interna — los ficheros salen fuera.
 """
 
@@ -153,27 +153,26 @@ def main() -> int:
          "",
          "No repetimos vuestras críticas, que ya tenéis; sí vuestra puntuación, para "
          "poder comparar."],
-        ["Nuestra evaluación se hizo sobre esta misma versión del sistema, la que "
-         "auditasteis. Las respuestas del sistema actual van en el otro documento, con "
-         "los mismos números de pregunta.", ""],
+        ["Nuestra evaluación se hizo sobre esta misma versión, la v1.1. Las respuestas de "
+         "la v2 van en el otro documento, con los mismos números de pregunta.", ""],
         {q: (meta[q].get("their_answer") or "") for q in TRIAGE},
-        "Respuesta del sistema auditado",
+        "Respuesta de la v1.1",
         old_verdict, meta, with_score=True,
     )
 
     emit(
-        out / "auditoria_134_sistema_actual.md",
-        "Las 134 preguntas respondidas por el sistema actual",
-        ["Las mismas 134 preguntas, respondidas por la versión actual —modelo y corpus "
-         "nuevos—, con nuestra evaluación. Lo adjuntamos para que podáis verlo sin "
-         "tener que ejecutarlo vosotros; si preferís generarlo, el sistema está "
-         "desplegado y os damos acceso.",
+        out / "auditoria_134_v2.md",
+        "Las 134 preguntas respondidas por la v2",
+        ["Las mismas 134 preguntas, respondidas por la v2 —modelo y corpus nuevos—, con "
+         "nuestra evaluación. Lo adjuntamos para que podáis verlo sin tener que "
+         "ejecutarlo vosotros; si preferís generarlo, la v2 está desplegada y os damos "
+         "acceso.",
          "",
          "Los números de pregunta son los mismos que en el otro documento."],
-        ["Es una sola ejecución, como lo era la vuestra. Y la mejora no es solo del "
+        ["Es una sola ejecución, como lo era la vuestra. Y la mejora no es sólo del "
          "modelo: dos de los tres documentos están reescritos con las guías de "
          "redacción que salieron de esta auditoría.", ""],
-        new, "Respuesta del sistema actual", hand_verdict, meta, with_score=False,
+        new, "Respuesta de la v2", hand_verdict, meta, with_score=False,
     )
     return 0
 

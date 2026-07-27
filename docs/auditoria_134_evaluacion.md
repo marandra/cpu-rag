@@ -8,7 +8,7 @@ No repetimos vuestras críticas, que ya tenéis; sí vuestra puntuación, para p
 
 **Resultado: 83 de 134 correctas (62%).**
 
-Nuestra evaluación se hizo sobre esta misma versión del sistema, la que auditasteis. Las respuestas del sistema actual van en el otro documento, con los mismos números de pregunta.
+Nuestra evaluación se hizo sobre esta misma versión, la v1.1. Las respuestas de la v2 van en el otro documento, con los mismos números de pregunta.
 
 ---
 
@@ -20,7 +20,7 @@ Nuestra evaluación se hizo sobre esta misma versión del sistema, la que audita
 
 **Pregunta.** Me han dicho que tengo diabetes tipo 2, ¿tengo que empezar a pincharme insulina desde el primer día?
 
-**Respuesta del sistema auditado.** No, la insulina no es obligatoria desde el primer día. Su necesidad depende de cómo se controle la diabetes con otros métodos.
+**Respuesta de la v1.1.** No, la insulina no es obligatoria desde el primer día. Su necesidad depende de cómo se controle la diabetes con otros métodos.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
@@ -30,7 +30,7 @@ Nuestra evaluación se hizo sobre esta misma versión del sistema, la que audita
 
 **Pregunta.** ¿Es verdad que si me controlo bien con dieta y ejercicio puedo evitar la medicación al principio?
 
-**Respuesta del sistema auditado.** Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.
+**Respuesta de la v1.1.** Sí, en muchos casos se puede evitar la medicación al principio con dieta y ejercicio.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -40,7 +40,7 @@ Nuestra evaluación se hizo sobre esta misma versión del sistema, la que audita
 
 **Pregunta.** Antes de empezar el tratamiento, ¿me van a mandar hacer más análisis para confirmarlo?
 
-**Respuesta del sistema auditado.** Sí, antes de confirmar el diagnóstico de diabetes tipo 2 se suelen realizar **glucemia basal en ayunas ≥126 mg/dl en dos ocasiones**, **glucosa al azar >200 mg/dl con síntomas** o **sobrecarga oral >200 mg/dl a las 2 horas**.
+**Respuesta de la v1.1.** Sí, antes de confirmar el diagnóstico de diabetes tipo 2 se suelen realizar **glucemia basal en ayunas ≥126 mg/dl en dos ocasiones**, **glucosa al azar >200 mg/dl con síntomas** o **sobrecarga oral >200 mg/dl a las 2 horas**.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -50,7 +50,7 @@ Nuestra evaluación se hizo sobre esta misma versión del sistema, la que audita
 
 **Pregunta.** He leído que hay que evitar los picos de azúcar, ¿qué significa eso para mis comidas a partir de ahora?
 
-**Respuesta del sistema auditado.** La glucemia debe evitar **picos** (aumento brusco) tras las comidas, combinando hidratos de carbono con proteína, grasa saludable y fibra. Distribuir las tomas a lo largo del día.
+**Respuesta de la v1.1.** La glucemia debe evitar **picos** (aumento brusco) tras las comidas, combinando hidratos de carbono con proteína, grasa saludable y fibra. Distribuir las tomas a lo largo del día.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -60,7 +60,7 @@ Nuestra evaluación se hizo sobre esta misma versión del sistema, la que audita
 
 **Pregunta.** Si me mandan pastillas nada más diagnosticarme, ¿es porque mi caso es más grave?
 
-**Respuesta del sistema auditado.** La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl o HbA1c ≥6,5 %.
+**Respuesta de la v1.1.** La diabetes tipo 2 se diagnostica con glucemia basal ≥126 mg/dl o HbA1c ≥6,5 %.
 Si te recetan pastillas al inicio, **no hay información sobre que sea más grave que otros casos**.
 
 **Vuestra puntuación.** 3/10, Deficient.
@@ -71,7 +71,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** ¿Tengo que empezar a medirme el azúcar en casa desde ya, aunque no me hayan mandado insulina?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -81,7 +81,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Me han hablado de una analítica que mide el azúcar de los últimos meses, ¿para qué me la van a pedir ahora?
 
-**Respuesta del sistema auditado.** HbA1c ≥6,5 %.
+**Respuesta de la v1.1.** HbA1c ≥6,5 %.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -91,7 +91,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Si necesito insulina, ¿el médico me enseña a pincharme o tengo que aprenderlo por mi cuenta?
 
-**Respuesta del sistema auditado.** El médico suele enseñarte a pincharte con insulina.
+**Respuesta de la v1.1.** El médico suele enseñarte a pincharte con insulina.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -101,7 +101,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** He oído que hay diabetes "buena" y "mala", ¿mi caso va a depender de eso?
 
-**Respuesta del sistema auditado.** No hay diabetes "buena" o "mala", sino bien o mal controlada.
+**Respuesta de la v1.1.** No hay diabetes "buena" o "mala", sino bien o mal controlada.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -111,7 +111,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Si empiezo ahora con la pastilla que dan más, ¿la tendré que tomar para siempre?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -121,7 +121,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Me han dicho que tengo que perder peso, ¿cuánto tengo que bajar para que se note en el tratamiento?
 
-**Respuesta del sistema auditado.** Pérder **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular en personas con sobrepeso/obesidad y diabetes tipo 2.
+**Respuesta de la v1.1.** Pérder **5–10 % del peso corporal** mejora glucemia, tensión, lípidos y riesgo cardiovascular en personas con sobrepeso/obesidad y diabetes tipo 2.
 
 **Vuestra puntuación.** 8/10, Acceptable amb millores.
 
@@ -131,7 +131,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** ¿El sobrepeso es la razón de que me haya salido esto ahora?
 
-**Respuesta del sistema auditado.** El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la producción insuficiente de insulina, otros factores genéticos, estilo de vida y envejecimiento también influyen.
+**Respuesta de la v1.1.** El sobrepeso y la obesidad abdominal son **factores de riesgo** para desarrollar diabetes tipo 2, pero no son la única causa. La resistencia a la insulina, la producción insuficiente de insulina, otros factores genéticos, estilo de vida y envejecimiento también influyen.
 
 **Vuestra puntuación.** 8/10, Acceptable amb millores.
 
@@ -141,7 +141,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** De cara a mi próxima revisión, ¿tengo que anotar todo lo que como desde ya?
 
-**Respuesta del sistema auditado.** Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos.
+**Respuesta de la v1.1.** Sí, es recomendable anotar todo lo que comes para evaluar tu alimentación y ajustarla según tus objetivos.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -153,7 +153,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** ¿El alcohol me va a sentar peor ahora que tengo que controlar el azúcar?
 
-**Respuesta del sistema auditado.** El alcohol puede favorecer hipoglucemias, especialmente si se consume con insulina o ciertos fármacos.
+**Respuesta de la v1.1.** El alcohol puede favorecer hipoglucemias, especialmente si se consume con insulina o ciertos fármacos.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -163,7 +163,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Me han comentado que debo vigilar los pies a partir de ahora, ¿por qué justo eso?
 
-**Respuesta del sistema auditado.** La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y vasos sanguíneos.
+**Respuesta de la v1.1.** La diabetes tipo 2 aumenta el riesgo de **pie diabético** por daño en nervios y vasos sanguíneos.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -173,7 +173,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Si al principio no noto ningún síntoma, ¿puede que el diagnóstico esté equivocado?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -183,7 +183,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Me han dicho que también me van a revisar la tensión y el colesterol, ¿tiene que ver con esto?
 
-**Respuesta del sistema auditado.** Sí, la revisión de tensión arterial y colesterol está relacionada con tu diabetes tipo 2.
+**Respuesta de la v1.1.** Sí, la revisión de tensión arterial y colesterol está relacionada con tu diabetes tipo 2.
 
 **Objetivos del tratamiento incluyen controlar tensión arterial (<130/80 mmHg) y colesterol (LDL <100 mg/dl)**.
 
@@ -195,7 +195,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Si empiezo con insulina, ¿me la tengo que poner siempre en el mismo sitio del cuerpo?
 
-**Respuesta del sistema auditado.** No, debes **rotar las zonas de inyección** para evitar lipodistrofias.
+**Respuesta de la v1.1.** No, debes **rotar las zonas de inyección** para evitar lipodistrofias.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
@@ -205,7 +205,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** ¿Cuánto tiempo pasa desde que empiezo el tratamiento hasta que noto que hace efecto?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -215,7 +215,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** ¿Van a cambiarme la medicación pronto si ven que con esta no controlo bien?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -225,7 +225,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Pregunta.** Me acaban de decir que tengo diabetes, ¿qué es lo primero que tengo que hacer?
 
-**Respuesta del sistema auditado.** Lo primero que debes hacer es **mantener la glucosa, tensión, colesterol y peso controlados** y seguir un **tratamiento integral** (alimentación, ejercicio, medicación si es necesaria).
+**Respuesta de la v1.1.** Lo primero que debes hacer es **mantener la glucosa, tensión, colesterol y peso controlados** y seguir un **tratamiento integral** (alimentación, ejercicio, medicación si es necesaria).
 
 Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemia, HbA1c, tensión arterial y colesterol** para evitar complicaciones.
 
@@ -237,7 +237,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Tengo que dejar de comer dulces desde ya?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -249,7 +249,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Me van a mandar pastillas o pinchazos para empezar?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -261,7 +261,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Puedo seguir comiendo pan y patatas ahora que tengo esto?
 
-**Respuesta del sistema auditado.** Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.
+**Respuesta de la v1.1.** Sí, puedes comer pan y patatas, pero en cantidades controladas y preferiblemente integrales.
 
 *(No añado equivalencias o recomendaciones específicas de raciones, solo lo que dice el texto: "tubérculos (patata, evitar fritos)" y "pan integral" como opciones moderadas).*
 
@@ -273,7 +273,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Tengo que hacer una dieta especial o puedo comer como siempre?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -283,7 +283,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Cuánto ejercicio tengo que empezar a hacer?
 
-**Respuesta del sistema auditado.** La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en sesiones de al menos 30-45 minutos diarios.
+**Respuesta de la v1.1.** La guía recomienda **150 minutos semanales de ejercicio aeróbico moderado** (caminar, bici, nadar, bailar), repartidos en sesiones de al menos 30-45 minutos diarios.
 
 *(No especifica una cantidad exacta en horas, solo el tiempo semanal y la frecuencia diaria).*
 
@@ -295,7 +295,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Voy a tener que pincharme todos los días a partir de ahora?
 
-**Respuesta del sistema auditado.** No tengo información sobre si necesitas pincharte.
+**Respuesta de la v1.1.** No tengo información sobre si necesitas pincharte.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -305,7 +305,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Puedo tomar alcohol si hay alguna celebración?
 
-**Respuesta del sistema auditado.** Moderación y precauciones:
+**Respuesta de la v1.1.** Moderación y precauciones:
 - Consumir alcohol con moderación en celebraciones.
 - Nunca en ayunas.
 - Evitar bebidas de alta graduación.
@@ -319,7 +319,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Qué hago si me pongo malo, con fiebre, ahora que tengo esto?
 
-**Respuesta del sistema auditado.** Si tienes fiebre, sigue estas indicaciones:
+**Respuesta de la v1.1.** Si tienes fiebre, sigue estas indicaciones:
 
 - **No suspendas tu medicación** (pastillas o insulina) salvo que un médico te indique lo contrario.
 - **Bebe 2-3 litros de líquidos al día** repartidos cada 3 horas: agua, zumos naturales, infusiones o caldos.
@@ -343,7 +343,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Tengo que comprarme algún aparato para medirme el azúcar en casa?
 
-**Respuesta del sistema auditado.** Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.
+**Respuesta de la v1.1.** Sí, necesitas un glucómetro para medirte la glucosa en sangre en casa.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -353,7 +353,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Voy a poder hacer vida normal con este diagnóstico?
 
-**Respuesta del sistema auditado.** Sí, puedes hacer vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y el autocuidado.
+**Respuesta de la v1.1.** Sí, puedes hacer vida normal con diabetes tipo 2 si mantienes el tratamiento adecuado y el autocuidado.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -363,7 +363,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Pregunta.** ¿Qué cuidados tengo que tener con los pies a partir de ahora?
 
-**Respuesta del sistema auditado.** Revisar los pies a diario (heridas, ampollas, cambios de color, grietas).
+**Respuesta de la v1.1.** Revisar los pies a diario (heridas, ampollas, cambios de color, grietas).
 
 Lavarlos con agua tibia y secarlos bien, especialmente entre los dedos.
 
@@ -387,7 +387,7 @@ Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, 
 
 **Pregunta.** ¿Voy a notar algo raro en el cuerpo o me voy a sentir igual que antes?
 
-**Respuesta del sistema auditado.** Sí, con diabetes tipo 2 **puede no haber síntomas durante años**, pero una vez diagnosticada, los síntomas pueden incluir:
+**Respuesta de la v1.1.** Sí, con diabetes tipo 2 **puede no haber síntomas durante años**, pero una vez diagnosticada, los síntomas pueden incluir:
 - Sed excesiva,
 - Aumento de la orina,
 - Cansancio,
@@ -406,7 +406,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿Voy a tener que ir al médico más a menudo desde ahora?
 
-**Respuesta del sistema auditado.** Sí, necesitarás revisiones **periódicas** para detectar complicaciones tempranas.
+**Respuesta de la v1.1.** Sí, necesitarás revisiones **periódicas** para detectar complicaciones tempranas.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -416,7 +416,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿Puedo seguir yendo de viaje o de vacaciones con normalidad?
 
-**Respuesta del sistema auditado.** Sí, puedes ir de vacaciones, pero con precauciones:
+**Respuesta de la v1.1.** Sí, puedes ir de vacaciones, pero con precauciones:
 - Evitar destinos con temperaturas extremas.
 - Llevar glucómetro, tiras reactivas, jeringas, agujas, pluma de insulina, azúcar, fruta, galletas o caramelos por si hay hipoglucemia.
 - Identificarte como persona diabética.
@@ -430,7 +430,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿Qué tengo que llevar preparado a mi próxima cita?
 
-**Respuesta del sistema auditado.** Llevar preparado:
+**Respuesta de la v1.1.** Llevar preparado:
 - **Informe médico con el tratamiento actual** (medicamentos, dosis y tipo de insulina si aplica).
 - **Material para autoanálisis** (glucómetro, lancetas, tiras reactivas, bolsita para guardar resultados).
 - **Azucarillos o caramelos** (por si hay hipoglucemia).
@@ -444,7 +444,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿Es lo mismo que le pasó a mi familiar o mi caso puede ser diferente?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -454,7 +454,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿Tengo que avisar en el trabajo de que me han diagnosticado esto?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -464,7 +464,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿Necesito comprar productos especiales de farmacia para diabéticos?
 
-**Respuesta del sistema auditado.** No, no necesitas comprar productos especiales de farmacia para diabéticos. Solo necesitas glucómetro, lancetas y tiras reactivas si realizas autoanálisis.
+**Respuesta de la v1.1.** No, no necesitas comprar productos especiales de farmacia para diabéticos. Solo necesitas glucómetro, lancetas y tiras reactivas si realizas autoanálisis.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -476,7 +476,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿A partir de ahora tengo prohibido algún alimento del todo?
 
-**Respuesta del sistema auditado.** No tienes alimentos prohibidos del todo.
+**Respuesta de la v1.1.** No tienes alimentos prohibidos del todo.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -488,7 +488,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** Me acaban de diagnosticar diabetes y tengo miedo, ¿mi vida cambia para siempre a partir de ahora?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -498,7 +498,7 @@ No siempre se notan cambios al principio.
 
 **Pregunta.** ¿Me voy a quedar ciego con el tiempo por esto?
 
-**Respuesta del sistema auditado.** La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede derivar en pérdida de visión si no se controla.
+**Respuesta de la v1.1.** La diabetes tipo 2 puede dañar los ojos y causar **retinopatía diabética**, que con el tiempo puede derivar en pérdida de visión si no se controla.
 
 No tengo información sobre eso.
 
@@ -512,7 +512,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me van a tener que amputar el pie en algún momento?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -522,7 +522,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me da vergüenza pincharme insulina delante de otras personas, ¿qué hago?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -532,7 +532,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Esto se cura si me cuido mucho desde el principio?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -542,7 +542,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Mi padre murió de complicaciones de diabetes, ¿a mí también me va a pasar?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -552,7 +552,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es culpa mía haber desarrollado esto por cómo comía antes?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -562,7 +562,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me acaban de dar el diagnóstico y estoy agobiado con todo lo que tengo que controlar de golpe, ¿es normal?
 
-**Respuesta del sistema auditado.** Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.
+**Respuesta de la v1.1.** Sí, es normal sentir agobio al inicio del diagnóstico de diabetes tipo 2.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -572,7 +572,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Esto significa que ya no voy a poder tener hijos?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -582,7 +582,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Este diagnóstico me va a quitar años de vida?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -592,7 +592,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Siento que ya no voy a poder disfrutar de comer nunca más, ¿es así?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -602,7 +602,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me puedo morir mientras duermo si se me baja mucho el azúcar por la noche?
 
-**Respuesta del sistema auditado.** Sí, puede ocurrir hipoglucemia nocturna que lleve a riesgo vital.
+**Respuesta de la v1.1.** Sí, puede ocurrir hipoglucemia nocturna que lleve a riesgo vital.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -612,7 +612,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Tengo miedo a las agujas, ¿de verdad voy a tener que pincharme?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -622,7 +622,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Mis hijos van a heredar esto seguro por mi culpa?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -632,7 +632,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me siento solo con este diagnóstico recién dado, ¿hay alguien con quien pueda hablar de esto?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -646,7 +646,7 @@ No tengo información sobre eso.
 
 **Pregunta.** He leído que hay operaciones por cámara y operaciones abiertas, ¿cambia mucho la recuperación entre una y otra?
 
-**Respuesta del sistema auditado.** La recuperación puede variar según el tipo de cirugía, pero en la cirugía laparoscópica (por cámara) las incisiones son menores que en la cirugía convencional (abierta), lo que puede reducir el dolor inicial y acortar la recuperación en comparación con la cirugía abierta.
+**Respuesta de la v1.1.** La recuperación puede variar según el tipo de cirugía, pero en la cirugía laparoscópica (por cámara) las incisiones son menores que en la cirugía convencional (abierta), lo que puede reducir el dolor inicial y acortar la recuperación en comparación con la cirugía abierta.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
@@ -656,7 +656,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es verdad que me van a meter gas en la tripa durante la operación y que eso da molestias después?
 
-**Respuesta del sistema auditado.** Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante **1 o 2 días** tras el procedimiento.
+**Respuesta de la v1.1.** Sí, durante la cirugía laparoscópica se insufla gas en el abdomen para visualizar los órganos. Puede causar molestias abdominales durante **1 o 2 días** tras el procedimiento.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -666,7 +666,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Antes de operarme me van a revisar cómo estoy de alimentación, ¿para qué sirve eso exactamente?
 
-**Respuesta del sistema auditado.** El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía.
+**Respuesta de la v1.1.** El cribado nutricional se realiza para **detectar desnutrición** antes de la cirugía.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -676,7 +676,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Para qué me dan esa bebida especial antes de entrar a quirófano?
 
-**Respuesta del sistema auditado.** La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.
+**Respuesta de la v1.1.** La bebida con hidratos de carbono se da entre 200 y 400 ml unas horas antes de la cirugía para evitar los efectos del ayuno preoperatorio.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
@@ -686,7 +686,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me han hablado de un tubito en la espalda para el dolor, ¿qué es eso exactamente?
 
-**Respuesta del sistema auditado.** Es un **catéter epidural**.
+**Respuesta de la v1.1.** Es un **catéter epidural**.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -696,7 +696,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es verdad que si como pronto después de operarme se me puede abrir la herida por dentro?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -706,7 +706,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuánto tardo en ir al baño con normalidad después de que me operen?
 
-**Respuesta del sistema auditado.** La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.
+**Respuesta de la v1.1.** La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
@@ -716,7 +716,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Qué riesgos tiene ese tubito que me ponen en la espalda para el dolor?
 
-**Respuesta del sistema auditado.** La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.
+**Respuesta de la v1.1.** La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.
 
 **Vuestra puntuación.** 1/10, Molt deficient.
 
@@ -726,7 +726,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Por qué le dan tanta importancia a que me levante pronto después de la operación?
 
-**Respuesta del sistema auditado.** La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.
+**Respuesta de la v1.1.** La inmovilización prolongada aumenta el riesgo de coágulos venosos en piernas y pulmones, debilidad muscular y neumonía por retención de secreciones.
 
 **Vuestra puntuación.** 9/10, Adequada.
 
@@ -736,7 +736,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Además de las pruebas normales, ¿me van a hacer algo más antes de operarme?
 
-**Respuesta del sistema auditado.** El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).
+**Respuesta de la v1.1.** El cribado nutricional se realiza a todos los pacientes de cirugía mayor abdominal, que incluye valorar peso, talla, cambios de peso, hábitos alimenticios, duración y evolución de la enfermedad, y datos analíticos (por ejemplo, albúmina).
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -746,7 +746,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Desde cuántas horas antes de la operación tengo que dejar de beber líquidos?
 
-**Respuesta del sistema auditado.** La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.
+**Respuesta de la v1.1.** La mayoría de las personas pueden beber líquidos hasta **2 horas antes de la operación**.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -756,7 +756,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Si me pongo muy nervioso antes de entrar a quirófano, ¿me pueden dar algo para calmarme?
 
-**Respuesta del sistema auditado.** Sí, te darán medicación para llegar al quirófano relajado:
+**Respuesta de la v1.1.** Sí, te darán medicación para llegar al quirófano relajado:
 - Una pastilla la noche antes de la cirugía.
 - Una pastilla 1 ó 2 horas antes de la intervención.
 
@@ -768,7 +768,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cómo me van a controlar el dolor los primeros días después de operarme?
 
-**Respuesta del sistema auditado.** Después de la cirugía, te trasladarán a la **Unidad de Recuperación Postanestésica**, donde el anestesiólogo prescribirá un tratamiento del dolor adaptado a tu caso.
+**Respuesta de la v1.1.** Después de la cirugía, te trasladarán a la **Unidad de Recuperación Postanestésica**, donde el anestesiólogo prescribirá un tratamiento del dolor adaptado a tu caso.
 
 - **Primeras 24–48 horas**: vía intravenosa (gotero) con calmantes a ritmo fijo cada **6 u 8 horas**, y un calmante "de rescate" a demanda.
 - **Posteriores días**: el tratamiento continuará vía oral (pastillas).
@@ -782,7 +782,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Como tengo diabetes, ¿cambia algo el ayuno antes de mi operación?
 
-**Respuesta del sistema auditado.** La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.
+**Respuesta de la v1.1.** La diabetes requiere un control de glucosa en sangre lo más riguroso posible antes de la operación.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -792,7 +792,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me han hablado de un aparatito con un botón para el dolor, ¿tiene riesgo de que me pase con la dosis?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -802,7 +802,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Por qué le dan tanta importancia a que llegue bien alimentado a la operación?
 
-**Respuesta del sistema auditado.** El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.
+**Respuesta de la v1.1.** El cribado nutricional preoperatorio detecta desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -812,7 +812,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me han dicho que puedo quedarme con molestia en el hombro después de operarme, ¿eso es normal?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -822,7 +822,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Puedo comer con normalidad los días antes de la operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -832,7 +832,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me va a doler mucho después de que me operen?
 
-**Respuesta del sistema auditado.** El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.
+**Respuesta de la v1.1.** El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -842,7 +842,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuándo podré levantarme de la cama después de la operación?
 
-**Respuesta del sistema auditado.** Debes levantarte al día siguiente de la cirugía.
+**Respuesta de la v1.1.** Debes levantarte al día siguiente de la cirugía.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
@@ -852,7 +852,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuánto tiempo voy a estar ingresado?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -862,7 +862,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Puedo ducharme antes de ir al hospital el día de la operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -872,7 +872,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuándo podré volver a comer después de la operación?
 
-**Respuesta del sistema auditado.** Reiniciar la alimentación tras la cirugía mayor abdominal suele ser seguro dentro de las primeras **24 horas**, siempre que no aparezcan náuseas ni vómitos.
+**Respuesta de la v1.1.** Reiniciar la alimentación tras la cirugía mayor abdominal suele ser seguro dentro de las primeras **24 horas**, siempre que no aparezcan náuseas ni vómitos.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
@@ -882,7 +882,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Podré hacer vida normal después de que me den el alta?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -892,7 +892,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Mi familia puede acompañarme o ayudarme durante mi recuperación?
 
-**Respuesta del sistema auditado.** Sí, tu familia puede acompañarte y ayudarte durante la recuperación.
+**Respuesta de la v1.1.** Sí, tu familia puede acompañarte y ayudarte durante la recuperación.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -902,7 +902,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Qué me van a explicar antes de mi operación?
 
-**Respuesta del sistema auditado.** En la primera consulta de cirugía te explicarán:
+**Respuesta de la v1.1.** En la primera consulta de cirugía te explicarán:
 - el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento.
 - que tú decides sobre el tratamiento y firmarás el consentimiento escrito.
 
@@ -914,7 +914,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Tengo que firmar algo antes de que me operen?
 
-**Respuesta del sistema auditado.** Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.
+**Respuesta de la v1.1.** Sí, antes de la cirugía debes firmar el **consentimiento escrito** sobre el tratamiento.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
@@ -924,7 +924,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me van a dormir del todo para mi operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -934,7 +934,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me han dicho que es una cirugía "mínimamente invasiva", ¿eso qué significa para mí?
 
-**Respuesta del sistema auditado.** En la cirugía laparoscópica se opera a través de pequeñas incisiones, se introduce un laparoscopio y instrumentos por heridas alrededor del ombligo.
+**Respuesta de la v1.1.** En la cirugía laparoscópica se opera a través de pequeñas incisiones, se introduce un laparoscopio y instrumentos por heridas alrededor del ombligo.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -944,7 +944,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuánto dura mi recuperación en casa después de operarme?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -954,7 +954,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me van a dar algo para los nervios antes de entrar a quirófano?
 
-**Respuesta del sistema auditado.** Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:
+**Respuesta de la v1.1.** Sí, en casos de ansiedad o temor elevado, te darán medicación para llegar relajado/a:
 - Una pastilla la noche antes de la cirugía (para dormir).
 - Otra pastilla 1 o 2 horas antes de la intervención.
 
@@ -966,7 +966,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Voy a necesitar ayuda para caminar después de mi operación?
 
-**Respuesta del sistema auditado.** Sí, es probable que necesites ayuda para caminar después de la cirugía mayor abdominal. El personal te guiará para levantarte y caminar desde el primer día, pero necesitarás apoyo inicial.
+**Respuesta de la v1.1.** Sí, es probable que necesites ayuda para caminar después de la cirugía mayor abdominal. El personal te guiará para levantarte y caminar desde el primer día, pero necesitarás apoyo inicial.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -976,7 +976,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es peligroso que me levante el mismo día de la operación?
 
-**Respuesta del sistema auditado.** El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y, según el tipo de cirugía, **al día siguiente debe levantarse y dar cortos paseos por la habitación**. No hay peligro si se hace bajo supervisión profesional y con analgesia adecuada.
+**Respuesta de la v1.1.** El mismo día de la cirugía **puede sentarse en un sillón con ayuda** y, según el tipo de cirugía, **al día siguiente debe levantarse y dar cortos paseos por la habitación**. No hay peligro si se hace bajo supervisión profesional y con analgesia adecuada.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -986,7 +986,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Qué pasa si me entra hambre justo antes de mi operación?
 
-**Respuesta del sistema auditado.** La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta **2 horas antes** de la cirugía. Si te entra hambre justo antes, puedes tomar **entre 200 y 400 ml de una bebida con hidratos de carbono** unas horas antes de la cirugía.
+**Respuesta de la v1.1.** La mayoría de las personas pueden beber líquidos (incluyendo bebidas con carbohidratos) hasta **2 horas antes** de la cirugía. Si te entra hambre justo antes, puedes tomar **entre 200 y 400 ml de una bebida con hidratos de carbono** unas horas antes de la cirugía.
 
 **Vuestra puntuación.** 1/10, Molt deficient.
 
@@ -996,7 +996,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuándo iré al baño por primera vez después de que me operen?
 
-**Respuesta del sistema auditado.** La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.
+**Respuesta de la v1.1.** La primera defecación suele producirse **2 ó 3 días después de reiniciar la alimentación**.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
@@ -1006,7 +1006,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Tengo miedo de mi operación, ¿es normal sentirme así?
 
-**Respuesta del sistema auditado.** Sí, es normal sentir miedo antes de una cirugía mayor.
+**Respuesta de la v1.1.** Sí, es normal sentir miedo antes de una cirugía mayor.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -1016,7 +1016,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me puedo morir en esta operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1026,7 +1026,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Duele mucho esta operación?
 
-**Respuesta del sistema auditado.** El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.
+**Respuesta de la v1.1.** El dolor postoperatorio es **máximo en las primeras 24 horas** y luego disminuye progresivamente.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -1036,7 +1036,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Y si me despierto en mitad de mi operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1046,7 +1046,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Y si algo sale mal durante mi cirugía?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1056,7 +1056,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Tengo mucha ansiedad, no puedo dormir pensando en mi operación, ¿qué hago?
 
-**Respuesta del sistema auditado.** La ansiedad puede manejarse con:
+**Respuesta de la v1.1.** La ansiedad puede manejarse con:
 - Una pastilla para dormir la noche antes de la cirugía.
 - Una pastilla 1 ó 2 horas antes de la intervención.
 
@@ -1068,7 +1068,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me voy a despertar con una bolsa después de esta operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1078,7 +1078,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Qué pasa si me arrepiento justo antes de entrar a quirófano?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1088,7 +1088,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Nunca me han operado antes y tengo pánico a la anestesia, ¿es peligrosa?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1098,7 +1098,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me van a quedar cicatrices grandes de esta operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1108,7 +1108,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Puedo hablar con el cirujano a solas si tengo dudas que me dan vergüenza preguntar delante de mi familia?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1118,7 +1118,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Estoy muy nervioso por dejar a mis hijos solos mientras estoy ingresado, ¿cuánto tiempo voy a estar fuera de casa?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1128,7 +1128,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es normal llorar antes de una operación como esta?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1142,7 +1142,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿En qué se diferencia la operación que me van a hacer de esas bandas elásticas de las que había oído hablar?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1152,7 +1152,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me van a dormir del todo o solo la zona para operarme?
 
-**Respuesta del sistema auditado.** Anestesia regional.
+**Respuesta de la v1.1.** Anestesia regional.
 
 **Vuestra puntuación.** 1/10, Molt deficient.
 
@@ -1162,7 +1162,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuánto dura mi operación en sí?
 
-**Respuesta del sistema auditado.** Duración: 30–60 minutos.
+**Respuesta de la v1.1.** Duración: 30–60 minutos.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -1172,7 +1172,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Qué complicaciones raras pero serias podría tener mi operación?
 
-**Respuesta del sistema auditado.** - Muy raras: estrechamiento anal, incontinencia, sangrado abundante.
+**Respuesta de la v1.1.** - Muy raras: estrechamiento anal, incontinencia, sangrado abundante.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -1182,7 +1182,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Tomo anticoagulantes, ¿tengo que dejar de tomarlos antes de que me operen?
 
-**Respuesta del sistema auditado.** Sí, debes ajustar tu medicación con anticoagulantes antes de la cirugía.
+**Respuesta de la v1.1.** Sí, debes ajustar tu medicación con anticoagulantes antes de la cirugía.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -1192,7 +1192,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿En qué se diferencia mi operación de tratarlo con láser?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1202,7 +1202,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es normal que me vuelvan a salir las hemorroides después de haberme operado?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1212,7 +1212,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Por qué me van a mandar comer mucha fibra después de operarme?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1224,7 +1224,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Hay riesgo de quedarme incontinente por esta operación?
 
-**Respuesta del sistema auditado.** Muy raras complicaciones de la hemorroidectomía incluyen **estrechamiento anal o incontinencia**.
+**Respuesta de la v1.1.** Muy raras complicaciones de la hemorroidectomía incluyen **estrechamiento anal o incontinencia**.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -1234,7 +1234,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuánto tiempo de baja me van a dar después de esta operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1244,7 +1244,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Puedo comer con normalidad el día antes de mi operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1254,7 +1254,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Duele mucho ir al baño después de que me operen?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1266,7 +1266,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuánto tiempo tardaré en recuperarme de esta operación?
 
-**Respuesta del sistema auditado.** Recuperación en **2–4 semanas**.
+**Respuesta de la v1.1.** Recuperación en **2–4 semanas**.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -1276,7 +1276,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me han mencionado unos "baños de asiento", ¿qué son exactamente?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1288,7 +1288,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Qué debo comer después de que me operen?
 
-**Respuesta del sistema auditado.** Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.
+**Respuesta de la v1.1.** Después de la cirugía debes seguir una **dieta rica en fibra y líquidos**.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -1298,7 +1298,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es una operación larga?
 
-**Respuesta del sistema auditado.** La cirugía dura **30–60 minutos**.
+**Respuesta de la v1.1.** La cirugía dura **30–60 minutos**.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
@@ -1308,7 +1308,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me tienen que ingresar o vuelvo a casa el mismo día?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1318,7 +1318,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Puedo evitar pasar por quirófano con alguna crema o tratamiento?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1328,7 +1328,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Qué pasa si al final no me opero?
 
-**Respuesta del sistema auditado.** Si decides no operarte, los síntomas pueden empeorar.
+**Respuesta de la v1.1.** Si decides no operarte, los síntomas pueden empeorar.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
@@ -1338,7 +1338,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Puedo arrepentirme y no operarme al final?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1348,7 +1348,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Cuánto tiempo tengo que estar en ayunas antes de mi operación?
 
-**Respuesta del sistema auditado.** Ayuno **6–8 horas** antes de la cirugía.
+**Respuesta de la v1.1.** Ayuno **6–8 horas** antes de la cirugía.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
@@ -1358,7 +1358,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Voy a sangrar después de que me operen?
 
-**Respuesta del sistema auditado.** Sí, tras la cirugía puede haber **sangrado leve**.
+**Respuesta de la v1.1.** Sí, tras la cirugía puede haber **sangrado leve**.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
@@ -1368,7 +1368,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Me da mucha vergüenza este tema, ¿es normal sentirme así antes de mi operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1378,7 +1378,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Duele mucho esta operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1388,7 +1388,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me puedo quedar incontinente para siempre después de esto?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1398,7 +1398,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me puedo morir por esta operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1408,7 +1408,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Tengo miedo a que me hagan daño en una zona tan íntima, ¿es un miedo normal?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1418,7 +1418,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Es una operación de la que debería avergonzarme?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1428,7 +1428,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Van a ver mi zona íntima muchas personas en el quirófano?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1438,7 +1438,7 @@ No tengo información sobre eso.
 
 **Pregunta.** ¿Me va a quedar alguna secuela para siempre de esta operación?
 
-**Respuesta del sistema auditado.** No tengo información sobre eso.
+**Respuesta de la v1.1.** No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
@@ -1448,7 +1448,7 @@ No tengo información sobre eso.
 
 **Pregunta.** Llevo tiempo posponiendo operarme por vergüenza, ¿debería preocuparme más por hacerlo ya?
 
-**Respuesta del sistema auditado.** Si decides no operarte, los síntomas pueden empeorar.
+**Respuesta de la v1.1.** Si decides no operarte, los síntomas pueden empeorar.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
