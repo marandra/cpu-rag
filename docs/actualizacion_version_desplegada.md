@@ -33,6 +33,15 @@ Dos consecuencias que no son obvias:
   grande (diabetes) y ~0,9-1,1 GB por los pequeños: **~3,9 GB por versión** para
   los dos perfiles.
 
+  Eso convierte el disco en un recurso finito con cada versión que se prueba, y
+  el modo de fallo es feo: **la generación se queda sin espacio a media
+  escritura**, deja un `.pkl.tmp` y el servicio arranca en bucle de reinicio con
+  `RuntimeError: No snapshots found`. El error no menciona el disco. Ocurrió al
+  desplegar la v2.2 tras seis versiones acumuladas (48 GB al 100 %). Antes de
+  generar: `df -h` y borrar los snapshots de las versiones que ya no sirven ni
+  hacen de vuelta atrás. Son del uid del contenedor (1001), así que el borrado
+  necesita `sudo`.
+
 Si dos versiones comparten prompt y corpus, la clave es la misma **y los bytes
 también**: la generación es determinista en la misma caja y con la misma imagen
 (verificado: los tres pickles regenerados salieron idénticos a los de la v2, y

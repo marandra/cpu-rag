@@ -21,21 +21,33 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 # v2 serving decisions (Fase B, 2026-07-24). Reversion is a one-line change
 # here — the originals are kept intact under the same directory, never
 # overwritten, so pointing a Path back is the whole rollback.
+# v2.2 sirve los tres documentos tuteados. La conversión es estrictamente
+# gramatical —pronombres y conjugación, ni una palabra de contenido clínico— y se
+# verificó por documento que encabezados, viñetas y todas las cifras quedan
+# idénticos. Medido en EC2 sobre las 134: 123/134 de decisión, el mejor de todos
+# los brazos, con 0 fugas de registro (32 respuestas en tú, ninguna en usted).
+# `eval/d1c-tu/`.
+#
+# El trato lo fija el CORPUS, no el prompt: con estos documentos en usted salían
+# 0 de 89 respuestas en tú por mucho que los ejemplos del prompt tutearan. Por eso
+# el literal de abstención (`prompt_variant`) tiene que girar con ellos.
+#
+# Las versiones en usted que sirvió la v2/v2.1 siguen en el disco y archivadas en
+# `corpus/archive/*_v2servido_2026-07-27.md`; volver atrás es cambiar estas rutas
+# y `prompt_variant` a "d1c".
 PROFILES: dict[str, dict[str, Path]] = {
     "glucowise": {
-        # v2: v4 distillation (better decision 85.5% vs 83.4%, telegraphy
-        # 7% vs 11%; -5% decode at nT=8, not a blocker). Revert -> diabetes.md
-        # (the v1 original, kept untouched).
-        "diabetes": Path("./corpus/markdown/diabetes.v4.md"),
+        # v5 = la v4 destilada, tuteada. (v4 batió a la v1: decisión 85.5% vs
+        # 83.4%, telegráficas 7% vs 11%.)
+        "diabetes": Path("./corpus/markdown/diabetes.v5-tu.md"),
     },
     "aiciblock": {
-        # v2: vA rewrite (form-only, same facts, no invention; fixes the 108
-        # anticoagulant break, telegraphy 56%->23%). MUST_REFUSE re-derived
-        # unchanged. Revert -> hemorroides.md (the v1 original, kept untouched).
-        "hemorroides": Path("./corpus/markdown/hemorroides.vA.md"),
-        # v2: served original kept — v4 measured worse (88.7% vs 93.8%,
-        # telegraphy x5), does not enter v2.
-        "cirugia-abdominal": Path("./corpus/markdown/cirugia-abdominal.md"),
+        # v2 = la reescritura vA, tuteada. (vA era solo de forma, mismos hechos,
+        # sin invención; arregló la frontera 108 y bajó las telegráficas 56%->23%.)
+        "hemorroides": Path("./corpus/markdown/hemorroides.v2-tu.md"),
+        # v2 = el original tuteado. La destilación v4 se midió peor (88.7% vs
+        # 93.8%, telegráficas x5) y no entra.
+        "cirugia-abdominal": Path("./corpus/markdown/cirugia-abdominal.v2-tu.md"),
     },
 }
 
@@ -89,15 +101,16 @@ class Settings(BaseSettings):
     # prompt (prompt imports this). Una variante cambia la clave del snapshot,
     # así que cada una calienta su propio pickle y nunca colisionan.
     #
-    # v2.1 sirve "d1c": V13 con el literal de abstención reescrito. Medido en
-    # EC2 sobre las 134 (2026-07-27): 123/134 de decisión frente a 122 de la
-    # v2, 18 % menos tokens, y las 44 abstenciones dejan de ser
-    # "No tengo información sobre eso." — que es lo que se prometió en la
-    # respuesta a la auditoría. `eval/d1c/`.
+    # v2.2 sirve "d1c-tu": el literal reescrito, tuteado para acompañar al
+    # corpus (ver PROFILES). Medido en EC2 sobre las 134 (2026-07-27):
+    # 123/134, y recupera 2 de los 3 "Sí/No" iniciales que el literal costaba
+    # en usted. Las 42 abstenciones dejan de ser "No tengo información sobre
+    # eso.", que es lo prometido en la respuesta a la auditoría.
+    # `eval/d1c-tu/`. La v2.1 servía "d1c", el mismo texto en usted.
     #
     # "v13" sigue aquí y NO se toca: es lo que sirve la v2 entregada, y su
     # snapshot solo se reproduce con el prompt byte a byte.
-    prompt_variant: str = "d1c"
+    prompt_variant: str = "d1c-tu"
 
     @field_validator("profile")
     @classmethod

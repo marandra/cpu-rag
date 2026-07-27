@@ -100,13 +100,14 @@ plantilla, y en 7 de esas 14 deriva preguntas que el documento sí responde (las
 de la diabetes, el ajuste de la medicación), con lo que pierde hasta 3 puntos de
 acierto. No os la entregamos así.
 
-De las dos cosas que íbamos a hacer, una ya está hecha y va en la versión 2.1: la
+De las dos cosas que íbamos a hacer, una ya está hecha y va en la versión 2.2: la
 abstención ya no dice "No tengo información sobre eso." sino "Esto no lo recoge la
-información que tengo, pero su equipo sanitario podrá orientarle según su caso.", que
-alcanza a las 44 abstenciones, 24 de ellas emocionales, sin bajar el acierto. La otra,
-añadir material sobre miedo y vergüenza a los documentos de cirugía y hemorroides, sigue
-pendiente: las emocionales que hoy se responden bien son las de diabetes, el único
-documento con sección psicológica. Otra vez el documento.
+información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.", que
+alcanza a las 42 abstenciones, 24 de ellas emocionales, sin bajar el acierto. Esa misma
+versión pasa los tres documentos a tutear al paciente, por coherencia con el resto del
+sistema. La otra cosa, añadir material sobre miedo y vergüenza a los documentos de
+cirugía y hemorroides, sigue pendiente: las emocionales que hoy se responden bien son
+las de diabetes, el único documento con sección psicológica. Otra vez el documento.
 
 Van dos adjuntos, con los mismos números de pregunta:
 
