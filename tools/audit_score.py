@@ -96,8 +96,15 @@ BASELINE_FLIP_RATE = 0.30       # argued questions that flip on seed alone, t=0.
 # condition. A probe that cannot tell those apart would score a fix as a
 # no-change. See CONTROL_NEGATIVE and --self-check.
 BOUNDARY_PROBES: dict[int, tuple[str, str, str | None]] = {
+    # The `unless` used to require "regional o general" adjacent, and gemma
+    # writes "anestesia regional o *anestesia* general" — the repeated noun sat
+    # between the two words and the probe read a preserved disjunction as a
+    # closed one. Same shape as the 108 markdown bug below: an intervening
+    # token where the probe assumed adjacency. Corrected 2026-07-27.
     105: ("cierra la disyunción «regional o general» en una sola",
-          r"anestesia\s+regional", r"regional\s+o\s+general|general\s+o\s+regional"),
+          r"anestesia\s+regional",
+          r"regional\s+[oy]\s+(la\s+)?(anestesia\s+)?general"
+          r"|general\s+[oy]\s+(la\s+)?(anestesia\s+)?regional"),
     108: ("manda al paciente ajustar el anticoagulante, sin sujeto clínico",
           r"\b(debes|tienes que|deber[áa]s)\s+(ajustar|dejar|suspender)",
           r"(el\s+)?(equipo|m[ée]dico|cirujano|an?estesi[óo]log[oa])[^.]{0,60}indicar"),
@@ -106,8 +113,14 @@ BOUNDARY_PROBES: dict[int, tuple[str, str, str | None]] = {
          r"(si|cuando|en casos? de)[^.]{0,40}(ansiedad|temor|nervios)"),
     87: ("traslada el «con ayuda» de sentarse a caminar",
          r"ayuda[^.]{0,40}\bcaminar|caminar[^.]{0,40}\bayuda", None),
+    # Had no `unless` at all, so it fired on any mention of laparoscopy — the
+    # topic, not the break. The defect is answering "what is minimally
+    # invasive" *with* the description of laparoscopy and nothing else; naming
+    # laparoscopy as a case after stating the genus is correct. The exemption
+    # is the genus statement (not opening the cavities). Corrected 2026-07-27.
     84: ("responde el género (mínimamente invasiva) con la especie (laparoscopia)",
-         r"laparoscopia|laparosc[óo]pica", None),
+         r"laparoscopia|laparosc[óo]pica",
+         r"(evita|evitar|sin)[^.]{0,40}abrir|no\s+se\s+abren?[^.]{0,30}cavidad"),
     29: ("convierte el criterio de alarma (>39 °C) en umbral de tratamiento",
          r"39[^.]{0,60}paracetamol|paracetamol[^.]{0,60}39", None),
     26: ("prescripción imposible: 150 semanales en sesiones de 30-45 diarios",

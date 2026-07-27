@@ -45,32 +45,52 @@ python3 tools/audit_score.py --run "servido-ministral=eval/audit_replay" \
 | **Decisión** responder/rechazar — *automático, sobre el run EC2* | 79.1% (106/134) | **91.0% (122/134)** | — |
 | Corrección — *automático `scorecard()`, sobre el run EC2, CONSERVADOR* | 63% (84/134) | 60% (81/134) | **9%** |
 | Presentable — *automático, sobre el run EC2, conservador* | 50% (67/134) | 55% (74/134) | — |
-| Corrección / presentable — *lectura a MANO de un run gemma ANTERIOR (A2), NO del EC2* | — | **~84% / ~78%** | — |
+| **Corrección** — *lectura a MANO sobre el run EC2* (C1, 2026-07-27) | 63% (84/134) | **85–90% (114–120/134)** | **9%** |
+| **Presentable** — *lectura a MANO sobre el run EC2* (C1) | 50% (67/134) | **80–84% (107–112/134)** | — |
 
-⚠️ **El ~84%/78% NO está medido sobre el run EC2.** Es lectura a mano de un run
-A2 previo, trasladado como estimación (gemma tiene 1% de volteo por seed y la
-decisión reprodujo clavada el 91%). Lo único certificado sobre las respuestas del
-EC2 (`eval/ec2/`) es el **91% de decisión** y el **60/55 automático conservador**.
-Certificar el ~84/78 sobre este run es exactamente la tarea **C1**.
+✅ **C1 HECHO: el 84/78 estimado se queda corto — lo medido es 85–90 % / 80–84 %,
+sobre las respuestas del EC2.** 97 de las 134 leídas una a una; las otras 37 se
+transfieren exactas (ambos runs rechazan lo mismo). Veredictos en código, uno por
+pregunta con su motivo: **`tools/audit_hand.py`** (`--show 29,84` para el porqué).
+La banda son 6 marginales `[2, 26, 56, 89, 91, 110]` — apoyadas y sin invención,
+pero sin responder del todo lo preguntado; el extremo bajo las descuenta.
 
 Diff emparejado: **gana 23, rompe 7, neto +16**; ratio 6.3× (discrimina mejor, no
-mueve umbral). Fronteras: **5 de 7 defectos arreglados** (108 anticoagulante ✅,
-67, 87, 29, 26); siguen rotos **105** (disyunción regional/general) y **84**
-(género/especie). Telegrafía cae en todo (diabetes 13→7%, cirugía 8→2%,
-hemorroides 42→23%). Cada lado es **una tirada** (gemma 1% volteo → estable).
+mueve umbral). Fronteras: **7 de 7 defectos arreglados** (108, 67, 87, 29, 26,
+105, 84). ⚠️ El «siguen rotos 105 y 84» era **artefacto de las sondas**, no un
+defecto: la de 105 exigía `regional o general` adyacente y gemma escribe
+«regional o *anestesia* general»; la de 84 no tenía `unless` y disparaba con
+cualquier mención de laparoscopia. Ambas corregidas; `--self-check` sigue verde
+(baseline 106/134, las 7 siguen dando HIT en la rotura de Ministral).
+Telegrafía cae en todo (diabetes 13→7%, cirugía 8→2%, hemorroides 42→23%).
+Cada lado es **una tirada** (gemma 1% volteo → estable).
 
-⚠️ **Por qué el `scorecard()` automático (60/55) ≠ el 84/78 de mano:** su columna
+**Lo que la decisión automática no ve, y que la lectura sí:**
+- Las **7 «roturas» cuestan 0 en corrección**. Tres son ganancias de contenido
+  mal etiquetadas (36 rechaza bien — el fulldoc no tiene «qué llevar a la cita»
+  y Ministral servía la lista de vacaciones; 100 y 109 eran «FN parcial» y gemma
+  responde apoyada en el doc). Sólo 21 y 76 pierden algo real.
+- El grueso de la ganancia está donde **la decisión no cambia**: de las 18 `DEF`
+  (Ministral falla las 18 por construcción) **gemma arregla 15**, y el scorer
+  automático no le da crédito por ninguna. Ahí están el 29 (G1: paracetamol y el
+  >39 °C vuelven a ser cosas distintas), 60, 67, 68, 69, 87, 105, 108.
+- Riesgo asumido: de las 49 `OK` gemma **sólo pierde 2** (31 responde
+  «vacaciones» a «vida normal»; 42 responde con la insulina a «¿me quedaré
+  ciego?»). Incorrectas restantes: 7, 30, 63 (63 es idéntica a la de Ministral).
+
+⚠️ **Por qué el `scorecard()` automático (60/55) ≠ el 90/84 de mano:** su columna
 `ok` (correctas) es un set FIJO de veredictos leídos a mano en
 `tools/audit_triage.py:TRIAGE`; **no acredita** a gemma por responder bien lo que
-Ministral fallaba. Por eso corrección/presentable de gemma **exige lectura a
-mano** de las respuestas nuevas, no se computa.
+Ministral fallaba. El 60/55 es un **suelo**, no una medida. Por eso
+corrección/presentable de gemma exigía lectura a mano — ya hecha en
+`tools/audit_hand.py`.
 
 ## Tareas (Fase C)
 
 | # | tarea | notas |
 | --- | --- | --- |
-| **C1** | **Leer a mano las que se mueven** | Las **7 roturas** `[3, 5, 21, 36, 76, 100, 109]` (4 responden de menos, 3 rechazan de menos) + muestra de las **23 ganancias** `[6, 8, 16, 25, 39, 40, 41, 47, 51, 52, 55, 61, 70, 83, 103, 110, 111, 114, 117, 121, 123, 127, 128]`. Objetivo: cerrar el antes/después de **corrección/presentable** (no solo decisión) y confirmar el ~84/78. Las respuestas lado a lado salen de `eval/ec2/*.json` (`our_answer`) vs `eval/audit_replay/*.json`. |
-| **C2** | **Redactar la respuesta a la auditoría** | La regla de memoria («no redactar hasta cerrar el corpus») ya se cumple. Forma de 5 puntos + número titular en [[audit-response-plan]]. Titular: **gemma correcta/presentable en ~78–84% de las 134 (~105–112) vs el 9% del cliente**; reconocer «derivar» como legítimo; escalar defectos de corpus (ID 29 ya arreglado; 105/84 siguen); honestidad sobre corpus dev-grade [[corpus-is-dev-grade]]. |
+| ~~C1~~ | ~~Leer a mano las que se mueven~~ | **HECHO 2026-07-27.** Se leyeron las 97 que lo necesitaban, no sólo los 30 movers. Resultado arriba. Herramientas nuevas: `tools/audit_movers.py` (volcado lado a lado con pregunta, veredicto de terreno y crítica del auditor) y `tools/audit_hand.py` (los veredictos + el scorecard a mano). |
+| **C2** | **Redactar la respuesta a la auditoría** | **AHORA.** La regla de memoria («no redactar hasta cerrar el corpus») ya se cumple y el número ya está medido. Forma de 5 puntos en [[audit-response-plan]]. Titular: **gemma correcta en 85–90 % de las 134 (114–120) y presentable en 80–84 % (107–112), vs el 9 % del cliente**; el sistema que auditaron daba 63 %/50 %. Reconocer «derivar» como legítimo; escalar defectos de corpus (29 arreglado; los que quedan son 7, 30, 31, 42, 63 + el 21/76); honestidad sobre corpus dev-grade [[corpus-is-dev-grade]] y sobre que es **una tirada**. |
 | **C3** | **Enviar el `tar.gz` al cliente** | `dist/rag-deliverable-v2.tar.gz`. Si prueban en nuestra EC2: meter su IP en el security group para :8001/:8002 (ahora solo la nuestra). |
 
 ## Después (investigación, no bloquea)
@@ -82,6 +102,9 @@ encoger V13 = latencia). Va detrás. [[project_prompt_iteration_plan]]
 
 - Scorer: `tools/audit_score.py` (`--run LABEL=DIR`, `--scorecard`, `--self-check`,
   `--exclude-procedure`). Verdad de terreno + veredictos: `tools/audit_triage.py`.
+- Lectura a mano del run EC2: `tools/audit_hand.py` (`--show IDS` da el motivo de
+  cada veredicto). Volcado lado a lado para releer: `tools/audit_movers.py`
+  (sin `--ids` saca justo los movers; con `--ids` lo que le pidas).
 - Replay: `tools/audit_replay.py` (necesita `reports/audit_questions.json` = las
   134; usa `httpx`; exportar `RAG_API_KEY` de la caja).
 - Entregable y su doc: `dist/rag-deliverable-v2/README.md`.
