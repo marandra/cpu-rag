@@ -43,7 +43,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-REPLAY_DIR = "eval/audit_replay"
+REPLAY_DIR = "eval/ec2"
 
 # Questions to generate. Not arbitrary: these are the boundary defects the
 # audit work isolated (67 de-scope, 87/108 subject, 29/26/84 fusion, 105

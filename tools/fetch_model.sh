@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Fetch the v2 serving model (gemma-4-26B GGUF) from Hugging Face.
 #
-# Part of the v2 `init` stage (ARRANQUE_v2.md, B2): the ~17 GB model is NOT
+# Part of the v2 `init` stage (see docs/historial.md): the ~17 GB model is NOT
 # baked into the container image, so it is downloaded on first install and
 # then the snapshots are built over it (`python -m app.generate`).
 #

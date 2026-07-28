@@ -5,8 +5,8 @@
 >
 > Estado: **validado experimentalmente** el 2026-07-23 (job 7329) sobre el
 > documento de hemorroides. Cada regla sale de una medición, no de un criterio
-> de estilo. Origen: `docs/corpus_rewrite_brief.md`, que es la versión operativa
-> que se entrega a quien reescribe.
+> de estilo. Este documento es también la versión operativa: es lo que se
+> entrega a quien reescribe un documento del corpus.
 
 ## 0. ⚠️ Alcance: esto repara material telegráfico, no mejora cualquier texto
 
@@ -310,8 +310,9 @@ cubrir**. Esa lista es tan valiosa como el texto.
    - la procedencia de cada bloque añadido, si se amplió;
    - los puntos donde las reglas chocaron y cómo se resolvió.
 
-Ese informe es lo que hace auditable la reescritura. El del job 7329 está en
-`eval/corpus_ab/BLIND_REWRITE_INFORME.md` y sirve de plantilla.
+Ese informe es lo que hace auditable la reescritura. El del job 7329, que sirvió
+de plantilla, se borró con el resto del material de experimento; el índice de lo
+que tiene que llevar es el de esta sección.
 
 ### Reglas de higiene del experimento
 

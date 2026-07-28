@@ -7,7 +7,7 @@ pickle the pools serve and silently rebuilds them.
 The variants exist so the prompt A/B can put one variant per worker process
 (`PROMPT_VARIANT=v14b`) with no code edit. Each is V13 plus **one** change, so
 that an effect is attributable; they are an isolation experiment, not
-deliverable candidates. See ARRANQUE.md §2.2/§2.3.
+deliverable candidates. See docs/historial.md.
 
 How the changes are written, and why not as more prohibitions
 -------------------------------------------------------------
@@ -418,8 +418,8 @@ def _d1() -> str:
 # medible, beneficio nulo (0 de 89 respuestas tuteaban ya)— y aquí queda el
 # cambio solo, que es lo que se puede evaluar.
 #
-# Corrige de paso la premisa de ARRANQUE_v4 («no puede desplazar una respuesta
-# correcta»): es falsa. El literal vive en el system prompt, así que tocarlo
+# Corrige de paso la premisa con la que se planificó esto («el literal no puede
+# desplazar una respuesta correcta»): es falsa. Vive en el system prompt, y tocarlo
 # cambia el prefijo KV entero y perturba todas las respuestas, no solo las
 # abstenciones. Por eso este brazo también se lee entero, no solo en las 45.
 #

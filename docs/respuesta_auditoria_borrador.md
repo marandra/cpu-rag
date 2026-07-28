@@ -68,9 +68,9 @@ sobre el adjunto. Hay además invención pura, como la hipoglucemia nocturna que
 llevar a riesgo vital" y no está en ningún sitio, y condiciones que se pierden, como la
 premedicación prometida sin el "cuando el grado de ansiedad y temor sea elevado".
 
-Eso está arreglado, en una versión que no teníais. Auditasteis la v1.1. La v2.2 cambia
-el modelo y la redacción de los documentos. Sobre las mismas 134 y con el mismo
-criterio: 119 de 134, un 89 %. En las emocionales, de 23 a 32. Va también respuesta a
+Eso está arreglado en una versión que no teníais. Auditasteis la v1.1. La v2.2 cambia el
+modelo y la redacción de los documentos. Sobre las mismas 134 y con el mismo criterio:
+119 correctas de 134, un 89 %. En las emocionales, de 23 a 32. Va también respuesta a
 respuesta en auditoria_134_v22.md.
 
 Para que lo comprobéis vosotros, el instalador está listo; convendría saber dónde lo
