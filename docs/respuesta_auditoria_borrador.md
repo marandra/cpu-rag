@@ -36,58 +36,53 @@
 
 ## Respuesta
 
+(Texto plano. Sin negritas, sin rayas y sin comillas angulares: va tal cual en el
+cuerpo del correo.)
+
 Hola Xavi,
 
-Hemos reproducido las 134 preguntas y las hemos leído una a una. Antes de los
-números va el criterio, porque ahí está la mayor parte de la diferencia.
+Hemos reproducido las 134 preguntas y las hemos leído una a una. Antes de los números va
+el criterio, porque ahí está la mayor parte de la diferencia.
 
-**Contra qué se evalúa.** El sistema responde solo desde el documento de cada
-procedimiento, con prohibición explícita de usar conocimiento propio. Es un
-requisito de seguridad del diseño. Contra ADA, ERAS, ASA o ASCRS una respuesta
-puede ser impecable —fiel al documento, sin inventar nada— y puntuar como
-deficiente porque le falta contenido que no estaba en el texto que el sistema
-tenía delante. Eso mide el material, no el sistema.
+Lo primero es contra qué se evalúa. El sistema responde solo desde el documento de cada
+procedimiento, con prohibición explícita de usar conocimiento propio. Es un requisito de
+seguridad del diseño. Contra ADA, ERAS, ASA o ASCRS una respuesta puede ser impecable,
+fiel al documento y sin inventar nada, y aun así puntuar como deficiente porque le falta
+contenido que no estaba en el texto que el sistema tenía delante. Eso mide el material,
+no el sistema.
 
-**El «No tengo información» es una instrucción, no un fallo.** Está escrito
-literalmente en el prompt: «si la respuesta concreta está escrita en la
-INFORMACIÓN, responde lo justo. Si no, responde EXACTAMENTE y sin añadidos: "No
-tengo información sobre eso." Aplica aunque la información hable del mismo tema
-o creas saber la respuesta por tu conocimiento general.» Abstenerse donde el
-documento no dice nada es la conducta pedida, no una laguna de cobertura.
-Vuestra rúbrica no tiene un código para eso.
+Lo segundo es que el "No tengo información" es una instrucción, no un fallo. Está escrito
+literalmente en el prompt:
 
-Con ese criterio —correcta = responde lo que se pregunta apoyada en el
-documento, sin inventar y sin des-acotar una regla; o se abstiene donde el
-documento no da material— hemos releído vuestras 134 respuestas. **El 9 % pasa a
-un 62 %** (83 de 134). La lectura completa, pregunta a pregunta y con el motivo
-de cada una, va en el adjunto `auditoria_134_evaluacion.md`.
+Si la respuesta concreta está escrita en la INFORMACIÓN, responde lo justo. Si no,
+responde EXACTAMENTE y sin añadidos: "No tengo información sobre eso." Aplica aunque la
+información hable del mismo tema o creas saber la respuesta por tu conocimiento general.
 
-**Dicho eso, en lo importante teníais razón.** El 38 % restante son fallos
-reales, y los peores están donde los señaláis: las preguntas de miedo, culpa y
-vergüenza. Agrupando nosotros las 37 que nos parecen emocionales, la versión que
-auditasteis acierta 23; el corte exacto lo podéis rehacer sobre el adjunto. Hay
-además invención pura —«la hipoglucemia nocturna puede llevar a riesgo vital» no
-está en ningún sitio— y condiciones que se pierden, como la premedicación
-prometida sin el «cuando el grado de ansiedad y temor sea elevado».
+Abstenerse donde el documento no dice nada es la conducta pedida, no una laguna de
+cobertura. Vuestra rúbrica no tiene un código para eso.
 
-**Eso está arreglado, en una versión que no teníais.** Auditasteis la v1.1. La
-v2.2 cambia el modelo y la redacción de los documentos. Sobre las mismas 134 y
-con el mismo criterio: **119 de 134, un 89 %**. En las emocionales, de 23 a 32.
-Va también respuesta a respuesta en `auditoria_134_v22.md`.
+Con ese criterio (correcta = responde lo que se pregunta apoyada en el documento, sin
+inventar y sin des-acotar una regla, o se abstiene donde el documento no da material)
+hemos releído vuestras 134 respuestas. El 9 % pasa a un 62 %, 83 de 134. La lectura
+completa, pregunta a pregunta y con el motivo de cada una, va en el adjunto
+auditoria_134_evaluacion.md.
 
-Los dos adjuntos marcan las respuestas que quedan en el filo; si las descontáis
-todas, los suelos son 54 % y 80 %. Son una sola ejecución.
+Dicho eso, en lo importante teníais razón. El 38 % restante son fallos reales, y los
+peores están donde los señaláis: las preguntas de miedo, culpa y vergüenza. Agrupando
+nosotros las 37 que nos parecen emocionales, la versión que auditasteis acierta 23; el
+corte exacto lo podéis rehacer sobre el adjunto. Hay además invención pura, como la
+hipoglucemia nocturna que "puede llevar a riesgo vital" y no está en ningún sitio, y
+condiciones que se pierden, como la premedicación prometida sin el "cuando el grado de
+ansiedad y temor sea elevado".
 
-Lo que sigue abierto es del mismo tipo: los documentos de hemorroides y cirugía
-no tienen sección psicológica, así que ahí el sistema sigue sin material para
-las emocionales. Las de diabetes, que sí la tiene, se responden.
+Eso está arreglado, en una versión que no teníais. Auditasteis la v1.1. La v2.2 cambia el
+modelo y la redacción de los documentos. Sobre las mismas 134 y con el mismo criterio:
+119 de 134, un 89 %. En las emocionales, de 23 a 32. Va también respuesta a respuesta en
+auditoria_134_v22.md.
 
-**Para que lo comprobéis vosotros.** Tenemos la v2.2 desplegada en un servidor a
-vuestra disposición: decidnos y os damos acceso. El instalador está listo;
-quedamos a la espera de saber dónde lo ibais a instalar para adaptarlo a ese
-entorno y no hemos tenido respuesta, así que os mandamos una versión general que
-funciona tal cual. Si al instalarla surge alguna duda del entorno concreto,
-preguntadnos y lo ajustamos.
+Para que lo comprobéis vosotros, el instalador está listo; convendría saber dónde lo
+ibais a instalar o probar para adaptarlo a ese entorno, así que os mandamos una versión
+general que funciona tal cual pero va un poco más lenta. También tenemos la v2.2
+desplegada en un servidor a vuestra disposición: decidnos y os damos acceso.
 
-Saludos,
-Marcelo
+Saludos, Marcelo
