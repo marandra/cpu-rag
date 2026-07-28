@@ -88,9 +88,9 @@ def old_verdict(qid: int, answer: str) -> tuple[bool, str]:
     return correcta, clean(OVERRIDE.get(qid, evidence))
 
 
-def head(title: str, ok: int, n: int) -> list[str]:
+def head(title: str, ok: int, n: int, marginales: int = 0) -> list[str]:
     """Solo criterio y resultado. Las aclaraciones viven en el correo."""
-    return [
+    L = [
         f"# {title}", "",
         "**Criterio.** Correcta = responde lo que se pregunta apoyada en el documento del "
         "procedimiento, sin inventar y sin fundir ni des-acotar una regla; o se abstiene "
@@ -98,16 +98,28 @@ def head(title: str, ok: int, n: int) -> list[str]:
         "conducta diseñada.",
         "",
         f"**Resultado: {ok} de {n} correctas ({ok / n:.0%}).**",
-        "", "---", "",
     ]
+    if marginales:
+        # El filo es parte del resultado: si se descuentan, sale el extremo bajo.
+        L += [
+            "",
+            f"De esas {ok}, **{marginales} quedan «en el filo»**: apoyadas en el documento y "
+            f"sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una "
+            f"a una. Si se descuentan todas, el resultado es {ok - marginales} de {n} "
+            f"({(ok - marginales) / n:.0%}); la horquilla es "
+            f"{(ok - marginales) / n:.0%}–{ok / n:.0%}.",
+        ]
+    return L + ["", "---", ""]
 
 
 def emit(path: Path, title: str, answers: dict[int, str], answer_label: str,
          verdict, meta: dict[int, dict], with_score: bool) -> None:
     ids = sorted(TRIAGE)
     ok = sum(1 for q in ids if verdict(q, answers[q])[0])
+    marg = sum(1 for q in ids
+               if verdict(q, answers[q])[0] and q in getattr(verdict, "marginales", ()))
 
-    L = head(title, ok, len(ids))
+    L = head(title, ok, len(ids), marg)
     for proc, label, lo, hi in BLOCKS:
         block = [q for q in ids if lo <= q <= hi]
         good = sum(1 for q in block if verdict(q, answers[q])[0])

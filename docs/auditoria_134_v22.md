@@ -2,7 +2,9 @@
 
 **Criterio.** Correcta = responde lo que se pregunta apoyada en el documento del procedimiento, sin inventar y sin fundir ni des-acotar una regla; o se abstiene donde el documento no da material. Abstenerse bien cuenta como correcta: es la conducta diseñada.
 
-**Resultado: 122 de 134 correctas (91%).**
+**Resultado: 121 de 134 correctas (90%).**
+
+De esas 121, **13 quedan «en el filo»**: apoyadas en el documento y sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una a una. Si se descuentan todas, el resultado es 108 de 134 (81%); la horquilla es 81%–90%.
 
 ---
 
@@ -16,7 +18,7 @@
 
 **Respuesta de la v2.2.** No necesariamente. Puedes tratarte solo con alimentación y ejercicio, o con pastillas, o con insulina, o con pastillas e insulina a la vez. La insulina se puede necesitar de forma temporal o de forma permanente si otros tratamientos no controlan la diabetes tipo 2.
 
-**Nuestra evaluación.** Correcta. Contesta el «desde el primer día» con el abanico de tratamientos, y añade que la insulina puede necesitarse de forma temporal o permanente si los demás no controlan la diabetes. Va más al grano que la v2, que abría por las causas.
+**Nuestra evaluación.** Correcta. Contesta el «desde el primer día»: puedes tratarte solo con alimentación y ejercicio, o con pastillas, o con insulina, y la insulina llega si los otros tratamientos no controlan.
 
 ### 2
 
@@ -24,7 +26,7 @@
 
 **Respuesta de la v2.2.** Al principio te tratas con alimentación, con ejercicio y con pérdida de peso.
 
-**Nuestra evaluación.** Correcta, en el filo. «al principio, alimentación, ejercicio y pérdida de peso»: sin el «en muchos casos» inventado, pero contesta de lado.
+**Nuestra evaluación.** Correcta, en el filo. «al principio, alimentación, ejercicio y pérdida de peso» es lo que dice §Tratamiento farmacológico, pero contesta de lado: no dice si con eso se evita la medicación.
 
 ### 3
 
@@ -32,7 +34,7 @@
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Incorrecta. Se abstiene; §Criterios diagnósticos dice «≥126 en dos ocasiones», que es justo la repetición por la que se pregunta.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Diagnóstico dice «≥126 mg/dl en dos ocasiones», que es justo la repetición de análisis por la que se pregunta.
 
 ### 4
 
@@ -40,7 +42,7 @@
 
 **Respuesta de la v2.2.** Combinar tus hidratos de carbono con proteína, con grasa saludable y con fibra te reduce los picos de glucosa. Debes distribuir tus hidratos de carbono a lo largo del día.
 
-**Nuestra evaluación.** Correcta. Combina HC con proteína/fibra/grasa: caen los dos defectos (menú inventado y la dosis de insulina re-sujetada).
+**Nuestra evaluación.** Correcta. §Hidratos de carbono: combinarlos con proteína, grasa saludable y fibra reduce los picos, y hay que distribuirlos a lo largo del día.
 
 ### 5
 
@@ -48,7 +50,7 @@
 
 **Respuesta de la v2.2.** El tratamiento de tu diabetes tipo 2 es progresivo. Al principio te tratas con alimentación, con ejercicio y con pérdida de peso. Muchas personas con diabetes tipo 2 necesitan además fármacos. Tu equipo sanitario individualiza tu tratamiento farmacológico según tu persona, tu riesgo cardiovascular, tu función renal, tu peso y tus otras enfermedades.
 
-**Nuestra evaluación.** Correcta. Ya no se abstiene: §Tratamiento farmacológico, progresivo e individualizado según la persona, el riesgo cardiovascular, la función renal, el peso y las otras enfermedades. Es justo lo que faltaba en la v2.
+**Nuestra evaluación.** Correcta. §Tratamiento farmacológico: el tratamiento es progresivo y se individualiza según la persona, el riesgo cardiovascular, la función renal, el peso y las otras enfermedades. Contesta que la pauta no marca gravedad.
 
 ### 6
 
@@ -56,7 +58,7 @@
 
 **Respuesta de la v2.2.** El autoanálisis es especialmente importante si te tratas con insulina o con fármacos con riesgo de hipoglucemia. Tu equipo sanitario individualiza la frecuencia con la que debes hacerte el autoanálisis.
 
-**Nuestra evaluación.** Correcta. §Autoanálisis literal, con la individualización de la frecuencia.
+**Nuestra evaluación.** Correcta. §Autoanálisis: es especialmente importante con insulina o con fármacos con riesgo de hipoglucemia, y el equipo individualiza la frecuencia.
 
 ### 7
 
@@ -64,7 +66,7 @@
 
 **Respuesta de la v2.2.** En las revisiones periódicas, tu equipo sanitario te hace habitualmente analíticas, HbA1c, medición de la tensión arterial, colesterol, revisión de los pies, revisión oftalmológica, peso y valoración de la función renal.
 
-**Nuestra evaluación.** Incorrecta. Vuelca la batería de revisiones en vez de decir para qué sirve la HbA1c; mejor sección que la v1.1, misma falla.
+**Nuestra evaluación.** Incorrecta. Vuelca la batería de revisiones en vez de decir para qué sirve la HbA1c; el documento la nombra en tres sitios pero nunca explica qué mide.
 
 ### 8
 
@@ -72,7 +74,7 @@
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Se abstiene; «el médico te enseña a pincharte» no está en el documento — la v1.1 lo inventaba.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice quién enseña a inyectarse.
 
 ### 9
 
@@ -80,7 +82,7 @@
 
 **Respuesta de la v2.2.** No existe una diabetes "buena" ni una diabetes "mala": existe la diabetes bien controlada y la diabetes mal controlada.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Objetivos del tratamiento literal: no hay diabetes «buena» ni «mala», sino bien o mal controlada.
 
 ### 10
 
@@ -88,7 +90,7 @@
 
 **Respuesta de la v2.2.** La metformina es el fármaco que tu equipo sanitario utiliza mucho, sobre todo si tienes sobrepeso u obesidad. No se menciona en la información si deberás tomarla para siempre.
 
-**Nuestra evaluación.** Correcta, en el filo. Identifica la metformina como el fármaco más usado, y en el sobrepeso; pero no contesta el «para siempre», y lo dice comentando la fuente («no se menciona en la información»), que es lo único que el propio diseño le prohíbe.
+**Nuestra evaluación.** Correcta, en el filo. Identifica la metformina como el fármaco más usado, y en el sobrepeso; pero no contesta el «para siempre», y lo dice comentando la fuente («no se menciona en la información»), que es lo único que su propio diseño le prohíbe.
 
 ### 11
 
@@ -96,7 +98,7 @@
 
 **Respuesta de la v2.2.** Si tienes sobrepeso u obesidad, perder entre un 5 % y un 10 % de tu peso te mejora la glucemia, la tensión arterial, los lípidos y el riesgo cardiovascular.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Alimentación: perder entre un 5 % y un 10 % del peso mejora la glucemia, la tensión, los lípidos y el riesgo cardiovascular. Contesta el «cuánto» exacto.
 
 ### 12
 
@@ -104,7 +106,7 @@
 
 **Respuesta de la v2.2.** Desarrollas diabetes tipo 2 por la combinación de varias causas: la resistencia de tu organismo a la insulina, la producción insuficiente de insulina, el sobrepeso y la obesidad abdominal, el sedentarismo, una alimentación poco saludable, la herencia y el envejecimiento. La obesidad abdominal es uno de los principales factores que te causan la diabetes tipo 2.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Causas: da la combinación entera y sitúa la obesidad abdominal como uno de los principales factores, sin convertirla en la causa única.
 
 ### 13
 
@@ -112,7 +114,7 @@
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento manda anotar los autoanálisis, no la comida.
 
 ### 14
 
@@ -120,7 +122,7 @@
 
 **Respuesta de la v2.2.** El alcohol te aporta calorías y te favorece las hipoglucemias, sobre todo si te tratas con insulina o con ciertos fármacos. Si consumes alcohol, debes consumirlo con moderación, nunca en ayunas, y debes evitar las bebidas de alta graduación.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Alcohol: aporta calorías y favorece las hipoglucemias; con moderación, nunca en ayunas y evitando las de alta graduación.
 
 ### 15
 
@@ -128,7 +130,7 @@
 
 **Respuesta de la v2.2.** Con el paso del tiempo, tu diabetes puede alterarte la sensibilidad y la circulación de los pies, y esas alteraciones te aumentan el riesgo de heridas, de infecciones y de úlceras en los pies.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Pie diabético: la diabetes altera la sensibilidad y la circulación de los pies, y eso aumenta el riesgo de heridas, infecciones y úlceras.
 
 ### 16
 
@@ -136,7 +138,7 @@
 
 **Respuesta de la v2.2.** Puedes tener diabetes tipo 2 sin notar ningún síntoma durante años. La diabetes tipo 2 no suele darte síntomas al principio, y por eso tu equipo sanitario la descubre habitualmente en un análisis.
 
-**Nuestra evaluación.** Correcta. §Mitos: la DM2 inicial no da síntomas, se descubre por análisis.
+**Nuestra evaluación.** Correcta. §Síntomas: la diabetes tipo 2 puede no dar síntomas durante años y se descubre habitualmente en un análisis.
 
 ### 17
 
@@ -144,7 +146,7 @@
 
 **Respuesta de la v2.2.** Sí, el tratamiento de la diabetes tipo 2 es integral y tú y tu equipo sanitario controláis a la vez tu glucosa, tu tensión arterial, tu colesterol, tu peso y tu consumo de tabaco. Además, en las revisiones periódicas, tu equipo sanitario te hace habitualmente analíticas, HbA1c, medición de la tensión arterial, colesterol, revisión de los pies, revisión oftalmológica, peso y valoración de la función renal.
 
-**Nuestra evaluación.** Correcta. Mejora sobre la v1.1: deja caer los objetivos fijos <130/80 y LDL<100 que puntuasteis 2/10.
+**Nuestra evaluación.** Correcta. Contesta que sí y por qué: el tratamiento es integral y se controlan a la vez glucosa, tensión, colesterol, peso y tabaco, con las revisiones detrás.
 
 ### 18
 
@@ -152,7 +154,7 @@
 
 **Respuesta de la v2.2.** Puedes inyectarte la insulina en el abdomen, en los muslos, en los brazos o en los glúteos, pero debes rotar las zonas de inyección para evitar las lipodistrofias.
 
-**Nuestra evaluación.** Correcta, en el filo. El contenido se mantiene —rotar las zonas para evitar lipodistrofias—, pero pierde el «No» explícito con el que abría la v2 ante una pregunta de sí o no.
+**Nuestra evaluación.** Correcta, en el filo. El contenido está —rotar las zonas para evitar lipodistrofias—, pero pierde el «No» explícito ante una pregunta de sí o no.
 
 ### 19
 
@@ -160,7 +162,7 @@
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no da plazos de respuesta al tratamiento.
 
 ### 20
 
@@ -168,7 +170,7 @@
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico dice que el tratamiento es progresivo y §Insulina que si los otros tratamientos no controlan puede necesitarse insulina, que es exactamente lo que se pregunta.
 
 ### 21
 
@@ -176,7 +178,7 @@
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Incorrecta. Se abstiene ante los primeros pasos, que el documento sí enumera. Es una pérdida real frente a la v1.1.
+**Nuestra evaluación.** Incorrecta. Se abstiene ante los primeros pasos, que §Tratamiento farmacológico sí enumera: alimentación, ejercicio y pérdida de peso.
 
 ### 22
 
@@ -184,7 +186,7 @@
 
 **Respuesta de la v2.2.** Debes limitar el chocolate a un consumo ocasional. Ningún alimento está prohibido para ti, ni siquiera las legumbres, el pan o el melón: ajustas la cantidad de esos alimentos en lugar de eliminarlos.
 
-**Nuestra evaluación.** Correcta. «limitar el chocolate a un consumo ocasional» y «ningún alimento está prohibido: se ajusta la cantidad en lugar de eliminarlo». Contesta el «desde ya» sin prohibir.
+**Nuestra evaluación.** Correcta. Limitar el chocolate a un consumo ocasional, y ningún alimento prohibido, se ajusta la cantidad. Contesta el «desde ya» sin prohibir.
 
 ### 23
 
@@ -192,7 +194,7 @@
 
 **Respuesta de la v2.2.** El tratamiento de tu diabetes tipo 2 es progresivo. Al principio te tratas con alimentación, con ejercicio y con pérdida de peso. Muchas personas con diabetes tipo 2 necesitan además fármacos. Puedes tratarte solo con alimentación y ejercicio, o con pastillas, o con insulina, o con pastillas e insulina a la vez. Tu equipo sanitario individualiza tu tratamiento farmacológico según tu persona, tu riesgo cardiovascular, tu función renal, tu peso y tus otras enfermedades.
 
-**Nuestra evaluación.** Correcta. El tratamiento es progresivo y va de la alimentación a los fármacos; añade sobre la v2 la individualización del tratamiento farmacológico.
+**Nuestra evaluación.** Correcta. §Tratamiento farmacológico entero: progresivo, de la alimentación a los fármacos, con las cuatro combinaciones posibles y la individualización.
 
 ### 24
 
@@ -200,7 +202,7 @@
 
 **Respuesta de la v2.2.** Ningún alimento está prohibido para ti, ni siquiera las legumbres, el pan o el melón: ajustas la cantidad de esos alimentos en lugar de eliminarlos. Debes comer los tubérculos, como la patata, en cantidad controlada, y debes evitar los tubérculos fritos.
 
-**Nuestra evaluación.** Correcta. Ningún alimento prohibido, los tubérculos en cantidad controlada y evitar los fritos.
+**Nuestra evaluación.** Correcta. Ningún alimento prohibido, y los tubérculos en cantidad controlada evitando los fritos. Contesta por el pan y por la patata.
 
 ### 25
 
@@ -208,7 +210,7 @@
 
 **Respuesta de la v2.2.** La dieta de la persona con diabetes es la misma dieta equilibrada que se recomienda a la población general, y si tienes exceso de peso debes además reducir las calorías. Ningún alimento está prohibido para ti, ni siquiera las legumbres, el pan o el melón: ajustas la cantidad de esos alimentos en lugar de eliminarlos.
 
-**Nuestra evaluación.** Correcta. §Mitos + §Alimentación: dieta equilibrada general, ningún alimento prohibido.
+**Nuestra evaluación.** Correcta. §Alimentación: la misma dieta equilibrada que la población general, reduciendo calorías si hay exceso de peso, y ningún alimento prohibido.
 
 ### 26
 
@@ -216,7 +218,7 @@
 
 **Respuesta de la v2.2.** Si llevas una vida sedentaria, debes empezar a hacer ejercicio de forma progresiva y debes mantener la constancia. Debes hacer al menos 150 minutos de ejercicio a la semana, repartidos en varios días. Caminar entre 30 y 45 minutos diarios es muy beneficioso para ti.
 
-**Nuestra evaluación.** Correcta. Contesta el «cuánto», que en la v2 faltaba: al menos 150 minutos a la semana repartidos en varios días, y caminar entre 30 y 45 minutos diarios, sobre la progresividad y la constancia.
+**Nuestra evaluación.** Correcta. §Ejercicio físico: al menos 150 minutos a la semana repartidos en varios días, y caminar entre 30 y 45 minutos diarios, con la progresividad delante.
 
 ### 27
 
@@ -224,7 +226,7 @@
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico dice «tienes diabetes aunque no uses insulina» y enumera tratarse solo con alimentación y ejercicio, o con pastillas.
 
 ### 28
 
@@ -232,7 +234,7 @@
 
 **Respuesta de la v2.2.** Si consumes alcohol, debes consumirlo con moderación, nunca en ayunas, y debes evitar las bebidas de alta graduación.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Alcohol: con moderación, nunca en ayunas y evitando las bebidas de alta graduación.
 
 ### 29
 
@@ -259,7 +261,7 @@ Deb
 
 **Respuesta de la v2.2.** Los glucómetros te miden la glucosa capilar.
 
-**Nuestra evaluación.** Incorrecta. «los glucómetros miden la glucosa capilar» no contesta si hay que comprarlo.
+**Nuestra evaluación.** Incorrecta. «los glucómetros miden la glucosa capilar» no contesta si hay que comprarlo; §Autoanálisis sostenía la respuesta.
 
 ### 31
 
@@ -267,7 +269,7 @@ Deb
 
 **Respuesta de la v2.2.** Puedes ir de vacaciones aunque tengas diabetes. Debes aprender a vivir con tu diabetes, y no a vivir para tu diabetes. Es normal que sientas preocupación, negación, frustración o miedo, especialmente tras el diagnóstico.
 
-**Nuestra evaluación.** Correcta, en el filo. Recupera «aprender a vivir con la diabetes, y no para la diabetes» y la normalización del miedo tras el diagnóstico, que es la vida normal por la que se pregunta; sigue abriendo por las vacaciones, que no es la sección.
+**Nuestra evaluación.** Correcta, en el filo. Recupera «aprender a vivir con la diabetes, y no para la diabetes» y la normalización del miedo, que es la vida normal por la que se pregunta; pero sigue abriendo por las vacaciones, que no es la sección.
 
 ### 32
 
@@ -286,7 +288,7 @@ Deb
 - No aplicarte frío ni calor directo en los pies.
 - Consultar rápidamente a tu equipo sanitario si te aparece una herida, pus, un cambio de color, una pérdida de sensibilidad, dolor, hinchazón o cualquier signo de infección.
 
-**Nuestra evaluación.** Correcta. La lista de autocuidado del pie completa, de la revisión diaria al aviso por herida, pus o pérdida de sensibilidad.
+**Nuestra evaluación.** Correcta. §Pie diabético completo, de la revisión diaria al aviso por herida, pus, cambio de color o pérdida de sensibilidad.
 
 ### 33
 
@@ -294,7 +296,7 @@ Deb
 
 **Respuesta de la v2.2.** Puedes tener diabetes tipo 2 sin notar ningún síntoma durante años. Los síntomas que puedes notar son sed, aumento de la cantidad de orina, cansancio, pérdida de peso, visión borrosa, infecciones frecuentes y mala cicatrización. La diabetes tipo 2 no suele darte síntomas al principio.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Síntomas: puede no notarse nada durante años, con la lista de síntomas posibles.
 
 ### 34
 
@@ -302,7 +304,7 @@ Deb
 
 **Respuesta de la v2.2.** Debes acudir a revisiones periódicas para que tu equipo sanitario te detecte las complicaciones antes de que te den síntomas.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Seguimiento sanitario: revisiones periódicas para detectar las complicaciones antes de que den síntomas.
 
 ### 35
 
@@ -321,7 +323,7 @@ Deb
 - Si haces un vuelo largo con cambio de horario, debes consultar a tu equipo sanitario los ajustes de tu tratamiento.
 - Los rayos X no te dañan las plumas de insulina, pero no debes exponer tus plumas de insulina a temperaturas extremas: la guantera de un coche puede superar los 40 °C y la bodega de un avión puede congelarte la insulina.
 
-**Nuestra evaluación.** Correcta. La lista de viaje completa, y añade sobre la v2 que los rayos X no dañan las plumas de insulina pero las temperaturas extremas sí.
+**Nuestra evaluación.** Correcta. §Viajes y vacaciones completo, incluida la medicación en el equipaje de mano y las temperaturas extremas.
 
 ### 36
 
@@ -329,7 +331,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Se abstiene bien: el documento NO dice qué llevar a la cita. La v1.1 servía la lista de equipaje de vacaciones (vuestro 2/10).
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice qué llevar a la cita.
 
 ### 37
 
@@ -337,7 +339,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no compara casos entre familiares.
 
 ### 38
 
@@ -345,7 +347,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata el ámbito laboral.
 
 ### 39
 
@@ -353,7 +355,7 @@ Deb
 
 **Respuesta de la v2.2.** Ningún suplemento y ningún producto milagro cura tu diabetes.
 
-**Nuestra evaluación.** Correcta. §Grupos de alimentos: ningún producto milagro cura la diabetes; respuesta muy escueta.
+**Nuestra evaluación.** Correcta. §Grupos de alimentos: ningún suplemento y ningún producto milagro cura la diabetes. Respuesta muy escueta.
 
 ### 40
 
@@ -361,7 +363,7 @@ Deb
 
 **Respuesta de la v2.2.** Ningún alimento está prohibido para ti, ni siquiera las legumbres, el pan o el melón: ajustas la cantidad de esos alimentos en lugar de eliminarlos.
 
-**Nuestra evaluación.** Correcta. §Alimentación literal: ajustar cantidad en vez de eliminar.
+**Nuestra evaluación.** Correcta. §Alimentación literal: ningún alimento prohibido, se ajusta la cantidad en lugar de eliminarlo.
 
 ### 41
 
@@ -369,7 +371,7 @@ Deb
 
 **Respuesta de la v2.2.** Es normal que sientas preocupación, negación, frustración o miedo, especialmente tras el diagnóstico. Debes aprender a vivir con tu diabetes, y no a vivir para tu diabetes.
 
-**Nuestra evaluación.** Correcta. §Aspectos psicológicos: normaliza el miedo y añade «vivir con, no para».
+**Nuestra evaluación.** Correcta. §Aspectos psicológicos: normaliza el miedo tras el diagnóstico y añade «vivir con, no para».
 
 ### 42
 
@@ -377,7 +379,7 @@ Deb
 
 **Respuesta de la v2.2.** La insulina te reduce las complicaciones de la diabetes, incluida la ceguera.
 
-**Nuestra evaluación.** Incorrecta. «la insulina reduce las complicaciones, incluida la ceguera» a «¿me quedaré ciego?»: fuera de diana y engañosa.
+**Nuestra evaluación.** Incorrecta. Responde «la insulina reduce las complicaciones, incluida la ceguera» a «¿me quedaré ciego?»: fuera de diana, y le nombra la ceguera a quien teme quedarse ciego. §Complicaciones oculares, con la retinopatía y las revisiones, era la sección.
 
 ### 43
 
@@ -385,7 +387,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento habla de heridas y úlceras, nunca de amputación.
 
 ### 44
 
@@ -393,7 +395,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta, en el filo. Se abstiene; §Aspectos psicológicos manda identificar las situaciones difíciles y pedir ayuda, pero en genérico, y el documento no trata la vergüenza al inyectarse.
 
 ### 45
 
@@ -401,7 +403,7 @@ Deb
 
 **Respuesta de la v2.2.** La diabetes tipo 2 es una enfermedad crónica.
 
-**Nuestra evaluación.** Correcta. Ya no se abstiene: «la diabetes tipo 2 es una enfermedad crónica» contesta el «¿se cura?». Respuesta muy escueta.
+**Nuestra evaluación.** Correcta. §Introducción: la diabetes tipo 2 es una enfermedad crónica, que contesta el «¿se cura?». Respuesta muy escueta.
 
 ### 46
 
@@ -409,7 +411,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no hace pronóstico individual.
 
 ### 47
 
@@ -417,7 +419,7 @@ Deb
 
 **Respuesta de la v2.2.** No debes culparte. Es normal que sientas preocupación, negación, frustración o miedo, especialmente tras el diagnóstico.
 
-**Nuestra evaluación.** Correcta. §Aspectos psicológicos «no culparse», que es exactamente lo que se pregunta.
+**Nuestra evaluación.** Correcta. §Aspectos psicológicos «no debes culparte», que es exactamente lo que se pregunta.
 
 ### 48
 
@@ -425,7 +427,7 @@ Deb
 
 **Respuesta de la v2.2.** Es normal que sientas preocupación, negación, frustración o miedo, especialmente tras el diagnóstico.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Aspectos psicológicos: es normal sentir preocupación, negación, frustración o miedo tras el diagnóstico.
 
 ### 49
 
@@ -433,7 +435,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento nombra la diabetes gestacional pero no trata la fertilidad.
 
 ### 50
 
@@ -441,7 +443,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no habla de esperanza de vida.
 
 ### 51
 
@@ -449,7 +451,7 @@ Deb
 
 **Respuesta de la v2.2.** Ningún alimento está prohibido para ti, ni siquiera las legumbres, el pan o el melón: ajustas la cantidad de esos alimentos en lugar de eliminarlos.
 
-**Nuestra evaluación.** Correcta. §Alimentación: responde el miedo a no volver a disfrutar con «ningún alimento prohibido».
+**Nuestra evaluación.** Correcta. §Alimentación: ningún alimento prohibido, que contesta el miedo a no volver a disfrutar.
 
 ### 52
 
@@ -457,7 +459,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Se abstiene; §Hipoglucemia NO afirma mortalidad. La v1.1 respondía «sí, riesgo de muerte» a un miedo a morir.
+**Nuestra evaluación.** Correcta. Se abstiene bien: §Hipoglucemia describe síntomas y tratamiento pero no afirma mortalidad.
 
 ### 53
 
@@ -465,7 +467,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta, en el filo. Se abstiene; §Aspectos psicológicos manda pedir ayuda ante las situaciones difíciles, pero en genérico, y el documento no trata el miedo a las agujas.
 
 ### 54
 
@@ -473,7 +475,7 @@ Deb
 
 **Respuesta de la v2.2.** La herencia es una de las causas por las que se desarrolla la diabetes tipo 2. Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta, en el filo. «la herencia es una de las causas» acota el «seguro» sin afirmarlo, pero deja sin contestar la culpa, que §Aspectos psicológicos sí cubre, y remata con la abstención después de haber respondido.
 
 ### 55
 
@@ -481,7 +483,7 @@ Deb
 
 **Respuesta de la v2.2.** Debes buscar apoyo en tu familia, en tu entorno social y en las asociaciones de personas con diabetes, porque ese apoyo te ayuda.
 
-**Nuestra evaluación.** Correcta. §Aspectos psicológicos: apoyo en entorno y asociaciones.
+**Nuestra evaluación.** Correcta. §Aspectos psicológicos: buscar apoyo en la familia, en el entorno y en las asociaciones.
 
 ## Cirugía abdominal
 
@@ -493,7 +495,7 @@ Deb
 
 **Respuesta de la v2.2.** La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación.
 
-**Nuestra evaluación.** Correcta, en el filo. Solo describe la abierta; el contraste con la laparoscópica queda implícito.
+**Nuestra evaluación.** Correcta, en el filo. La cirugía abierta usa incisiones mayores, que pueden dar más dolor y alargar la recuperación; contesta por un lado del contraste y deja el otro implícito.
 
 ### 57
 
@@ -501,7 +503,7 @@ Deb
 
 **Respuesta de la v2.2.** En la cirugía laparoscópica se insufla gas en el abdomen y el gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento; desaparece a medida que se absorbe.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Cirugía mínimamente invasiva: el gas insuflado puede dar molestia abdominal 1 o 2 días y desaparece al absorberse.
 
 ### 58
 
@@ -509,7 +511,7 @@ Deb
 
 **Respuesta de la v2.2.** El cribado nutricional se realiza para detectar desnutrición, ya que un paciente bien nutrido tiene menos complicaciones.
 
-**Nuestra evaluación.** Correcta. El cribado nutricional detecta desnutrición, porque un paciente bien nutrido tiene menos complicaciones.
+**Nuestra evaluación.** Correcta. §Cribado nutricional: detecta desnutrición, porque un paciente bien nutrido tiene menos complicaciones.
 
 ### 59
 
@@ -517,7 +519,7 @@ Deb
 
 **Respuesta de la v2.2.** La bebida con hidratos de carbono evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Bebidas con carbohidratos: evita los efectos del ayuno preoperatorio, incomodidad, hambre y sed.
 
 ### 60
 
@@ -525,7 +527,7 @@ Deb
 
 **Respuesta de la v2.2.** La analgesia epidural consiste en un catéter epidural, que es un tubo fino y flexible en la columna vertebral, que tras la cirugía se conecta a una bomba de ACP con medicamentos que bloquean los nervios que envían señales de dolor al cerebro.
 
-**Nuestra evaluación.** Correcta. Define el catéter epidural entero; la v1.1 se quedaba en nombrarlo.
+**Nuestra evaluación.** Correcta. §Control del dolor: define el catéter epidural entero, un tubo fino y flexible en la columna conectado a una bomba que bloquea los nervios del dolor.
 
 ### 61
 
@@ -533,7 +535,7 @@ Deb
 
 **Respuesta de la v2.2.** Beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la herida (sutura), incluso en cirugía del tubo digestivo.
 
-**Nuestra evaluación.** Correcta. §Reanudar la alimentación literal: comer pronto no abre la sutura.
+**Nuestra evaluación.** Correcta. §Reanudar la alimentación literal: beber y comer a las pocas horas es seguro y no aumenta el riesgo de que se abra la sutura.
 
 ### 62
 
@@ -541,7 +543,7 @@ Deb
 
 **Respuesta de la v2.2.** La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Reanudar la alimentación: la primera defecación suele producirse 2 o 3 días después de reiniciar la alimentación.
 
 ### 63
 
@@ -549,7 +551,7 @@ Deb
 
 **Respuesta de la v2.2.** La analgesia epidural puede causar vértigo o debilidad en las piernas, pasajeros y sin necesidad de tratamiento.
 
-**Nuestra evaluación.** Incorrecta. Respuesta idéntica a la de la v1.1: sigue omitiendo que todo analgésico puede dar efectos no deseados.
+**Nuestra evaluación.** Correcta, en el filo. Da los efectos que el documento atribuye a la epidural —vértigo o debilidad en las piernas, pasajeros—, pero se deja el marco de esa misma frase: que todos los fármacos para el dolor pueden producir efectos no deseados.
 
 ### 64
 
@@ -557,7 +559,7 @@ Deb
 
 **Respuesta de la v2.2.** Debes comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones, ya que la inmovilización en cama supone riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía (por retención de secreciones bronquiales).
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Levantarse de la cama: caminar pronto, por el riesgo de coágulos, debilidad muscular y neumonía.
 
 ### 65
 
@@ -565,7 +567,7 @@ Deb
 
 **Respuesta de la v2.2.** Se te pedirá consentimiento para algunas pruebas: unas se hacen a todos los pacientes, otras son específicas según la cirugía o el problema de salud.
 
-**Nuestra evaluación.** Correcta. Mejora sobre la v1.1: dice que unas pruebas se hacen a todos y otras son específicas, que es justo lo que pedíais.
+**Nuestra evaluación.** Correcta. §Cribado nutricional: unas pruebas se hacen a todos los pacientes y otras son específicas según la cirugía.
 
 ### 66
 
@@ -573,7 +575,7 @@ Deb
 
 **Respuesta de la v2.2.** La mayoría de las personas pueden beber líquidos sin riesgo hasta 2 horas antes de la operación.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Bebidas con carbohidratos: líquidos sin riesgo hasta 2 horas antes.
 
 ### 67
 
@@ -581,7 +583,7 @@ Deb
 
 **Respuesta de la v2.2.** Cuando el grado de ansiedad y temor sea elevado, te darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.
 
-**Nuestra evaluación.** Correcta. Recupera la condición «cuando el grado de ansiedad y temor sea elevado».
+**Nuestra evaluación.** Correcta. §Premedicación con su condición intacta, «cuando el grado de ansiedad y temor sea elevado», y las dos pastillas.
 
 ### 68
 
@@ -589,7 +591,7 @@ Deb
 
 **Respuesta de la v2.2.** El dolor se trata con calmantes a ritmo fijo cada 6 u 8 horas y un calmante 'de rescate' a demanda: vía intravenosa (gotero) las primeras 24 o 48 horas y luego vía oral (pastillas). Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales. El personal de enfermería controla el nivel de dolor las 24 horas y ajusta el tratamiento. En determinadas cirugías se puede usar analgesia epidural mediante un catéter colocado en quirófano que se conecta a una bomba de ACP.
 
-**Nuestra evaluación.** Correcta. Recupera «y luego vía oral (pastillas)»: se acaba el gotero indefinido.
+**Nuestra evaluación.** Correcta. §Control del dolor completo: pauta fija más rescate, intravenoso las primeras 24 o 48 horas y luego oral, la bomba de ACP y la epidural.
 
 ### 69
 
@@ -597,7 +599,7 @@ Deb
 
 **Respuesta de la v2.2.** Si tienes diabetes, el cirujano te indicará cómo proceder. Antes de la operación debes llevar un control de glucosa en sangre lo más riguroso posible; tu médico de cabecera o enfermería te ayudarán.
 
-**Nuestra evaluación.** Correcta. Recupera «el cirujano le indicará cómo proceder», que era la respuesta que faltaba.
+**Nuestra evaluación.** Correcta. §Bebidas con carbohidratos: con diabetes, el cirujano indica cómo proceder, con el control de glucosa previo.
 
 ### 70
 
@@ -605,7 +607,7 @@ Deb
 
 **Respuesta de la v2.2.** Para algunas cirugías se coloca una bomba de analgesia controlada por el paciente (ACP) que administra calmantes a ritmo fijo y tiene una perilla con un botón para dosis adicionales; todo está programado y no hay peligro de sobredosis.
 
-**Nuestra evaluación.** Correcta. §Control del dolor (ACP) literal: todo programado, sin peligro de sobredosis.
+**Nuestra evaluación.** Correcta. §Control del dolor: la bomba de ACP está toda programada y no hay peligro de sobredosis.
 
 ### 71
 
@@ -613,7 +615,7 @@ Deb
 
 **Respuesta de la v2.2.** Porque un paciente bien nutrido tiene menos complicaciones.
 
-**Nuestra evaluación.** Correcta. Contesta el porqué: un paciente bien nutrido tiene menos complicaciones. Respuesta muy escueta.
+**Nuestra evaluación.** Correcta. §Cribado nutricional: un paciente bien nutrido tiene menos complicaciones. Respuesta muy escueta.
 
 ### 72
 
@@ -621,7 +623,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento atribuye la molestia por el gas al abdomen, nunca al hombro.
 
 ### 73
 
@@ -629,7 +631,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento regula las horas previas, no los días previos.
 
 ### 74
 
@@ -637,7 +639,7 @@ Deb
 
 **Respuesta de la v2.2.** La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Control del dolor: la intensidad es máxima en las primeras 24 horas y después disminuye.
 
 ### 75
 
@@ -645,7 +647,7 @@ Deb
 
 **Respuesta de la v2.2.** El mismo día de la cirugía puedes sentarte en un sillón con ayuda, y al día siguiente debes levantarte y dar cortos paseos por la habitación.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Levantarse de la cama: el mismo día, sentarse en un sillón con ayuda; al día siguiente, cortos paseos.
 
 ### 76
 
@@ -653,7 +655,7 @@ Deb
 
 **Respuesta de la v2.2.** La recuperación puede llevar varios días o semanas.
 
-**Nuestra evaluación.** Incorrecta. Responde «recuperación días o semanas» a la duración del INGRESO: fuera de diana.
+**Nuestra evaluación.** Incorrecta. Responde «la recuperación puede llevar varios días o semanas» a la duración del INGRESO: el documento no da la estancia hospitalaria y esa frase es de otra cosa.
 
 ### 77
 
@@ -661,7 +663,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata la higiene previa.
 
 ### 78
 
@@ -669,7 +671,7 @@ Deb
 
 **Respuesta de la v2.2.** Se recomienda beber y comer lo antes posible, preferiblemente dentro de las primeras 24 horas. Se hace de forma progresiva: primero sorbos de agua en posición semisentada y luego alimentos fáciles de digerir, siempre que no aparezcan náuseas ni vómitos.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Reanudar la alimentación: lo antes posible, preferiblemente en las primeras 24 horas, y de forma progresiva.
 
 ### 79
 
@@ -677,7 +679,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento termina en el alta y no trata la vida posterior.
 
 ### 80
 
@@ -685,7 +687,7 @@ Deb
 
 **Respuesta de la v2.2.** Los profesionales informan a los familiares y/o cuidadores para que participen en el cuidado. A menudo ayudan al paciente a tomar decisiones sobre su tratamiento y apoyan en cuidados donde la colaboración del paciente es esencial (reinicio de la alimentación y movilización tras la operación).
 
-**Nuestra evaluación.** Correcta. Los profesionales informan a familiares y cuidadores para que participen en el cuidado, con el reinicio de la alimentación y la movilización como ejemplos.
+**Nuestra evaluación.** Correcta. §Colaboración de familiares: los profesionales les informan para que participen, y la respuesta conserva el sujeto en tercera persona donde el documento habla del paciente.
 
 ### 81
 
@@ -693,7 +695,7 @@ Deb
 
 **Respuesta de la v2.2.** En la primera consulta de cirugía te explican el propósito, las características, los riesgos potenciales y los resultados esperados del procedimiento. En la cita con anestesia, unos días antes de la cirugía, te informan del plan anestésico, las modalidades y los riesgos según tu patología. El personal de enfermería entrega información oral y escrita sobre todo el ingreso, los pasos del día de la cirugía, el quirófano y la planta, y lo que puedes hacer para acelerar tu recuperación.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Quién informa completo: la consulta de cirugía, la cita con anestesia y la información escrita de enfermería.
 
 ### 82
 
@@ -701,7 +703,7 @@ Deb
 
 **Respuesta de la v2.2.** En la primera consulta de cirugía decides sobre el tratamiento y firmas el consentimiento escrito.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Quién informa: se decide sobre el tratamiento y se firma el consentimiento escrito.
 
 ### 83
 
@@ -709,7 +711,7 @@ Deb
 
 **Respuesta de la v2.2.** La cirugía mayor suele requerir anestesia general. En cuanto a la premedicación, si el grado de ansiedad y temor es elevado, te darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.
 
-**Nuestra evaluación.** Correcta. §Qué es la cirugía mayor: «suele requerir anestesia general», con la premedicación detrás.
+**Nuestra evaluación.** Correcta. §Qué es la cirugía mayor: «suele requerir anestesia general», sin cerrarlo en una certeza, con la premedicación detrás.
 
 ### 84
 
@@ -717,7 +719,7 @@ Deb
 
 **Respuesta de la v2.2.** La cirugía mínimamente invasiva evita abrir las cavidades del organismo y se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo, se insufla gas en el abdomen y el cirujano obtiene imagen de los órganos para operar mediante manipulación externa de los instrumentos. El gas insuflado puede causar molestia abdominal durante 1 o 2 días tras el procedimiento.
 
-**Nuestra evaluación.** Correcta. Da primero el género —evitar abrir las cavidades, incisiones pequeñas— y luego la laparoscopia como caso concreto, que es lo que se preguntaba.
+**Nuestra evaluación.** Correcta. Da primero el género —evitar abrir las cavidades, incisiones pequeñas— y luego la laparoscopia como caso concreto.
 
 ### 85
 
@@ -725,7 +727,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Qué es la cirugía mayor dice que «la recuperación puede llevar varios días o semanas», que es material para esta pregunta. Es la misma frase que en la 76 usa donde no tocaba.
 
 ### 86
 
@@ -733,7 +735,7 @@ Deb
 
 **Respuesta de la v2.2.** Cuando el grado de ansiedad y temor sea elevado, te darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía y una pastilla 1 ó 2 horas antes de la intervención.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Premedicación con su condición: cuando el grado de ansiedad y temor sea elevado.
 
 ### 87
 
@@ -741,7 +743,7 @@ Deb
 
 **Respuesta de la v2.2.** El mismo día de la cirugía puedes sentarte en un sillón con ayuda, y al día siguiente debes levantarte y dar cortos paseos por la habitación.
 
-**Nuestra evaluación.** Correcta. Devuelve el «con ayuda» a sentarse, no a caminar.
+**Nuestra evaluación.** Correcta. §Levantarse de la cama: el «con ayuda» queda donde el documento lo pone, en sentarse, no en caminar.
 
 ### 88
 
@@ -749,7 +751,7 @@ Deb
 
 **Respuesta de la v2.2.** El mismo día de la cirugía puedes sentarte en un sillón con ayuda. Debes comenzar a caminar lo antes posible para estimular el tono muscular y evitar complicaciones como riesgo de coágulos en venas de piernas y pulmones, debilidad muscular y neumonía.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Levantarse de la cama: no solo no es peligroso, es lo indicado, y da el porqué.
 
 ### 89
 
@@ -757,7 +759,7 @@ Deb
 
 **Respuesta de la v2.2.** Unas horas antes de la cirugía te darán entre 200 y 400 ml de una bebida con hidratos de carbono, lo que evita los efectos del ayuno preoperatorio: incomodidad, hambre y sed.
 
-**Nuestra evaluación.** Correcta, en el filo. Coherente y apoyada (la bebida de HC evita el hambre); no dice «no improvise ingesta».
+**Nuestra evaluación.** Correcta, en el filo. La bebida con hidratos evita el hambre del ayuno, que es coherente y está apoyado; pero no dice que no se deba improvisar ninguna ingesta.
 
 ### 90
 
@@ -765,7 +767,7 @@ Deb
 
 **Respuesta de la v2.2.** La primera defecación suele producirse 2 ó 3 días después de reiniciar la alimentación.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Reanudar la alimentación: 2 o 3 días después de reiniciar la alimentación.
 
 ### 91
 
@@ -773,7 +775,7 @@ Deb
 
 **Respuesta de la v2.2.** Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).
 
-**Nuestra evaluación.** Correcta, en el filo. §Premedicación literal; normaliza la reacción emocional sin decir «sí» explícito.
+**Nuestra evaluación.** Correcta, en el filo. §Premedicación: normaliza la reacción emocional, aunque sin decir «sí, es normal» de forma explícita.
 
 ### 92
 
@@ -781,7 +783,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no cuantifica el riesgo vital.
 
 ### 93
 
@@ -789,7 +791,7 @@ Deb
 
 **Respuesta de la v2.2.** La intensidad del dolor postoperatorio es máxima en las primeras 24 horas y después disminuye progresivamente.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Control del dolor: máxima en las primeras 24 horas y después disminuye.
 
 ### 94
 
@@ -797,7 +799,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata el despertar intraoperatorio.
 
 ### 95
 
@@ -805,7 +807,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice qué ocurre si hay una complicación.
 
 ### 96
 
@@ -813,7 +815,7 @@ Deb
 
 **Respuesta de la v2.2.** Comunica al equipo cualquier necesidad o sensación incómoda. Cuando el grado de ansiedad y temor sea elevado, te darán medicación para llegar al quirófano relajado/a: una pastilla la noche antes de la cirugía (pastilla para dormir) y una pastilla 1 ó 2 horas antes de la intervención.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Premedicación: comunicar la sensación al equipo, y la pastilla para dormir la noche antes.
 
 ### 97
 
@@ -821,7 +823,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no menciona ostomías.
 
 ### 98
 
@@ -829,7 +831,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no recoge la retirada del consentimiento, que sí está en el de hemorroides.
 
 ### 99
 
@@ -837,7 +839,7 @@ Deb
 
 **Respuesta de la v2.2.** En la cita con anestesia, unos días antes de la cirugía, te informan del plan anestésico, las modalidades y los riesgos según tu patología.
 
-**Nuestra evaluación.** Incorrecta. Pérdida frente a la v2, que se abstenía: responde con la cita de anestesia, donde informan del plan y los riesgos. No inventa ningún peligro, pero el documento no dice si la anestesia es peligrosa y la pregunta queda sin contestar.
+**Nuestra evaluación.** Incorrecta. Responde con la cita de anestesia, donde informan del plan y los riesgos; no inventa ningún peligro, pero el documento no dice si la anestesia es peligrosa y la pregunta queda sin contestar. La v2 se abstenía aquí.
 
 ### 100
 
@@ -845,7 +847,7 @@ Deb
 
 **Respuesta de la v2.2.** La cirugía convencional (abierta) usa incisiones mayores, que pueden producir más dolor y alargar la recuperación. La cirugía mínimamente invasiva evita abrir las cavidades del organismo y se opera a través de pequeñas incisiones. En la cirugía laparoscópica se introduce un laparoscopio e instrumentos por pequeñas heridas alrededor del ombligo; a veces es necesaria una incisión algo mayor para extraer todo o parte de un órgano.
 
-**Nuestra evaluación.** Correcta. Contrasta las incisiones mayores de la cirugía abierta con las pequeñas de la mínimamente invasiva, y conserva que a veces hace falta una algo mayor.
+**Nuestra evaluación.** Correcta. Contrasta las incisiones mayores de la abierta con las pequeñas de la mínimamente invasiva, y conserva que a veces hace falta una algo mayor.
 
 ### 101
 
@@ -853,7 +855,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene; el documento dice que se pueden consultar las dudas en cualquier momento, pero no que se pueda hacer a solas, que es lo que se pregunta.
 
 ### 102
 
@@ -861,7 +863,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no da la duración del ingreso.
 
 ### 103
 
@@ -869,11 +871,11 @@ Deb
 
 **Respuesta de la v2.2.** Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión, etc.).
 
-**Nuestra evaluación.** Correcta. §Premedicación: normaliza la reacción emocional ante la intervención.
+**Nuestra evaluación.** Correcta. §Premedicación: cualquier intervención provoca alguna reacción emocional.
 
 ## Hemorroides
 
-*29 de 31 correctas (94%).*
+*28 de 31 correctas (90%).*
 
 ### 104
 
@@ -881,7 +883,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; el documento tiene las dos partes del contraste —la hemorroidectomía extirpa las hemorroides, y la ligadura con bandas elásticas es una alternativa—, y son las mismas que sí une en la 109 para el láser.
 
 ### 105
 
@@ -897,7 +899,7 @@ Deb
 
 **Respuesta de la v2.2.** La operación de hemorroides dura entre 30 y 60 minutos.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §En qué consiste: entre 30 y 60 minutos.
 
 ### 107
 
@@ -905,7 +907,7 @@ Deb
 
 **Respuesta de la v2.2.** Muy raramente puedes presentar un estrechamiento anal, una incontinencia o un sangrado abundante.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Riesgos: las muy raras, estrechamiento anal, incontinencia y sangrado abundante, conservando la rareza.
 
 ### 108
 
@@ -913,7 +915,7 @@ Deb
 
 **Respuesta de la v2.2.** El equipo médico te ajusta, antes de la operación de hemorroides, la medicación que tomas habitualmente, y ese ajuste incluye los anticoagulantes.
 
-**Nuestra evaluación.** Correcta. «el equipo médico ajusta la medicación habitual, y ese ajuste incluye los anticoagulantes»: el sujeto clínico sigue en su sitio.
+**Nuestra evaluación.** Correcta. §Preparación: el equipo médico ajusta la medicación habitual y ese ajuste incluye los anticoagulantes; el sujeto clínico sigue en su sitio.
 
 ### 109
 
@@ -929,7 +931,7 @@ Deb
 
 **Respuesta de la v2.2.** La operación de hemorroides te reduce las recaídas de las hemorroides.
 
-**Nuestra evaluación.** Correcta, en el filo. §Beneficios «reduce recaídas»: contesta de refilón la recurrencia; respuesta muy escueta.
+**Nuestra evaluación.** Correcta, en el filo. §Beneficios «reduce las recaídas» contesta de refilón la recurrencia; respuesta muy escueta.
 
 ### 111
 
@@ -937,7 +939,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Se abstiene; el documento dice «fibra y líquidos» pero NUNCA el porqué, que la v1.1 inventaba.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento manda fibra y líquidos pero nunca dice por qué.
 
 ### 112
 
@@ -945,7 +947,7 @@ Deb
 
 **Respuesta de la v2.2.** Puedes presentar muy raramente, después de la operación de hemorroides, una incontinencia.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Riesgos: la incontinencia, conservando el «muy raramente».
 
 ### 113
 
@@ -953,7 +955,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata la baja laboral.
 
 ### 114
 
@@ -961,7 +963,7 @@ Deb
 
 **Respuesta de la v2.2.** Debes permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.
 
-**Nuestra evaluación.** Correcta. §Preparación «ayuno 6–8 h» responde directo el día antes.
+**Nuestra evaluación.** Correcta. §Preparación: el ayuno de 6 a 8 horas contesta directo por el día antes.
 
 ### 115
 
@@ -969,7 +971,7 @@ Deb
 
 **Respuesta de la v2.2.** Después de la operación de hemorroides, puedes presentar con frecuencia dolor al defecar.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Riesgos: el dolor al defecar, con su frecuencia.
 
 ### 116
 
@@ -977,7 +979,7 @@ Deb
 
 **Respuesta de la v2.2.** Te recuperas de la operación de hemorroides en un plazo de 2 a 4 semanas.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Cuidados después: de 2 a 4 semanas.
 
 ### 117
 
@@ -985,7 +987,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Se abstiene; el documento nombra los baños de asiento pero no los define — la v1.1 los definía por su cuenta.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento nombra los baños de asiento pero no los define.
 
 ### 118
 
@@ -993,7 +995,7 @@ Deb
 
 **Respuesta de la v2.2.** Debes seguir una dieta rica en fibra y en líquidos durante la recuperación de la operación de hemorroides.
 
-**Nuestra evaluación.** Correcta. Dieta rica en fibra y en líquidos durante la recuperación.
+**Nuestra evaluación.** Correcta. §Cuidados después: dieta rica en fibra y en líquidos durante la recuperación.
 
 ### 119
 
@@ -1001,7 +1003,7 @@ Deb
 
 **Respuesta de la v2.2.** La operación de hemorroides dura entre 30 y 60 minutos.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §En qué consiste: entre 30 y 60 minutos.
 
 ### 120
 
@@ -1009,7 +1011,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice si hay ingreso.
 
 ### 121
 
@@ -1017,7 +1019,7 @@ Deb
 
 **Respuesta de la v2.2.** Puedes tratar tus hemorroides, en lugar de operarte, con tratamientos médicos: pomadas, baños y dieta. También puedes tratar tus hemorroides con una ligadura con bandas elásticas o con una coagulación con láser o con infrarrojos.
 
-**Nuestra evaluación.** Correcta. Las alternativas completas: pomadas, baños, dieta, ligadura con bandas elásticas y coagulación con láser o infrarrojos.
+**Nuestra evaluación.** Correcta. §Alternativas completas: pomadas, baños, dieta, ligadura con bandas elásticas y coagulación con láser o infrarrojos.
 
 ### 122
 
@@ -1025,7 +1027,7 @@ Deb
 
 **Respuesta de la v2.2.** Si no te operas de las hemorroides, tus síntomas pueden empeorar.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Qué ocurre si no te operas: los síntomas pueden empeorar.
 
 ### 123
 
@@ -1033,7 +1035,7 @@ Deb
 
 **Respuesta de la v2.2.** Puedes retirar tu consentimiento para la operación de hemorroides en cualquier momento antes de la cirugía.
 
-**Nuestra evaluación.** Correcta. §Aspectos prácticos literal: puede retirar el consentimiento.
+**Nuestra evaluación.** Correcta. §Tu consentimiento: se puede retirar en cualquier momento antes de la cirugía.
 
 ### 124
 
@@ -1041,7 +1043,7 @@ Deb
 
 **Respuesta de la v2.2.** Debes permanecer en ayunas entre 6 y 8 horas antes de la operación de hemorroides.
 
-**Nuestra evaluación.** Correcta. Mantiene el acierto de la v1.1, reformulada o ampliada sobre la misma base documental.
+**Nuestra evaluación.** Correcta. §Preparación: entre 6 y 8 horas de ayuno.
 
 ### 125
 
@@ -1049,7 +1051,7 @@ Deb
 
 **Respuesta de la v2.2.** Puedes presentar con frecuencia, después de la operación de hemorroides, sangrado leve, y muy raramente, un sangrado abundante.
 
-**Nuestra evaluación.** Correcta. Sangrado leve con frecuencia y sangrado abundante muy raramente, conservando las dos frecuencias.
+**Nuestra evaluación.** Correcta. §Riesgos: sangrado leve con frecuencia y sangrado abundante muy raramente, con las dos frecuencias.
 
 ### 126
 
@@ -1057,7 +1059,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no tiene sección psicológica y no da material sobre la vergüenza.
 
 ### 127
 
@@ -1065,7 +1067,7 @@ Deb
 
 **Respuesta de la v2.2.** Tienes un dolor moderado después de la operación de hemorroides.
 
-**Nuestra evaluación.** Correcta. §Preparación «dolor moderado»; respuesta muy escueta.
+**Nuestra evaluación.** Correcta. §Cuidados después: dolor moderado. Respuesta muy escueta.
 
 ### 128
 
@@ -1073,7 +1075,7 @@ Deb
 
 **Respuesta de la v2.2.** Puedes presentar muy raramente, después de la operación de hemorroides, una incontinencia.
 
-**Nuestra evaluación.** Correcta. §Riesgos «muy raras: incontinencia», y conserva la rareza.
+**Nuestra evaluación.** Correcta. §Riesgos: la incontinencia, y conserva el «muy raramente» ante un miedo al «para siempre».
 
 ### 129
 
@@ -1081,7 +1083,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata el riesgo vital.
 
 ### 130
 
@@ -1089,7 +1091,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no tiene sección psicológica y no da material sobre el miedo.
 
 ### 131
 
@@ -1097,7 +1099,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no tiene sección psicológica y no da material sobre la vergüenza.
 
 ### 132
 
@@ -1105,7 +1107,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no describe quién está en el quirófano.
 
 ### 133
 
@@ -1113,7 +1115,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Riesgos da las muy raras —estrechamiento anal, incontinencia—, que son secuelas permanentes, y son las mismas que sí responde en la 112 y en la 128.
 
 ### 134
 
@@ -1121,5 +1123,5 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Incorrecta. Pérdida frente a la v2: se abstiene donde el documento sí dice que los síntomas pueden empeorar si no se opera, que es lo que la v2 respondía.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Qué ocurre si no te operas dice que los síntomas pueden empeorar, que es la misma frase que sí sirve en la 122. La v2 respondía aquí.
 

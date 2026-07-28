@@ -4,6 +4,8 @@
 
 **Resultado: 120 de 134 correctas (90%).**
 
+De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una a una. Si se descuentan todas, el resultado es 114 de 134 (85%); la horquilla es 85%–90%.
+
 ---
 
 ## Diabetes
