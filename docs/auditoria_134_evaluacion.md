@@ -4,11 +4,15 @@
 
 **Resultado: 83 de 134 correctas (62%).**
 
+**Cómo se ha leído.** Una a una, las 134, comparando cada respuesta con el documento del procedimiento que el sistema tenía delante, que en esta versión eran la guía de diabetes original, el resumen de hemorroides y la guía de cirugía abdominal. Ningún veredicto está calculado ni heredado de otra versión: cada uno está escrito con su motivo y con la sección del documento en la que se apoya, para que podáis comprobarlo. Las respuestas son las de una sola ejecución.
+
+De esas 83, **10 quedan «en el filo»**: apoyadas en el documento y sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una a una. Si se descuentan todas, el resultado es 73 de 134 (54%); la horquilla es 54%–62%.
+
 ---
 
 ## Diabetes
 
-*27 de 55 correctas (49%).*
+*29 de 55 correctas (53%).*
 
 ### 1
 
@@ -18,7 +22,7 @@
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. La auditoría pide más profundidad.
+**Nuestra evaluación.** Correcta. Responde que no, y que la insulina depende de cómo se controle la diabetes con otros tratamientos.
 
 ### 2
 
@@ -28,7 +32,7 @@
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. «en muchos casos» no está en el documento; §Tratamiento farmacológico lo describe como progresivo e individualizado.
+**Nuestra evaluación.** Incorrecta. «en muchos casos se puede evitar la medicación» pone un cuantificador que el documento no da; §Tratamiento farmacológico dice que muchas personas necesitan además fármacos.
 
 ### 3
 
@@ -38,7 +42,7 @@
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. Vuelca los criterios diagnósticos; la pregunta era si habrá más análisis.
+**Nuestra evaluación.** Correcta, en el filo. Dice que sí y da los criterios, entre ellos «≥126 mg/dl en dos ocasiones», que es la repetición de análisis por la que se pregunta; pero los vuelca en bloque en vez de contestar.
 
 ### 4
 
@@ -48,7 +52,7 @@
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. Dos defectos. Los ejemplos de menú («pan integral con aguacate y huevo») no están en el documento; y «Si usas insulina, ajustar la dosis según la glucemia postprandial» reasigna al paciente una regla que el documento reserva al prescriptor — §Tratamiento farmacológico dice «no modificar dosis ni suspender sin indicación».
+**Nuestra evaluación.** Correcta. §Hidratos de carbono: combinarlos con proteína, grasa saludable y fibra reduce los picos, y hay que distribuir las tomas a lo largo del día.
 
 ### 5
 
@@ -59,7 +63,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. Non sequitur: mezcla criterios diagnósticos con una negación sin apoyo en el texto.
+**Nuestra evaluación.** Incorrecta. Abre con los criterios diagnósticos, que no vienen a cuento, y remata negando sin apoyo; §Tratamiento farmacológico —progresivo e individualizado— era la respuesta.
 
 ### 6
 
@@ -69,7 +73,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Autoanálisis: «Especialmente importante con insulina o fármacos con riesgo de hipoglucemia. Frecuencia individualizada».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Autoanálisis dice que es especialmente importante con insulina o con fármacos con riesgo de hipoglucemia, y que la frecuencia se individualiza.
 
 ### 7
 
@@ -79,7 +83,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Responde «HbA1c ≥6,5 %.» a «¿para qué me la van a pedir?». §Seguimiento sanitario lo explica.
+**Nuestra evaluación.** Incorrecta. Responde «HbA1c ≥6,5 %» a «¿para qué me la van a pedir?»: es la cifra del criterio diagnóstico, no para qué sirve la prueba.
 
 ### 8
 
@@ -89,7 +93,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. «El médico suele enseñarte a pincharte» no está en el documento; §Educación terapéutica solo dice que aprender mejora el autocuidado.
+**Nuestra evaluación.** Incorrecta. «el médico suele enseñarte a pincharte» no está en el documento.
 
 ### 9
 
@@ -99,7 +103,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Mitos «No hay diabetes buena o mala».
+**Nuestra evaluación.** Correcta. §Mitos: no hay diabetes «buena» ni «mala», sino bien o mal controlada.
 
 ### 10
 
@@ -109,7 +113,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Tratamiento farmacológico (metformina, adherencia, «progresivo») e §Insulina («temporal o permanente»).
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico da la metformina como la más utilizada e §Insulina dice «temporal o permanente».
 
 ### 11
 
@@ -119,7 +123,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 8/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. §Alimentación «perder 5-10 % del peso».
+**Nuestra evaluación.** Correcta. §Alimentación: perder un 5-10 % del peso mejora la glucemia, la tensión, los lípidos y el riesgo cardiovascular.
 
 ### 12
 
@@ -129,7 +133,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 8/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. §Causas de la DM2.
+**Nuestra evaluación.** Correcta. §Causas de la DM2: da la combinación entera y dice que el sobrepeso no es la única causa.
 
 ### 13
 
@@ -139,7 +143,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. El diario de comidas no aparece en el documento.
+**Nuestra evaluación.** Incorrecta. «es recomendable anotar todo lo que comes»: el diario de comidas no está en el documento, que solo manda anotar los autoanálisis.
 
 ### 14
 
@@ -149,7 +153,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Alcohol.
+**Nuestra evaluación.** Correcta. §Alcohol: favorece las hipoglucemias, sobre todo con insulina o ciertos fármacos.
 
 ### 15
 
@@ -159,7 +163,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Pie diabético.
+**Nuestra evaluación.** Correcta. §Pie diabético: el daño en nervios y vasos es lo que obliga a vigilarlos.
 
 ### 16
 
@@ -169,7 +173,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Mitos: «La DM2 inicial no suele dar síntomas; se descubre por análisis» + §Síntomas.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Mitos dice que la DM2 inicial no suele dar síntomas y que se descubre por análisis.
 
 ### 17
 
@@ -181,7 +185,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Objetivos de control.
+**Nuestra evaluación.** Correcta, en el filo. §Objetivos de control, con las cifras de tensión y colesterol; pero las da cerradas y el documento titula esa sección «individualizables».
 
 ### 18
 
@@ -191,7 +195,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. §Insulina «Rotar zonas».
+**Nuestra evaluación.** Correcta. §Insulina: rotar las zonas de inyección para evitar lipodistrofias.
 
 ### 19
 
@@ -201,7 +205,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El tiempo hasta notar efecto del tratamiento no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el tiempo hasta notar efecto no está en el documento.
 
 ### 20
 
@@ -211,7 +215,7 @@ Si te recetan pastillas al inicio, **no hay información sobre que sea más grav
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Tratamiento farmacológico «Progresivo… muchas personas necesitan además fármacos»; §Insulina «cuando otros tratamientos no controlan».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico es «progresivo» e §Insulina dice «cuando otros tratamientos no controlan».
 
 ### 21
 
@@ -223,7 +227,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. Devuelve los objetivos del tratamiento en lugar de los primeros pasos.
+**Nuestra evaluación.** Correcta, en el filo. Nombra alimentación, ejercicio y medicación si hace falta, que son los primeros pasos de §Tratamiento farmacológico; pero abre con los objetivos del tratamiento, que es otra cosa.
 
 ### 22
 
@@ -233,7 +237,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Cruza dos categorías de §Grupos de alimentos: el documento dice «moderar: edulcorantes» y la respuesta manda evitarlos, contradiciéndose dentro de la misma frase.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Grupos de alimentos limita el chocolate a un consumo ocasional y §Mitos dice que no hay alimentos prohibidos.
 
 ### 23
 
@@ -243,7 +247,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. Responde con la individualización del §Tratamiento farmacológico.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico describe el paso de la alimentación a los fármacos, que es lo que se pregunta.
 
 ### 24
 
@@ -255,7 +259,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. Filtra al paciente su propio razonamiento: «*(No añado equivalencias o recomendaciones específicas de marcas…)*».
+**Nuestra evaluación.** Incorrecta. Junta «pan integral» y «tubérculos (patata, evitar fritos)» en «pan y patatas preferiblemente integrales», que no existe; y filtra al paciente su propio razonamiento entre paréntesis.
 
 ### 25
 
@@ -265,7 +269,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Mitos «La dieta del diabético es la dieta equilibrada general» + §Alimentación «ningún alimento prohibido».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Mitos dice que la dieta de la persona con diabetes es la dieta equilibrada general.
 
 ### 26
 
@@ -277,7 +281,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. Misma fuga de meta-comentario que el 24, y además funde §Ejercicio «al menos 150 minutos semanales» con «caminar 30-45 min diarios es muy beneficioso» en «150 minutos semanales… repartidos en sesiones de al menos 30-45 minutos diarios», que es aritméticamente imposible.
+**Nuestra evaluación.** Incorrecta. Funde «al menos 150 minutos semanales» con «caminar 30-45 minutos diarios» en «150 semanales repartidos en sesiones de al menos 30-45 diarios», que no cuadra; y vuelve a filtrar el razonamiento.
 
 ### 27
 
@@ -287,7 +291,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Insulina «temporal o permanente»; §Mitos «Sin insulina también se es diabético».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Mitos dice «sin insulina también se es diabético: se puede tratar solo con alimentación y ejercicio, o con pastillas».
 
 ### 28
 
@@ -301,7 +305,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Alcohol.
+**Nuestra evaluación.** Correcta. §Alcohol: moderación, nunca en ayunas y evitar la alta graduación.
 
 ### 29
 
@@ -325,7 +329,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Completa salvo en dos fronteras rotas: el documento da «Si fiebre: paracetamol» y, por separado, «Consulte si… fiebre >39 °C», y la respuesta las funde en «Si la fiebre supera los 39 °C, usa paracetamol», convirtiendo un criterio de alarma en un umbral de tratamiento; además saca «Evitar leche y derivados…» de la rama de diarrea y la deja como prohibición general. Omite «cuidado con sobres y jarabes que contienen azúcar».
+**Nuestra evaluación.** Correcta, en el filo. Da la pauta de los días de enfermedad entera y separa bien el aviso por fiebre superior a 39 °C; pero de la fiebre, que es lo que se preguntaba, no llega a decir el paracetamol.
 
 ### 30
 
@@ -335,7 +339,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. «Sí, necesitas un glucómetro»; §Autoanálisis dice frecuencia individualizada y «especialmente» con insulina.
+**Nuestra evaluación.** Incorrecta. «sí, necesitas un glucómetro» convierte en obligación lo que §Autoanálisis condiciona: «especialmente» con insulina, y con la frecuencia individualizada.
 
 ### 31
 
@@ -345,7 +349,7 @@ Revisa tus análisis y sigue las indicaciones del equipo médico sobre **glucemi
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. .
+**Nuestra evaluación.** Correcta, en el filo. Sostiene que se puede hacer vida normal, coherente con §Aspectos psicológicos; pero el «si mantienes el tratamiento adecuado» lo pone la respuesta.
 
 ### 32
 
@@ -369,7 +373,7 @@ Consultar rápido ante heridas, pus, cambio de color, pérdida de sensibilidad, 
 
 **Vuestra puntuación.** 9/10, Adequada.
 
-**Nuestra evaluación.** Correcta. §Pie diabético.
+**Nuestra evaluación.** Correcta. §Pie diabético, casi entero.
 
 ### 33
 
@@ -388,7 +392,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. §Síntomas.
+**Nuestra evaluación.** Correcta. §Síntomas: puede no haber ninguno durante años, con la lista detrás.
 
 ### 34
 
@@ -398,7 +402,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Seguimiento sanitario.
+**Nuestra evaluación.** Correcta. §Seguimiento sanitario: revisiones periódicas para detectar las complicaciones antes de los síntomas.
 
 ### 35
 
@@ -412,7 +416,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §¿Puedo ir de vacaciones?.
+**Nuestra evaluación.** Correcta. §¿Puedo ir de vacaciones?: el material en el equipaje de mano, la hipoglucemia, identificarse y los cambios de horario.
 
 ### 36
 
@@ -426,7 +430,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Responde «qué llevar a la cita» con la lista de equipaje de §¿Puedo ir de vacaciones? (incluye «ropa y calzado cómodos»).
+**Nuestra evaluación.** Incorrecta. Contesta «qué llevar a la cita» con la lista de equipaje de las vacaciones, ropa y calzado cómodos incluidos.
 
 ### 37
 
@@ -436,7 +440,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Objetivos de control «individualizables» y §Tratamiento «se individualiza según persona».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Objetivos de control son «individualizables» y el tratamiento «se individualiza según persona», que es justo el «mi caso puede ser diferente».
 
 ### 38
 
@@ -446,7 +450,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El ámbito laboral no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el ámbito laboral no está en el documento.
 
 ### 39
 
@@ -456,7 +460,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. §Grupos de alimentos «Suplementos/productos milagro: no curan la diabetes».
+**Nuestra evaluación.** Correcta. Dice que no hacen falta productos especiales y acota el material de autoanálisis a quien lo hace.
 
 ### 40
 
@@ -466,7 +470,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. Doblemente cubierto: §Alimentación «ningún alimento prohibido» y §Mitos «No hay alimentos prohibidos».
+**Nuestra evaluación.** Correcta. §Alimentación y §Mitos: ningún alimento está prohibido.
 
 ### 41
 
@@ -476,7 +480,7 @@ No siempre se notan cambios al principio.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Aspectos psicológicos: «Tras el diagnóstico es normal sentir negación, frustración o miedo».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Aspectos psicológicos dice que tras el diagnóstico es normal sentir negación, frustración o miedo.
 
 ### 42
 
@@ -488,7 +492,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 1/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. Añade «No tengo información sobre eso» después de haber respondido.
+**Nuestra evaluación.** Correcta, en el filo. §Complicaciones oculares: la retinopatía puede llevar a pérdida de visión si no se controla; pero cierra con «No tengo información sobre eso» después de haber respondido.
 
 ### 43
 
@@ -498,7 +502,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La amputación no aparece; §Pie diabético llega hasta úlceras e infecciones.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la amputación no está en el documento, que llega hasta las úlceras y las infecciones.
 
 ### 44
 
@@ -508,7 +512,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El pudor al inyectarse no aparece; §Aspectos psicológicos es genérico.
+**Nuestra evaluación.** Correcta, en el filo. Se abstiene; §Aspectos psicológicos manda pedir ayuda ante las situaciones difíciles, pero en genérico, y el pudor al inyectarse no está.
 
 ### 45
 
@@ -518,7 +522,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Introducción «enfermedad crónica»; §Prevención «prevenir o retrasar»; «productos milagro no curan».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Introducción dice «enfermedad crónica».
 
 ### 46
 
@@ -528,7 +532,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Prevención de complicaciones + individualización de objetivos.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no hace pronóstico individual.
 
 ### 47
 
@@ -538,7 +542,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Aspectos psicológicos «no culparse» y §Causas de la DM2.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Aspectos psicológicos dice «no culparse» y §Causas da una combinación de factores.
 
 ### 48
 
@@ -548,7 +552,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Educación terapéutica «es normal sentir preocupación, miedo o frustración».
+**Nuestra evaluación.** Correcta. §Educación terapéutica: es normal sentir preocupación, miedo o frustración.
 
 ### 49
 
@@ -558,7 +562,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La fertilidad no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la fertilidad no está en el documento.
 
 ### 50
 
@@ -568,7 +572,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La esperanza de vida no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la esperanza de vida no está en el documento.
 
 ### 51
 
@@ -578,7 +582,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Alimentación «ningún alimento prohibido» + §Aspectos psicológicos.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Alimentación dice que ningún alimento está prohibido.
 
 ### 52
 
@@ -588,7 +592,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. «Sí… riesgo de muerte»: §Hipoglucemia no afirma mortalidad; da síntomas, tratamiento (15-20 g) y prevención.
+**Nuestra evaluación.** Incorrecta. «sí, puede llevar a riesgo vital»: §Hipoglucemia da síntomas, tratamiento y prevención, y en ningún sitio afirma mortalidad. Es la respuesta más grave de las 134.
 
 ### 53
 
@@ -598,7 +602,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Insulina (no todos la necesitan, vía subcutánea) y §Mitos.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Mitos dice «sin insulina también se es diabético», que contesta el «¿de verdad voy a tener que pincharme?».
 
 ### 54
 
@@ -608,7 +612,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Causas de la DM2 cita la herencia como un factor, no como certeza.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Causas cita la herencia como un factor, no como certeza, y §Aspectos psicológicos dice «no culparse».
 
 ### 55
 
@@ -618,11 +622,11 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Aspectos psicológicos: «buscar apoyo en el entorno y en asociaciones de personas con diabetes».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Aspectos psicológicos manda buscar apoyo en el entorno y en las asociaciones de personas con diabetes.
 
 ## Cirugía abdominal
 
-*36 de 48 correctas (75%).*
+*35 de 48 correctas (73%).*
 
 ### 56
 
@@ -632,7 +636,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. §Cirugía mínimamente invasiva.
+**Nuestra evaluación.** Correcta. §Cirugía mínimamente invasiva: incisiones menores, menos dolor y recuperación más corta que la abierta.
 
 ### 57
 
@@ -642,7 +646,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Cirugía mínimamente invasiva.
+**Nuestra evaluación.** Correcta. §Cirugía mínimamente invasiva: el gas insuflado da molestia abdominal 1 o 2 días.
 
 ### 58
 
@@ -652,7 +656,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Cribado nutricional preoperatorio.
+**Nuestra evaluación.** Correcta. §Cribado nutricional: se hace para detectar desnutrición.
 
 ### 59
 
@@ -662,7 +666,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Bebidas con carbohidratos.
+**Nuestra evaluación.** Correcta. §Bebidas con carbohidratos: 200-400 ml para evitar los efectos del ayuno preoperatorio.
 
 ### 60
 
@@ -672,7 +676,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. «Es un catéter epidural.» no explica nada; §Control del dolor lo describe entero.
+**Nuestra evaluación.** Incorrecta. «Es un catéter epidural.» no explica qué es, que era la pregunta; §Control del dolor lo describe entero.
 
 ### 61
 
@@ -682,7 +686,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Literal en §Reanudar la alimentación: «no aumenta el riesgo de que se abra la herida (sutura)».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Reanudar la alimentación lo dice literal: comer pronto no aumenta el riesgo de que se abra la sutura.
 
 ### 62
 
@@ -692,7 +696,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Reanudar la alimentación.
+**Nuestra evaluación.** Correcta. §Reanudar la alimentación: 2 o 3 días después de reiniciar la alimentación.
 
 ### 63
 
@@ -702,7 +706,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 1/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Da solo «vértigo o debilidad… sin necesidad de tratamiento»; omite «todos los fármacos para el dolor pueden producir efectos no deseados».
+**Nuestra evaluación.** Correcta, en el filo. Da los efectos que el documento atribuye a la epidural, vértigo o debilidad en las piernas; pero se deja el marco de esa misma frase, que todos los fármacos para el dolor pueden producir efectos no deseados.
 
 ### 64
 
@@ -712,7 +716,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 9/10, Adequada.
 
-**Nuestra evaluación.** Correcta. §Levantarse de la cama.
+**Nuestra evaluación.** Correcta. §Levantarse de la cama: coágulos, debilidad muscular y neumonía.
 
 ### 65
 
@@ -722,7 +726,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Cribado nutricional preoperatorio.
+**Nuestra evaluación.** Correcta. §Cribado nutricional: qué se valora, y que se hace a todos los pacientes.
 
 ### 66
 
@@ -732,7 +736,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Bebidas con carbohidratos.
+**Nuestra evaluación.** Correcta. §Bebidas con carbohidratos: líquidos hasta 2 horas antes.
 
 ### 67
 
@@ -744,7 +748,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Incorrecta. Pierde la condición: §Premedicación dice «cuando el grado de ansiedad y temor sea elevado, le darán medicación», y la respuesta promete la premedicación sin condicionarla.
+**Nuestra evaluación.** Incorrecta. Promete la premedicación sin condición; §Premedicación la ata a «cuando el grado de ansiedad y temor sea elevado».
 
 ### 68
 
@@ -758,7 +762,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Incorrecta. Reparte «vía intravenosa las primeras 24 o 48 horas» entre los dos tipos de calmante y pierde el «y luego vía oral (pastillas)» del documento: deja al paciente con la idea de gotero indefinido.
+**Nuestra evaluación.** Correcta. §Control del dolor: pauta fija más rescate, gotero las primeras 24-48 horas y luego pastillas, con la bomba de ACP detrás.
 
 ### 69
 
@@ -768,7 +772,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Preguntan si cambia el ayuno; §Bebidas dice «el cirujano le indicará cómo proceder», que es la respuesta que faltaba.
+**Nuestra evaluación.** Incorrecta. Responde con el control de glucosa previo, no con el ayuno; §Bebidas con carbohidratos dice «el cirujano te indicará cómo proceder».
 
 ### 70
 
@@ -778,7 +782,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Literal en §Control del dolor (ACP): «todo está programado, no hay peligro de sobredosis».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Control del dolor lo dice literal: la bomba está toda programada y no hay peligro de sobredosis.
 
 ### 71
 
@@ -788,7 +792,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Cribado nutricional preoperatorio.
+**Nuestra evaluación.** Correcta. §Cribado nutricional: un paciente bien nutrido tiene menos complicaciones.
 
 ### 72
 
@@ -798,7 +802,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El dolor referido al hombro no aparece; el documento solo cita «molestia abdominal» por el gas.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento atribuye la molestia del gas al abdomen, nunca al hombro.
 
 ### 73
 
@@ -808,7 +812,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. «Los días antes» no aparece; el documento solo cubre las 2 h previas.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento regula las horas previas, no los días previos.
 
 ### 74
 
@@ -818,7 +822,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Control del dolor.
+**Nuestra evaluación.** Correcta. §Control del dolor: máximo en las primeras 24 horas y luego disminuye.
 
 ### 75
 
@@ -828,7 +832,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Levantarse de la cama.
+**Nuestra evaluación.** Correcta, en el filo. «al día siguiente» es lo que dice el documento para los paseos, pero se deja el sentarse en un sillón con ayuda el mismo día.
 
 ### 76
 
@@ -838,7 +842,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La duración del ingreso no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la duración del ingreso no está en el documento.
 
 ### 77
 
@@ -848,7 +852,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La ducha preoperatoria no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la ducha previa no está en el documento.
 
 ### 78
 
@@ -858,7 +862,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. §Reanudar la alimentación.
+**Nuestra evaluación.** Correcta. §Reanudar la alimentación: dentro de las primeras 24 horas, si no aparecen náuseas ni vómitos.
 
 ### 79
 
@@ -868,7 +872,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La vida tras el alta no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento termina en el alta.
 
 ### 80
 
@@ -878,7 +882,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Colaboración de familiares y cuidadores.
+**Nuestra evaluación.** Correcta, en el filo. §Colaboración de familiares sostiene que participen en el cuidado; el «acompañarte» lo pone la respuesta.
 
 ### 81
 
@@ -890,7 +894,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 9/10, Adequada.
 
-**Nuestra evaluación.** Correcta. §Quién informa y cuándo.
+**Nuestra evaluación.** Correcta. §Quién informa: propósito, características, riesgos potenciales y resultados esperados, con el consentimiento detrás.
 
 ### 82
 
@@ -900,7 +904,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 7/10, Acceptable amb millores.
 
-**Nuestra evaluación.** Correcta. §Quién informa y cuándo.
+**Nuestra evaluación.** Correcta. §Quién informa: se firma el consentimiento escrito.
 
 ### 83
 
@@ -910,7 +914,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Qué es la cirugía mayor abdominal: «Suele requerir anestesia general».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Qué es la cirugía mayor abdominal dice «suele requerir anestesia general».
 
 ### 84
 
@@ -920,7 +924,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. Responde «qué es mínimamente invasiva» con la descripción de la laparoscopia; el documento las distingue como género y caso.
+**Nuestra evaluación.** Incorrecta. Contesta «qué es mínimamente invasiva» describiendo la laparoscopia; el documento las distingue como género y caso.
 
 ### 85
 
@@ -930,7 +934,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Qué es la cirugía mayor abdominal: «la recuperación puede llevar varios días o semanas».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Qué es la cirugía mayor abdominal dice que «la recuperación puede llevar varios días o semanas».
 
 ### 86
 
@@ -942,7 +946,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Premedicación.
+**Nuestra evaluación.** Correcta. §Premedicación con su condición: en casos de ansiedad o temor elevado.
 
 ### 87
 
@@ -952,7 +956,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. «Necesitarás ayuda para caminar al día siguiente»: el documento pone el «con ayuda» en sentarse el mismo día, no en caminar.
+**Nuestra evaluación.** Incorrecta. «necesitarás ayuda para caminar»: el documento pone el «con ayuda» en sentarse el mismo día, no en caminar.
 
 ### 88
 
@@ -962,7 +966,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Levantarse de la cama.
+**Nuestra evaluación.** Correcta. §Levantarse de la cama: sentarse el mismo día con ayuda y pasear al siguiente.
 
 ### 89
 
@@ -972,7 +976,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 1/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. «Si te entra hambre entre 2 y las 2 horas previas» es incoherente, y contradice lo que acaba de afirmar sobre beber hasta 2 h antes.
+**Nuestra evaluación.** Incorrecta. «puedes tomar 200-400 ml» re-sujeta al paciente lo que el documento pone en el equipo («te darán»), y mezcla el «justo antes» con el «unas horas antes».
 
 ### 90
 
@@ -982,7 +986,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Reanudar la alimentación.
+**Nuestra evaluación.** Correcta. §Reanudar la alimentación: 2 o 3 días después de reiniciar la alimentación.
 
 ### 91
 
@@ -992,7 +996,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Premedicación «Cualquier intervención provoca alguna reacción emocional».
+**Nuestra evaluación.** Correcta. §Premedicación: cualquier intervención provoca alguna reacción emocional.
 
 ### 92
 
@@ -1002,7 +1006,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La mortalidad quirúrgica no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la mortalidad quirúrgica no está en el documento.
 
 ### 93
 
@@ -1012,7 +1016,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Control del dolor.
+**Nuestra evaluación.** Correcta. §Control del dolor: máximo en las primeras 24 horas y luego disminuye.
 
 ### 94
 
@@ -1022,7 +1026,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El despertar intraoperatorio no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el despertar intraoperatorio no está en el documento.
 
 ### 95
 
@@ -1032,7 +1036,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. «Si algo sale mal» no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice qué ocurre si hay una complicación.
 
 ### 96
 
@@ -1044,7 +1048,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. Añade «la ansiedad es normal» antes de la premedicación.
+**Nuestra evaluación.** Incorrecta. «la ansiedad puede manejarse con [pastillas]» pierde la condición del documento —«cuando el grado de ansiedad y temor sea elevado»— y se salta el «comunica al equipo cualquier necesidad».
 
 ### 97
 
@@ -1054,7 +1058,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La ostomía / bolsa no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la ostomía no está en el documento.
 
 ### 98
 
@@ -1064,7 +1068,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Quién informa: «usted decide sobre el tratamiento y firma el consentimiento escrito».
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento recoge que se firma el consentimiento, no que se pueda retirar.
 
 ### 99
 
@@ -1074,7 +1078,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El riesgo anestésico concreto no aparece; solo que en la cita de anestesia se informa de él.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice si la anestesia es peligrosa.
 
 ### 100
 
@@ -1084,7 +1088,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Cirugía mínimamente invasiva: «pequeñas incisiones» frente a «incisiones mayores».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Cirugía mínimamente invasiva contrapone las «pequeñas incisiones» a las «incisiones mayores», que es lo que se pregunta.
 
 ### 101
 
@@ -1094,7 +1098,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Quién informa: «Puede consultar sus dudas en cualquier momento».
+**Nuestra evaluación.** Correcta. Se abstiene; el documento dice que se pueden consultar las dudas en cualquier momento, pero no que se pueda hacer a solas.
 
 ### 102
 
@@ -1104,7 +1108,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La duración del ingreso no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la duración del ingreso no está en el documento.
 
 ### 103
 
@@ -1114,11 +1118,11 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Premedicación: «Cualquier intervención provoca alguna reacción emocional (ansiedad, depresión, temor, aprehensión)». El 91, casi idéntico, SÍ se respondió.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Premedicación dice que cualquier intervención provoca alguna reacción emocional. La 91, casi la misma pregunta, sí se responde.
 
 ## Hemorroides
 
-*20 de 31 correctas (65%).*
+*19 de 31 correctas (61%).*
 
 ### 104
 
@@ -1128,7 +1132,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Alternativas lista «Ligadura con bandas elásticas».
+**Nuestra evaluación.** Incorrecta. Se abstiene; el documento tiene las dos partes del contraste: la hemorroidectomía extirpa las hemorroides, y la ligadura con bandas elásticas está entre las alternativas.
 
 ### 105
 
@@ -1138,7 +1142,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 1/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. «Anestesia regional.» El documento dice «con anestesia regional o general».
+**Nuestra evaluación.** Incorrecta. «anestesia regional» cierra en una sola lo que el documento deja abierto: «con anestesia regional o general».
 
 ### 106
 
@@ -1148,7 +1152,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Procedimiento «30–60 minutos».
+**Nuestra evaluación.** Correcta. §Procedimiento: 30-60 minutos.
 
 ### 107
 
@@ -1158,7 +1162,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Riesgos y complicaciones.
+**Nuestra evaluación.** Correcta. §Riesgos: las muy raras, conservando la rareza.
 
 ### 108
 
@@ -1168,7 +1172,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Incorrecta. «Sí, debes ajustar» sin decir quién lo indica; §Preparación dice «Ajustar medicación (anticoagulantes, etc.)».
+**Nuestra evaluación.** Incorrecta. «debes ajustar tu medicación» pone en el paciente un ajuste que es del equipo. El documento tampoco da el sujeto —dice solo «Ajustar medicación (anticoagulantes, etc.)»— y ahí está el origen.
 
 ### 109
 
@@ -1178,7 +1182,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Alternativas lista «coagulación con láser o infrarrojos».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Alternativas lista la coagulación con láser o infrarrojos.
 
 ### 110
 
@@ -1188,7 +1192,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Beneficios: «Reduce recaídas».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Beneficios dice «reduce recaídas».
 
 ### 111
 
@@ -1198,7 +1202,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. El documento solo dice «dieta rica en fibra y líquidos»; el porqué («recuperación del tracto intestinal», «estreñimiento») es inventado.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento manda fibra y líquidos pero nunca dice por qué.
 
 ### 112
 
@@ -1208,7 +1212,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Riesgos y complicaciones.
+**Nuestra evaluación.** Correcta. §Riesgos: el estrechamiento anal y la incontinencia entre las muy raras.
 
 ### 113
 
@@ -1218,7 +1222,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La baja laboral no aparece; el documento solo da la recuperación (2–4 semanas).
+**Nuestra evaluación.** Correcta. Se abstiene bien: la baja laboral no está en el documento.
 
 ### 114
 
@@ -1228,7 +1232,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Preparación: «Ayuno 6–8 h» responde directamente.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Preparación dice «ayuno 6-8 h», que contesta directo por el día antes.
 
 ### 115
 
@@ -1238,7 +1242,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. Responde desde §Riesgos, «dolor al defecar».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Riesgos da el dolor al defecar como frecuente.
 
 ### 116
 
@@ -1248,7 +1252,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Preparación «recuperación en 2–4 semanas».
+**Nuestra evaluación.** Correcta. §Preparación: recuperación en 2-4 semanas.
 
 ### 117
 
@@ -1258,7 +1262,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. El documento nombra los «baños de asiento» pero NUNCA los define; la definición (agua tibia, área anal, alivia dolor e inflamación) es conocimiento paramétrico.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento nombra los baños de asiento pero nunca los define.
 
 ### 118
 
@@ -1268,7 +1272,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Preparación «dieta rica en fibra y líquidos».
+**Nuestra evaluación.** Correcta. §Preparación: dieta rica en fibra y líquidos.
 
 ### 119
 
@@ -1278,7 +1282,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 5/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Procedimiento.
+**Nuestra evaluación.** Correcta. §Procedimiento: 30-60 minutos.
 
 ### 120
 
@@ -1288,7 +1292,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El régimen de ingreso (ambulatorio o no) no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el régimen de ingreso no está en el documento.
 
 ### 121
 
@@ -1298,7 +1302,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Alternativas: «Tratamientos médicos (pomadas, baños, dieta)».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Alternativas lista los tratamientos médicos: pomadas, baños y dieta.
 
 ### 122
 
@@ -1308,7 +1312,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 3/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Aspectos prácticos y legales.
+**Nuestra evaluación.** Correcta. §Aspectos prácticos: si no se opera, los síntomas pueden empeorar.
 
 ### 123
 
@@ -1318,7 +1322,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. Literal en §Aspectos prácticos: «Puede retirar su consentimiento en cualquier momento antes de la cirugía».
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Aspectos prácticos lo dice literal: se puede retirar el consentimiento en cualquier momento antes de la cirugía.
 
 ### 124
 
@@ -1328,7 +1332,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 4/10, Deficient.
 
-**Nuestra evaluación.** Correcta. §Preparación «Ayuno 6–8 h».
+**Nuestra evaluación.** Correcta. §Preparación: ayuno de 6 a 8 horas.
 
 ### 125
 
@@ -1338,7 +1342,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 6/10, Insuficient.
 
-**Nuestra evaluación.** Correcta. §Riesgos «sangrado leve».
+**Nuestra evaluación.** Correcta. §Riesgos: el sangrado leve entre los frecuentes.
 
 ### 126
 
@@ -1348,7 +1352,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El pudor no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el pudor no está en el documento, que no tiene sección psicológica.
 
 ### 127
 
@@ -1358,7 +1362,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Preparación «dolor moderado» y §Riesgos «dolor al defecar» como frecuente.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Preparación dice «dolor moderado».
 
 ### 128
 
@@ -1368,7 +1372,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Riesgos «Muy raras: … incontinencia». El 112, misma sustancia, SÍ se respondió.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Riesgos da la incontinencia entre las muy raras. La 112, misma sustancia, sí se responde.
 
 ### 129
 
@@ -1378,7 +1382,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La mortalidad no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la mortalidad no está en el documento.
 
 ### 130
 
@@ -1388,7 +1392,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. El miedo y la intimidad no aparecen en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el miedo no está en el documento, que no tiene sección psicológica.
 
 ### 131
 
@@ -1398,7 +1402,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. La vergüenza no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: la vergüenza no está en el documento.
 
 ### 132
 
@@ -1408,7 +1412,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. Quién está presente en quirófano no aparece en el documento.
+**Nuestra evaluación.** Correcta. Se abstiene bien: quién está presente en el quirófano no está en el documento.
 
 ### 133
 
@@ -1418,7 +1422,7 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Incorrecta. §Riesgos «Muy raras: estrechamiento anal, incontinencia» = secuelas permanentes.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Riesgos da el estrechamiento anal y la incontinencia, que son secuelas permanentes.
 
 ### 134
 
@@ -1428,5 +1432,5 @@ No tengo información sobre eso.
 
 **Vuestra puntuación.** 2/10, Molt deficient.
 
-**Nuestra evaluación.** Correcta. §Aspectos prácticos «los síntomas pueden empeorar».
+**Nuestra evaluación.** Correcta. §Aspectos prácticos: si no se opera, los síntomas pueden empeorar.
 

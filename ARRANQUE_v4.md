@@ -23,15 +23,16 @@ era el objetivo explícito de cerrar todo esto antes de empezar.
 
 ## Qué medimos, y cuál es la vara
 
-La v2, leída a mano sobre `eval/ec2/`: **120 de 134 correctas (90 %)**; decisión
-responder-vs-abstenerse **122/134 (91 %)**. La v1.1 auditada: 83/134 (62 %). Detalle
-por pregunta con su motivo en `tools/audit_hand.py` (`--show 29,84`).
+Las tres versiones, leídas a mano pregunta a pregunta (2026-07-28): la **v1.1**
+auditada **83/134 (62 %)**, la **v2** **115/134 (86 %)** y la **v2.2** —la que se
+entrega— **119/134 (89 %)**. El detalle está en los tres informes de `docs/`, con
+el motivo y la sección del documento en la que se apoya cada veredicto.
 
-**Cualquier variante tiene que batir eso leyendo las respuestas, no un número.** La
-puntuación automática (`tools/audit_score.py --scorecard`) sirve para cribar, no para
-concluir: su columna de correctas es un set fijo leído sobre las respuestas de
-Ministral y da 60 % sobre la v2, que es un suelo y no una medida. Ver
-[[eval-by-reading]].
+**Cualquier variante tiene que batir eso leyendo las 134, y el informe es el
+resultado.** No hay puntuación automática: se borró, junto con el resto de los
+scripts de auditoría, porque todos sus números acabaron corregidos leyendo. Si
+hace falta una herramienta (pasar las 134 contra un endpoint, volcar dos runs
+lado a lado), se escribe en el momento. Ver [[eval-by-reading]].
 
 ## Las dos tareas, en orden
 
@@ -81,13 +82,18 @@ sigue funcionando. El modelo (17 GB) y los snapshots persisten en EBS, no se reg
 
 ## Herramientas
 
-- `tools/audit_replay.py` — pasa las 134 contra un endpoint. Necesita
-  `reports/audit_questions.json` (está) y `RAG_API_KEY` exportada (la de la caja).
-- `tools/audit_movers.py` — volcado lado a lado para **leer**: pregunta, veredicto de
-  terreno, crítica del auditor y las dos respuestas. Sin `--ids` saca los movers.
-- `tools/audit_hand.py` — los veredictos a mano de la v2 + el scorecard.
-- `tools/audit_annex.py` — regenera los dos anexos del cliente.
-- `tools/audit_score.py` — decisión, diff emparejado, `--self-check`. Para cribar.
+Los scripts de `tools/audit_*.py` **ya no existen**: se borraron el 2026-07-28. Se
+escriben en el momento cuando hagan falta, que es más barato que mantenerlos y
+evita volver a confundir una lectura con un cálculo. Lo que se necesita está todo
+como datos:
+
+- `reports/audit_questions.json` — las 134 preguntas, con la respuesta que
+  registró el cliente y su puntuación.
+- `eval/<brazo>/<procedimiento>.json` — las respuestas de cada ejecución, en
+  `rows[].our_answer`. Pasar las 134 contra un endpoint son ~30 líneas: leer el
+  JSON, POST a `/query` con `RAG_API_KEY`, guardar.
+- `docs/auditoria_134_*.md` — los tres informes. **Son el resultado**, se editan a
+  mano, y no se regeneran desde ningún sitio.
 - `app/prompt.py` — `get_system_prompt(procedure, variant)`; el mecanismo de variantes
   ya existe (`_replacing`, `_plus_example`).
 

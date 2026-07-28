@@ -2,15 +2,17 @@
 
 **Criterio.** Correcta = responde lo que se pregunta apoyada en el documento del procedimiento, sin inventar y sin fundir ni des-acotar una regla; o se abstiene donde el documento no da material. Abstenerse bien cuenta como correcta: es la conducta diseñada.
 
-**Resultado: 121 de 134 correctas (90%).**
+**Resultado: 119 de 134 correctas (89%).**
 
-De esas 121, **13 quedan «en el filo»**: apoyadas en el documento y sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una a una. Si se descuentan todas, el resultado es 108 de 134 (81%); la horquilla es 81%–90%.
+**Cómo se ha leído.** Una a una, las 134, comparando cada respuesta con el documento del procedimiento que el sistema tenía delante. Ningún veredicto está calculado ni heredado de otra versión: cada uno está escrito con su motivo y con la sección del documento en la que se apoya, para que podáis comprobarlo. Las respuestas son las de una sola ejecución.
+
+De esas 119, **12 quedan «en el filo»**: apoyadas en el documento y sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una a una. Si se descuentan todas, el resultado es 107 de 134 (80%); la horquilla es 80%–89%.
 
 ---
 
 ## Diabetes
 
-*48 de 55 correctas (87%).*
+*46 de 55 correctas (84%).*
 
 ### 1
 
@@ -339,7 +341,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no compara casos entre familiares.
+**Nuestra evaluación.** Incorrecta. Se abstiene; los objetivos de control son «individualizables» y el tratamiento se individualiza según la persona, que es justo el «mi caso puede ser diferente».
 
 ### 38
 
@@ -467,7 +469,7 @@ Deb
 
 **Respuesta de la v2.2.** Esto no lo recoge la información que tengo, pero tu equipo sanitario podrá orientarte según tu caso.
 
-**Nuestra evaluación.** Correcta, en el filo. Se abstiene; §Aspectos psicológicos manda pedir ayuda ante las situaciones difíciles, pero en genérico, y el documento no trata el miedo a las agujas.
+**Nuestra evaluación.** Incorrecta. Se abstiene; el documento dice que sin insulina también se es diabético —se puede tratar solo con alimentación y ejercicio, o con pastillas—, que contesta el «¿de verdad voy a tener que pincharme?».
 
 ### 54
 

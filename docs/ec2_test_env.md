@@ -2,7 +2,7 @@
 
 Spec + runbook for **our own** AWS EC2 that runs the v2 client bundle so the
 client can trial it (their 134 questions + ad-hoc questions) before installing
-anything, and so **we** can reproduce their results with `tools/audit_replay.py`.
+anything, and so **we** can reproduce their results over the 134 questions.
 
 > Provisioning happens in a **separate conversation** via Terraform (AWS creds +
 > aws-cli handed over there). This file is the shared spec — both of us follow
@@ -203,10 +203,13 @@ snapshots (the model fingerprint differs so they rebuild), and compare
 
 ## 7. Reproduce the client's results (our harness)
 
-```bash
-# One run per procedure, pointed at the right port.
-python tools/audit_replay.py --api-url http://<host>:8001 --procedure diabetes           --out eval/ec2/diabetes.json
-python tools/audit_replay.py --api-url http://<host>:8002 --procedure hemorroides         --out eval/ec2/hemorroides.json
-python tools/audit_replay.py --api-url http://<host>:8002 --procedure cirugia-abdominal   --out eval/ec2/cirugia-abdominal.json
-# then score with tools/audit_score.py as usual.
-```
+The replay script was deleted with the rest of `tools/audit_*.py` (2026-07-28):
+write it when needed, it is ~30 lines. Read the 134 questions from
+`reports/audit_questions.json`, POST each to `/query` with `RAG_API_KEY`, and save
+one `eval/<arm>/<procedure>.json` per procedure with the answers under
+`rows[].our_answer` — same shape as the existing runs. diabetes goes to port 8001
+(glucowise), hemorroides and cirugia-abdominal to 8002 (aiciblock).
+
+**There is no scoring step.** Correctness is settled by reading the 134 answers
+against the served document and writing the verdict down, one per question, in a
+report like `docs/auditoria_134_v22.md`.
