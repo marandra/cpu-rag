@@ -34,7 +34,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audit_hand import verdicts  # noqa: E402
 from audit_hand_v22 import V22_DIR  # noqa: E402
 from audit_hand_v22 import verdicts as verdicts_v22  # noqa: E402
-from audit_score import MUST_REFUSE, load_run  # noqa: E402
+from audit_score import load_run  # noqa: E402
 from audit_triage import PROCEDURES, TRIAGE, refused  # noqa: E402
 
 BLOCKS = (("diabetes", "Diabetes", 1, 55),

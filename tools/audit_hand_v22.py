@@ -49,18 +49,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from audit_hand import verdicts as verdicts_v2  # noqa: E402
+from audit_reading import require_complete  # noqa: E402
 from audit_score import telegraphic  # noqa: E402
 from audit_triage import PROCEDURES, TRIAGE  # noqa: E402
 
 V22_DIR = "eval/d1c-tu"
 V2_DIR = "eval/ec2"
 
-# Las 25 donde la v2.2 cambia de decisión o de contenido respecto de la v2; en
-# las otras 109 la respuesta es la misma frase, tuteada. Se usa solo para poder
-# comparar las dos versiones bajo una misma lectura (`--diff-v2`).
-CAMBIAN = {1, 5, 10, 18, 22, 23, 24, 26, 29, 31, 32, 35, 45, 58, 71, 80, 84, 99,
-           100, 108, 109, 118, 121, 125, 134}
 
 # qid -> (correcta, marginal, motivo). Las 134, ninguna heredada.
 READ: dict[int, tuple[bool, bool, str]] = {
@@ -327,7 +322,7 @@ READ: dict[int, tuple[bool, bool, str]] = {
           "empeorar, que es la misma frase que sí sirve en la 122. La v2 respondía aquí"),
 }
 
-assert set(READ) == set(TRIAGE), "READ tiene que cubrir las 134, sin herencia"
+require_complete(READ, TRIAGE, "lectura de eval/d1c-tu (audit_hand_v22)")
 
 
 def _load(run_dir: str) -> dict[int, str]:
@@ -340,7 +335,7 @@ def _load(run_dir: str) -> dict[int, str]:
 
 def verdicts(_answers: dict[int, str] | None = None) -> dict[int, tuple[bool, bool, str]]:
     """La lectura completa. El argumento se acepta por simetría con `audit_hand`."""
-    return dict(READ)
+    return require_complete(dict(READ), TRIAGE, "lectura de eval/d1c-tu")
 
 
 def _scorecard(answers: dict[int, str], hand: dict[int, tuple[bool, bool, str]],
@@ -391,26 +386,19 @@ def main() -> int:
         return 0
 
     if args.diff_v2:
-        # Para que la comparación sea justa, la v2 se puntúa con ESTA lectura en
-        # las 109 preguntas donde su respuesta es la misma salvo el trato, y con
-        # la de `audit_hand` en las 25 donde el contenido sí cambia.
-        v2 = _load(V2_DIR)
-        old = verdicts_v2(v2)
-        v2_corr = {q: (old[q] if q in CAMBIAN else READ[q]) for q in TRIAGE}
+        # Las dos lecturas están completas y escritas, así que comparar es
+        # comparar veredictos. Sin umbrales ni predicados de por medio.
+        from audit_hand import verdicts as verdicts_v2
 
-        print(f"v2   con la lectura de audit_hand (97 leídas, 37 transferidas): "
-              f"{sum(old[q][0] for q in TRIAGE)}/134")
-        print(f"v2   con esta lectura, donde comparten respuesta             : "
-              f"{sum(v2_corr[q][0] for q in TRIAGE)}/134")
-        print(f"v2.2 con esta lectura, las 134                               : "
-              f"{sum(hand[q][0] for q in TRIAGE)}/134")
-
-        movidas = [q for q in TRIAGE if q not in CAMBIAN and old[q][0] != READ[q][0]]
-        print(f"\nveredictos que corrige la relectura, en respuestas que las dos "
-              f"versiones comparten: {sorted(movidas)}")
-        gana = sorted(q for q in CAMBIAN if READ[q][0] and not old[q][0])
-        pierde = sorted(q for q in CAMBIAN if not READ[q][0] and old[q][0])
-        print(f"la v2.2 gana {gana} y pierde {pierde}")
+        v2 = verdicts_v2()
+        n_v2 = sum(v2[q][0] for q in TRIAGE)
+        n_v22 = sum(hand[q][0] for q in TRIAGE)
+        print(f"v2   (eval/ec2, leído)     : {n_v2}/134")
+        print(f"v2.2 (eval/d1c-tu, leído)  : {n_v22}/134")
+        gana = sorted(q for q in TRIAGE if hand[q][0] and not v2[q][0])
+        pierde = sorted(q for q in TRIAGE if not hand[q][0] and v2[q][0])
+        print(f"\nla v2.2 gana {gana}")
+        print(f"la v2.2 pierde {pierde}")
         return 0
 
     _scorecard(answers, hand, "Lectura a mano sobre eval/d1c-tu — las 134, una a una")

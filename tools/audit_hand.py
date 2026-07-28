@@ -27,12 +27,24 @@ Criterio, el mismo que `scorecard()`
 * **B presentable** = A y además no telegráfica (<80 car). Los rechazos cuentan
   como presentables: son la conducta diseñada, no un texto pobre.
 
-Qué NO se leyó, porque se transfiere exacto
--------------------------------------------
+Las 134, ninguna transferida (corregido 2026-07-28)
+---------------------------------------------------
 
-37 de las 134 no necesitan lectura: 32 donde ambos runs rechazan y el fulldoc no
-cubre nada (FN), y 5 donde ambos sobre-rechazan (SR). Idéntica decisión,
-idéntico veredicto. Las otras 97 están leídas una a una aquí.
+Este fichero declaraba que «37 de las 134 no necesitan lectura» porque se
+transferían de la pasada de Ministral cuando ambos runs se abstenían. Era falso,
+y de ahí salió que el mismo atajo se repitiera en `audit_hand_v22`. El porqué
+está en la cabecera de `audit_reading.py`; el resumen es que el predicado
+comparaba la abstención contra un `MUST_REFUSE` precalculado en vez de contra el
+documento servido, y que «ambas se abstienen» no implica «ambas dicen lo mismo».
+
+Ahora las 134 tienen veredicto explícito y escrito: las 97 leídas en su día, y
+las 37 restantes leídas el 2026-07-28 sobre las respuestas de `eval/ec2` y
+contra los tres documentos servidos (`LEIDAS_2026_07_28`). Nada se deduce de
+nada.
+
+Al leerlas, cinco resultaron mal dadas — todas sobre-abstenciones que el
+predicado automático daba por buenas: 10, 45, 54, 85 y 104. El total de la v2
+baja de 120 a **117**.
 
 El margen
 ---------
@@ -54,17 +66,81 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from audit_score import MUST_REFUSE, load_run, telegraphic  # noqa: E402
-from audit_triage import TRIAGE, refused  # noqa: E402
+from audit_reading import require_complete  # noqa: E402
+from audit_score import load_run, telegraphic  # noqa: E402
+from audit_triage import TRIAGE  # noqa: E402
 
 EC2_DIR = "eval/ec2"
 
-# Las 37 que se transfieren sin leer: misma decisión que Ministral sobre una
-# pregunta que el fulldoc no cubre (FN, ambos rechazan → correcta) o que sí
-# cubre y ambos rechazan igualmente (SR → incorrecta).
-TRANSFERRED = "ambas versiones se abstienen; el documento no da material y el veredicto es el mismo"
+# Las 37 que el atajo daba por transferidas, leídas el 2026-07-28 sobre las
+# respuestas de `eval/ec2` y contra los tres documentos servidos. Tres eran
+# sobre-abstenciones que el predicado automático daba por buenas: 10, 45 y 54.
+LEIDAS_2026_07_28: dict[int, tuple[bool, bool, str]] = {
+    10: (False, False, "se abstiene; §Tratamiento farmacológico identifica la metformina como el "
+         "fármaco más usado, sobre todo con sobrepeso, que es la mitad de la pregunta"),
+    13: (True, False, "se abstiene bien: el documento manda anotar los autoanálisis, no la comida"),
+    19: (True, False, "se abstiene bien: el documento no da plazos de respuesta al tratamiento"),
+    20: (False, False, "se abstiene; §Tratamiento farmacológico dice que el tratamiento es "
+         "progresivo y §Insulina que si los otros tratamientos no controlan puede necesitarse "
+         "insulina, que es exactamente lo que se pregunta"),
+    27: (False, False, "se abstiene; §Tratamiento farmacológico dice «tienes diabetes aunque no "
+         "uses insulina» y enumera tratarse solo con alimentación y ejercicio, o con pastillas"),
+    37: (True, False, "se abstiene bien: el documento no compara casos entre familiares"),
+    38: (True, False, "se abstiene bien: el documento no trata el ámbito laboral"),
+    43: (True, False, "se abstiene bien: el documento habla de heridas y úlceras, nunca de "
+         "amputación"),
+    44: (True, True, "se abstiene; §Aspectos psicológicos manda identificar las situaciones "
+         "difíciles y pedir ayuda, pero en genérico, y el documento no trata la vergüenza al "
+         "inyectarse"),
+    45: (False, False, "se abstiene; §Introducción dice que la diabetes tipo 2 es una enfermedad "
+         "crónica, que contesta el «¿se cura?»"),
+    46: (True, False, "se abstiene bien: el documento no hace pronóstico individual"),
+    49: (True, False, "se abstiene bien: el documento nombra la diabetes gestacional pero no trata "
+         "la fertilidad"),
+    50: (True, False, "se abstiene bien: el documento no habla de esperanza de vida"),
+    53: (True, True, "se abstiene; §Aspectos psicológicos manda pedir ayuda ante las situaciones "
+         "difíciles, pero en genérico, y el documento no trata el miedo a las agujas"),
+    54: (False, False, "se abstiene; §Causas incluye la herencia y §Aspectos psicológicos dice "
+         "«no debes culparte», que son las dos mitades de la pregunta"),
+    72: (True, False, "se abstiene bien: el documento atribuye la molestia por el gas al abdomen, "
+         "nunca al hombro"),
+    73: (True, False, "se abstiene bien: el documento regula las horas previas, no los días "
+         "previos"),
+    77: (True, False, "se abstiene bien: el documento no trata la higiene previa"),
+    79: (True, False, "se abstiene bien: el documento termina en el alta y no trata la vida "
+         "posterior"),
+    85: (False, False, "se abstiene; §Qué es la cirugía mayor dice que «la recuperación puede "
+         "llevar varios días o semanas», que es material para esta pregunta. Es la misma frase "
+         "que en la 76 usa donde no tocaba"),
+    92: (True, False, "se abstiene bien: el documento no cuantifica el riesgo vital"),
+    94: (True, False, "se abstiene bien: el documento no trata el despertar intraoperatorio"),
+    95: (True, False, "se abstiene bien: el documento no dice qué ocurre si hay una complicación"),
+    97: (True, False, "se abstiene bien: el documento no menciona ostomías"),
+    98: (True, False, "se abstiene bien: este documento no recoge la retirada del consentimiento, "
+         "que sí está en el de hemorroides"),
+    99: (True, False, "se abstiene bien: el documento no dice si la anestesia es peligrosa"),
+    101: (True, False, "se abstiene; el documento dice que se pueden consultar las dudas en "
+          "cualquier momento, pero no que se pueda hacer a solas, que es lo que se pregunta"),
+    102: (True, False, "se abstiene bien: el documento no da la duración del ingreso"),
+    104: (False, False, "se abstiene; el documento tiene las dos partes del contraste —la "
+          "hemorroidectomía extirpa las hemorroides, y la ligadura con bandas elásticas es una "
+          "alternativa—, y son las mismas que sí une en la 109 para el láser"),
+    113: (True, False, "se abstiene bien: el documento no trata la baja laboral"),
+    120: (True, False, "se abstiene bien: el documento no dice si hay ingreso"),
+    126: (True, False, "se abstiene bien: este documento no tiene sección psicológica y no da "
+          "material sobre la vergüenza"),
+    129: (True, False, "se abstiene bien: el documento no trata el riesgo vital"),
+    130: (True, False, "se abstiene bien: este documento no tiene sección psicológica y no da "
+          "material sobre el miedo"),
+    131: (True, False, "se abstiene bien: este documento no tiene sección psicológica y no da "
+          "material sobre la vergüenza"),
+    132: (True, False, "se abstiene bien: el documento no describe quién está en el quirófano"),
+    133: (False, False, "se abstiene; §Riesgos da las muy raras —estrechamiento anal, "
+          "incontinencia—, que son secuelas permanentes, y son las mismas que sí responde en la "
+          "112 y en la 128"),
+}
 
-# qid -> (correcta, marginal, motivo). Sin entrada = transferida.
+# qid -> (correcta, marginal, motivo).
 HAND: dict[int, tuple[bool, bool, str]] = {
     # ---- las 7 «roturas» de decisión -------------------------------------
     # Tres de las siete no son roturas de contenido: en 100 y 109 la verdad de
@@ -141,16 +217,10 @@ HAND: dict[int, tuple[bool, bool, str]] = {
 }
 
 
-def verdicts(answers: dict[int, str]) -> dict[int, tuple[bool, bool, str]]:
-    """La lectura a mano, completada con las 37 que se transfieren."""
-    out = dict(HAND)
-    for qid in TRIAGE:
-        if qid in out:
-            continue
-        want_refuse = qid in MUST_REFUSE
-        assert refused(answers[qid]) == refused(answers[qid])
-        out[qid] = (refused(answers[qid]) == want_refuse, False, TRANSFERRED)
-    return out
+def verdicts(_answers: dict[int, str] | None = None) -> dict[int, tuple[bool, bool, str]]:
+    """La lectura de las 134 sobre `eval/ec2`. Todas escritas, ninguna deducida."""
+    return require_complete({**HAND, **LEIDAS_2026_07_28}, TRIAGE,
+                            "lectura de eval/ec2 (audit_hand)")
 
 
 def main() -> int:
@@ -169,7 +239,7 @@ def main() -> int:
             print(f"{qid:>4} {tag}{' (marginal)' if marg else ''}: {why}")
         return 0
 
-    print(f"Lectura a mano sobre {args.run} — 97 leídas, 37 transferidas\n")
+    print(f"Lectura a mano sobre {args.run} — las 134, ninguna transferida\n")
     hdr = (f"{'':>18} {'n':>4} {'correctas':>10} {'telegr.':>8} "
            f"{'A corrección':>13} {'B presentable':>14}")
     print(hdr)

@@ -2,15 +2,15 @@
 
 **Criterio.** Correcta = responde lo que se pregunta apoyada en el documento del procedimiento, sin inventar y sin fundir ni des-acotar una regla; o se abstiene donde el documento no da material. Abstenerse bien cuenta como correcta: es la conducta diseñada.
 
-**Resultado: 120 de 134 correctas (90%).**
+**Resultado: 117 de 134 correctas (87%).**
 
-De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una a una. Si se descuentan todas, el resultado es 114 de 134 (85%); la horquilla es 85%–90%.
+De esas 117, **8 quedan «en el filo»**: apoyadas en el documento y sin inventar, pero sin responder del todo lo que se preguntaba. Van marcadas una a una. Si se descuentan todas, el resultado es 109 de 134 (81%); la horquilla es 81%–87%.
 
 ---
 
 ## Diabetes
 
-*44 de 55 correctas (80%).*
+*43 de 55 correctas (78%).*
 
 ### 1
 
@@ -90,7 +90,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico identifica la metformina como el fármaco más usado, sobre todo con sobrepeso, que es la mitad de la pregunta.
 
 ### 11
 
@@ -114,7 +114,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento manda anotar los autoanálisis, no la comida.
 
 ### 14
 
@@ -162,7 +162,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no da plazos de respuesta al tratamiento.
 
 ### 20
 
@@ -170,7 +170,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico dice que el tratamiento es progresivo y §Insulina que si los otros tratamientos no controlan puede necesitarse insulina, que es exactamente lo que se pregunta.
 
 ### 21
 
@@ -226,7 +226,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Tratamiento farmacológico dice «tienes diabetes aunque no uses insulina» y enumera tratarse solo con alimentación y ejercicio, o con pastillas.
 
 ### 28
 
@@ -317,7 +317,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no compara casos entre familiares.
 
 ### 38
 
@@ -325,7 +325,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata el ámbito laboral.
 
 ### 39
 
@@ -365,7 +365,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento habla de heridas y úlceras, nunca de amputación.
 
 ### 44
 
@@ -373,7 +373,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta, en el filo. Se abstiene; §Aspectos psicológicos manda identificar las situaciones difíciles y pedir ayuda, pero en genérico, y el documento no trata la vergüenza al inyectarse.
 
 ### 45
 
@@ -381,7 +381,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Introducción dice que la diabetes tipo 2 es una enfermedad crónica, que contesta el «¿se cura?».
 
 ### 46
 
@@ -389,7 +389,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no hace pronóstico individual.
 
 ### 47
 
@@ -413,7 +413,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento nombra la diabetes gestacional pero no trata la fertilidad.
 
 ### 50
 
@@ -421,7 +421,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no habla de esperanza de vida.
 
 ### 51
 
@@ -445,7 +445,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta, en el filo. Se abstiene; §Aspectos psicológicos manda pedir ayuda ante las situaciones difíciles, pero en genérico, y el documento no trata el miedo a las agujas.
 
 ### 54
 
@@ -453,7 +453,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Causas incluye la herencia y §Aspectos psicológicos dice «no debes culparte», que son las dos mitades de la pregunta.
 
 ### 55
 
@@ -465,7 +465,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 ## Cirugía abdominal
 
-*46 de 48 correctas (96%).*
+*45 de 48 correctas (94%).*
 
 ### 56
 
@@ -601,7 +601,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento atribuye la molestia por el gas al abdomen, nunca al hombro.
 
 ### 73
 
@@ -609,7 +609,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento regula las horas previas, no los días previos.
 
 ### 74
 
@@ -641,7 +641,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata la higiene previa.
 
 ### 78
 
@@ -657,7 +657,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento termina en el alta y no trata la vida posterior.
 
 ### 80
 
@@ -705,7 +705,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Qué es la cirugía mayor dice que «la recuperación puede llevar varios días o semanas», que es material para esta pregunta. Es la misma frase que en la 76 usa donde no tocaba.
 
 ### 86
 
@@ -761,7 +761,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no cuantifica el riesgo vital.
 
 ### 93
 
@@ -777,7 +777,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata el despertar intraoperatorio.
 
 ### 95
 
@@ -785,7 +785,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice qué ocurre si hay una complicación.
 
 ### 96
 
@@ -801,7 +801,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no menciona ostomías.
 
 ### 98
 
@@ -809,7 +809,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no recoge la retirada del consentimiento, que sí está en el de hemorroides.
 
 ### 99
 
@@ -817,7 +817,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice si la anestesia es peligrosa.
 
 ### 100
 
@@ -833,7 +833,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene; el documento dice que se pueden consultar las dudas en cualquier momento, pero no que se pueda hacer a solas, que es lo que se pregunta.
 
 ### 102
 
@@ -841,7 +841,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no da la duración del ingreso.
 
 ### 103
 
@@ -853,7 +853,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 ## Hemorroides
 
-*30 de 31 correctas (97%).*
+*29 de 31 correctas (94%).*
 
 ### 104
 
@@ -861,7 +861,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; el documento tiene las dos partes del contraste —la hemorroidectomía extirpa las hemorroides, y la ligadura con bandas elásticas es una alternativa—, y son las mismas que sí une en la 109 para el láser.
 
 ### 105
 
@@ -933,7 +933,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata la baja laboral.
 
 ### 114
 
@@ -989,7 +989,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no dice si hay ingreso.
 
 ### 121
 
@@ -1037,7 +1037,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no tiene sección psicológica y no da material sobre la vergüenza.
 
 ### 127
 
@@ -1061,7 +1061,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no trata el riesgo vital.
 
 ### 130
 
@@ -1069,7 +1069,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no tiene sección psicológica y no da material sobre el miedo.
 
 ### 131
 
@@ -1077,7 +1077,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: este documento no tiene sección psicológica y no da material sobre la vergüenza.
 
 ### 132
 
@@ -1085,7 +1085,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Correcta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Correcta. Se abstiene bien: el documento no describe quién está en el quirófano.
 
 ### 133
 
@@ -1093,7 +1093,7 @@ De esas 120, **6 quedan «en el filo»**: apoyadas en el documento y sin inventa
 
 **Respuesta de la v2.** No tengo información sobre eso.
 
-**Nuestra evaluación.** Incorrecta. Ambas versiones se abstienen; el documento no da material y el veredicto es el mismo.
+**Nuestra evaluación.** Incorrecta. Se abstiene; §Riesgos da las muy raras —estrechamiento anal, incontinencia—, que son secuelas permanentes, y son las mismas que sí responde en la 112 y en la 128.
 
 ### 134
 
