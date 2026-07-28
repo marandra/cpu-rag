@@ -1,4 +1,4 @@
-"""Genera los dos anexos que se mandan al cliente.
+"""Genera los anexos que se mandan al cliente.
 
     python3 tools/audit_annex.py
 
@@ -6,6 +6,9 @@
      que auditaron, su puntuación) con nuestra evaluación añadida en paralelo.
   2. `docs/auditoria_134_v2.md` — las mismas 134 respondidas por la v2 (modelo
      + corpus nuevos), con nuestra evaluación.
+  3. `docs/auditoria_134_v22.md` — las mismas 134 respondidas por la **v2.2**,
+     que es la que se entrega: corpus y abstención en tú. Este es el que va
+     adjunto al correo; el de la v2 se mantiene como historia.
 
 Un solo criterio en los dos: **correcta / incorrecta**. Correcta = responde lo
 que se pregunta apoyada en el documento, sin inventar y sin fundir ni des-acotar
@@ -13,8 +16,9 @@ una regla; o se abstiene donde el documento no da material.
 
 Sin lógica de puntuación propia. Los veredictos ya existen: los de la v1.1 en
 `audit_triage.TRIAGE` (leídos a mano en su día), los de la v2 en
-`audit_hand.HAND`. Esto los junta con las preguntas y los formatea,
-saneando la jerga interna — los ficheros salen fuera.
+`audit_hand.HAND` y los de la v2.2 en `audit_hand_v22.READ`. Esto los junta con
+las preguntas y los formatea, saneando la jerga interna — los ficheros salen
+fuera.
 """
 
 from __future__ import annotations
@@ -28,6 +32,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from audit_hand import verdicts  # noqa: E402
+from audit_hand_v22 import V22_DIR  # noqa: E402
+from audit_hand_v22 import verdicts as verdicts_v22  # noqa: E402
 from audit_score import MUST_REFUSE, load_run  # noqa: E402
 from audit_triage import PROCEDURES, TRIAGE, refused  # noqa: E402
 
@@ -153,6 +159,21 @@ def main() -> int:
         out / "auditoria_134_v2.md",
         "Las 134 preguntas respondidas por la v2",
         new, "Respuesta de la v2", hand_verdict, meta, with_score=False,
+    )
+
+    v22 = load_run(Path(V22_DIR))["replay"]
+    hand22 = verdicts_v22(v22)
+
+    def v22_verdict(qid: int, _answer: str) -> tuple[bool, str]:
+        correcta, _marginal, why = hand22[qid]
+        return correcta, clean(why)
+
+    v22_verdict.marginales = {q for q in hand22 if hand22[q][0] and hand22[q][1]}
+
+    emit(
+        out / "auditoria_134_v22.md",
+        "Las 134 preguntas respondidas por la v2.2",
+        v22, "Respuesta de la v2.2", v22_verdict, meta, with_score=False,
     )
     return 0
 

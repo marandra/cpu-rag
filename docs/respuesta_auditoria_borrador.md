@@ -112,8 +112,9 @@ las de diabetes, el único documento con sección psicológica. Otra vez el docu
 Van dos adjuntos, con los mismos números de pregunta:
 
 auditoria_134_evaluacion.md, que es vuestra lista tal cual con nuestra evaluación al
-lado, y auditoria_134_v2.md, que son las 134 respondidas por la v2, también con nuestra
-evaluación, para que podáis verlo sin tener que ejecutarlo.
+lado, y auditoria_134_v22.md, que son las 134 respondidas por la v2.2, la versión que os
+entregamos, también con nuestra evaluación, para que podáis verlo sin tener que
+ejecutarlo.
 
 Y dos cosas que os ofrecemos. La v2 está desplegada en un servidor a vuestra disposición
 para que la probéis vosotros: decidnos y os damos acceso. Y tenemos el instalador de la
