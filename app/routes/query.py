@@ -26,7 +26,6 @@ async def _stream_response(
 
     start_time = time.perf_counter()
     fulldoc_text = app_state.fulldoc_texts[procedure]
-    snapshot_path = app_state.snapshot_paths[procedure]
 
     system_prompt = get_system_prompt(procedure)
     # Must match warmup byte-for-byte so llama-cpp's KV cache prefix
@@ -52,18 +51,36 @@ async def _stream_response(
         # save_state back — the post-generation state has the Q/A appended
         # and would poison the next request.
         async with app_state.gen_lock:
-            from app.snapshot_cache import load_snapshot
 
-            def _load_from_disk():
+            def _prime_kv():
+                """Put this procedure's warm prefix into the live KV, if we have one.
+
+                "disk" unpickles it per request; "memory" already holds the
+                object; "off" does nothing and lets create_chat_completion
+                prefill, reusing whatever prefix llama-cpp still has cached —
+                free when consecutive requests share a procedure, a full
+                re-prefill when they alternate.
+                """
+                if settings.snapshot_mode == "off":
+                    return
+                if settings.snapshot_mode == "memory":
+                    state = app_state.snapshot_states.get(procedure)
+                    # Absent only if save_state failed at startup; falling
+                    # through to a live prefill is correct, just slower.
+                    if state is not None:
+                        app_state.llm.load_state(state)
+                    return
+
+                from app.snapshot_cache import load_snapshot
+
+                snapshot_path = app_state.snapshot_paths[procedure]
                 state = load_snapshot(snapshot_path)
                 if state is None:
-                    raise RuntimeError(
-                        f"Snapshot pickle unreadable: {snapshot_path}"
-                    )
+                    raise RuntimeError(f"Snapshot pickle unreadable: {snapshot_path}")
                 app_state.llm.load_state(state)
 
             load_start = time.perf_counter()
-            await loop.run_in_executor(None, _load_from_disk)
+            await loop.run_in_executor(None, _prime_kv)
             load_state_ms = (time.perf_counter() - load_start) * 1000
 
             gen_start = time.perf_counter()

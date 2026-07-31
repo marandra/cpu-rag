@@ -32,6 +32,16 @@ logger = logging.getLogger("app.generate")
 def main() -> int:
     from src.llm import load_model
 
+    # A no-op rather than an error, so a bootstrap script can call this
+    # unconditionally without knowing the mode. In "memory" the warm happens at
+    # server startup; in "off" there is nothing to warm.
+    if settings.snapshot_mode != "disk":
+        logger.info(
+            f"snapshot_mode={settings.snapshot_mode!r} builds no pickles; "
+            f"nothing to generate."
+        )
+        return 0
+
     procedures = select_procedures(settings)
     logger.info(f"Generating snapshots for: {sorted(procedures)}")
 
@@ -46,7 +56,10 @@ def main() -> int:
         )
 
     logger.info(f"Loading LLM from {settings.model_path}...")
-    load_kwargs: dict = {"path": str(settings.model_path), "n_ctx": settings.n_ctx}
+    load_kwargs: dict = {
+        "path": str(settings.model_path),
+        "n_ctx": settings.n_ctx,
+    }
     if settings.n_threads is not None:
         load_kwargs["n_threads"] = settings.n_threads
         logger.info(f"Using n_threads={settings.n_threads} (overridden)")

@@ -35,6 +35,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 # Las versiones en usted que sirvió la v2/v2.1 siguen en el disco y archivadas en
 # `corpus/archive/*_v2servido_2026-07-27.md`; volver atrás es cambiar estas rutas
 # y `prompt_variant` a "d1c".
+# Where the per-request KV prefix comes from. See `Settings.snapshot_mode`.
+SNAPSHOT_MODES = ("disk", "memory", "off")
+
 PROFILES: dict[str, dict[str, Path]] = {
     "glucowise": {
         # v5 = la v4 destilada, tuteada. (v4 batió a la v1: decisión 85.5% vs
@@ -137,6 +140,15 @@ class Settings(BaseSettings):
     # (see `snapshots_dir` below).
     snapshots_root: Path = Path("./snapshots")
 
+    @field_validator("snapshot_mode")
+    @classmethod
+    def _known_snapshot_mode(cls, v: str) -> str:
+        if v not in SNAPSHOT_MODES:
+            raise ValueError(
+                f"Unknown snapshot_mode {v!r}. Known modes: {sorted(SNAPSHOT_MODES)}"
+            )
+        return v
+
     @property
     def snapshots_dir(self) -> Path:
         """This profile's snapshot directory: `<snapshots_root>/<profile>`.
@@ -150,9 +162,43 @@ class Settings(BaseSettings):
         """
         return self.snapshots_root / self.profile
 
+    # Where the per-request KV prefix comes from.
+    #
+    #   "memory" — warm each procedure once at startup and keep its LlamaState
+    #              in RAM. Default, because it removes the generate job, the
+    #              ~0.5 GB pickle per procedure and the staging copy, and makes
+    #              a corpus edit a restart instead of a rebuild.
+    #   "disk"   — pickles in snapshots_dir, unpickled and loaded per request.
+    #              What the delivered v1.1/v2.x bundles serve. Still the right
+    #              choice for a pool: "memory" makes every replica re-warm on
+    #              every start (~80 s per procedure), and N replicas warming at
+    #              once on one socket is far worse than N times that.
+    #   "off"    — no state at all; each request re-prefills its document
+    #              (~70 s here). Diagnostic only on CPU.
+    #
+    # NOT chosen for request-path speed. Two runs on this laptop, same model and
+    # same procedures, disagree on the ordering — memory 180-222 ms vs disk
+    # 332-436 ms on 2026-07-30, memory 453-630 ms vs disk 388-422 ms on
+    # 2026-07-31 — and they ran under different CPU governors (balanced, then
+    # performance), so they are not comparable at all. Neither settles it;
+    # a 200 ms difference has to be measured on the target box.
+    # What is not noise: "off" costs a full re-prefill (~70 s) whenever the
+    # procedure changes, and a pool re-warms once per replica in "memory".
+    #
+    # The three modes came from the GPU port — see the sibling repo ../gpu-rag,
+    # where the same measurement on an A10G kills the machinery outright,
+    # because there a re-prefill is 0.2-0.6 s.
+    #
+    # One behavioural difference worth knowing: a pickle carries a frozen RNG
+    # state, so "disk" replays byte-identically across runs. "memory" warms
+    # live, so its answers are only deterministic within a process. Nothing in
+    # the audited numbers depends on that, but a byte-diff of two runs does.
+    snapshot_mode: str = "memory"
+
     # At startup, copy pkls from snapshots_dir to this directory and read
     # from there. Decouples request-path I/O from the original (possibly
     # NFS-mounted) snapshots_dir. Empty string disables staging.
+    # Only meaningful when snapshot_mode == "disk".
     snapshot_stage_dir: str = "/tmp/cpu-rag-snapshots"
 
     # Identifies this replica in logs and metrics. Set by compose to e.g.

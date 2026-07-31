@@ -2,10 +2,16 @@
 # Pool of N identical RAG replicas behind nginx (least_conn).
 #
 # Each replica serializes generation via gen_lock (1 request at a time), so
-# concurrency = number of replicas. Replicas share the snapshots volume; the
-# snapshot for a procedure is staged to a local dir at startup (SNAPSHOT_STAGE_DIR,
-# default /tmp/cpu-rag-snapshots) and read from there per request — decouples
-# request-path I/O from the (possibly NFS-backed) snapshots dir.
+# concurrency = number of replicas.
+#
+# SNAPSHOT_MODE decides where each request's KV prefix comes from. The app
+# default is "memory" (warm at startup, hold in RAM: fastest per request, no
+# generate job). This pool overrides it to "disk", because "memory" would make
+# every replica warm its own copy on every start — N prefills at once on one
+# socket, against a pickle read that is already staged and local. Replicas
+# share the snapshots volume; each stages its pkls to SNAPSHOT_STAGE_DIR
+# (default /tmp/cpu-rag-snapshots) at startup, which decouples request-path I/O
+# from the (possibly NFS-backed) snapshots dir.
 #
 # CPU pinning and thread counts are parametrized via .env so the same compose
 # file works on the laptop (i7-1365U: 0,2 = P-cores; 4,5 = E-cores) and on
@@ -54,6 +60,8 @@ x-rag-env: &rag-env
   OPENBLAS_NUM_THREADS: 1
   MKL_NUM_THREADS: 1
   GGML_N_THREADS: ${RAG_N_THREADS:-2}
+  # See the header: "disk" on purpose for a pool, not the app default.
+  SNAPSHOT_MODE: ${RAG_SNAPSHOT_MODE:-disk}
   SNAPSHOT_STAGE_DIR: ${RAG_SNAPSHOT_STAGE_DIR:-/tmp/cpu-rag-snapshots}
 
 services:
@@ -110,4 +118,6 @@ services:
       <<: *rag-env
       # Stage_dir not needed for the generate job — it only writes to snapshots_dir.
       SNAPSHOT_STAGE_DIR: ""
+      # Explicit: the job exits 0 without building anything in any other mode.
+      SNAPSHOT_MODE: ${RAG_SNAPSHOT_MODE:-disk}
     command: ["python", "-m", "app.generate"]

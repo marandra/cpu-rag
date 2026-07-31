@@ -33,7 +33,8 @@ class AppState:
     model_name: str = ""
     procedures: set = field(default_factory=set)
     fulldoc_texts: dict = field(default_factory=dict)  # procedure -> full markdown text
-    snapshot_paths: dict = field(default_factory=dict)  # procedure -> Path to pkl
+    snapshot_paths: dict = field(default_factory=dict)  # procedure -> Path to pkl ("disk")
+    snapshot_states: dict = field(default_factory=dict)  # procedure -> LlamaState ("memory")
     # Serializes generation across requests: one Llama, one live KV state.
     gen_lock: asyncio.Lock = field(default_factory=asyncio.Lock)
 
@@ -41,10 +42,13 @@ class AppState:
 app_state = AppState()
 
 
-def _load_models():
-    """Discover snapshots via sidecar scan, then load the LLM (no warm)."""
-    from src.llm import load_model
+def _discover_from_snapshots():
+    """Populate procedures/fulldocs/pkl paths from the on-disk sidecar scan.
 
+    Only used by snapshot_mode="disk". Hard-fails when nothing is there,
+    because in this mode an empty snapshots dir means the generate job never
+    ran and the service would answer without its KV prefix.
+    """
     from app.snapshot_cache import scan_meta
 
     sidecars = scan_meta(settings.snapshots_dir)
@@ -122,17 +126,91 @@ def _load_models():
             f"pkl={app_state.snapshot_paths[proc]}"
         )
 
+
+def _discover_from_config():
+    """Populate procedures/fulldocs straight from the profile — no pkl needed.
+
+    Used by snapshot_mode="memory" and "off", where nothing is read from
+    snapshots_dir, so there is no sidecar to discover from. `select_procedures`
+    is the same helper the generate job uses, so the profile and
+    procedure_filter rules stay in one place.
+    """
+    from app.snapshot_builder import select_procedures
+
+    for proc, path in select_procedures(settings).items():
+        text = path.read_text(encoding="utf-8")
+        app_state.fulldoc_texts[proc] = text
+        app_state.procedures.add(proc)
+        logger.info(
+            f"Configured: procedure={proc!r} chars={len(text)} fulldoc={path}"
+        )
+
+
+def _warm_states_in_memory():
+    """Warm each procedure's prefix and keep its LlamaState in RAM.
+
+    Costs one prefill per procedure at startup instead of one pickle read per
+    request. Requires save_state to work on the active backend — if it returns
+    None, that procedure silently degrades to the "off" behaviour (full
+    prefill per request), which is correct, just slower.
+    """
+    from app.prompt import get_system_prompt
+
+    for proc, text in app_state.fulldoc_texts.items():
+        t0 = time.perf_counter()
+        # Byte-for-byte the prefix that /query sends, so the cached KV covers
+        # everything up to the user's question.
+        app_state.llm.create_chat_completion(
+            messages=[
+                {"role": "system", "content": get_system_prompt(proc)},
+                {"role": "user", "content": f"INFORMACIÓN:\n{text}\n\nPREGUNTA: hola"},
+            ],
+            max_tokens=1,
+            temperature=0.1,
+        )
+        state = app_state.llm.save_state()
+        if state is None:
+            logger.warning(
+                f"save_state returned None for procedure={proc!r}; this "
+                f"procedure will re-prefill on every request"
+            )
+            continue
+        app_state.snapshot_states[proc] = state
+        logger.info(
+            f"Warmed in memory: procedure={proc!r} in "
+            f"{time.perf_counter() - t0:.1f}s"
+        )
+
+
+def _load_models():
+    """Discover what to serve, then load the LLM (and warm it if in-memory)."""
+    from src.llm import load_model
+
+    logger.info(f"Snapshot mode: {settings.snapshot_mode!r}")
+    if settings.snapshot_mode == "disk":
+        _discover_from_snapshots()
+    else:
+        _discover_from_config()
+
     logger.info(f"Loading LLM from {settings.model_path}...")
-    load_kwargs = {"path": str(settings.model_path), "n_ctx": settings.n_ctx}
+    load_kwargs = {
+        "path": str(settings.model_path),
+        "n_ctx": settings.n_ctx,
+    }
     if settings.n_threads is not None:
         load_kwargs["n_threads"] = settings.n_threads
         logger.info(f"Using n_threads={settings.n_threads} (overridden)")
     app_state.llm = load_model(**load_kwargs)
     app_state.model_name = Path(settings.model_path).stem
+
+    if settings.snapshot_mode == "memory":
+        logger.info(f"Warming {len(app_state.fulldoc_texts)} procedure(s) in memory...")
+        _warm_states_in_memory()
+
     logger.info(
         f"LLM ready: {app_state.model_name}; profile={settings.profile!r}; "
         f"serving procedures: {sorted(app_state.procedures)} "
-        f"(snapshots loaded lazily per request)"
+        f"(snapshot_mode={settings.snapshot_mode!r})"
     )
 
 

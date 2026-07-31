@@ -4,8 +4,9 @@ Servicio de preguntas y respuestas para pacientes, solo CPU. Cada procedimiento
 tiene **un único documento markdown** que se manda entero como contexto a un
 modelo local de llama.cpp. No hay recuperación, ni embeddings, ni base vectorial.
 
-La variante con recuperación (chunking, embeddings, Qdrant, reranker) vive en el
-repo hermano [`gpu-rag`](../gpu-rag/) y no es de aquí.
+La versión de GPU (v3.0) vive en el repo hermano [`gpu-rag`](../gpu-rag/): allí
+la maquinaria de snapshots sobra —restaurar cuesta más que reprefilar— y es otra
+arquitectura. Este repo es la v2.2, la entregada y auditada.
 
 El sistema tiene **prohibido usar conocimiento propio** y se abstiene cuando el
 documento no cubre la pregunta. Eso es una instrucción explícita del prompt, no
@@ -20,12 +21,32 @@ corpus/markdown/<documento>.md ──► se precalcula el estado KV (snapshot .p
         POST /query  ──►  reutiliza el prefijo + PREGUNTA: <q>  ──►  SSE
 ```
 
-El prefijo (system prompt + documento) se paga una vez y se guarda en
-`snapshots/<perfil>/`. Arranque en frío ~92 s; con snapshot, ~1 s. Solo la
-pregunta y la respuesta cuestan generación.
+El prefijo (system prompt + documento) se paga una vez. Arranque en frío ~92 s;
+con el prefijo ya calentado, ~1 s. Solo la pregunta y la respuesta cuestan
+generación.
 
-**La semilla va congelada dentro del pickle**, así que dos ejecuciones contra el
-mismo snapshot dan respuestas idénticas byte a byte.
+De dónde sale ese prefijo lo decide `snapshot_mode`:
+
+| modo | por petición | arranque | cuándo |
+| --- | --- | --- | --- |
+| `memory` (por defecto) | ~0,4-0,6 s | +60-80 s por procedimiento | una instancia; no hay pickles, ni paso `generate`, ni copia de staging |
+| `disk` | ~0,4-0,6 s | instantáneo | el pool: N réplicas calentando a la vez es mucho peor que leer un pickle |
+| `off` | ~70 s al cambiar de procedimiento | instantáneo | solo para diagnosticar |
+
+`memory` **no** es el defecto por velocidad: las dos primeras filas no están
+separadas por nada medible aquí, y las dos ejecuciones que las produjeron ni
+siquiera corrieron con el mismo gobernador de CPU del portátil, así que no se
+comparan. Lo es
+porque quita el paso `generate`, los pickles de ~0,5 GB por procedimiento y la
+copia de staging, y porque cambiar un documento pasa a ser un reinicio.
+
+Los tres modos salieron del port a GPU, donde la misma medición se lleva por
+delante toda la maquinaria — ver el repo hermano [`gpu-rag`](../gpu-rag/).
+
+**En `disk` la semilla va congelada dentro del pickle**, así que dos ejecuciones
+contra el mismo snapshot dan respuestas idénticas byte a byte. En `memory` el
+prefijo se calienta en vivo: determinista dentro del proceso, no entre
+arranques.
 
 ## Perfiles
 
@@ -41,7 +62,7 @@ balanceador, así que los dos pueden correr a la vez.
 
 ```bash
 cp env.example .env          # y poner RAG_API_KEY
-./run.sh glucowise generate  # construye los snapshots (trabajo de una vez)
+./run.sh glucowise generate  # construye los snapshots; el pool va en modo disk
 ./run.sh glucowise up -d
 ./run.sh aiciblock up -d
 ./run.sh glucowise logs -f
@@ -73,6 +94,7 @@ Todo en `app/config.py`, sobreescribible por entorno o `.env`. Lo que importa:
 | `model_path` | GGUF |
 | `n_ctx` | 32768; tiene que cubrir system + documento + pregunta + respuesta |
 | `max_tokens` | 320 |
+| `snapshot_mode` | de dónde sale el prefijo KV: `memory` (en RAM, por defecto), `disk` (pickles; lo que fuerza el pool de `docker-compose.yml`) u `off` (sin estado, solo diagnóstico) |
 
 La temperatura está fijada a 0,1 en `app/routes/query.py`.
 
@@ -100,7 +122,8 @@ Solo el GGUF de Ministral está en `models/`. El de gemma (17 GB) no se guarda:
    son prosa.
 2. Dejarlo en `corpus/markdown/` y archivar una copia en `corpus/archive/`.
 3. Añadir o cambiar la ruta en `PROFILES` (`app/config.py`).
-4. `./run.sh <perfil> generate` y levantar de nuevo.
+4. `./run.sh <perfil> generate` y levantar de nuevo. (En `memory` u `off` basta
+   con reiniciar: no hay nada que pregenerar.)
 5. Leer las 134 preguntas contra el documento nuevo antes de dar ninguna cifra.
 
 ## Evaluación
@@ -130,7 +153,7 @@ app/
   main.py             FastAPI + lifespan (carga del modelo, snapshots)
   config.py           Settings y PROFILES
   prompt.py           plantilla del system prompt y sus variantes
-  generate.py         CLI de generación de snapshots
+  generate.py         CLI de generación de snapshots (solo en modo `disk`)
   snapshot_builder.py construcción y cacheo del estado KV
   routes/query.py     streaming SSE
 src/llm.py            envoltorio de llama-cpp
