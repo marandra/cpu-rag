@@ -1,107 +1,104 @@
-# System Prompt — State & Lessons
+# System Prompt — state & lessons
 
-Current: **V13** (2026-05-12, fulldoc single-document mode, INFORMACIÓN framing).
-SP size: 915 tokens. Canonical text: `app/prompt.py::SYSTEM_PROMPT_TEMPLATE`.
+What is served today, and the lessons that still constrain prompt work. Canonical
+text: `app/prompt.py::SYSTEM_PROMPT_TEMPLATE`; the variant machinery
+(`get_system_prompt(procedure, variant)`, `_replacing`, `_plus_example`) lives in
+the same file, and each variant carries its own rationale in a comment above it.
 
----
+## What is served
 
-## V13 — current state
+**V13 base + the `d1c-tu` abstention literal** (`prompt_variant` in
+`app/config.py`). 915 tokens, procedure-agnostic, temperature 0.1, fulldoc
+single-document mode with `INFORMACIÓN` framing.
 
-**Goal**: extractive Q&A over a single distilled procedure document (fulldoc
-bypass, no retrieval). One model, one document, one query → one answer.
+Structure, in order:
 
-**Structure** (in order):
-1. Role: "asistente médico ... lector que solo dice lo que el texto dice".
-2. REGLA: binary decision — info literal → respond `lo justo, empezando por el
-   hecho, sin elaborar`; otherwise EXACTAMENTE y sin añadidos
-   `"No tengo información sobre eso."`.
-3. PROHIBIDO (5 bullets): inventar (incluye equivalencias), completar con
-   conocimiento general, expandir listas/categorías, comentar lo que NO dice,
-   preámbulos meta.
-4. 6 EJEMPLOS:
-   - Ej 1: positive answer + anti-equivalence note (mg/dl no convertir a mmol/L)
-   - Ej 2: refusal when topic similar but answer absent
-   - Ej 3: OOS / non-medical refusal
-   - Ej 4: category w/o enumeration — generic question → reproduce category;
-     concrete question ("frutas concretas") → refusal
-   - Ej 5: respond only what's there, no commenting on absence
-   - Ej 6: don't drag adjacent topics from same passage
+1. **Role** — "asistente médico … lector que solo dice lo que el texto dice".
+2. **REGLA** — binary decision: information present → answer `lo justo, empezando
+   por el hecho, sin elaborar`; otherwise the abstention literal, exactly and
+   without additions.
+3. **PROHIBIDO**, 5 bullets — inventing (including unit equivalences), completing
+   from general knowledge, expanding lists/categories, commenting on what the text
+   does *not* say, meta preambles.
+4. **6 examples** —
+   - Ej 1: positive answer + anti-equivalence note (mg/dl not converted to mmol/L)
+   - Ej 2: refusal when the topic is similar but the answer is absent
+   - Ej 3: out-of-scope / non-medical refusal
+   - Ej 4: category without enumeration — generic question reproduces the
+     category, concrete question ("frutas concretas") refuses
+   - Ej 5: answer only what is there; do not comment on absence
+   - Ej 6: do not drag adjacent topics from the same passage
 
 **User template**: `INFORMACIÓN:\n{context}\n\nPREGUNTA: {query}`.
 
-**Eval results** (diabetes, distilled `_3429.md`, dataset 38 queries):
-- 36/38 correct. Q15 minor drift (refusal includes the topic noun "dosis de
-  insulina"). Q35 partial meta-sneak + adjacent-section drag.
-- Gen speed 4.2–4.6 tok/s, TTFT <1s, warmup ~80s for a 3,429t doc.
+The `d1c-tu` literal is short and inverted, and it tutea because **the corpus
+does**: register is set by the documents, not by the prompt, so the literal has to
+turn with them. It reaches all 42 abstentions, 24 of them emotional, with no loss
+of accuracy and 18% fewer output tokens than the previous phrasing.
 
----
+Quality of the served combination is measured by reading the 134 questions, not
+from this document — see `docs/auditoria_134_v22.md` and `docs/estado.md`.
 
-## Lessons learned (recurring patterns confirmed across V6→V13)
+## Two limits of the prompt as a lever
 
-Load-bearing insights for any future prompt work on 3B-class models
-(Ministral-3-3B-Q4_K_M):
+Both measured on gemma-4-26B, and they bound what any future variant can achieve:
 
-1. **Few-shot beats declarative for behavior shaping.** Adding/expanding
-   declarative rules ("don't do X") to fix a failure mode rarely works; modeling
-   the right behavior in an example does. Validated multiple times.
+- **Over-refusal and invention are one threshold.** Pushing the model to answer
+  more makes it invent more. No A/B variant escaped this.
+- **Shortening is not free.** A shorter prompt ties on decision and saves 229
+  tokens, but drives hemorroides telegraphic answers from 23% to 58%.
+
+## Lessons that still hold
+
+Derived across V6→V13 on Ministral-3-3B-Q4_K_M and not re-measured one by one on
+gemma; treat them as priors for prompt work, not as current measurements. The two
+limits above *were* re-measured on gemma and are stated separately for that
+reason.
+
+1. **Few-shot beats declarative for behaviour shaping.** Adding declarative rules
+   ("don't do X") to fix a failure mode rarely works; modelling the right
+   behaviour in an example does. Validated repeatedly.
 
 2. **String menus in PROHIBIDO become repertoire.** Listing literal forbidden
-   phrases ("según los fragmentos…", "no se menciona…") trains the model to
-   produce them. V10 listed "según la información…" and the model leaked it 5×;
-   V11 removed the literal string and the leak disappeared.
+   phrases trains the model to produce them. One version listed "según la
+   información…" and the model leaked it 5×; removing the literal string removed
+   the leak.
 
-3. **Pick a source noun whose residual leak reads naturally.** Renaming
-   `FRAGMENTOS`→`DOCUMENTO`→`INFORMACIÓN` means that when a meta-leak does occur
-   ("Según la información disponible…") it is almost imperceptible vs the cold
-   "según los fragmentos". Choose vocabulary for graceful failure.
+3. **Pick a source noun whose residual leak reads naturally.** With `INFORMACIÓN`,
+   a meta-leak ("Según la información disponible…") is nearly imperceptible, where
+   "según los fragmentos" was jarring. Choose vocabulary for graceful failure.
 
-4. **Anti-X rule words alone don't activate concepts.** PROHIBIDO listing
-   "equivalencias" did not stop the model inserting "(7 mmol/L)" after mg/dl.
-   Only rewriting Ej 1 with an explicit anti-equivalence note changed it.
+4. **Anti-X rule words alone do not activate concepts.** PROHIBIDO listing
+   "equivalencias" did not stop "(7 mmol/L)" appearing after mg/dl. Only rewriting
+   Ej 1 with an explicit anti-equivalence note changed it.
 
-5. **Generic↔concrete distinction needs explicit modeling.** The same category
-   ("fruta") yields different correct responses for "¿qué fruta?" (reproduce
-   category) vs "¿qué frutas concretas?" (refusal). Ej 4 V13 models both branches
-   in one example.
+5. **The generic↔concrete distinction needs explicit modelling.** The same
+   category ("fruta") demands different correct responses for "¿qué fruta?"
+   (reproduce the category) and "¿qué frutas concretas?" (refuse). Ej 4 models both
+   branches in one example.
 
-6. **Brevity instructions drift the exact refusal phrase.** Asking for brief
-   answers + topical relevance → model rewrites "No tengo información sobre eso."
-   as "No tengo información sobre marcas/dosis…". Counter with an explicit REGLA
-   "sin añadidos … No precises el tema en la frase de rechazo".
+6. **Brevity instructions drift the exact refusal phrase.** Asking for brief,
+   topically relevant answers makes the model rewrite the abstention literal to
+   name the topic. Counter it explicitly in REGLA.
 
-7. **Cross-section drag is hard to eliminate.** When the doc has the answer in
-   section A but a related elaboration in section B, the model often merges both.
-   Ej 6 covers time-separated drag (pre/post op) but not categorical drag.
-   Accepted as a residual.
+7. **Cross-section drag is hard to eliminate.** When the answer is in section A
+   and a related elaboration in section B, the model often merges both. Ej 6 covers
+   time-separated drag (pre/post op) but not categorical drag. Accepted as residual.
 
-8. **Prompt size is a real lever for gen speed.** V8 1,204t → V13 915t correlated
-   with measurable speedup (~3.0→~4.3 tok/s). Below ~1K SP tokens marginal
-   returns flatten — don't optimize past the point where wording quality suffers.
+8. **Prompt size is a real lever for generation speed**, but with a floor: below
+   ~1K tokens the returns flatten and wording quality starts to pay for it. See
+   the shortening limit above for what that costs downstream.
 
-9. **Conversational edges ("hola"/"gracias") are stateless-by-design.** No prompt
-   change fully fixes them because the system is single-turn. Needs a UX layer
-   (frontend conversation manager) or stateful session, not prompt work.
+9. **Conversational edges ("hola", "gracias") are stateless by design.** No prompt
+   change fully fixes them, because the system is single-turn. They need a UX layer
+   or a stateful session, not prompt work.
 
-10. **Use a single doc, not multiple chunks, where possible.** Adopting fulldoc +
-    distilled markdown made the "FRAGMENTOS plural" framing obsolete and
-    simplified model behavior. Removing retrieval also eliminated the
+10. **One document beats multiple chunks where it fits.** Fulldoc + distilled
+    markdown made the "FRAGMENTOS plural" framing obsolete and removed the
     ranking/threshold tuning that consumed earlier rounds.
 
----
-
-## Trajectory (fulldoc era)
-
-| Ver | Key idea | SP toks | Status |
-|---|---|---|---|
-| V9  | First fulldoc-aware: `FRAGMENTOS`→`DOCUMENTO`, +category few-shot | 1,331 | Won Q16, leaked "según el documento" |
-| V10 | `DOCUMENTO`→`INFORMACIÓN` + global compaction | 1,011 | Leak reads natural |
-| V11 | Drop string menu from anti-meta + (Nota) anchor in Ej 1 + prune examples | 845 | Leak resolved; output more verbose |
-| V12 | Brevity push in REGLA + new Ej 1 anti-equivalence | 858 | Brevity win, drift on exact refusal |
-| **V13** | "Sin añadidos" in REGLA + Ej 4 genérico↔concreto contrast | 915 | **36/38; current** |
-
-Pre-fulldoc versions (V1–V8) targeted the retrieval-mode multi-chunk pipeline.
-V8 (2026-05-06) was the last retrieval-mode prompt and the base from which the
-fulldoc-mode V9 forked. That history lives in git; do not re-derive it for the
-cpu-rag fulldoc path — the retrieval-mode literature belongs to
-`gpu-rag-deprecated` (the old retrieval app, not the v3.0 GPU service that reused
-the `gpu-rag` name in 2026-07).
+Pre-fulldoc prompt versions (V1–V8) targeted a retrieval-mode multi-chunk pipeline
+that this repo no longer has. That history is in git; do not re-derive it for the
+fulldoc path. The retrieval-mode literature belongs to `gpu-rag-deprecated` — the
+old retrieval app, not the v3.0 GPU service that reused the `gpu-rag` name in
+2026-07.

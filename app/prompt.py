@@ -7,7 +7,7 @@ pickle the pools serve and silently rebuilds them.
 The variants exist so the prompt A/B can put one variant per worker process
 (`PROMPT_VARIANT=v14b`) with no code edit. Each is V13 plus **one** change, so
 that an effect is attributable; they are an isolation experiment, not
-deliverable candidates. See docs/historial.md.
+deliverable candidates. See docs/estado.md.
 
 How the changes are written, and why not as more prohibitions
 -------------------------------------------------------------

@@ -33,15 +33,10 @@ De dónde sale ese prefijo lo decide `snapshot_mode`:
 | `disk` | ~0,4-0,6 s | instantáneo | el pool: N réplicas calentando a la vez es mucho peor que leer un pickle |
 | `off` | ~70 s al cambiar de procedimiento | instantáneo | solo para diagnosticar |
 
-`memory` **no** es el defecto por velocidad: las dos primeras filas no están
-separadas por nada medible aquí, y las dos ejecuciones que las produjeron ni
-siquiera corrieron con el mismo gobernador de CPU del portátil, así que no se
-comparan. Lo es
-porque quita el paso `generate`, los pickles de ~0,5 GB por procedimiento y la
-copia de staging, y porque cambiar un documento pasa a ser un reinicio.
-
-Los tres modos salieron del port a GPU, donde la misma medición se lleva por
-delante toda la maquinaria — ver el repo hermano [`gpu-rag`](../gpu-rag/).
+`memory` es el defecto **por simplicidad, no por velocidad**: entre las dos
+primeras filas no hay diferencia medible. Quita el paso `generate`, los pickles de
+~0,5 GB por procedimiento y la copia de staging, y convierte cambiar un documento
+en un reinicio.
 
 **En `disk` la semilla va congelada dentro del pickle**, así que dos ejecuciones
 contra el mismo snapshot dan respuestas idénticas byte a byte. En `memory` el
@@ -92,7 +87,7 @@ Todo en `app/config.py`, sobreescribible por entorno o `.env`. Lo que importa:
 | `PROFILES` | perfil → procedimiento → ruta del documento. **Cambiar de versión servida es cambiar estas rutas** |
 | `prompt_variant` | variante del system prompt; cambia la clave del snapshot |
 | `model_path` | GGUF |
-| `n_ctx` | 32768; tiene que cubrir system + documento + pregunta + respuesta |
+| `n_ctx` | 8192; tiene que cubrir system + documento + pregunta + respuesta. El documento más largo (diabetes) deja poco margen |
 | `max_tokens` | 320 |
 | `snapshot_mode` | de dónde sale el prefijo KV: `memory` (en RAM, por defecto), `disk` (pickles; lo que fuerza el pool de `docker-compose.yml`) u `off` (sin estado, solo diagnóstico) |
 
@@ -132,9 +127,9 @@ Solo el GGUF de Ministral está en `models/`. El de gemma (17 GB) no se guarda:
 apoyada en el documento, sin inventar y sin fundir ni des-acotar una regla; o se
 abstiene donde el documento no da material.
 
-Hubo un puntuador automático y se borró: todos sus números acabaron corregidos
-leyendo. Lo único mecánico y fiable es si la **decisión** cambia (responde o se
-abstiene) entre semillas o variantes; eso no es corrección.
+No hay puntuador automático, y es deliberado: el que hubo acabó con todos sus
+números corregidos a mano. Lo único mecánico y fiable es si la **decisión** cambia
+(responde o se abstiene) entre semillas o variantes; eso no es corrección.
 
 - Las 134 preguntas del cliente, con su respuesta y su puntuación:
   `reports/audit_questions.json`.
@@ -167,15 +162,15 @@ infra/ec2-test/       módulo OpenTofu de la caja de pruebas
 tools/hpc/            lanzadores Apptainer para el clúster
 tools/sweep/          barridos de rendimiento
 eval/                 ejecuciones de las 134 y datasets de evaluación
-docs/                 documentación (empezar por historial.md)
+docs/                 documentación (empezar por estado.md)
 ```
 
 ## Documentación
 
-- `docs/historial.md` — **empezar por aquí**: qué se midió, qué se decidió y por
-  qué; el estado de cada versión y lo que queda abierto.
+- `docs/estado.md` — **empezar por aquí**: qué se sirve, con qué números, bajo qué
+  restricciones y qué queda abierto.
 - `docs/corpus_guidelines.md` — las siete reglas de redacción del corpus.
-- `docs/auditoria_134_*.md` — las tres lecturas de las 134 preguntas.
+- `docs/auditoria_134_*.md` — las lecturas de las 134 preguntas, una por versión.
 - `docs/actualizacion_version_desplegada.md` — cómo actualizar una versión ya
   desplegada (corte real ~70 s).
 - `docs/ec2_test_env.md` — la caja de pruebas y cómo reproducir allí.
