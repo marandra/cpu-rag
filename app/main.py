@@ -227,7 +227,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="CPU-RAG API",
     description="Medical FAQ RAG API with streaming responses (fulldoc mode)",
-    version="1.0.0",
+    version="2.2.0",
     lifespan=lifespan,
 )
 

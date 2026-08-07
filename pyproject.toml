@@ -1,6 +1,6 @@
 [project]
 name = "cpu-rag"
-version = "1.0.0"
+version = "2.2.0"
 description = "Medical FAQ RAG with FastAPI service and CPU-only inference (fulldoc + KV cache reuse)"
 readme = "README.md"
 requires-python = ">=3.11"
