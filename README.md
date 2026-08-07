@@ -179,5 +179,8 @@ docs/                 documentación (empezar por historial.md)
 - `docs/actualizacion_version_desplegada.md` — cómo actualizar una versión ya
   desplegada (corte real ~70 s).
 - `docs/ec2_test_env.md` — la caja de pruebas y cómo reproducir allí.
-- `docs/evaluation_framework.md`, `docs/prompt_versions.md`,
-  `docs/gpu_migration_plan.md`.
+- `docs/evaluation_framework.md`, `docs/prompt_versions.md`.
+
+El plan de migración a GPU ya no vive aquí: se ejecutó, y tanto el plan como el
+estado de la v3.0 están en [`gpu-rag`](../gpu-rag/) (`docs/gpu_migration_plan.md`,
+`docs/estado_v3.md`).

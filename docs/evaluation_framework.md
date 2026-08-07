@@ -5,7 +5,7 @@ iterate. This is a protocol + recommendations, not a spec for elaborate infra.
 
 Scope: the **fulldoc** Q&A path of `cpu-rag` — one distilled markdown per
 procedure, sent in full as `INFORMACIÓN`, no retrieval. Retrieval evaluation
-(P@k, R@k, MRR, chunk-config sweeps) lives in the sibling `gpu-rag` repo and is
+(P@k, R@k, MRR, chunk-config sweeps) lives in the sibling `gpu-rag-deprecated` repo and is
 **out of scope here** — see §7 for what carries over and what does not.
 
 ---
@@ -67,7 +67,7 @@ results. Fields currently populated across the cpu-rag datasets:
 | `difficulty` | enum | `easy` / `medium` / `hard`. |
 | `procedure` | string | Procedure the question belongs to. |
 
-Optional, inherited from gpu-rag and useful if added later:
+Optional, inherited from gpu-rag-deprecated and useful if added later:
 
 - `relevant_spans` — exact text spans the correct answer should rest on. In
   fulldoc this is a cheap, deterministic faithfulness proxy: *does the answer
@@ -104,7 +104,7 @@ upside still unexercised.
 Datasets are LLM-generated from a documented, **versioned** prompt (intent list +
 profile + answerable target), then human-reviewed. The generation prompt that
 seeds realistic patient phrasing — misspellings, no `¿¡`, colloquial, vague — is
-maintained alongside the datasets (see gpu-rag `docs/generate_eval_queries.md`
+maintained alongside the datasets (see gpu-rag-deprecated `docs/generate_eval_queries.md`
 for the lineage). LLMs tend to write "too clean" even when asked to be messy:
 review and rewrite artificial-feeling queries. As real user-testing queries
 appear, fold them in — they beat synthetic ones.
@@ -114,7 +114,7 @@ appear, fold them in — they beat synthetic ones.
 ## 2. Outcome taxonomy
 
 Beyond scalar scores, each answer is bucketed into a qualitative outcome
-(inherited from gpu-rag, where it proved diagnosable):
+(inherited from gpu-rag-deprecated, where it proved diagnosable):
 
 **Answerable questions**
 
@@ -160,7 +160,7 @@ than raw keyword presence.
 
 ### 3.2 LLM-as-judge (gap #1 — the safety metric)
 
-A separate, stronger LLM scores what keywords cannot. gpu-rag already ships a
+A separate, stronger LLM scores what keywords cannot. gpu-rag-deprecated already ships a
 judge (`src/evaluation.py`, gpt-4o-mini, rubric-anchored 0.0–1.0 with JSON
 output) — but there it scores the **retrieved chunks**. In fulldoc the "context"
 is always the whole document, so the judge must score the **generated answer
@@ -180,7 +180,7 @@ LLM-as-a-Judge*, Zheng et al. 2023; G-Eval, Liu et al. 2023):
   better) — never the CPU model judging itself (self-enhancement bias).
 - **Pointwise with an anchored rubric**, not pairwise. Pairwise adds position
   bias for marginal benefit at this scale. Reuse the 0.0/0.4/0.7/1.0 anchors
-  from gpu-rag's prompts.
+  from gpu-rag-deprecated's prompts.
 - **Watch verbosity bias** — judges reward longer answers; the rubric must
   reward grounding, not length.
 - **Version the judge prompt** alongside the datasets. A judge prompt change
@@ -242,12 +242,17 @@ at this cadence. Minimum viable:
 
 ---
 
-## 7. Relationship to `gpu-rag` (lineage)
+## 7. Relationship to `gpu-rag-deprecated` (lineage)
 
-This framework descends from the retrieval-RAG evaluation defined in `gpu-rag`.
+This framework descends from the retrieval-RAG evaluation defined in
+`gpu-rag-deprecated`. **Mind the name:** that is the old retrieval app, split off
+on 2026-05-13 and now parked at `~/Projects/gpu-rag-deprecated/`. The name
+`gpu-rag` was reused on 2026-07-31 for the v3.0 GPU service, which is a different
+repo and has nothing to do with this lineage.
+
 What carries over and what does not:
 
-| From gpu-rag | In fulldoc (cpu-rag) |
+| From gpu-rag-deprecated | In fulldoc (cpu-rag) |
 |--------------|----------------------|
 | Dataset schema, persona profiles, generation prompt | ✅ Carried over (this doc). |
 | Outcome taxonomy GOOD/PARTIAL/MISS/… , OK_REF/LEAK | ✅ Adopted (§2). |
@@ -265,7 +270,7 @@ In priority order (value / effort):
 1. **Robust refusal classification** (gap #2) — replace the exact-substring match
    in `run_eval.py`. *High value / low effort.* Fixes the most safety-critical
    metric.
-2. **Faithfulness judge** (gap #1) — adapt gpu-rag's `llm_judge` to score the
+2. **Faithfulness judge** (gap #1) — adapt gpu-rag-deprecated's `llm_judge` to score the
    generated answer against the fulldoc; version the judge prompt. *High value /
    medium effort.*
 3. **Report N and variance** (gap #3) — print N and per-category/per-outcome

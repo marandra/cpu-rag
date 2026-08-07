@@ -16,7 +16,14 @@ cuando el documento no cubre la pregunta. Esa abstención es una instrucción
 explícita del prompt, no una laguna.
 
 La parte de recuperación (chunking, embeddings, BM25, reranker, Qdrant) se separó
-a `~/Projects/gpu-rag/` el 2026-05-13 y no es de este repo.
+a `~/Projects/gpu-rag-deprecated/` el 2026-05-13 y no es de este repo. Cuidado con
+el nombre: `~/Projects/gpu-rag/` es otra cosa desde el 2026-07-31 — ver abajo.
+
+Este repo es **solo CPU y se cierra en la v2.2**, la versión entregada y auditada.
+El port a GPU se hizo y se llevó a su propio repo, `~/Projects/gpu-rag/`, el
+2026-07-31: allí la maquinaria de snapshots sobra (restaurar cuesta más que
+reprefilar) y es otra arquitectura. Todo lo de GPU —el plan de migración, el
+estado de la v3.0, los requisitos de hardware— vive allí, no aquí.
 
 Desde el 2026-07-21 hay **un solo código y dos perfiles**, elegidos por la
 variable `PROFILE`: `glucowise` (diabetes) y `aiciblock` (hemorroides y cirugía
@@ -199,10 +206,6 @@ Trampas que costaron tiempo y no son evidentes:
   convence: la variante convierte 14 de 45 abstenciones pero solo 4 de las 21
   emocionales, siempre con la misma plantilla, y deriva 7 preguntas que el
   documento sí responde.
-- **Migración a GPU y hosting en spot.** Propuesta sin medir, en
-  `docs/gpu_migration_plan.md`. El port son dos días; lo caro es revalidar las
-  134. Suelo de 24 GB de VRAM. Empezar por el relevamiento de carga, que puede
-  matar el proyecto.
 - Validar la calidad de las evaluaciones bajo la build nativa: VNNI cambia el
   orden de acumulación en int8.
 - Replicar el barrido de rendimiento en EC2 cuando haga falta dimensionar.

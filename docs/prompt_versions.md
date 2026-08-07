@@ -102,4 +102,6 @@ Load-bearing insights for any future prompt work on 3B-class models
 Pre-fulldoc versions (V1–V8) targeted the retrieval-mode multi-chunk pipeline.
 V8 (2026-05-06) was the last retrieval-mode prompt and the base from which the
 fulldoc-mode V9 forked. That history lives in git; do not re-derive it for the
-cpu-rag fulldoc path — the retrieval-mode literature belongs to `gpu-rag`.
+cpu-rag fulldoc path — the retrieval-mode literature belongs to
+`gpu-rag-deprecated` (the old retrieval app, not the v3.0 GPU service that reused
+the `gpu-rag` name in 2026-07).
