@@ -17,10 +17,10 @@ Hay **un solo código y dos perfiles**, elegidos por la variable `PROFILE`:
 `glucowise` (diabetes) y `aiciblock` (hemorroides y cirugía abdominal). Cada
 perfil sirve sus procedimientos en su puerto.
 
-Este repo es **solo CPU y se cierra en la v2.2**. Todo lo de GPU (v3.0) vive en
-`~/Projects/gpu-rag/`, que es otra arquitectura: allí la maquinaria de snapshots
-sobra, porque restaurar cuesta más que reprefilar. Cuidado con el nombre:
-`~/Projects/gpu-rag-deprecated/` es la app de recuperación vieja, sin relación.
+Este repo es **solo CPU y se cierra en la v2.2**. La versión de GPU es otra
+arquitectura y vive en `~/Projects/gpu-rag/`. Cuidado con el nombre:
+`~/Projects/gpu-rag-deprecated/` es la app de recuperación vieja, sin relación con
+ninguna de las dos.
 
 ## Lo que se sirve
 

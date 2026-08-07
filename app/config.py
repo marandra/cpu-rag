@@ -176,18 +176,11 @@ class Settings(BaseSettings):
     #   "off"    — no state at all; each request re-prefills its document
     #              (~70 s here). Diagnostic only on CPU.
     #
-    # NOT chosen for request-path speed. Two runs on this laptop, same model and
-    # same procedures, disagree on the ordering — memory 180-222 ms vs disk
-    # 332-436 ms on 2026-07-30, memory 453-630 ms vs disk 388-422 ms on
-    # 2026-07-31 — and they ran under different CPU governors (balanced, then
-    # performance), so they are not comparable at all. Neither settles it;
-    # a 200 ms difference has to be measured on the target box.
-    # What is not noise: "off" costs a full re-prefill (~70 s) whenever the
-    # procedure changes, and a pool re-warms once per replica in "memory".
-    #
-    # The three modes came from the GPU port — see the sibling repo ../gpu-rag,
-    # where the same measurement on an A10G kills the machinery outright,
-    # because there a re-prefill is 0.2-0.6 s.
+    # "memory" is NOT chosen for request-path speed: no measurement here
+    # separates it from "disk", and a ~200 ms difference would have to be
+    # measured on the target box to mean anything. What is not noise: "off"
+    # costs a full re-prefill (~70 s) whenever the procedure changes, and a pool
+    # re-warms once per replica in "memory".
     #
     # One behavioural difference worth knowing: a pickle carries a frozen RNG
     # state, so "disk" replays byte-identically across runs. "memory" warms

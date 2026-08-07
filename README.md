@@ -4,9 +4,8 @@ Servicio de preguntas y respuestas para pacientes, solo CPU. Cada procedimiento
 tiene **un único documento markdown** que se manda entero como contexto a un
 modelo local de llama.cpp. No hay recuperación, ni embeddings, ni base vectorial.
 
-La versión de GPU (v3.0) vive en el repo hermano [`gpu-rag`](../gpu-rag/): allí
-la maquinaria de snapshots sobra —restaurar cuesta más que reprefilar— y es otra
-arquitectura. Este repo es la v2.2, la entregada y auditada.
+Este repo es la **v2.2**, la entregada y auditada. Para GPU, otra arquitectura y
+otro repo: [`gpu-rag`](../gpu-rag/).
 
 El sistema tiene **prohibido usar conocimiento propio** y se abstiene cuando el
 documento no cubre la pregunta. Eso es una instrucción explícita del prompt, no
@@ -15,7 +14,7 @@ una laguna, y condiciona cómo se evalúa: ver «Evaluación» más abajo.
 ## Cómo funciona
 
 ```
-corpus/markdown/<documento>.md ──► se precalcula el estado KV (snapshot .pkl)
+corpus/markdown/<documento>.md ──► se precalcula el estado KV (el prefijo)
                                             │
                                             v
         POST /query  ──►  reutiliza el prefijo + PREGUNTA: <q>  ──►  SSE
@@ -33,10 +32,10 @@ De dónde sale ese prefijo lo decide `snapshot_mode`:
 | `disk` | ~0,4-0,6 s | instantáneo | el pool: N réplicas calentando a la vez es mucho peor que leer un pickle |
 | `off` | ~70 s al cambiar de procedimiento | instantáneo | solo para diagnosticar |
 
-`memory` es el defecto **por simplicidad, no por velocidad**: entre las dos
-primeras filas no hay diferencia medible. Quita el paso `generate`, los pickles de
-~0,5 GB por procedimiento y la copia de staging, y convierte cambiar un documento
-en un reinicio.
+`memory` es el defecto **por simplicidad, no por velocidad** —entre las dos
+primeras filas no hay diferencia medible—: quita el paso `generate`, los pickles
+de ~0,5 GB por procedimiento y la copia de staging, y convierte cambiar un
+documento en un reinicio.
 
 **En `disk` la semilla va congelada dentro del pickle**, así que dos ejecuciones
 contra el mismo snapshot dan respuestas idénticas byte a byte. En `memory` el
@@ -100,15 +99,14 @@ se archivan en `corpus/archive/`, que sí se versiona. Ahí está la copia buena
 
 | Versión | Modelo | Documentos |
 | --- | --- | --- |
-| v1.1 | Ministral-3-3B | `diabetes.md`, `hemorroides.md`, `cirugia-abdominal.md` |
-| v2.2 | gemma-4-26B-A4B | `diabetes.v5-tu.md`, `hemorroides.v2-tu.md`, `cirugia-abdominal.v2-tu.md` |
+| **v2.2** — la que se entrega | gemma-4-26B-A4B | `diabetes.v5-tu.md`, `hemorroides.v2-tu.md`, `cirugia-abdominal.v2-tu.md` |
+| v1.1 — deprecada, aún desplegada en cliente | Ministral-3-3B | `diabetes.md`, `hemorroides.md`, `cirugia-abdominal.md` |
 
-La **v1.1** es la que tiene desplegada el cliente. La **v2.2** es la que se
-entrega. Los dos bundles están en `dist/`; volver de una a otra es cambiar las
-rutas de `PROFILES` y `prompt_variant`.
+Los dos bundles están en `dist/`; cambiar de una a otra es cambiar las rutas de
+`PROFILES` y `prompt_variant`.
 
-Solo el GGUF de Ministral está en `models/`. El de gemma (17 GB) no se guarda:
-`tools/fetch_model.sh` lo baja de Hugging Face.
+El GGUF de gemma (17 GB) no se guarda en el repo: `tools/fetch_model.sh` lo baja
+de Hugging Face. En `models/` solo está el de Ministral.
 
 ## Añadir o cambiar un documento
 
@@ -138,8 +136,8 @@ números corregidos a mano. Lo único mecánico y fiable es si la **decisión** 
 - Los resultados leídos: `docs/auditoria_134_*.md`. **Son el informe**, se editan
   a mano y no se regeneran desde ningún sitio.
 
-No hay herramientas de auditoría en `tools/`: se borraron a propósito. Pasar las
-134 contra un endpoint son unas treinta líneas y se escribe en el momento.
+Tampoco hay herramientas de auditoría en `tools/`, y también es deliberado: pasar
+las 134 contra un endpoint son unas treinta líneas y se escribe en el momento.
 
 ## Estructura
 
@@ -175,7 +173,3 @@ docs/                 documentación (empezar por estado.md)
   desplegada (corte real ~70 s).
 - `docs/ec2_test_env.md` — la caja de pruebas y cómo reproducir allí.
 - `docs/evaluation_framework.md`, `docs/prompt_versions.md`.
-
-El plan de migración a GPU ya no vive aquí: se ejecutó, y tanto el plan como el
-estado de la v3.0 están en [`gpu-rag`](../gpu-rag/) (`docs/gpu_migration_plan.md`,
-`docs/estado_v3.md`).
